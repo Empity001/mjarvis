@@ -1,0 +1,91 @@
+{
+  "titulo": "Capitana Marvel",
+  "anio": 2019,
+  "saga": "Saga del Infinito · Fase 3 (añadida: no estaba en la lista original)",
+  "ficha": [
+    ["Título original", "Captain Marvel"],
+    ["Estreno", "8 de marzo de 2019 (Estados Unidos)"],
+    ["Dirección", "Anna Boden y Ryan Fleck"],
+    ["Guion", "Anna Boden, Ryan Fleck y Geneva Robertson-Dworet"],
+    ["Reparto principal", "Brie Larson (Carol Danvers), Samuel L. Jackson (Nick Fury), Ben Mendelsohn (Talos), Jude Law (Yon-Rogg), Annette Bening (Mar-Vell y la Inteligencia Suprema), Lashana Lynch (Maria Rambeau), Clark Gregg (Phil Coulson), Akira Akbar (Monica Rambeau), Lee Pace (Ronan)"],
+    ["Duración", "124 minutos"],
+    ["Música", "Pinar Toprak"],
+    ["Lugar en el universo", "Fase 3. Se estrenó entre Infinity War y Endgame"],
+    ["Cronología interna", "1995, antes de casi todo lo demás; con un recuerdo de 1989"],
+    ["Recaudación", "Cerca de 1.130 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Vers", "Una soldado Kree sin memoria"],
+    ["La Tierra", "Cae en 1995"],
+    ["La caja negra", "Quién era Carol"],
+    ["Los Skrulls", "No eran los villanos"],
+    ["El poder", "Sin el inhibidor"]
+  ],
+  "actos": [
+    ["Acto 1: Vers", [
+      "En el planeta Hala, capital del imperio Kree, una soldado llamada Vers entrena con su comandante, Yon-Rogg. Dispara energía por las manos, no recuerda nada de su vida anterior a hace seis años, y sueña con una mujer mayor a la que no conoce. Yon-Rogg le repite que controle sus emociones. Los Kree obedecen a la Inteligencia Suprema, que se le aparece a cada uno con la forma de quien más admira; a Vers, con la de esa mujer.",
+      "Los Kree están en guerra con los Skrulls, que pueden tomar el aspecto de cualquiera. En una misión, los Skrulls capturan a Vers y hurgan en su memoria: buscan a una científica y un motor. Vers escapa y cae a un planeta atrasado, la Tierra, en 1995, atravesando el techo de un videoclub.",
+      "La interroga un agente de S.H.I.E.L.D. con dos ojos sanos y poca experiencia en extraterrestres: Nick Fury. Tras ver a un Skrull muerto, Fury decide creerle."
+    ]],
+    ["Acto 2: Carol", [
+      "Las pistas de los recuerdos llevan a una base secreta. Allí descubren que la mujer de los sueños era la doctora Wendy Lawson, que diseñaba un motor capaz de alcanzar la velocidad de la luz, y que murió en 1989 en un accidente aéreo junto con una piloto. La piloto es Vers. Se les une un gato, Goose.",
+      "Van a Luisiana a ver a Maria Rambeau, la última persona que la vio. Maria y su hija Monica la reconocen: es Carol Danvers, piloto de la fuerza aérea, su mejor amiga, a la que lloraron hace seis años.",
+      "El jefe Skrull, Talos, llega sin armas, con la grabación de la caja negra. Lawson era en realidad Mar-Vell, una científica Kree que comprendió que su pueblo libraba una guerra injusta. El motor no era un arma: era para llevar a los refugiados Skrull a un lugar seguro. Yon-Rogg derribó el avión y mató a Mar-Vell. Carol disparó contra el motor para que él no se lo llevara, y la explosión la llenó de su energía. Los Kree se la llevaron, le borraron la memoria y le pusieron un implante para limitarla.",
+      "Los Skrulls no son invasores. Son los restos de un pueblo al que los Kree destruyeron, y Talos solo busca a su familia."
+    ]],
+    ["Acto 3: Más alto, más lejos, más rápido", [
+      "En un laboratorio oculto en órbita encuentran a los refugiados y la fuente de energía del motor: el Teseracto. El escuadrón de Yon-Rogg los alcanza y captura a Carol.",
+      "Ante la Inteligencia Suprema, que le dice que sin los Kree no es nada, Carol recuerda todas las veces que se cayó, de niña y de adulta, y cómo se levantó cada vez. Se arranca el implante. Su poder completo se libera: vuela, brilla y atraviesa naves.",
+      "Derriba los misiles que el acusador Ronan lanza contra la Tierra, y Ronan se retira. Yon-Rogg, vencido, la reta a pelear sin poderes para demostrar lo que vale. Carol lo tumba de un disparo: no tiene nada que demostrarle. Lo manda de vuelta a Hala con un mensaje.",
+      "Goose, que no es un gato sino un Flerken, se traga el Teseracto y le araña un ojo a Fury. Carol se marcha a buscar un hogar para los Skrulls, y le deja a Fury un buscapersonas modificado, solo para emergencias. Fury empieza a escribir un plan para reunir a gente como ella. Mira la foto de Carol junto a su avión, con su apodo de piloto pintado, y cambia el título: Iniciativa Vengadores."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["C", "Carol"], ["F", "Fury"], ["Y", "Yon-Rogg"], ["T", "Talos"], ["M", "Maria"], ["V", "Mar-Vell"]],
+    "enlaces": [["C", "F", "aliados"], ["Y", "C", "mentor que le mintió"], ["C", "M", "mejores amigas"], ["T", "C", "le cuenta la verdad"], ["V", "C", "su maestra"], ["Y", "V", "la mató"]]
+  },
+  "personajes": [
+    ["Carol Danvers", "La Capitana Marvel. Piloto terca y bromista. La heroína más poderosa del universo."],
+    ["Nick Fury", "Agente joven de S.H.I.E.L.D., aún sin parche. Aquí nace su idea de los Vengadores."],
+    ["Talos", "Jefe de los refugiados Skrull. Parece el villano y resulta el amigo."],
+    ["Yon-Rogg", "Comandante Kree. Entrenó a Carol para tenerla controlada."],
+    ["Mar-Vell", "Científica Kree oculta en la Tierra como la doctora Lawson."],
+    ["Maria Rambeau", "Piloto y amiga de Carol, madre soltera."],
+    ["Monica Rambeau", "La hija de Maria, de once años. De mayor tendrá poderes."],
+    ["Inteligencia Suprema", "La mente artificial que gobierna a los Kree."],
+    ["Goose", "Flerken con aspecto de gato."],
+    ["Phil Coulson", "Agente novato, leal a Fury."],
+    ["Ronan y Korath", "Kree vistos en Guardianes de la Galaxia."]
+  ],
+  "cosas": [
+    ["El Teseracto", "El cubo con la Gema del Espacio. La energía del motor de Mar-Vell salía de él, y por eso Carol tiene sus poderes."],
+    ["Los Kree", "Imperio militar de piel azul o rosada."],
+    ["Los Skrulls", "Pueblo verde que cambia de forma, perseguido por los Kree."],
+    ["El implante", "El aparato en el cuello de Carol que limitaba su poder."],
+    ["El buscapersonas", "El aparato con que Fury llama a Carol en Infinity War."],
+    ["Proyecto Pegaso", "La base donde se estudió el Teseracto."],
+    ["Iniciativa Vengadores", "El plan de Fury. El nombre sale del apodo de Carol como piloto: «Avenger»."]
+  ],
+  "creditos": "A mitad de los créditos, en el presente, los Vengadores que sobrevivieron al chasquido vigilan el buscapersonas de Fury, que ha dejado de emitir. Carol aparece detrás de ellos y pregunta dónde está Fury. Al final, en 1995, Goose sube al escritorio de Fury y vomita el Teseracto.",
+  "conexiones": [
+    "Explica el buscapersonas de la escena final de Vengadores: Infinity War.",
+    "Carol llega a la Tierra para Vengadores: Endgame.",
+    "Explica cómo perdió Fury el ojo y de dónde viene el nombre de los Vengadores.",
+    "Talos y los Skrulls vuelven en Spider-Man: Lejos de casa e Invasión Secreta.",
+    "Monica Rambeau crece y aparece en WandaVision y The Marvels."
+  ],
+  "preguntas": [
+    ["¿Quién es la Capitana Marvel?", "Carol Danvers, una piloto de la fuerza aérea que absorbió la energía de un motor alimentado por el Teseracto."],
+    ["¿Qué poderes tiene?", "Fuerza enorme, vuelo, resistencia y disparos de energía. Puede viajar por el espacio sin nave."],
+    ["¿Cómo perdió Nick Fury el ojo?", "Se lo arañó Goose, un Flerken con aspecto de gato."],
+    ["¿Por qué se llaman los Vengadores?", "Por el apodo de piloto de Carol Danvers, «Avenger»."],
+    ["¿Los Skrulls son malos?", "No en esta historia. Son refugiados que huyen de los Kree."],
+    ["¿Dónde estuvo la Capitana Marvel todos esos años?", "En otras galaxias, ayudando a planetas que no tienen Vengadores."]
+  ],
+  "curiosidades": [
+    "El logotipo de Marvel del principio está dedicado a Stan Lee, que murió meses antes; él aparece en un tren leyendo un guion.",
+    "Samuel L. Jackson fue rejuvenecido por ordenador durante toda la película.",
+    "Fue la primera película de Marvel Studios protagonizada por una mujer en solitario.",
+    "A Goose lo interpretaron cuatro gatos distintos."
+  ]
+}

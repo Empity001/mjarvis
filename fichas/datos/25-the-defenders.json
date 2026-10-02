@@ -1,0 +1,96 @@
+{
+  "titulo": "The Defenders",
+  "anio": 2017,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's The Defenders"],
+    ["Estreno", "18 de agosto de 2017 (Netflix; hoy en Disney+)"],
+    ["Responsables", "Marco Ramirez y Douglas Petrie"],
+    ["Episodios", "8 (miniserie)"],
+    ["Reparto principal", "Charlie Cox (Matt Murdock), Krysten Ritter (Jessica Jones), Mike Colter (Luke Cage), Finn Jones (Danny Rand), Sigourney Weaver (Alexandra), Élodie Yung (Elektra), Scott Glenn (Stick), Jessica Henwick (Colleen Wing), Simone Missick (Misty Knight), Rosario Dawson (Claire Temple), Wai Ching Ho (Madame Gao)"],
+    ["Música", "John Paesano"],
+    ["Lugar en el universo", "La reunión de las cuatro series de Netflix, como Los Vengadores lo fue para las películas"],
+    ["Cronología interna", "Nueva York, unos meses después de Iron Fist y de la temporada 2 de Daredevil"],
+    ["Tono", "Aventura urbana de equipo; cada héroe conserva su color: rojo, azul, amarillo y verde"]
+  ],
+  "momentos": [
+    ["El temblor", "Algo se mueve bajo la ciudad"],
+    ["Midland Circle", "Los cuatro se encuentran"],
+    ["El restaurante", "Nace el equipo"],
+    ["Elektra", "Mata a Alexandra"],
+    ["El derrumbe", "Matt se queda abajo"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: Cuatro caminos", [
+      "Matt Murdock ha colgado el traje de Daredevil y trabaja como abogado gratuito. Jessica Jones, famosa a su pesar, acepta el caso de un arquitecto desaparecido que escondía explosivos. Luke Cage sale de la cárcel, con Foggy Nelson como abogado, y busca a unos jóvenes de Harlem que mueren haciendo trabajos nocturnos. Danny Rand y Colleen Wing persiguen a la Mano por medio mundo.",
+      "Un temblor sacude Nueva York. Lo provoca Alexandra, una mujer elegante y enferma que dirige la Mano y a la que le quedan semanas de vida. Ha gastado lo último de su «sustancia» en resucitar a Elektra como el Cielo Negro, un arma sin recuerdos.",
+      "Luke y Danny se conocen peleando en un callejón. Claire Temple los sienta a hablar, y Luke le reprocha a Danny sus privilegios de millonario."
+    ]],
+    ["Episodios 3 y 4: Midland Circle", [
+      "Las cuatro pistas llevan al mismo edificio, la financiera Midland Circle, levantada sobre el pozo que la Mano cavó. Danny entra a acusar a la junta; Luke, Jessica y Matt, con la cara tapada con una bufanda, llegan por separado. Pelean juntos en el pasillo contra los hombres de Alexandra y contra Elektra.",
+      "Se refugian en un restaurante chino, el Royal Dragon. Stick aparece y explica quién es el enemigo: hace siglos, cinco monjes de K'un-Lun fueron desterrados por buscar la inmortalidad y fundaron la Mano. Son los cinco dedos: Alexandra, Madame Gao, Bakuto, Sowande y Murakami.",
+      "Su secreto es una sustancia hecha con huesos de dragón que los devuelve a la vida, y se les acabó. Bajo Nueva York hay más, tras una puerta que solo puede abrir el Puño de Hierro."
+    ]],
+    ["Episodios 5 y 6: La llave", [
+      "Capturan a Sowande, y Stick lo decapita. El grupo discute: Danny quiere atacar, y los otros tres lo atan para que la Mano no pueda usarlo. Stick decide que lo más seguro es matarlo.",
+      "Elektra llega a tiempo, mata a Stick, su antiguo maestro, y se lleva a Danny. Empieza a recordar quién fue. Cuando Alexandra la presenta como su arma obediente, Elektra la atraviesa con sus sais y toma el mando de la Mano.",
+      "Para ella, lo que hay bajo la ciudad no es un medio para vivir más: es la vida eterna junto a Matt."
+    ]],
+    ["Episodios 7 y 8: Bajo la ciudad", [
+      "La policía retiene a Matt, Jessica y Luke, que escapan de la comisaría; Matt recupera su traje de Daredevil. En el fondo del pozo, Elektra provoca a Danny hasta que él golpea la puerta con el Puño de Hierro y la abre: detrás hay un esqueleto gigantesco de dragón.",
+      "Los cuatro pelean juntos contra los dedos que quedan. Arriba, Colleen, Claire y Misty Knight colocan los explosivos del arquitecto para hundir el edificio. Colleen decapita a Bakuto, y Misty pierde el brazo derecho al protegerla.",
+      "Matt se queda abajo para intentar recuperar a Elektra, y le pide a Danny que proteja su ciudad. El edificio se derrumba sobre los dos. Nueva York no se entera de que fue salvada.",
+      "Jessica vuelve a abrir su oficina, Luke regresa con Claire, y Danny vigila la ciudad desde una azotea. En un convento, un hombre vendado respira en una cama. Una monja dice: «Avisen a Maggie»."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["M", "Matt"], ["J", "Jessica"], ["L", "Luke"], ["D", "Danny"], ["E", "Elektra"], ["A", "Alexandra"]],
+    "enlaces": [["M", "J", "equipo"], ["L", "D", "amigos"], ["J", "L", "antigua pareja"], ["M", "E", "amor trágico"], ["A", "E", "la resucita"], ["A", "D", "lo necesita"]]
+  },
+  "personajes": [
+    ["Matt Murdock", "Daredevil. Intenta vivir sin la máscara y no lo consigue."],
+    ["Jessica Jones", "La detective. No quiere equipos ni trajes, y es la que más avanza en la investigación."],
+    ["Luke Cage", "El protector de Harlem. La voz sensata del grupo."],
+    ["Danny Rand", "El Puño de Hierro. El objetivo de la Mano y el más joven de los cuatro."],
+    ["Alexandra", "Líder de la Mano, con siglos de vida y gusto por la música clásica. Se está muriendo."],
+    ["Elektra", "Resucitada como Cielo Negro. Recupera la memoria y elige su propio camino."],
+    ["Stick", "Jefe de los Castos. Se cortó una mano para escapar. Muere a manos de Elektra."],
+    ["Madame Gao", "El dedo más antiguo y astuto de la Mano."],
+    ["Bakuto, Sowande y Murakami", "Los otros tres dedos: el maestro de Colleen, un señor de la guerra africano y el jefe japonés de Nobu."],
+    ["Colleen Wing", "Compañera de Danny. Salda cuentas con Bakuto."],
+    ["Misty Knight", "Detective de Harlem. Pierde un brazo en la batalla."],
+    ["Claire Temple", "La enfermera que conoce a los cuatro."],
+    ["Foggy, Karen, Trish y Malcolm", "Los amigos de los héroes, reunidos en la comisaría."]
+  ],
+  "cosas": [
+    ["La Mano", "Fundada por cinco desterrados de K'un-Lun. Sus cinco jefes son los «dedos»."],
+    ["La sustancia", "Polvo de huesos de dragón que resucita a los muertos. Es lo que la Mano busca."],
+    ["Midland Circle", "El edificio construido sobre el pozo que apareció en Daredevil."],
+    ["Cielo Negro", "El arma viviente de la Mano. Ahora es Elektra."],
+    ["El dragón", "El esqueleto enterrado bajo Nueva York. Sacar los huesos haría hundirse la ciudad."],
+    ["Royal Dragon", "El restaurante chino donde los cuatro cenan y se convierten en equipo."],
+    ["Los Castos", "Los guerreros de Stick. Quedan casi todos muertos."]
+  ],
+  "creditos": "Después del último episodio, Netflix incluyó el primer avance de The Punisher. La escena final muestra a Matt Murdock vivo, cuidado por monjas.",
+  "conexiones": [
+    "Une las tramas de Daredevil, Jessica Jones, Luke Cage e Iron Fist.",
+    "La escena del convento abre la temporada 3 de Daredevil: Maggie es la madre de Matt.",
+    "Misty Knight recibe un brazo biónico de Rand en la temporada 2 de Luke Cage.",
+    "Danny cumple su promesa y protege la ciudad en la temporada 2 de Iron Fist.",
+    "Es la última vez que los cuatro aparecen juntos."
+  ],
+  "preguntas": [
+    ["¿Quiénes son los Defensores?", "Daredevil, Jessica Jones, Luke Cage y Iron Fist, cuatro héroes de Nueva York que se unen contra la Mano."],
+    ["¿Qué busca la Mano bajo Nueva York?", "Los huesos de un dragón, con los que fabrican la sustancia que los hace inmortales."],
+    ["¿Quién fundó la Mano?", "Cinco monjes desterrados de K'un-Lun: Alexandra, Madame Gao, Bakuto, Sowande y Murakami."],
+    ["¿Por qué necesitan a Iron Fist?", "Porque solo el Puño de Hierro puede abrir la puerta que guarda al dragón."],
+    ["¿Muere Daredevil en The Defenders?", "Todos lo creen, porque el edificio le cae encima, pero la última escena lo muestra vivo en un convento."],
+    ["¿Quién mata a Alexandra?", "Elektra, que después toma el mando de la Mano."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece en un cartel de la policía de Nueva York.",
+    "Cada personaje tiene una luz propia: roja para Matt, azul violeta para Jessica, amarilla para Luke y verde para Danny.",
+    "Nadie en la serie llama «Defensores» al grupo.",
+    "Alexandra fue creada para la serie: no existe en los cómics. La interpreta Sigourney Weaver, la protagonista de Alien."
+  ]
+}

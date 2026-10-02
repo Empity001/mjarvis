@@ -1,0 +1,98 @@
+{
+  "titulo": "Capitán América: Civil War",
+  "anio": 2016,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Captain America: Civil War"],
+    ["Estreno", "6 de mayo de 2016 (Estados Unidos)"],
+    ["Dirección", "Anthony y Joe Russo"],
+    ["Guion", "Christopher Markus y Stephen McFeely"],
+    ["Reparto principal", "Chris Evans (Steve Rogers), Robert Downey Jr. (Tony Stark), Sebastian Stan (Bucky Barnes), Scarlett Johansson (Natasha Romanoff), Anthony Mackie (Sam Wilson), Chadwick Boseman (T'Challa), Elizabeth Olsen (Wanda Maximoff), Paul Bettany (Visión), Don Cheadle (James Rhodes), Jeremy Renner (Clint Barton), Paul Rudd (Scott Lang), Tom Holland (Peter Parker), Daniel Brühl (Helmut Zemo), Emily VanCamp (Sharon Carter), William Hurt (Thaddeus Ross)"],
+    ["Duración", "147 minutos"],
+    ["Música", "Henry Jackman"],
+    ["Lugar en el universo", "Primera película de la Fase 3"],
+    ["Cronología interna", "2016, un año después de Vengadores: La era de Ultrón"],
+    ["Recaudación", "Cerca de 1.153 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Lagos", "Una misión sale mal"],
+    ["Los Acuerdos", "Los Vengadores se dividen"],
+    ["Viena", "Muere el rey T'Chaka"],
+    ["El aeropuerto", "Héroes contra héroes"],
+    ["Siberia", "Tony descubre la verdad"]
+  ],
+  "actos": [
+    ["Prólogo: 16 de diciembre de 1991", [
+      "En una base de HYDRA en Siberia, unas palabras en ruso activan al Soldado de Invierno. Lo envían a provocar el accidente de un coche y a robar del maletero unas bolsas de suero de supersoldado."
+    ]],
+    ["Acto 1: Los Acuerdos de Sokovia", [
+      "En Lagos, Nigeria, los Vengadores de Steve Rogers impiden que Brock Rumlow robe un arma biológica. Rumlow se hace estallar; Wanda Maximoff desvía la explosión, que alcanza un edificio y mata a varios cooperantes de Wakanda.",
+      "El secretario de Estado Thaddeus Ross presenta los Acuerdos de Sokovia: 117 países exigen que los Vengadores dejen de actuar por su cuenta y obedezcan a un panel de las Naciones Unidas. Tony Stark, culpable por Ultrón y por un joven muerto en Sokovia, quiere firmar. Steve se niega: teme que les ordenen ir adonde no deben o les prohíban ir adonde hacen falta.",
+      "Muere Peggy Carter y Steve carga su ataúd en Londres. En Viena, durante la firma de los Acuerdos, una bomba mata al rey T'Chaka de Wakanda. Las cámaras muestran al culpable: Bucky Barnes. T'Challa, hijo del rey, jura matarlo."
+    ]],
+    ["Acto 2: Bandos", [
+      "Steve encuentra a Bucky en Bucarest antes que la policía; Bucky niega haber estado en Viena. Tras una persecución con T'Challa, que viste el traje de Pantera Negra, todos acaban detenidos en Berlín.",
+      "Un falso psiquiatra, Helmut Zemo, interroga a Bucky y pronuncia las palabras que lo activan. Bucky se escapa fuera de control. Cuando Steve lo recupera, Bucky cuenta que en Siberia hay otros cinco Soldados de Invierno, y que el falso doctor quería saber dónde.",
+      "Steve, proscrito, reúne a Sam Wilson, a Wanda, a Clint Barton y a Scott Lang. Tony tiene 36 horas para detenerlo y suma a Natasha, Rhodes, Visión, T'Challa y a un chico de Queens al que acaba de descubrir: Peter Parker, Spider-Man.",
+      "Los dos grupos chocan en el aeropuerto de Leipzig. Scott se vuelve gigante, Natasha deja escapar a Steve y a Bucky en el Quinjet, y un disparo de Visión que iba para Sam derriba a Rhodes, que queda paralítico. El equipo de Steve acaba preso en la Balsa, una cárcel en medio del océano."
+    ]],
+    ["Acto 3: Siberia", [
+      "Tony descubre que Bucky fue incriminado y sigue a Steve en son de paz. T'Challa lo sigue a él. En la base, los otros soldados están muertos: Zemo los mató. Nunca quiso usarlos.",
+      "Zemo es un militar de Sokovia que perdió a toda su familia en la batalla contra Ultrón. Sabe que no puede vencer a los Vengadores, así que busca que se destruyan entre ellos. Les muestra una grabación de 1991: el Soldado de Invierno mata a Howard y a Maria Stark. Steve lo sabía y se lo había callado.",
+      "Tony, fuera de sí, ataca a Bucky. En la pelea le arranca el brazo metálico, y Steve acaba clavando su escudo en el reactor de la armadura. Tony le grita que ese escudo no le pertenece, que lo hizo su padre. Steve lo deja caer y se va con Bucky.",
+      "Fuera, T'Challa escucha a Zemo, comprende adónde lleva la venganza y le impide suicidarse para entregarlo a la justicia. Steve libera a los suyos de la Balsa y le envía a Tony una carta y un teléfono: si lo necesita, estará ahí."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Steve"], ["T", "Tony"], ["B", "Bucky"], ["Z", "Zemo"], ["P", "T'Challa"], ["N", "Natasha"]],
+    "enlaces": [["S", "T", "enfrentados"], ["S", "B", "lo protege"], ["Z", "B", "lo incrimina"], ["P", "B", "lo persigue"], ["T", "B", "mató a sus padres"], ["N", "S", "lo deja ir"]]
+  },
+  "personajes": [
+    ["Steve Rogers", "Capitán América. Se niega a firmar los Acuerdos y se convierte en fugitivo por proteger a Bucky."],
+    ["Tony Stark", "Iron Man. Defiende los Acuerdos por culpa. Está separado de Pepper Potts."],
+    ["Bucky Barnes", "El Soldado de Invierno. Intenta vivir escondido; unas palabras clave lo convierten otra vez en un arma."],
+    ["Helmut Zemo", "Coronel de Sokovia sin poderes. Su plan es paciente y logra lo que ningún villano había logrado: romper a los Vengadores."],
+    ["T'Challa", "Príncipe y luego rey de Wakanda. Pantera Negra, con un traje de vibranium."],
+    ["Peter Parker", "Estudiante de quince años de Queens. Spider-Man desde hace seis meses. Tony le da un traje nuevo."],
+    ["Natasha Romanoff", "Firma los Acuerdos, pero en el aeropuerto ayuda a escapar a Steve."],
+    ["Wanda Maximoff", "Se siente culpable por Lagos. Visión la retiene en la base «por su seguridad»."],
+    ["Visión", "Cree que los Acuerdos son lógicos. Empieza a sentir algo por Wanda."],
+    ["Sam Wilson", "Falcon. Acompaña a Steve hasta el final, con su dron Redwing."],
+    ["James Rhodes", "Máquina de Guerra. Queda paralítico tras la caída en Leipzig."],
+    ["Sharon Carter", "Agente de la CIA y sobrina de Peggy Carter. Ayuda a Steve."],
+    ["Thaddeus Ross", "Secretario de Estado. Es el general que perseguía a Hulk."],
+    ["Everett Ross", "Funcionario del grupo antiterrorista que custodia a Zemo."]
+  ],
+  "cosas": [
+    ["Acuerdos de Sokovia", "Tratado firmado por 117 países para que los Vengadores actúen solo bajo supervisión de las Naciones Unidas."],
+    ["Palabras de activación", "Diez palabras en ruso, guardadas en un libro rojo, que despiertan la programación del Soldado de Invierno."],
+    ["La Balsa", "Prisión submarina de máxima seguridad para personas con poderes."],
+    ["B.A.R.F.", "Tecnología de Tony que recrea recuerdos como hologramas. La presenta en el MIT."],
+    ["Traje de Pantera Negra", "Armadura tejida con vibranium, con garras. Absorbe los golpes y las balas."],
+    ["Lanzarredes", "Aparatos que Peter Parker fabricó para lanzar su telaraña, que es un fluido inventado por él."],
+    ["Escudo del Capitán", "De vibranium, hecho por Howard Stark. Steve lo abandona en Siberia."]
+  ],
+  "creditos": "A mitad de los créditos, Bucky pide volver al sueño criogénico en Wakanda hasta que encuentren cómo borrarle la programación; T'Challa les da refugio a él y a Steve. Al final, Peter Parker examina en su cuarto el nuevo lanzarredes, que proyecta una señal con forma de araña, mientras su tía May le pregunta por su ojo morado.",
+  "conexiones": [
+    "T'Challa regresa a su país en Pantera Negra, una semana después de estos hechos.",
+    "Peter Parker vuelve a Queens en Spider-Man: De regreso a casa.",
+    "Natasha huye por haber violado los Acuerdos, y ahí empieza Black Widow.",
+    "Clint y Scott aceptan arresto domiciliario, lo que explica su ausencia en Vengadores: Infinity War.",
+    "Los Vengadores siguen divididos cuando llega Thanos; Tony aún guarda el teléfono de Steve.",
+    "Zemo vuelve en Falcon y el Soldado de Invierno."
+  ],
+  "preguntas": [
+    ["¿Por qué pelean el Capitán América y Iron Man?", "Por los Acuerdos de Sokovia, que ponen a los Vengadores bajo control de la ONU, y sobre todo por Bucky Barnes, a quien Steve protege."],
+    ["¿Qué son los Acuerdos de Sokovia?", "Un tratado de 117 países que obliga a los héroes a actuar solo con permiso de un panel de las Naciones Unidas."],
+    ["¿Quién mató a los padres de Tony Stark?", "El Soldado de Invierno, Bucky Barnes, en 1991, controlado por HYDRA."],
+    ["¿Quién es el villano de Civil War?", "Helmut Zemo, un militar de Sokovia que perdió a su familia y manipula a los Vengadores para que se destruyan entre sí."],
+    ["¿Quién estaba en cada bando?", "Con Steve: Bucky, Sam, Wanda, Clint y Scott Lang. Con Tony: Natasha, Rhodes, Visión, T'Challa y Spider-Man."],
+    ["¿En qué película aparece por primera vez Pantera Negra?", "En Capitán América: Civil War, igual que el Spider-Man de Tom Holland."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece como un repartidor que llama a Tony «Tony Stank».",
+    "Es la primera película del universo con Spider-Man, gracias a un acuerdo entre Marvel Studios y Sony.",
+    "La batalla del aeropuerto fue la primera secuencia de una película de Marvel rodada por completo con cámaras IMAX digitales.",
+    "Las diez palabras que activan a Bucky son: anhelo, oxidado, diecisiete, amanecer, horno, nueve, benigno, regreso a casa, uno, vagón de carga."
+  ]
+}

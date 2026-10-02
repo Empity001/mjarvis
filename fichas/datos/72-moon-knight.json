@@ -1,0 +1,88 @@
+{
+  "titulo": "Moon Knight",
+  "anio": 2022,
+  "saga": "Saga del Multiverso · Fase 4 (añadida: no estaba en la lista original)",
+  "ficha": [
+    ["Título original", "Moon Knight (en español, Caballero Luna)"],
+    ["Estreno", "Del 30 de marzo al 4 de mayo de 2022 (Disney+)"],
+    ["Creador", "Jeremy Slater. Dirección de Mohamed Diab, Justin Benson y Aaron Moorhead"],
+    ["Episodios", "6 (miniserie)"],
+    ["Reparto principal", "Oscar Isaac (Marc Spector, Steven Grant y Jake Lockley), Ethan Hawke (Arthur Harrow), May Calamawy (Layla El-Faouly), F. Murray Abraham (voz de Khonshu), Antonia Salib (Taweret), Gaspard Ulliel (Anton Mogart)"],
+    ["Música", "Hesham Nazih"],
+    ["Lugar en el universo", "Fase 4. Casi sin relación con el resto"],
+    ["Cronología interna", "2025, entre Londres y Egipto"],
+    ["Tono", "Aventura de arqueología y dioses egipcios, y un retrato de una mente dividida"]
+  ],
+  "momentos": [
+    ["Steven", "Un hombre que pierde horas"],
+    ["Marc", "El otro del espejo"],
+    ["El Cairo", "Los dioses y sus avatares"],
+    ["El hospital", "El viaje por la mente"],
+    ["Ammit", "Batalla de dioses"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: El hombre que no duerme", [
+      "Steven Grant trabaja en la tienda de regalos de un museo de Londres. Es amable, torpe y sabe mucho de Egipto. Cree ser sonámbulo: se encadena el tobillo a la cama y pone arena en el suelo, y aun así despierta en sitios donde no recuerda haber ido.",
+      "Un día abre los ojos en un pueblo de los Alpes, con un escarabajo de oro en la mano y gente armada detrás. Los dirige Arthur Harrow, un predicador sereno que juzga a las personas con un tatuaje en forma de balanza: si la balanza se inclina, la persona muere. Cuando el peligro aprieta, Steven pierde el conocimiento, y al volver en sí hay hombres tirados a su alrededor. Una voz le grita dentro de la cabeza.",
+      "Su reflejo le habla. Se llama Marc Spector, es un mercenario estadounidense, y los dos comparten cuerpo: tienen un trastorno de identidad disociativo. La voz es Khonshu, el dios egipcio de la Luna, al que Marc sirve como avatar, su puño en la Tierra. Cuando Marc toma el mando se cubre con un traje blanco de vendas y capa: Moon Knight. Cuando lo intenta Steven, le sale un traje y corbata blancos: Mr. Knight.",
+      "Aparece además Layla, la esposa de Marc, que no sabe nada de Steven."
+    ]],
+    ["Episodios 3 y 4: La tumba", [
+      "Harrow fue antes avatar de Khonshu. Ahora sirve a Ammit, una diosa que castiga a los culpables antes de que cometan su crimen. Quiere despertarla, y el escarabajo señala su tumba. Lo consigue.",
+      "En El Cairo, Marc pide ayuda al consejo de los dioses egipcios, que hablan por sus avatares dentro de la Gran Pirámide. No le creen. Para encontrar la tumba, Khonshu hace retroceder el cielo nocturno hasta la posición de las estrellas de hace dos mil años, y los dioses lo castigan encerrándolo en una estatuilla. Marc y Steven se quedan sin poderes.",
+      "Con Layla, que es arqueóloga, encuentran la tumba, que resulta ser la de Alejandro Magno, último avatar de Ammit. Layla descubre que Marc estaba presente cuando mataron a su padre. Harrow llega, y le dispara a Marc dos veces en el pecho."
+    ]],
+    ["Episodios 5 y 6: La balanza", [
+      "Marc despierta en un hospital psiquiátrico blanco, donde el doctor es Harrow. Abre una puerta y se topa con una diosa con cabeza de hipopótamo, Taweret, que le explica que ha muerto. Navega por el más allá, y su corazón tiene que equilibrarse en la balanza antes de llegar.",
+      "Para eso, Marc y Steven recorren sus recuerdos. De niño, Marc llevó a su hermano pequeño a jugar a una cueva que se inundó, y el hermano se ahogó. Su madre lo culpó y lo maltrató durante años. Para aguantar, Marc inventó a Steven, con el nombre de un héroe de una película de aventuras: alguien con una vida tranquila y una madre que lo quería. Más tarde, moribundo en el desierto tras un trabajo en el que murió el padre de Layla, aceptó el trato de Khonshu.",
+      "Steven cae de la barca y se convierte en arena. La balanza se equilibra, y Marc llega al paraíso. Lo rechaza: vuelve por Steven, y los dos regresan a la vida.",
+      "Harrow libera a Ammit. Layla acepta ser, por un rato, el avatar de Taweret, con unas alas de metal dorado. Khonshu, liberado, pelea contra Ammit entre las pirámides mientras Marc y Steven, que ahora cambian de uno a otro sin esfuerzo, luchan contra Harrow. En mitad del combate todo se apaga, y cuando vuelven en sí, Harrow está vencido. Ninguno de los dos recuerda cómo.",
+      "Encierran a Ammit dentro del cuerpo de Harrow. Khonshu ordena matarlo, y Marc se niega y le pide que los deje libres. Despiertan en la cama de Steven, en Londres, con el tobillo atado."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["M", "Marc"], ["S", "Steven"], ["K", "Khonshu"], ["H", "Harrow"], ["L", "Layla"], ["J", "Jake"]],
+    "enlaces": [["M", "S", "el mismo cuerpo"], ["K", "M", "su avatar"], ["H", "K", "antiguo avatar"], ["M", "L", "esposos"], ["J", "K", "le sigue sirviendo"], ["H", "M", "enemigos"]]
+  },
+  "personajes": [
+    ["Marc Spector", "Mercenario, hijo de un rabino. Duro y culpable. El primer Moon Knight."],
+    ["Steven Grant", "Empleado de museo, inglés, vegano y bondadoso. Una identidad creada por Marc para protegerse."],
+    ["Jake Lockley", "La tercera identidad, que habla español y hace lo que los otros dos no quieren hacer."],
+    ["Khonshu", "Dios de la Luna y de la venganza, con cráneo de pájaro. Manipulador."],
+    ["Arthur Harrow", "Líder de un culto. Cree hacer el bien eliminando a quien podría hacer el mal."],
+    ["Layla El-Faouly", "Arqueóloga y aventurera. Se convierte en el Escarabajo Escarlata, la primera superheroína egipcia del universo."],
+    ["Ammit", "Diosa con cabeza de cocodrilo que devora a los culpables."],
+    ["Taweret", "Diosa hipopótamo, protectora, alegre y algo despistada."],
+    ["Anton Mogart", "Coleccionista de antigüedades de El Cairo."]
+  ],
+  "cosas": [
+    ["El traje de Moon Knight", "Vendas blancas ceremoniales, capa y medias lunas arrojadizas. Cura las heridas de quien lo lleva."],
+    ["Mr. Knight", "La versión de Steven: traje blanco de tres piezas y bastones."],
+    ["Avatar", "El humano que presta su cuerpo a un dios."],
+    ["La Enéada", "El consejo de dioses egipcios, que ya no interviene en el mundo."],
+    ["La balanza", "El juicio de Ammit, y el del más allá: el corazón contra una pluma."],
+    ["El escarabajo", "La brújula de oro que señala la tumba de Ammit."],
+    ["La Duat", "El más allá egipcio; cada uno lo ve con la forma que puede entender."]
+  ],
+  "creditos": "En la escena final, Harrow, internado en un psiquiátrico, es sacado en silla de ruedas por un hombre con gorra que habla en español. Lo sube a una limusina blanca donde espera Khonshu. El hombre es Jake Lockley, la tercera identidad, de la que Marc y Steven no saben nada: Khonshu nunca los dejó libres. Jake dispara.",
+  "conexiones": [
+    "Apenas menciona al resto del universo: es una historia cerrada.",
+    "En los cómics, Moon Knight se relaciona con el hombre lobo de La maldición del hombre lobo, donde apareció por primera vez.",
+    "Los dioses egipcios se suman a los nórdicos de Thor y a los griegos de Thor: Amor y trueno.",
+    "No se ha anunciado una segunda temporada."
+  ],
+  "preguntas": [
+    ["¿Quién es Moon Knight?", "Marc Spector, un mercenario que sirve al dios egipcio Khonshu. Comparte cuerpo con otras identidades, Steven Grant y Jake Lockley."],
+    ["¿Qué le pasa a Steven Grant?", "Es una de las identidades de Marc, que tiene trastorno de identidad disociativo."],
+    ["¿Quién es Khonshu?", "El dios egipcio de la Luna, que da sus poderes a Moon Knight a cambio de que castigue a los culpables."],
+    ["¿Quién es el villano?", "Arthur Harrow, que quiere liberar a la diosa Ammit para que juzgue a toda la humanidad."],
+    ["¿Quién es Jake Lockley?", "La tercera identidad de Marc, violenta, que aparece en la escena final."],
+    ["¿Tiene relación con los Vengadores?", "Casi ninguna. Se puede ver sin conocer nada más."]
+  ],
+  "curiosidades": [
+    "Oscar Isaac propuso el acento inglés de Steven, y su hermano hizo de doble para las escenas en que habla consigo mismo.",
+    "El director Mohamed Diab, egipcio, cuidó que El Cairo y la música fueran auténticos.",
+    "Layla es un personaje creado para la serie.",
+    "El actor Gaspard Ulliel murió antes del estreno; la serie le dedica un episodio."
+  ]
+}

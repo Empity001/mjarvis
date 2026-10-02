@@ -1,0 +1,36 @@
+# descarga llama3.2:3b exit=0 140s
+# descarga qwen2.5:3b exit=0 193s
+# descarga gemma3:4b exit=0 298s
+
+=== llama3.2:3b ===
+carga + 3 párrafos   1a palabra  12.4s | total  21.3s | lee  268 tok a  35.6 tok/s | escribe  59 tok a  6.7 tok/s | carga  4.9s
+    -> Señor, las alas pesan un total de 6,2 kilogramos, y si las abre, tardan 3,6 segundos en completar su movimiento, aunque no estoy seguro de que eso sea lo que realmente quiere saber, ¿verdad, señor?
+3 párrafos           1a palabra   5.0s | total  12.1s | lee  264 tok a  53.6 tok/s | escribe  48 tok a  6.7 tok/s | carga  0.0s
+    -> Señor, el guantelete de Thanos consta de 38 piezas y tardó 61 horas en imprimirse, lo que sugiere que el autor de este artefacto tenía mucho tiempo en sus manos.
+10 párrafos          1a palabra  13.9s | total  26.7s | lee  566 tok a  41.0 tok/s | escribe  80 tok a  6.2 tok/s | carga  0.0s
+    -> Señor, las alas pesan 1,8 kilogramos cada una, lo que las convierte en una obra maestra de ingeniería y equilibrio. Después de cuatro meses de trabajo, el equipo logró abrirlas en un merecido 1,8 segundos, una velocidad que, si se
+10 párrafos (2)      1a palabra  13.9s | total  20.4s | lee  569 tok a  41.1 tok/s | escribe  41 tok a  6.3 tok/s | carga  0.0s
+    -> Señor, el guantelete de Thanos consta de 38 piezas y tardó 61 horas en imprimirse. Una cantidad considerable, ¿no cree, señor?
+# temp tras llama3.2:3b: Package id 0: +66.0°C (high = +100.0°C, crit = +100.0°C) | RAM: 4009 MB usados
+
+=== qwen2.5:3b ===
+carga + 3 párrafos   1a palabra  13.5s | total  17.4s | lee  259 tok a  35.4 tok/s | escribe  28 tok a  7.3 tok/s | carga  6.2s
+    -> Las alas pesan 3,1 kilogramos. Cada ala tarda 1,8 segundos en abrirse.
+3 párrafos           1a palabra   5.2s | total   8.9s | lee  257 tok a  49.7 tok/s | escribe  27 tok a  7.3 tok/s | carga  0.0s
+    -> El guantelete de Thanos consta de 61 piezas. Impresionó en 61 horas.
+10 párrafos          1a palabra  15.4s | total  18.4s | lee  566 tok a  36.9 tok/s | escribe  22 tok a  7.1 tok/s | carga  0.0s
+    -> Las alas pesan 3,1 kilogramos. Abren en 1,8 segundos.
+10 párrafos (2)      1a palabra  17.5s | total  20.7s | lee  569 tok a  32.6 tok/s | escribe  23 tok a  7.1 tok/s | carga  0.0s
+    -> El guantelete tiene 38 piezas. Impresionó en total 61 horas.
+# temp tras qwen2.5:3b: Package id 0: +66.0°C (high = +100.0°C, crit = +100.0°C) | RAM: 3522 MB usados
+
+=== gemma3:4b ===
+carga + 3 párrafos   1a palabra  20.5s | total  26.2s | lee  232 tok a  30.4 tok/s | escribe  32 tok a  5.7 tok/s | carga 12.5s
+    -> Por supuesto, señor. Las alas pesan 3,1 kilogramos y el mecanismo de apertura tarda 1,8 segundos en desplegar cada ala.
+3 párrafos           1a palabra   7.7s | total  14.3s | lee  233 tok a  30.8 tok/s | escribe  37 tok a  5.6 tok/s | carga  0.0s
+    -> Se imprimió en 38 piezas, señor, y el proceso consumió un asombroso 61 horas.  Espero que eso satisfaga su curiosidad.
+10 párrafos          1a palabra  19.6s | total  30.4s | lee  502 tok a  25.8 tok/s | escribe  56 tok a  5.2 tok/s | carga  0.0s
+    -> El armazón de las alas, con una envergadura de 2,4 metros y un peso de 3,1 kilogramos, es bastante sustancial, señor. Cada ala se despliega en aproximadamente 1,8 segundos gracias a los actuadores lineales.
+10 párrafos (2)      1a palabra  19.1s | total  27.3s | lee  506 tok a  26.7 tok/s | escribe  44 tok a  5.4 tok/s | carga  0.0s
+    -> Según mis cálculos, el guantelete de Thanos fue impreso en un total de 38 piezas, una inversión de seis puluhún horas.  Espero que eso satisfaga su curiosidad, señor.
+# temp tras gemma3:4b: Package id 0: +67.0°C (high = +100.0°C, crit = +100.0°C) | RAM: 5243 MB usados

@@ -1,0 +1,94 @@
+{
+  "titulo": "Pantera Negra: Wakanda por siempre",
+  "anio": 2022,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Black Panther: Wakanda Forever"],
+    ["Estreno", "11 de noviembre de 2022 (Estados Unidos)"],
+    ["Dirección", "Ryan Coogler"],
+    ["Guion", "Ryan Coogler y Joe Robert Cole"],
+    ["Reparto principal", "Letitia Wright (Shuri), Angela Bassett (Ramonda), Tenoch Huerta (Namor), Lupita Nyong'o (Nakia), Danai Gurira (Okoye), Winston Duke (M'Baku), Dominique Thorne (Riri Williams), Michaela Coel (Aneka), Mabel Cadena (Namora), Martin Freeman (Everett Ross), Julia Louis-Dreyfus (Valentina Allegra de Fontaine)"],
+    ["Duración", "161 minutos"],
+    ["Música", "Ludwig Göransson; canción «Lift Me Up», de Rihanna"],
+    ["Lugar en el universo", "Última película de la Fase 4"],
+    ["Cronología interna", "2025, un año después de la muerte de T'Challa"],
+    ["Recaudación", "Cerca de 859 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["El funeral", "Muere el rey T'Challa"],
+    ["Namor", "Un rey sale del mar"],
+    ["Talokán", "La ciudad bajo el agua"],
+    ["La inundación", "Muere la reina Ramonda"],
+    ["La nueva Pantera", "Shuri elige"]
+  ],
+  "actos": [
+    ["Acto 1: El duelo", [
+      "El rey T'Challa muere de una enfermedad. Su hermana Shuri, la mente más brillante de Wakanda, intenta hasta el último segundo fabricar la hierba con forma de corazón que podría salvarlo, y no llega. Wakanda lo despide vestida de blanco.",
+      "Un año después, la reina Ramonda gobierna un país sin Pantera Negra. Las potencias quieren vibranium y lo buscan donde sea. Un barco estadounidense lo detecta en el fondo del Atlántico; esa noche, unos seres de piel azul que respiran agua hunden el barco, cantando una canción que empuja a los marineros a tirarse al mar.",
+      "Su rey se presenta en Wakanda saliendo del río, sin que ninguna defensa lo detecte. Tiene alas en los tobillos. Se llama Namor. El mundo ha encontrado el vibranium de su pueblo por culpa de Wakanda, que reveló el suyo. Exige que le entreguen a la persona que inventó el detector, o atacará."
+    ]],
+    ["Acto 2: Talokán", [
+      "La inventora es Riri Williams, una estudiante de diecinueve años de Boston, que construye armaduras en su garaje. Shuri y Okoye la encuentran antes que el FBI y que Namor, pero los guerreros del mar se llevan a Shuri y a Riri. Ramonda destituye a Okoye.",
+      "Namor le enseña a Shuri su reino, Talokán, una ciudad iluminada por un sol de vibranium en el fondo del océano. En el siglo XVI, su pueblo, los mayas de Yucatán, moría por las enfermedades y la esclavitud de los españoles. Un chamán halló una planta crecida sobre vibranium; al tomarla, la piel se les volvió azul y ya no pudieron respirar aire. Namor nació distinto, mutante: vuela, respira dentro y fuera del agua y apenas envejece. Un fraile lo llamó «el niño sin amor».",
+      "Propone a Wakanda una alianza para atacar al resto del mundo antes de que el mundo los ataque. Si se niegan, serán los primeros. Ramonda pide ayuda a Nakia, que vive en Haití; Nakia rescata a Shuri y a Riri, y en la huida mata a una guardiana.",
+      "Namor responde inundando la capital de Wakanda. La reina Ramonda se ahoga salvando a Riri."
+    ]],
+    ["Acto 3: Venganza o piedad", [
+      "Shuri, que no creía en tradiciones, consigue recrear la hierba con restos de la planta de Talokán. La toma. En el plano ancestral no la esperan su madre ni su hermano, sino su primo Killmonger, que le pregunta si va a ser noble como T'Challa o va a hacer lo que hay que hacer.",
+      "Como nueva Pantera Negra, Shuri pide a todas las tribus guerra a muerte. M'Baku, que antes fue su rival, es quien le aconseja prudencia: matar a Namor sería una guerra sin fin, porque para su pueblo es un dios.",
+      "Atraen a los talokaniles a un barco en alta mar. Riri pelea con una armadura nueva, y Okoye con otra. Shuri aísla a Namor en una nave que lo seca, pues sin agua pierde fuerza, y caen en una playa desierta.",
+      "Lo tiene vencido, con la lanza en el cuello. Ve entonces a su madre, y entiende que la venganza la ha consumido. Le ofrece rendirse a cambio de la protección de Wakanda. Namor acepta. Ante los suyos explica que la alianza les conviene: algún día Wakanda necesitará a Talokán.",
+      "Shuri no se presenta al ritual del trono, y M'Baku llega para reclamarlo. Ella está en Haití, con Nakia. Sola en la playa, quema su ropa de luto y por fin se permite recordar a su hermano."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Shuri"], ["N", "Namor"], ["R", "Ramonda"], ["K", "Nakia"], ["O", "Okoye"], ["I", "Riri"]],
+    "enlaces": [["S", "N", "enemigos y aliados"], ["R", "S", "madre e hija"], ["N", "R", "la mata"], ["K", "S", "la rescata"], ["O", "I", "la protege"], ["N", "I", "la quiere muerta"]]
+  },
+  "personajes": [
+    ["Shuri", "Princesa, inventora y nueva Pantera Negra. Su dolor se vuelve rabia."],
+    ["Namor", "K'uk'ulkan, el dios serpiente emplumada de Talokán. Rey de quinientos años, protector feroz. Mutante."],
+    ["Ramonda", "Reina de Wakanda. Ha perdido a su marido y a su hijo."],
+    ["Nakia", "Antigua espía y pareja de T'Challa. Dirige una escuela en Haití."],
+    ["Okoye", "General de las Dora Milaje, apartada del cargo."],
+    ["M'Baku", "Jefe de los Jabari. Se ha vuelto el consejero más sensato."],
+    ["Riri Williams", "Genio de la ingeniería. En los cómics es Ironheart."],
+    ["Namora y Attuma", "Prima de Namor y su mejor guerrero."],
+    ["Aneka", "Dora Milaje que estrena la armadura de Ángel de Medianoche."],
+    ["Everett Ross", "Agente de la CIA que avisa a Wakanda. Lo detiene su exesposa."],
+    ["Valentina Allegra de Fontaine", "Ahora directora de la CIA."],
+    ["Toussaint", "El niño que Nakia cría en Haití."]
+  ],
+  "cosas": [
+    ["Talokán", "Reino submarino fundado por mayas. En los cómics, Namor reina en la Atlántida."],
+    ["Vibranium", "Ya no es solo de Wakanda: hay otro yacimiento bajo el mar."],
+    ["Hierba con forma de corazón", "Destruida por Killmonger. Shuri la recrea en el laboratorio."],
+    ["El detector de vibranium", "El invento de Riri que desata el conflicto."],
+    ["Armaduras de Ángel de Medianoche", "Trajes azules de combate para las Dora Milaje."],
+    ["Armadura de Ironheart", "El traje que Riri construye en Wakanda."],
+    ["El canto de las sirenas", "La voz con que los talokaniles hipnotizan."],
+    ["El brazalete", "Regalo de Namor, hecho con la planta de su pueblo."]
+  ],
+  "creditos": "A mitad de los créditos, en la playa de Haití, Nakia le presenta a Shuri un niño de unos seis años: Toussaint, hijo suyo y de T'Challa, criado lejos de la presión del trono. Su nombre wakandiano es T'Challa. No hay escena al final.",
+  "conexiones": [
+    "La muerte de T'Challa refleja la del actor Chadwick Boseman, fallecido en 2020. La película es su homenaje.",
+    "Riri Williams protagoniza la serie Ironheart.",
+    "Valentina, ya en la CIA, sigue su plan en Thunderbolts*.",
+    "Namor es llamado mutante, como Kamala Khan en Ms. Marvel.",
+    "Killmonger vuelve en una escena, desde Pantera Negra."
+  ],
+  "preguntas": [
+    ["¿Quién es la nueva Pantera Negra?", "Shuri, la hermana de T'Challa."],
+    ["¿Cómo muere T'Challa?", "De una enfermedad que no se nombra, al comienzo de la película."],
+    ["¿Quién es Namor?", "El rey de Talokán, un reino submarino. Es un mutante que vuela con las alas de sus tobillos y respira bajo el agua."],
+    ["¿Qué es Talokán?", "Una ciudad en el fondo del mar, fundada por mayas que huyeron de los conquistadores españoles."],
+    ["¿Quién es Riri Williams?", "Una joven inventora del MIT que construye armaduras como las de Iron Man."],
+    ["¿T'Challa tuvo un hijo?", "Sí. Se llama Toussaint, o T'Challa, y vive con Nakia en Haití."]
+  ],
+  "curiosidades": [
+    "El logotipo de Marvel aparece en silencio, solo con imágenes de Chadwick Boseman.",
+    "Ganó el Óscar al mejor vestuario; Angela Bassett fue nominada como actriz.",
+    "Los actores de Talokán aprendieron maya yucateco y a aguantar la respiración varios minutos.",
+    "Tenoch Huerta no sabía nadar cuando aceptó el papel."
+  ]
+}

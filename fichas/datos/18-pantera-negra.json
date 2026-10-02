@@ -1,0 +1,96 @@
+{
+  "titulo": "Pantera Negra",
+  "anio": 2018,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Black Panther"],
+    ["Estreno", "16 de febrero de 2018 (Estados Unidos)"],
+    ["Dirección", "Ryan Coogler"],
+    ["Guion", "Ryan Coogler y Joe Robert Cole"],
+    ["Reparto principal", "Chadwick Boseman (T'Challa), Michael B. Jordan (Erik Killmonger), Lupita Nyong'o (Nakia), Danai Gurira (Okoye), Letitia Wright (Shuri), Martin Freeman (Everett Ross), Daniel Kaluuya (W'Kabi), Winston Duke (M'Baku), Angela Bassett (Ramonda), Forest Whitaker (Zuri), Andy Serkis (Ulysses Klaue), Sterling K. Brown (N'Jobu)"],
+    ["Duración", "134 minutos"],
+    ["Música", "Ludwig Göransson, con canciones producidas por Kendrick Lamar"],
+    ["Lugar en el universo", "Fase 3"],
+    ["Cronología interna", "2016, una semana después de Capitán América: Civil War; prólogo en 1992"],
+    ["Recaudación", "Cerca de 1.350 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Oakland, 1992", "El rey mata a su hermano"],
+    ["La coronación", "T'Challa vence a M'Baku"],
+    ["Busan", "La caza de Klaue"],
+    ["El desafío", "Killmonger toma el trono"],
+    ["El regreso", "Batalla por Wakanda"]
+  ],
+  "actos": [
+    ["Prólogo: la historia de Wakanda", [
+      "Hace millones de años cayó en África un meteorito de vibranium, el metal más fuerte del mundo. Cinco tribus se asentaron sobre él. Un guerrero comió la hierba con forma de corazón, alterada por el metal, y se convirtió en el primer Pantera Negra. Cuatro tribus se unieron bajo su reinado; la quinta, los Jabari, se retiró a las montañas. Wakanda se volvió el país más avanzado de la Tierra y se escondió del mundo haciéndose pasar por un país pobre.",
+      "En 1992, en Oakland, California, el rey T'Chaka visita a su hermano N'Jobu, un espía que ha ayudado al traficante Ulysses Klaue a robar vibranium para armar a la gente negra oprimida. T'Chaka acaba matándolo y abandona allí al hijo de N'Jobu, un niño."
+    ]],
+    ["Acto 1: El nuevo rey", [
+      "Tras la muerte de T'Chaka en Viena, T'Challa vuelve a casa con la general Okoye, jefa de las Dora Milaje, y recoge a Nakia, su antigua pareja, que trabaja como espía en Nigeria.",
+      "En las cataratas, las tribus aceptan a T'Challa, pero M'Baku, jefe de los Jabari, lo desafía. Sin los poderes de la hierba, T'Challa lo vence y le perdona la vida. Luego bebe la hierba, lo entierran en arena roja y visita el plano ancestral, donde habla con su padre.",
+      "En Londres, Klaue y un exsoldado estadounidense, Erik Stevens, roban de un museo una pieza de vibranium. T'Challa, Okoye y Nakia van a capturar a Klaue a un casino de Busan, en Corea del Sur, donde iba a venderla al agente de la CIA Everett Ross. Tras una persecución lo atrapan, pero Erik lo libera, y Ross recibe un balazo por proteger a Nakia. T'Challa se lo lleva a Wakanda, donde su hermana Shuri lo cura."
+    ]],
+    ["Acto 2: Killmonger", [
+      "T'Challa ve en el dedo de Erik el anillo de su abuelo. El anciano Zuri le confiesa la verdad de 1992: Erik es su primo, N'Jadaka, el niño abandonado.",
+      "Erik mata a Klaue y lleva su cadáver a la frontera de Wakanda. Así se gana a W'Kabi, amigo de T'Challa, cuyos padres murieron por culpa de Klaue. Ante el consejo se presenta con su nombre real y reclama el trono. Le dicen Killmonger por las muertes que lleva marcadas en la piel, una cicatriz por cada una.",
+      "En el combate ritual, Killmonger mata a Zuri y arroja a T'Challa por la catarata. Ya rey, visita el plano ancestral, que para él es el apartamento de Oakland donde encontró muerto a su padre. Ordena quemar toda la hierba y enviar armas de vibranium a los espías de Wakanda por el mundo, para que los oprimidos conquisten a sus opresores."
+    ]],
+    ["Acto 3: Wakanda por siempre", [
+      "Nakia rescata una sola hierba y huye con Shuri, la reina Ramonda y Ross a pedir ayuda a M'Baku. Él les muestra a T'Challa: unos pescadores lo hallaron medio muerto y lo conservan en la nieve. La hierba lo revive. En el plano ancestral, T'Challa les dice a su padre y a los reyes anteriores que se equivocaron al abandonar a un niño y al dar la espalda al mundo.",
+      "T'Challa regresa: no se rindió ni murió, así que el desafío sigue. Las Dora Milaje se ponen de su lado, y W'Kabi y la tribu de la frontera luchan por Killmonger. Los Jabari llegan a tiempo. Ross pilota a distancia una nave y derriba los transportes de armas. W'Kabi se rinde ante Okoye, su esposa.",
+      "T'Challa y Killmonger pelean en la mina de vibranium, donde las vías del tren anulan sus trajes. T'Challa lo hiere de muerte y le ofrece curarlo. Killmonger prefiere morir libre, mirando el atardecer de Wakanda que su padre le describía.",
+      "T'Challa compra el edificio de Oakland donde murió su tío para abrir el primer centro de ayuda de Wakanda, con Nakia y Shuri al frente."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["T", "T'Challa"], ["K", "Killmonger"], ["N", "Nakia"], ["O", "Okoye"], ["S", "Shuri"], ["M", "M'Baku"]],
+    "enlaces": [["T", "K", "primos y rivales"], ["T", "N", "se quieren"], ["T", "S", "hermanos"], ["O", "T", "general leal"], ["M", "T", "rival y aliado"], ["S", "N", "aliadas"]]
+  },
+  "personajes": [
+    ["T'Challa", "Rey de Wakanda y Pantera Negra. Noble y prudente; debe decidir si su país sigue escondido."],
+    ["Erik Killmonger", "N'Jadaka, primo de T'Challa. Soldado de operaciones especiales criado en Oakland. Su rabia tiene razones, y por eso es uno de los villanos más recordados."],
+    ["Nakia", "Espía de la tribu del río. Cree que Wakanda debe ayudar a los que sufren fuera."],
+    ["Okoye", "General de las Dora Milaje. Leal al trono por encima de todo."],
+    ["Shuri", "Hermana de T'Challa, de dieciséis años. Diseña toda la tecnología del país."],
+    ["M'Baku", "Jefe de los Jabari, la tribu de las montañas que adora al dios gorila Hanuman."],
+    ["Ramonda", "Reina madre de Wakanda."],
+    ["W'Kabi", "Jefe de la tribu de la frontera, amigo de T'Challa y esposo de Okoye."],
+    ["Zuri", "Sacerdote que cuida la hierba. Fue el espía que delató a N'Jobu."],
+    ["Ulysses Klaue", "Traficante de armas con un cañón sónico en el brazo. Robó vibranium a Wakanda."],
+    ["Everett Ross", "Agente de la CIA y antiguo piloto."],
+    ["T'Chaka y N'Jobu", "El rey anterior y su hermano, padre de Killmonger."]
+  ],
+  "cosas": [
+    ["Vibranium", "Metal de un meteorito. Absorbe la energía de los golpes. Base de toda la tecnología de Wakanda y del escudo del Capitán América."],
+    ["Hierba con forma de corazón", "Planta que da al rey la fuerza y los sentidos del Pantera Negra y lo lleva al plano ancestral."],
+    ["Traje de Pantera Negra", "El nuevo modelo de Shuri se guarda en un collar y devuelve la energía de los golpes que recibe."],
+    ["Dora Milaje", "La guardia real, formada solo por mujeres."],
+    ["Plano ancestral", "Lugar espiritual donde el rey habla con sus antepasados."],
+    ["Perlas kimoyo", "Pulseras que sirven de teléfono, de control remoto y de botiquín."],
+    ["Perros de guerra", "Los espías que Wakanda tiene repartidos por el mundo."],
+    ["Diosa Bast", "La diosa pantera que, según la leyenda, guió al primer rey."]
+  ],
+  "creditos": "A mitad de los créditos, T'Challa anuncia ante las Naciones Unidas que Wakanda compartirá su conocimiento con el mundo; un delegado pregunta qué puede ofrecer un país de granjeros, y él sonríe. Al final, Bucky Barnes despierta en una aldea de Wakanda, curado por Shuri; los niños lo llaman Lobo Blanco.",
+  "conexiones": [
+    "Empieza una semana después de Capitán América: Civil War, donde murió T'Chaka.",
+    "Klaue apareció en Vengadores: La era de Ultrón, donde perdió el brazo.",
+    "Wakanda es el campo de la batalla final de Vengadores: Infinity War.",
+    "La historia sigue en Pantera Negra: Wakanda por siempre, tras la muerte del actor Chadwick Boseman.",
+    "Bucky Barnes, curado en Wakanda, pelea con ellos contra Thanos."
+  ],
+  "preguntas": [
+    ["¿Qué es Wakanda?", "Un país de África oculto al mundo, el más avanzado de la Tierra gracias al vibranium."],
+    ["¿Quién es Killmonger?", "Erik Stevens, o N'Jadaka: el primo de T'Challa, abandonado de niño en Estados Unidos, que vuelve para reclamar el trono."],
+    ["¿De dónde saca sus poderes Pantera Negra?", "De la hierba con forma de corazón, que da fuerza, velocidad y sentidos aumentados, y del traje de vibranium."],
+    ["¿Qué es el vibranium?", "Un metal casi indestructible que llegó en un meteorito y que absorbe la energía de los golpes."],
+    ["¿Qué quería Killmonger?", "Repartir las armas de Wakanda entre la gente oprimida del mundo para derrocar a los gobiernos."],
+    ["¿Qué significa «Wakanda por siempre»?", "Es el saludo del país, con los brazos cruzados sobre el pecho."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece en el casino de Busan, quedándose con las fichas de T'Challa.",
+    "Fue la primera película de superhéroes nominada al Óscar a mejor película. Ganó tres: música, vestuario y diseño de producción.",
+    "El idioma que hablan en Wakanda es xhosa, una lengua real de Sudáfrica.",
+    "La escena del museo y el apartamento de Oakland nacen de la propia vida del director, que creció en esa ciudad."
+  ]
+}

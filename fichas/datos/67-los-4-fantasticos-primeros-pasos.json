@@ -1,0 +1,92 @@
+{
+  "titulo": "Los 4 Fantásticos: Primeros pasos",
+  "anio": 2025,
+  "saga": "Saga del Multiverso · Fase 6",
+  "ficha": [
+    ["Título original", "The Fantastic Four: First Steps"],
+    ["Estreno", "25 de julio de 2025 (Estados Unidos)"],
+    ["Dirección", "Matt Shakman"],
+    ["Guion", "Josh Friedman, Eric Pearson, Jeff Kaplan e Ian Springer"],
+    ["Reparto principal", "Pedro Pascal (Reed Richards), Vanessa Kirby (Sue Storm), Joseph Quinn (Johnny Storm), Ebon Moss-Bachrach (Ben Grimm), Julia Garner (Shalla-Bal), Ralph Ineson (Galactus), Paul Walter Hauser (el Hombre Topo), Natasha Lyonne (Rachel Rozman)"],
+    ["Duración", "114 minutos"],
+    ["Música", "Michael Giacchino"],
+    ["Lugar en el universo", "Primera película de la Fase 6. Ocurre en otro universo, la Tierra 828"],
+    ["Cronología interna", "1964, en un mundo retrofuturista distinto del de los Vengadores"],
+    ["Recaudación", "Cerca de 522 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["La familia", "Cuatro años de héroes"],
+    ["La heraldo", "Una surfista plateada"],
+    ["Galactus", "El niño a cambio del mundo"],
+    ["El parto", "Franklin nace en el espacio"],
+    ["Times Square", "Empujar a un dios"]
+  ],
+  "actos": [
+    ["Acto 1: La primera familia", [
+      "En la Tierra 828, un mundo de los años sesenta con coches voladores y robots, cuatro astronautas volvieron del espacio cambiados por una tormenta de rayos cósmicos. Reed Richards, el hombre más inteligente del planeta, estira su cuerpo. Sue Storm, su esposa, se hace invisible y crea campos de fuerza. Johnny, hermano de Sue, se envuelve en fuego y vuela. Ben Grimm, el piloto, es una mole de roca.",
+      "Llevan cuatro años siendo los únicos héroes de su mundo, y los más queridos. Sue ha logrado que los países se desarmen. Viven juntos en el edificio Baxter con un robot ayudante, H.E.R.B.I.E. Y Sue descubre que está embarazada, después de años creyendo que no podía.",
+      "Una mujer de metal plateado baja del cielo sobre una tabla y anuncia, sin emoción, que el planeta ha sido señalado para morir. Es la heraldo de Galactus, el Devorador de Mundos."
+    ]],
+    ["Acto 2: El precio", [
+      "Los cuatro viajan en su nave hasta encontrarlo. Galactus es un ser del tamaño de un rascacielos, más viejo que el universo, condenado a un hambre que solo calma comiéndose planetas. Los ven devorar uno.",
+      "Galactus percibe algo en el vientre de Sue. El hijo que espera tiene un poder cósmico capaz de ocupar su lugar y liberarlo del hambre. Les ofrece un trato: perdonará la Tierra a cambio del niño.",
+      "Se niegan y huyen, con la heraldo persiguiéndolos entre estrellas. En plena fuga, Sue da a luz a Franklin. Escapan usando la gravedad de una estrella de neutrones, y dañan su nave.",
+      "De regreso, Reed cuenta la verdad en televisión, y el mundo se vuelve contra ellos: es un bebé contra miles de millones de vidas. Sue sale sola, con Franklin en brazos, a hablar a la multitud que rodea su casa. No va a sacrificar a su hijo por el mundo, dice, ni al mundo por su hijo. Les pide que afronten esto como una familia."
+    ]],
+    ["Acto 3: Mover el mundo", [
+      "Reed planea lo imposible: teletransportar la Tierra entera a otro sistema solar. Todos los países construyen los puentes. La heraldo los destruye, salvo el de Nueva York.",
+      "Johnny, que ha descifrado su idioma con grabaciones del espacio, le habla. Sabe quién es: Shalla-Bal, que aceptó servir a Galactus para salvar su propio planeta. Le hace oír las voces de los mundos que ella ayudó a condenar. Se va sin responder.",
+      "Queda un solo puente, en Times Square. Usan a Franklin de cebo para atraer a Galactus hasta él, y el Hombre Topo, antiguo enemigo, refugia a los neoyorquinos en su ciudad subterránea. Galactus camina entre los edificios y llega hasta el niño.",
+      "Sue lo empuja hacia el portal con un campo de fuerza, con todo lo que tiene, mientras Reed recupera a Franklin. Johnny va a lanzarse para dar el último empujón, y Shalla-Bal aparece, lo aparta y lo hace ella: cruza el portal con Galactus antes de que se cierre.",
+      "Sue cae muerta por el esfuerzo. Franklin, puesto sobre su pecho, la devuelve a la vida. Un año después, la familia celebra su aniversario, y discute sobre cómo se instala la silla del bebé en el coche."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["R", "Reed"], ["S", "Sue"], ["J", "Johnny"], ["B", "Ben"], ["F", "Franklin"], ["G", "Galactus"], ["H", "Shalla-Bal"]],
+    "enlaces": [["R", "S", "esposos"], ["S", "J", "hermanos"], ["R", "B", "mejores amigos"], ["S", "F", "madre e hijo"], ["G", "F", "lo quiere"], ["H", "G", "su heraldo"], ["J", "H", "la convence"]]
+  },
+  "personajes": [
+    ["Reed Richards", "Mister Fantástico. Genio que lo calcula todo y se culpa de todo."],
+    ["Sue Storm", "La Mujer Invisible. Diplomática, y la más poderosa de los cuatro."],
+    ["Johnny Storm", "La Antorcha Humana. Impulsivo, y más listo de lo que le reconocen."],
+    ["Ben Grimm", "La Mole. Tierno bajo la roca; echa de menos su barrio."],
+    ["Franklin Richards", "El bebé de Reed y Sue, con un poder inmenso."],
+    ["Galactus", "El Devorador de Mundos. No es malvado: tiene hambre."],
+    ["Shalla-Bal", "La Surfista Plateada, heraldo de Galactus."],
+    ["El Hombre Topo", "Harvey Elder, rey de la ciudad subterránea de Subterránea."],
+    ["H.E.R.B.I.E.", "El robot de la casa."],
+    ["Rachel Rozman", "Maestra del barrio de Ben."]
+  ],
+  "cosas": [
+    ["Rayos cósmicos", "La radiación que les dio los poderes en su primer viaje."],
+    ["Tierra 828", "El universo de esta historia, distinto de la Tierra 616 de los Vengadores."],
+    ["Edificio Baxter", "La casa y el laboratorio de la familia."],
+    ["La Excelsior", "Su nave, capaz de viajar más rápido que la luz."],
+    ["Fantasticar", "El coche volador."],
+    ["Los puentes", "Las máquinas de teletransporte con las que Reed quiere mover el planeta."],
+    ["Fundación Futuro", "La organización de Sue por la paz."],
+    ["El poder cósmico", "La energía de Galactus, que también está en Franklin."]
+  ],
+  "creditos": "A mitad de los créditos, cuatro años después, Sue le lee un cuento a Franklin. Sale a buscar otro libro, y al volver encuentra al niño tocándole la cara a un hombre con capa verde, arrodillado ante él, con una máscara de metal en la mano. Es el Doctor Doom. Al final se muestra la cabecera de una serie de dibujos animados de los Cuatro Fantásticos, al estilo de los años sesenta.",
+  "conexiones": [
+    "No tiene relación con las películas anteriores de los Cuatro Fantásticos, de 2005, 2007 y 2015.",
+    "La nave de la familia llega a la Tierra principal al final de Thunderbolts*.",
+    "El Doctor Doom, interpretado por Robert Downey Jr., es el villano de Avengers: Doomsday.",
+    "Un Reed Richards de otro universo apareció en Doctor Strange en el Multiverso de la Locura.",
+    "El número 828 recuerda el cumpleaños de Jack Kirby, creador de los personajes: 28 de agosto."
+  ],
+  "preguntas": [
+    ["¿Quiénes son los Cuatro Fantásticos?", "Reed Richards, Sue Storm, Johnny Storm y Ben Grimm, cuatro astronautas que obtuvieron poderes por rayos cósmicos."],
+    ["¿Quién es Galactus?", "Un ser cósmico gigantesco que se alimenta de planetas."],
+    ["¿Qué quiere Galactus?", "Al hijo de Reed y Sue, Franklin, cuyo poder podría liberarlo de su hambre."],
+    ["¿Quién es la Surfista Plateada?", "Shalla-Bal, heraldo de Galactus, que le sirve para salvar su mundo."],
+    ["¿En qué universo ocurre?", "En la Tierra 828, un mundo de los años sesenta distinto del de los Vengadores."],
+    ["¿Quién aparece en la escena de los créditos?", "El Doctor Doom, con Franklin."]
+  ],
+  "curiosidades": [
+    "La película no cuenta el origen del grupo: empieza cuando ya llevan cuatro años de héroes.",
+    "El director, Matt Shakman, dirigió también WandaVision.",
+    "Julia Garner rodó escenas subida a tablas de surf de verdad para interpretar a la heraldo.",
+    "Los cuatro actores de la película inédita de 1994 hacen una breve aparición."
+  ]
+}

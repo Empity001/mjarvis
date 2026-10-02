@@ -1,0 +1,90 @@
+{
+  "titulo": "Spider-Man: Lejos de casa",
+  "anio": 2019,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Spider-Man: Far From Home"],
+    ["Estreno", "2 de julio de 2019 (Estados Unidos)"],
+    ["Dirección", "Jon Watts"],
+    ["Guion", "Chris McKenna y Erik Sommers"],
+    ["Reparto principal", "Tom Holland (Peter Parker), Jake Gyllenhaal (Quentin Beck), Zendaya (MJ), Samuel L. Jackson (Nick Fury), Jacob Batalon (Ned), Jon Favreau (Happy Hogan), Marisa Tomei (May Parker), Cobie Smulders (Maria Hill), Tony Revolori (Flash), Angourie Rice (Betty)"],
+    ["Duración", "129 minutos"],
+    ["Música", "Michael Giacchino"],
+    ["Lugar en el universo", "Última película de la Fase 3 y de la Saga del Infinito"],
+    ["Cronología interna", "Verano de 2024, ocho meses después de Vengadores: Endgame"],
+    ["Recaudación", "Cerca de 1.130 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["El Blip", "El mundo sin Iron Man"],
+    ["Venecia", "Aparece Mysterio"],
+    ["Praga", "Peter regala las gafas"],
+    ["Berlín", "La gran ilusión"],
+    ["Londres", "Batalla en el puente"]
+  ],
+  "actos": [
+    ["Acto 1: Vacaciones", [
+      "El mundo se recupera del Blip: la mitad de la gente volvió cinco años después sin haber envejecido. Todos se preguntan quién será el nuevo Iron Man, y miran a Spider-Man. Peter Parker, de dieciséis años, solo quiere irse de viaje de fin de curso por Europa y decirle a MJ lo que siente.",
+      "Nick Fury lo llama y Peter no contesta. En Venecia, un monstruo de agua surge de los canales. Lo vence un hombre con capa y casco de cristal: Quentin Beck, al que los estudiantes llaman Mysterio.",
+      "Fury alcanza a Peter y le presenta a Beck, que dice venir de otra Tierra, destruida por unas criaturas llamadas Elementales. Queda una, la de fuego. Fury le entrega además la herencia de Tony Stark: unas gafas con una inteligencia artificial, EDITH, que controla una red de satélites y drones armados."
+    ]],
+    ["Acto 2: El engaño", [
+      "Fury desvía el viaje escolar a Praga. Allí Peter, con un traje negro para que no lo reconozcan, y Beck derrotan al Elemental de fuego. Beck se porta como el mentor que Peter echa de menos. En un bar, Peter decide que no está a la altura de Tony y le regala las gafas.",
+      "En cuanto Peter se va, el bar desaparece: era un holograma. Beck no viene de otra Tierra. Fue empleado de Stark e inventó la tecnología de ilusiones que Tony presentó con un nombre ridículo antes de despedirlo. Con otros antiguos empleados resentidos fabrica los monstruos con drones y proyectores, para convertirse en el héroe que el mundo busca.",
+      "MJ encuentra un proyector caído y le dice a Peter que sabe que es Spider-Man. Él corre a Berlín a avisar a Fury, pero el Fury con el que habla es otra ilusión. Beck lo encierra en una pesadilla de imágenes, con espejos, un Iron Man muerto que sale de la tumba y caídas sin fin, hasta que un tren lo atropella."
+    ]],
+    ["Acto 3: Londres", [
+      "Peter despierta en un calabozo de un pueblo de Holanda y llama a Happy Hogan, que lo recoge en un avión de Stark. Peter se derrumba: no es Tony. Happy le dice que Tony tampoco estaba seguro de nada, salvo de haberlo elegido a él. En el taller del avión, Peter diseña un traje nuevo.",
+      "Beck prepara su mayor función: un Elemental gigantesco sobre el Puente de la Torre, en Londres, con muertes reales, entre ellas las de los amigos de Peter que saben demasiado. Peter se lanza dentro de la ilusión y destroza los drones.",
+      "En el puente, Beck lo rodea de imágenes falsas. Peter cierra los ojos y se fía de su sentido arácnido. Una bala de sus propios drones hiere a Beck, que antes de morir intenta un último engaño. Peter recupera las gafas y apaga todo.",
+      "De vuelta en Nueva York, Peter y MJ empiezan a salir, y él la lleva a columpiarse entre los edificios."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["P", "Peter"], ["B", "Beck"], ["M", "MJ"], ["F", "Fury"], ["H", "Happy"], ["N", "Ned"]],
+    "enlaces": [["B", "P", "lo engaña"], ["P", "M", "se gustan"], ["F", "P", "lo recluta"], ["H", "P", "lo apoya"], ["P", "N", "mejores amigos"], ["B", "F", "lo engaña"]]
+  },
+  "personajes": [
+    ["Peter Parker", "Spider-Man. Carga con el duelo por Tony y con la presión de sustituirlo."],
+    ["Quentin Beck", "Mysterio. Especialista en ilusiones, actor de sí mismo y mentiroso encantador."],
+    ["MJ", "Michelle Jones. Observadora y de humor negro. Descubre el secreto de Peter por su cuenta."],
+    ["Nick Fury", "Aparece más despistado de lo normal, y hay un motivo."],
+    ["Happy Hogan", "Sale con la tía May y hace de puente entre Peter y el recuerdo de Tony."],
+    ["Ned Leeds", "Empieza un noviazgo de viaje con Betty Brant."],
+    ["May Parker", "Ya sabe que su sobrino es Spider-Man, y organiza actos benéficos con él."],
+    ["Maria Hill", "Acompaña a Fury."],
+    ["Flash Thompson", "Admirador de Spider-Man y abusón de Peter."],
+    ["William Riva", "El técnico del equipo de Beck. Es el científico al que Obadiah Stane gritaba en Iron Man."],
+    ["Los profesores Harrington y Dell", "Los acompañantes del viaje, superados por todo."]
+  ],
+  "cosas": [
+    ["EDITH", "Las gafas de Tony Stark. Dan acceso a toda la red de defensa de Industrias Stark. El nombre significa, en inglés, «Incluso muerto, soy el héroe»."],
+    ["Los Elementales", "Monstruos de tierra, agua, fuego y aire. Son hologramas sostenidos por drones que causan el daño real."],
+    ["Ilusiones de Mysterio", "Proyecciones tan perfectas que engañan a la vista y al oído."],
+    ["Sentido arácnido", "El aviso de peligro de Peter. La tía May lo llama el «cosquilleo de Peter»."],
+    ["Traje negro", "El traje de sigilo que Fury le da en Praga. Los amigos lo llaman Mono Nocturno."],
+    ["Traje rojo y negro", "El que Peter fabrica en el avión de Stark."],
+    ["El Blip", "Nombre que recibe la desaparición y el regreso de media humanidad."]
+  ],
+  "creditos": "A mitad de los créditos, las pantallas de Nueva York emiten un vídeo de J. Jonah Jameson, del Daily Bugle: una grabación manipulada de Beck acusa a Spider-Man de su muerte y del ataque, y revela su nombre, Peter Parker. Al final se descubre que Fury y Hill eran dos Skrulls, Talos y Soren, haciendo un favor; el Fury verdadero está de descanso en una nave Skrull en el espacio.",
+  "conexiones": [
+    "Es el epílogo de Vengadores: Endgame y de la muerte de Tony Stark.",
+    "La tecnología de Beck es la que Tony presentó en Capitán América: Civil War.",
+    "Talos y los Skrulls vienen de Capitana Marvel; la nave de Fury conduce a Invasión Secreta y The Marvels.",
+    "La revelación de la identidad de Peter es el punto de partida de Spider-Man: Sin camino a casa.",
+    "J. K. Simmons repite el papel de Jameson que hizo en las películas de Sam Raimi."
+  ],
+  "preguntas": [
+    ["¿Quién es Mysterio?", "Quentin Beck, un antiguo empleado de Tony Stark que finge ser un héroe de otro universo usando hologramas y drones."],
+    ["¿Qué es EDITH?", "Una inteligencia artificial en unas gafas que Tony Stark dejó a Peter. Controla satélites y drones armados."],
+    ["¿Los Elementales eran reales?", "No. Eran ilusiones creadas por el equipo de Mysterio."],
+    ["¿Qué pasa en la escena de los créditos?", "J. Jonah Jameson revela al mundo que Spider-Man es Peter Parker y lo acusa de asesinato."],
+    ["¿Quién descubre que Peter es Spider-Man?", "MJ, que lo sospechaba desde hacía tiempo."],
+    ["¿Cuándo ocurre Lejos de casa?", "Ocho meses después de Endgame, en el verano de 2024."]
+  ],
+  "curiosidades": [
+    "Cuando Peter trabaja en el avión, Happy pone una canción de AC/DC y Peter dice que le encanta Led Zeppelin.",
+    "Beck dice venir de la Tierra 833 y llama a la del universo principal Tierra 616, el número que tiene en los cómics.",
+    "Es la primera película de Spider-Man en superar los mil millones de dólares.",
+    "Ya sin Stan Lee, la película no tiene cameo suyo."
+  ]
+}

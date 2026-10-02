@@ -1,0 +1,94 @@
+{
+  "titulo": "Shang-Chi y la leyenda de los Diez Anillos",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Shang-Chi and the Legend of the Ten Rings"],
+    ["Estreno", "3 de septiembre de 2021 (Estados Unidos)"],
+    ["Dirección", "Destin Daniel Cretton"],
+    ["Guion", "Dave Callaham, Destin Daniel Cretton y Andrew Lanham"],
+    ["Reparto principal", "Simu Liu (Shang-Chi), Awkwafina (Katy), Tony Leung (Xu Wenwu), Meng'er Zhang (Xialing), Fala Chen (Ying Li), Michelle Yeoh (Ying Nan), Ben Kingsley (Trevor Slattery), Florian Munteanu (Razor Fist), Benedict Wong (Wong)"],
+    ["Duración", "132 minutos"],
+    ["Música", "Joel P. West"],
+    ["Lugar en el universo", "Fase 4. Primer protagonista asiático de Marvel Studios"],
+    ["Cronología interna", "2024, después de Vengadores: Endgame"],
+    ["Recaudación", "Cerca de 432 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["La leyenda", "Wenwu y los anillos"],
+    ["El autobús", "Shaun sabe pelear"],
+    ["Macao", "El club de Xialing"],
+    ["Ta Lo", "La aldea de su madre"],
+    ["La puerta", "Padre, hijo y dragón"]
+  ],
+  "actos": [
+    ["Prólogo: Wenwu y Li", [
+      "Hace mil años, Xu Wenwu encontró diez anillos que le dieron poder y vida sin fin. Con ellos creó un ejército en la sombra, los Diez Anillos, que derribó reinos durante siglos.",
+      "En 1996 buscó Ta Lo, una aldea escondida donde viven criaturas mágicas. En la entrada lo detuvo su guardiana, Ying Li, que lo venció sin anillos. Se enamoraron. Wenwu se quitó los anillos, dejó su organización y tuvieron dos hijos: Shang-Chi y Xialing."
+    ]],
+    ["Acto 1: Shaun", [
+      "En San Francisco, Shaun aparca coches en un hotel con su mejor amiga, Katy. No tienen grandes planes y les va bien así. En un autobús, unos hombres lo atacan para quitarle el colgante de jade que le dio su madre. Shaun los derrota a todos delante de Katy, incluido uno con una cuchilla por brazo.",
+      "Shaun es Shang-Chi. Cuando tenía siete años, antiguos enemigos de su padre mataron a su madre. Wenwu volvió a ponerse los anillos y crió a su hijo como asesino. A los catorce lo envió a su primera misión, y Shang-Chi huyó a Estados Unidos.",
+      "Viaja con Katy a Macao para avisar a su hermana. Xialing, a quien su padre nunca dejó entrenar, aprendió sola y dirige un club de peleas clandestinas. Está resentida con Shang-Chi, que prometió volver por ella. Los hombres de Wenwu los capturan a los tres."
+    ]],
+    ["Acto 2: La voz de Li", [
+      "Wenwu les explica por qué quería los colgantes: oye la voz de su esposa, que lo llama desde detrás de una puerta, en Ta Lo. Cree que su pueblo la tiene presa. Los dos colgantes muestran el camino. Va a liberarla y a quemar la aldea.",
+      "Los hermanos y Katy escapan con otro prisionero, Trevor Slattery, el actor que fingió ser el Mandarín, y con Morris, un animal sin cara que conoce el camino. Atraviesan un bosque de bambú que se mueve y se cierra.",
+      "En Ta Lo los recibe su tía, Ying Nan. La puerta no guarda a Li: encierra al Morador de la Oscuridad, un ser que devora almas y que imita voces para que alguien lo libere. Nan enseña a Shang-Chi el estilo de su madre, que no usa la fuerza sino el aire. Katy aprende a tirar con arco."
+    ]],
+    ["Acto 3: La puerta", [
+      "Wenwu llega con su ejército y golpea la puerta con los anillos. Por las grietas escapan criaturas que roban almas, y los dos bandos tienen que unirse contra ellas.",
+      "Shang-Chi pelea con su padre. Hundido en el lago, despierta a la Gran Protectora, un dragón de agua. Vuelve y esta vez pelea como su madre: le quita los anillos a Wenwu sin odio, y se los devuelve.",
+      "El Morador rompe la puerta. Wenwu se pone delante de su hijo, le entrega los diez anillos y muere. Shang-Chi, montado en el dragón, lucha contra la bestia; una flecha de Katy le acierta en la garganta, y Shang-Chi la revienta por dentro con los anillos.",
+      "De vuelta en San Francisco, nadie les cree la historia. Entonces se abre un portal en el restaurante, y Wong les pide que lo acompañen."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Shang-Chi"], ["W", "Wenwu"], ["K", "Katy"], ["X", "Xialing"], ["L", "Li"], ["N", "Nan"]],
+    "enlaces": [["W", "S", "padre e hijo"], ["S", "K", "mejores amigos"], ["S", "X", "hermanos"], ["W", "L", "esposos"], ["N", "S", "tía y maestra"], ["W", "X", "la ignoró"]]
+  },
+  "personajes": [
+    ["Shang-Chi", "Maestro de artes marciales que huyó de su padre. Aprende a aceptar las dos mitades de su familia."],
+    ["Xu Wenwu", "Conquistador de mil años. No es un monstruo: es un hombre destrozado por la pérdida de su esposa."],
+    ["Katy", "Amiga de Shang-Chi. Graciosa y sin miedo; descubre que sí sirve para algo."],
+    ["Xialing", "La hermana a la que nadie entrenó. Se hizo su propio imperio."],
+    ["Ying Li", "Madre de Shang-Chi, guardiana de Ta Lo."],
+    ["Ying Nan", "Hermana de Li y líder de la aldea."],
+    ["Trevor Slattery", "El actor de Iron Man 3. Sobrevivió haciendo de bufón para Wenwu."],
+    ["Razor Fist", "Soldado de los Diez Anillos con una hoja en el brazo."],
+    ["El Mensajero de la Muerte", "El enmascarado que entrenó a Shang-Chi de niño."],
+    ["Morris", "Criatura de Ta Lo, con alas y sin cara. Amigo de Trevor."],
+    ["Wong", "El hechicero. Pelea en el club de Xialing contra Abominación, por deporte."]
+  ],
+  "cosas": [
+    ["Los Diez Anillos", "Diez aros que se llevan en los brazos. Dan fuerza, lanzan energía y detienen la vejez. Nadie sabe de dónde vienen."],
+    ["La organización de los Diez Anillos", "El ejército secreto de Wenwu. Es la que secuestró a Tony Stark en Iron Man."],
+    ["Ta Lo", "Aldea de otra dimensión, con dragones, leones guardianes y fénix."],
+    ["La Gran Protectora", "El dragón que venció al Morador hace milenios."],
+    ["El Morador de la Oscuridad", "Devorador de almas encerrado tras la Puerta Oscura."],
+    ["Los colgantes de jade", "Regalo de Li a sus hijos. Juntos forman el mapa."],
+    ["Escamas de dragón", "El material rojo de las armas y armaduras de Ta Lo."]
+  ],
+  "creditos": "A mitad de los créditos, Wong estudia los anillos con Bruce Banner y Carol Danvers, por holograma. No se parecen a nada conocido y son muy antiguos, y además están enviando una señal a alguna parte. Luego Wong se va a un karaoke con Shang-Chi y Katy. Al final, Xialing no cierra la organización de su padre: se sienta en el trono y empieza a entrenar también a mujeres.",
+  "conexiones": [
+    "Los Diez Anillos son la organización de Iron Man, y Trevor Slattery el falso Mandarín de Iron Man 3.",
+    "Abominación viene de El increíble Hulk y vuelve en She-Hulk.",
+    "Bruce Banner aparece otra vez con forma humana, sin explicación.",
+    "El origen de los anillos y su señal siguen sin resolver.",
+    "Wong pasa a ser el hilo que une varias historias de la Fase 4."
+  ],
+  "preguntas": [
+    ["¿Quién es Shang-Chi?", "El hijo de Wenwu, jefe de los Diez Anillos. Fue entrenado como asesino, huyó, y termina heredando los anillos."],
+    ["¿Qué son los Diez Anillos?", "Diez aros de origen desconocido que dan poder e inmortalidad. También es el nombre de la organización criminal de Wenwu."],
+    ["¿Wenwu es el Mandarín?", "Es el hombre real detrás de esa leyenda. Él se burla del nombre, que inventaron otros."],
+    ["¿Qué es Ta Lo?", "La aldea mágica de la madre de Shang-Chi, en otra dimensión, que guarda una puerta con un monstruo."],
+    ["¿Cómo muere Wenwu?", "El Morador de la Oscuridad le roba el alma después de que él salve a su hijo."],
+    ["¿Qué pasa con los anillos al final?", "Los tiene Shang-Chi, y emiten una señal que nadie sabe a quién va dirigida."]
+  ],
+  "curiosidades": [
+    "Fue el primer papel de Tony Leung, leyenda del cine de Hong Kong, en una película de Hollywood.",
+    "La pelea del autobús la diseñó el equipo de especialistas de Jackie Chan.",
+    "Buena parte de la película se habla en chino mandarín.",
+    "Simu Liu había pedido el papel a Marvel años antes, con un mensaje en redes sociales."
+  ]
+}

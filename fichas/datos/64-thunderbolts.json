@@ -1,0 +1,89 @@
+{
+  "titulo": "Thunderbolts*",
+  "anio": 2025,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Thunderbolts* (tras el estreno, también The New Avengers)"],
+    ["Estreno", "2 de mayo de 2025 (Estados Unidos)"],
+    ["Dirección", "Jake Schreier"],
+    ["Guion", "Eric Pearson y Joanna Calo"],
+    ["Reparto principal", "Florence Pugh (Yelena Belova), Sebastian Stan (Bucky Barnes), Lewis Pullman (Bob Reynolds), David Harbour (Alexei Shostakov), Wyatt Russell (John Walker), Hannah John-Kamen (Ava Starr), Julia Louis-Dreyfus (Valentina Allegra de Fontaine), Geraldine Viswanathan (Mel), Olga Kurylenko (Antonia Dreykov)"],
+    ["Duración", "127 minutos"],
+    ["Música", "Son Lux"],
+    ["Lugar en el universo", "Última película de la Fase 5"],
+    ["Cronología interna", "2027, después de Capitán América: Un nuevo mundo"],
+    ["Recaudación", "Cerca de 382 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["La trampa", "Cuatro asesinos en una bóveda"],
+    ["Bob", "Un hombre en pijama"],
+    ["El Centinela", "El héroe de Valentina"],
+    ["El Vacío", "La sombra cubre Nueva York"],
+    ["El asterisco", "Los Nuevos Vengadores"]
+  ],
+  "actos": [
+    ["Acto 1: Material para quemar", [
+      "Yelena Belova trabaja haciendo encargos sucios para Valentina Allegra de Fontaine, directora de la CIA. Lo hace bien y sin ganas: desde la muerte de su hermana Natasha se siente vacía. Pide un cambio, y Valentina le promete un último trabajo.",
+      "A Valentina la investiga el Congreso por sus experimentos secretos, y necesita borrar pruebas. Envía a una bóveda perdida en el desierto a Yelena, a John Walker, a Ava Starr y a Antonia Dreykov, cada uno con la orden de matar a otro. Las pruebas son ellos. Ava mata a Antonia antes de que nadie entienda la trampa, y la bóveda empieza a arder.",
+      "Dentro hay alguien más: un hombre en pijama, desorientado, que dice llamarse Bob. Los cuatro salen juntos a la fuerza. Bob se queda atrás para distraer a los soldados; le disparan y no le pasa nada, y luego sale volando sin saber cómo."
+    ]],
+    ["Acto 2: El Centinela", [
+      "Bob Reynolds era un drogadicto con una infancia rota que se apuntó a un ensayo médico en Malasia: el Proyecto Centinela, que buscaba fabricar un superhombre. Todos los voluntarios murieron menos él. Cuando alguien lo toca, esa persona revive su peor recuerdo.",
+      "Alexei Shostakov, el Guardián Rojo, que ahora conduce una limusina y echa de menos la gloria, recoge a los fugitivos y les pone nombre: los Thunderbolts, como el equipo de fútbol infantil de Yelena, que nunca ganó un partido. Bucky Barnes, ahora congresista, los captura para usarlos de testigos contra Valentina, y acaba poniéndose de su lado.",
+      "Valentina recupera a Bob y lo convence de que puede ser alguien. Lo viste de dorado y lo presenta en la antigua torre de los Vengadores como el Centinela, el protector que el país necesita, más fuerte que todos los Vengadores juntos.",
+      "Los Thunderbolts entran en la torre a buscarlo, y Bob los tumba a todos sin esfuerzo. Luego se vuelve contra Valentina. Ella activa un interruptor para apagarlo, y lo que despierta es su otra mitad."
+    ]],
+    ["Acto 3: El Vacío", [
+      "Una silueta negra flota sobre Nueva York. A quien toca su sombra lo convierte en una mancha en el suelo; la persona queda atrapada dentro, reviviendo sin fin el peor momento de su vida. La oscuridad se extiende por las calles.",
+      "El equipo, que no puede con eso, se dedica a salvar gente con las manos. Yelena hace otra cosa: camina hacia la sombra y se deja tragar. Dentro encuentra sus propias habitaciones de vergüenza, entre ellas la primera prueba de la Sala Roja, cuando era niña. Las atraviesa hasta dar con Bob, escondido en el desván de su infancia.",
+      "Los demás entran detrás de ella. Bob intenta matar a golpes a su parte oscura, y cuanto más pega, más lo absorbe. Yelena lo abraza, y luego los otros, y le dicen que no está solo. La sombra se retira y la gente reaparece.",
+      "Los seis salen a la calle dispuestos a detener a Valentina, que los estaba esperando con la prensa. Los presenta al mundo como idea suya: los Nuevos Vengadores. No pueden desmentirla delante de las cámaras. Yelena le dice al oído que ahora ella les pertenece."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["Y", "Yelena"], ["B", "Bob"], ["V", "Valentina"], ["A", "Alexei"], ["K", "Bucky"], ["W", "Walker"]],
+    "enlaces": [["Y", "B", "lo salva"], ["V", "B", "lo usa"], ["A", "Y", "padre e hija"], ["V", "Y", "su jefa"], ["K", "V", "la investiga"], ["W", "Y", "compañeros a la fuerza"]]
+  },
+  "personajes": [
+    ["Yelena Belova", "Viuda Negra. Deprimida, sarcástica y, sin quererlo, la líder."],
+    ["Bob Reynolds", "El Centinela y el Vacío. Un hombre frágil con el poder de un dios y una depresión que toma forma."],
+    ["Valentina Allegra de Fontaine", "Directora de la CIA. Convierte cada derrota en un anuncio."],
+    ["Alexei Shostakov", "El Guardián Rojo. Ruidoso y cariñoso; quiere que su hija esté orgullosa."],
+    ["Bucky Barnes", "El Soldado de Invierno, ahora congresista novato."],
+    ["John Walker", "U.S. Agent. Arrogante, divorciado y con un escudo torcido."],
+    ["Ava Starr", "Fantasma, de Ant-Man y la Avispa. Ya controla su desfase."],
+    ["Antonia Dreykov", "Supervisor. Muere al principio."],
+    ["Mel", "Asistente de Valentina, que pasa información a Bucky."]
+  ],
+  "cosas": [
+    ["Proyecto Centinela", "El experimento secreto de Valentina para crear un superhéroe a medida."],
+    ["El Vacío", "La mitad oscura de Bob: su tristeza y su trauma con forma de sombra."],
+    ["Las habitaciones de la vergüenza", "Los recuerdos donde quedan atrapadas las víctimas."],
+    ["La Atalaya", "La antigua torre de los Vengadores, comprada por Valentina."],
+    ["El asterisco", "La marca del título: el nombre Thunderbolts era provisional."],
+    ["Los Nuevos Vengadores", "El nombre con que Valentina presenta al equipo."],
+    ["La limusina", "El coche de Alexei, anunciado como «protección del Guardián Rojo»."]
+  ],
+  "creditos": "A mitad de los créditos, Alexei intenta que una clienta de un supermercado lo reconozca en una caja de cereales. Al final, catorce meses después, los Nuevos Vengadores discuten en la torre: Sam Wilson les disputa el nombre con su propio equipo, y hay un problema en el espacio. Una nave de otra dimensión entra en la órbita de la Tierra; lleva un número 4 en el casco.",
+  "conexiones": [
+    "Reúne a personajes de Black Widow, Falcon y el Soldado de Invierno y Ant-Man y la Avispa.",
+    "La torre de los Vengadores se vendió en Spider-Man: De regreso a casa.",
+    "La nave del final es la de Los 4 Fantásticos: Primeros pasos.",
+    "El equipo vuelve en Avengers: Doomsday, que ocurre catorce meses después.",
+    "Bucky anunciaba su carrera política en Capitán América: Un nuevo mundo."
+  ],
+  "preguntas": [
+    ["¿Quiénes son los Thunderbolts?", "Yelena Belova, Bucky Barnes, el Guardián Rojo, John Walker, Fantasma y Bob: un grupo de antihéroes reunidos por accidente."],
+    ["¿Quién es el Centinela?", "Bob Reynolds, un hombre al que un experimento dio un poder inmenso. Su lado oscuro es el Vacío."],
+    ["¿Qué es el Vacío?", "La depresión de Bob convertida en una sombra que atrapa a la gente en sus peores recuerdos."],
+    ["¿Qué significa el asterisco del título?", "Que el nombre era provisional: al final se revela que el equipo son los Nuevos Vengadores."],
+    ["¿Muere alguien del equipo?", "Supervisor, Antonia Dreykov, al principio de la película."],
+    ["¿Cómo vencen al Vacío?", "No a golpes: acompañando a Bob para que no se enfrente solo a su dolor."]
+  ],
+  "curiosidades": [
+    "Tras el primer fin de semana, Marvel cambió los carteles para que dijeran «Los Nuevos Vengadores».",
+    "Florence Pugh saltó de verdad desde uno de los edificios más altos del mundo, en Malasia, para la primera escena.",
+    "Buena parte del equipo creativo venía de la serie Beef (Bronca) y del cine independiente.",
+    "La película trata de forma abierta la depresión, algo poco común en el género."
+  ]
+}

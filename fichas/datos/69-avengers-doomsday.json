@@ -1,0 +1,85 @@
+{
+  "titulo": "Avengers: Doomsday",
+  "anio": 2026,
+  "saga": "Saga del Multiverso · Fase 6",
+  "ficha": [
+    ["Título original", "Avengers: Doomsday"],
+    ["Estado", "Sin estrenar al redactar esta ficha (octubre de 2026). Todo lo que sigue son datos anunciados, no la historia completa"],
+    ["Estreno previsto", "18 de diciembre de 2026 (Estados Unidos)"],
+    ["Dirección", "Anthony y Joe Russo"],
+    ["Guion", "Michael Waldron, Stephen McFeely, Chris McKenna y Erik Sommers"],
+    ["Reparto anunciado", "Robert Downey Jr. (Doctor Doom), Chris Evans (Steve Rogers), Chris Hemsworth (Thor), Anthony Mackie (Sam Wilson), Pedro Pascal (Reed Richards), Vanessa Kirby (Sue Storm), Florence Pugh (Yelena Belova), Sebastian Stan (Bucky Barnes), Letitia Wright (Shuri), Paul Rudd (Scott Lang), Simu Liu (Shang-Chi), Tom Hiddleston (Loki), Patrick Stewart (Charles Xavier), Ian McKellen (Magneto) y muchos más"],
+    ["Duración", "Unos 165 minutos, según lo anunciado"],
+    ["Música", "Alan Silvestri"],
+    ["Lugar en el universo", "Fase 6. Quinta película de los Vengadores y primera parte del final de la Saga del Multiverso"],
+    ["Cronología interna", "Catorce meses después de Thunderbolts*, con el multiverso derrumbándose"]
+  ],
+  "momentos": [
+    ["El multiverso", "Los universos chocan"],
+    ["Tres mundos", "Héroes de tres Tierras"],
+    ["Doom", "El enemigo de todos"],
+    ["Los X-Men", "Los de las películas clásicas"],
+    ["Continuará", "Sigue en Secret Wars"]
+  ],
+  "actos": [
+    ["Lo que está confirmado", [
+      "La premisa oficial dice que, catorce meses después de Thunderbolts*, en pleno derrumbe del multiverso, se reúnen héroes de tres universos para enfrentar la amenaza del Doctor Doom.",
+      "De la Tierra 616, la principal, llegan los Vengadores de Sam Wilson, los wakandianos y los Nuevos Vengadores de Yelena Belova. De la Tierra 828, los Cuatro Fantásticos. De la Tierra 10005, los X-Men de las películas clásicas, con los mismos actores: el Profesor X, Magneto, Cíclope, Bestia, Rondador Nocturno y Mística.",
+      "El villano es Victor von Doom, el Doctor Doom, interpretado por Robert Downey Jr., el actor que fue Tony Stark. Se ha adelantado que Doom dispone de un ejército de Centinelas, los robots cazadores de mutantes.",
+      "Vuelve Steve Rogers, pese a que su historia parecía cerrada en Endgame, y se ha dicho que hay una razón de peso para ello. Thor regresa con un ánimo más guerrero, y aparece Franklin Richards, el hijo de Reed y Sue."
+    ]],
+    ["De dónde viene esta historia", [
+      "Loki, en su serie, liberó el multiverso y terminó sosteniéndolo él mismo. Doctor Strange aprendió que los universos pueden chocar, en las llamadas incursiones. Samuel Sterns, preso, avisó a Sam Wilson de que venía gente de otros mundos.",
+      "La nave de los Cuatro Fantásticos llegó a la Tierra principal al final de Thunderbolts*. Y el Doctor Doom apareció junto al pequeño Franklin en la escena final de Los 4 Fantásticos: Primeros pasos."
+    ]],
+    ["Lo que no se sabe", [
+      "No se conoce el desarrollo de la historia, ni quién vive o muere, ni cómo termina, ni por qué Doom tiene el rostro de Tony Stark, si es que eso forma parte del argumento.",
+      "Cuando se estrene, esta ficha debe sustituirse por una completa. Si alguien pregunta por el argumento, lo correcto es decir que la película aún no se había estrenado al preparar estos datos."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["D", "Doom"], ["A", "Vengadores"], ["N", "Nuevos Vengadores"], ["F", "4 Fantásticos"], ["X", "X-Men"], ["W", "Wakanda"]],
+    "enlaces": [["D", "A", "amenaza"], ["D", "F", "viejo enemigo"], ["A", "N", "rivales por el nombre"], ["X", "A", "otro universo"], ["W", "A", "aliados"], ["D", "X", "amenaza"]]
+  },
+  "personajes": [
+    ["Doctor Doom", "Victor von Doom. En los cómics, gobernante de Latveria, científico y hechicero con armadura y máscara de hierro; el gran enemigo de los Cuatro Fantásticos."],
+    ["Sam Wilson", "El Capitán América, al frente de los Vengadores."],
+    ["Steve Rogers", "El primer Capitán América. Su regreso es una de las incógnitas."],
+    ["Thor", "El dios del trueno, acompañado por su hija adoptiva, Amor."],
+    ["Los Cuatro Fantásticos", "Reed, Sue, Johnny y Ben, llegados de la Tierra 828."],
+    ["Los Nuevos Vengadores", "Yelena, Bucky, el Guardián Rojo, U.S. Agent, Fantasma y el Centinela."],
+    ["Los X-Men", "El equipo de mutantes de las películas de 2000 a 2014."],
+    ["Shuri y M'Baku", "La Pantera Negra y el rey de Wakanda. Con ellos, Namor."],
+    ["Loki", "El dios de las historias, guardián del multiverso."],
+    ["Otros anunciados", "Ant-Man, Shang-Chi, Falcon, Gambito y el personal de la AVT."]
+  ],
+  "cosas": [
+    ["El multiverso", "El conjunto de universos paralelos, que se está viniendo abajo."],
+    ["Incursión", "El choque entre dos universos."],
+    ["Centinelas", "Robots gigantes creados para cazar mutantes."],
+    ["Latveria", "El país de Doom en los cómics."],
+    ["Tierra 616, 828 y 10005", "Los tres universos de los héroes: el principal, el de los Cuatro Fantásticos y el de los X-Men."]
+  ],
+  "creditos": "Sin datos: la película no se había estrenado al redactar esta ficha.",
+  "conexiones": [
+    "Es la primera película de los Vengadores desde Endgame, de 2019.",
+    "Iba a llamarse «La dinastía Kang», con Kang como villano; el plan cambió en 2023.",
+    "Continúa en Avengers: Secret Wars, prevista para diciembre de 2027.",
+    "En septiembre de 2026 se reestrenó Endgame con escenas nuevas que enlazan con esta película.",
+    "La dirigen los hermanos Russo, los de Infinity War y Endgame."
+  ],
+  "preguntas": [
+    ["¿Cuándo se estrena Avengers: Doomsday?", "El 18 de diciembre de 2026. Al preparar mis datos aún no se había estrenado."],
+    ["¿Quién es el villano?", "El Doctor Doom, interpretado por Robert Downey Jr."],
+    ["¿De qué trata?", "De héroes de tres universos, los Vengadores, los Cuatro Fantásticos y los X-Men, unidos contra Doom mientras el multiverso se derrumba. No conozco más detalles."],
+    ["¿Vuelve el Capitán América de Chris Evans?", "Sí, Steve Rogers está en el reparto anunciado."],
+    ["¿Salen los X-Men?", "Sí, los de las películas clásicas, con Patrick Stewart e Ian McKellen."],
+    ["¿Robert Downey Jr. vuelve como Iron Man?", "No. Vuelve como otro personaje, el Doctor Doom."]
+  ],
+  "curiosidades": [
+    "El anuncio de Robert Downey Jr. como Doom se hizo por sorpresa en la Comic-Con de 2024.",
+    "El reparto se presentó en un vídeo de más de cinco horas, mostrando sillas con los nombres de los actores.",
+    "Se rodó en Inglaterra entre abril y septiembre de 2025.",
+    "Tiene más de treinta personajes principales anunciados."
+  ]
+}

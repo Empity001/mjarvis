@@ -1,0 +1,92 @@
+{
+  "titulo": "Agatha All Along",
+  "anio": 2024,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Agatha All Along (en español, Agatha, ¿quién si no?)"],
+    ["Estreno", "Del 18 de septiembre al 30 de octubre de 2024 (Disney+)"],
+    ["Creadora", "Jac Schaeffer"],
+    ["Episodios", "9 (miniserie)"],
+    ["Reparto principal", "Kathryn Hahn (Agatha Harkness), Joe Locke (el chico), Aubrey Plaza (Rio Vidal), Patti LuPone (Lilia Calderu), Sasheer Zamata (Jennifer Kale), Ali Ahn (Alice Wu-Gulliver), Debra Jo Rupp (Sharon Davis)"],
+    ["Música", "Christophe Beck y Michael Paraskevas; canciones de Kristen Anderson-Lopez y Robert Lopez"],
+    ["Lugar en el universo", "Fase 5. Continuación de WandaVision"],
+    ["Cronología interna", "2026, tres años después de WandaVision"],
+    ["Tono", "Comedia de brujas con sustos, canciones y una historia triste debajo"]
+  ],
+  "momentos": [
+    ["El hechizo", "Agatha despierta"],
+    ["El aquelarre", "Cinco brujas y un chico"],
+    ["Las pruebas", "El Camino de las Brujas"],
+    ["Billy", "Quién es el chico"],
+    ["La Muerte", "Agatha paga su deuda"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: Sin poderes", [
+      "Agatha Harkness sigue bajo el hechizo que le dejó Wanda: cree ser una detective en una serie policíaca. Un adolescente que se cuela en su casa y una desconocida, Rio Vidal, la ayudan a romperlo. Despierta sin poderes, en una casa de Westview, y con viejas enemigas viniendo a por ella: las Siete de Salem.",
+      "El chico es un admirador suyo que quiere recorrer el Camino de las Brujas, un sendero legendario lleno de pruebas que da, a quien llega al final, lo que más desea. Cada vez que intenta decir su nombre, un sello mágico lo impide.",
+      "Para abrir el Camino hace falta un aquelarre. Agatha recluta a brujas sin suerte: Lilia, una adivina que dice frases sin sentido; Jennifer, experta en pociones, a la que alguien ató los poderes; Alice, policía, bruja de protección, hija de una estrella del rock; y, a falta de otra, una vecina, la señora Hart. Cantan la Balada del Camino de las Brujas, y en el sótano aparece una puerta."
+    ]],
+    ["Episodios 3 a 6: Las pruebas", [
+      "Cada prueba se parece a una de ellas. En una casa de playa beben vino envenenado, y Jennifer prepara el antídoto; la señora Hart no sobrevive. Rio ocupa su lugar: es una antigua amante de Agatha, y algo más.",
+      "En un estudio de grabación de los años setenta se enfrentan a la maldición de la familia de Alice. La madre de Alice cantaba la Balada en cada concierto para proteger a su hija. Durante la prueba, Agatha, al intentar recuperar poder, absorbe el de Alice y la mata.",
+      "En una fiesta de pijamas con tablero de espiritismo aparece el fantasma de la madre de Agatha, que la maldice, y el de un niño: su hijo, Nicholas.",
+      "El chico estalla de rabia y revela un poder enorme. Se cuenta su historia. Se llamaba William Kaplan, y murió a los trece años en un accidente de coche, la noche en que Wanda deshizo el Hex. En ese instante, el alma de Billy Maximoff, el hijo de Wanda, buscó un cuerpo y entró en el suyo. Lleva tres años buscando quién es, y quiere encontrar a su hermano Tommy."
+    ]],
+    ["Episodios 7 a 9: El final del Camino", [
+      "La prueba de Lilia es una torre con cartas de tarot. Ella vive su vida desordenada, a saltos, y por eso decía cosas sin sentido: las decía fuera de su momento. Comprende quién es Rio y se sacrifica para acabar con las Siete de Salem.",
+      "Rio es la Muerte. Quiere a Billy, que escapó de ella dos veces. Jennifer recupera sus poderes al descubrir quién se los ató, que fue Agatha, y sale del Camino. Billy encuentra el alma de Tommy y la guía hasta el cuerpo de un chico que acaba de ahogarse.",
+      "La Muerte exige una vida. Agatha, que nunca hizo nada por nadie, la besa y muere en lugar de Billy.",
+      "De vuelta en su cuarto, Billy mira sus carteles y entiende: el Camino no existía. Lo creó él sin saberlo, con el mismo poder de su madre, a partir de lo que había en su habitación. Durante siglos, la Balada fue una estafa de Agatha: prometía el Camino a las brujas, y cuando la atacaban, les robaba el poder.",
+      "El último episodio cuenta el origen. En 1750, Agatha dio a luz a Nicholas. La Muerte venía a llevárselo, y le concedió tiempo. Madre e hijo recorrieron pueblos durante años, y él inventó la Balada por el camino. Una noche, la Muerte volvió por él.",
+      "Agatha regresa como fantasma. No quiere pasar al otro lado, donde está su hijo, porque no se atreve a mirarlo. Ella y Billy salen juntos a buscar a Tommy."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["A", "Agatha"], ["B", "Billy"], ["R", "Rio"], ["L", "Lilia"], ["J", "Jennifer"], ["N", "Nicholas"]],
+    "enlaces": [["A", "B", "guía y cómplice"], ["A", "R", "amor antiguo"], ["R", "B", "lo reclama"], ["A", "N", "madre e hijo"], ["A", "J", "le ató los poderes"], ["L", "B", "le puso el sello"]]
+  },
+  "personajes": [
+    ["Agatha Harkness", "Bruja de tres siglos, mentirosa y encantadora. Debajo hay una madre que perdió a su hijo."],
+    ["Billy", "William Kaplan con el alma de Billy Maximoff. Lee mentes y cambia la realidad. En los cómics es Wiccan."],
+    ["Rio Vidal", "La Muerte, la bruja verde original."],
+    ["Lilia Calderu", "Adivina siciliana de más de cuatrocientos años."],
+    ["Jennifer Kale", "Bruja de pociones y empresaria de cosméticos."],
+    ["Alice Wu-Gulliver", "Bruja de protección, marcada por una maldición familiar."],
+    ["Sharon Davis", "La señora Hart de WandaVision. No es bruja."],
+    ["Las Siete de Salem", "Las hijas de las brujas que Agatha mató."],
+    ["Nicholas Scratch", "El hijo de Agatha."],
+    ["Evanora Harkness", "Madre de Agatha, jefa de su primer aquelarre."],
+    ["Tommy", "El hermano de Billy. Su alma encuentra un cuerpo nuevo."]
+  ],
+  "cosas": [
+    ["El Camino de las Brujas", "La senda de pruebas. Resulta ser una creación de Billy."],
+    ["La Balada", "La canción que «abre» el Camino. La compuso Nicholas."],
+    ["El sello", "Hechizo que oculta la identidad del chico a las demás brujas. Se lo puso Lilia."],
+    ["El Darkhold", "El libro por el que Agatha perdió casi todo."],
+    ["La diadema azul", "La corona que Billy acaba poniéndose, como Wiccan."],
+    ["El guardapelo", "El medallón donde Agatha guarda un mechón de su hijo."],
+    ["Robo de poder", "El don de Agatha: absorber la magia de quien la ataca."]
+  ],
+  "creditos": "No hay escenas después de los créditos. La serie termina con Billy y el fantasma de Agatha saliendo a buscar a Tommy.",
+  "conexiones": [
+    "Continúa WandaVision: el hechizo de Agatha, Westview y los gemelos de Wanda.",
+    "Wanda se da por muerta tras Doctor Strange en el Multiverso de la Locura; la serie no lo confirma.",
+    "Billy y Tommy son, en los cómics, Wiccan y Speed, de los Jóvenes Vengadores, el grupo que Kamala Khan empieza a reunir en The Marvels.",
+    "La Muerte es un personaje clásico de Marvel, ligada en los cómics a Thanos.",
+    "Evan Peters repite brevemente como Ralph Bohner."
+  ],
+  "preguntas": [
+    ["¿Quién es el chico de Agatha All Along?", "Billy Maximoff, el hijo de Wanda, cuya alma vive en el cuerpo de un adolescente llamado William Kaplan."],
+    ["¿Qué es el Camino de las Brujas?", "Una senda de pruebas que da a la bruja lo que le falta. En realidad no existía: lo creó Billy."],
+    ["¿Quién es Rio Vidal?", "La Muerte, y la antigua pareja de Agatha."],
+    ["¿Agatha muere?", "Sí, se sacrifica por Billy. Pero vuelve como fantasma."],
+    ["¿Quién era Nicholas Scratch?", "El hijo de Agatha, que murió de niño. Con él escribió la Balada."],
+    ["¿Encuentran a Tommy?", "Billy pone el alma de su hermano en un cuerpo nuevo, pero aún tiene que encontrarlo."]
+  ],
+  "curiosidades": [
+    "La Balada tiene varias versiones a lo largo de la serie: folk, rock de los setenta y pop.",
+    "El episodio de Lilia está contado fuera de orden, como ella vive el tiempo.",
+    "Casi todos los decorados del Camino se construyeron de verdad, con pocos efectos por ordenador.",
+    "El título cambió varias veces antes del estreno, como broma de la propia Marvel."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "titulo": "Spider-Man: Sin camino a casa",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Spider-Man: No Way Home"],
+    ["Estreno", "17 de diciembre de 2021 (Estados Unidos)"],
+    ["Dirección", "Jon Watts"],
+    ["Guion", "Chris McKenna y Erik Sommers"],
+    ["Reparto principal", "Tom Holland (Peter Parker), Zendaya (MJ), Jacob Batalon (Ned), Benedict Cumberbatch (Doctor Strange), Marisa Tomei (May Parker), Jon Favreau (Happy Hogan), Willem Dafoe (Norman Osborn), Alfred Molina (Otto Octavius), Jamie Foxx (Max Dillon), Tobey Maguire y Andrew Garfield (Peter Parker de otros universos)"],
+    ["Duración", "148 minutos"],
+    ["Música", "Michael Giacchino"],
+    ["Lugar en el universo", "Fase 4. Une las tres sagas de cine de Spider-Man"],
+    ["Cronología interna", "Otoño de 2024, justo después de Spider-Man: Lejos de casa"],
+    ["Recaudación", "Cerca de 1.920 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Descubierto", "Todos saben quién es"],
+    ["El hechizo", "Strange y un conjuro roto"],
+    ["Los visitantes", "Villanos de otros mundos"],
+    ["La tía May", "Un gran poder"],
+    ["Tres Spider-Man", "La Estatua de la Libertad"]
+  ],
+  "actos": [
+    ["Acto 1: Todo el mundo lo sabe", [
+      "El mundo entero sabe que Peter Parker es Spider-Man, y medio mundo cree que mató a Mysterio. Lo interroga Control de Daños, la gente le tira ladrillos a la ventana, y un abogado ciego, Matt Murdock, consigue que retiren los cargos. Pero la universidad que querían, el MIT, rechaza a Peter y también a MJ y a Ned, solo por ser sus amigos.",
+      "Peter le pide ayuda a Doctor Strange. Strange propone un hechizo para que el mundo olvide que Peter Parker es Spider-Man. A mitad del conjuro, Peter empieza a pedir excepciones: que MJ lo recuerde, y Ned, y la tía May. El hechizo se descontrola, y Strange lo encierra antes de que estalle.",
+      "Algo se coló. En un puente, un hombre con cuatro brazos metálicos ataca a Peter llamándolo por su nombre, y se sorprende al verle la cara: no es el Peter que él conoce."
+    ]],
+    ["Acto 2: Los visitantes", [
+      "El hechizo ha traído, desde otros universos, a quienes saben que Peter Parker es Spider-Man. Son cinco: Otto Octavius, con sus tentáculos; Norman Osborn, el Duende Verde; Flint Marko, el Hombre de Arena; el doctor Connors, el Lagarto; y Max Dillon, Electro.",
+      "Strange quiere devolverlos con una caja que contiene el hechizo. Peter descubre que casi todos fueron arrancados de su mundo justo antes de morir peleando con su Spider-Man. Devolverlos es matarlos. Se niega, le quita la caja a Strange y lo deja atrapado en la dimensión espejo, a la que vence con geometría.",
+      "Con ayuda de la tía May, que le dice que ayudarlos es lo correcto, Peter intenta curarlos en el piso de Happy. Arregla el chip de Octavius, que vuelve a ser dueño de sus brazos. Pero dentro de Norman despierta el Duende, que convence a los demás de quedarse con sus poderes.",
+      "El Duende destroza el edificio y hiere a May con su planeador. Antes de morir en brazos de Peter, ella le dice lo que todo Spider-Man escucha alguna vez: un gran poder conlleva una gran responsabilidad."
+    ]],
+    ["Acto 3: Tres Peter Parker", [
+      "Ned, con el anillo de Strange, intenta abrir un portal para encontrar a Peter y encuentra a otros dos: dos Peter Parker adultos, de otros universos. Los dos perdieron a alguien; uno no llegó a tiempo de salvar a Gwen, el otro cargó con la muerte de su tío. Encuentran a su versión joven en una azotea y lo consuelan.",
+      "Los tres trabajan juntos en el laboratorio del instituto para fabricar las curas y atraen a los villanos a la Estatua de la Libertad, en obras. Aprenden a pelear en equipo. Curan a Marko, a Connors y a Dillon, con la ayuda de Octavius. Cuando MJ cae de un andamio, el Peter que perdió a Gwen la atrapa.",
+      "El Duende hace estallar la caja, y el cielo se abre: empiezan a llegar seres de todos los universos. Peter, ciego de rabia, va a matar a Norman con el planeador. El Peter mayor se interpone y recibe una puñalada por la espalda. Peter elige inyectarle la cura.",
+      "Para cerrar las grietas hace falta otro hechizo. Peter se lo pide a Strange: que todos olviden quién es Peter Parker. Todos. Se despide de MJ y de Ned prometiendo ir a buscarlos.",
+      "Va a la cafetería donde trabaja MJ con un discurso preparado. Ella no lo conoce, y tiene una herida en la frente. Peter decide no decirle nada. Solo, sin dinero y sin nadie que sepa su nombre, se cose un traje nuevo y sale por la ventana a la nieve."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["P", "Peter"], ["M", "MJ"], ["S", "Strange"], ["T", "Tía May"], ["D", "Duende"], ["O", "Octavius"]],
+    "enlaces": [["P", "M", "se aman"], ["S", "P", "el hechizo"], ["T", "P", "su guía"], ["D", "T", "la mata"], ["P", "O", "lo cura"], ["P", "D", "enemigos"]]
+  },
+  "personajes": [
+    ["Peter Parker", "Pierde su secreto, a su tía y al final a todos los que lo conocían. Elige seguir siendo bueno."],
+    ["Peter Parker (el mayor)", "El de las películas de Sam Raimi, interpretado por Tobey Maguire. Sereno; lanza telarañas sin aparatos."],
+    ["Peter Parker (el del medio)", "El de The Amazing Spider-Man, de Andrew Garfield. Amargado desde la muerte de Gwen."],
+    ["MJ", "Michelle Jones-Watson. Promete recordarlo."],
+    ["Ned Leeds", "Descubre que tiene facilidad para la magia."],
+    ["Doctor Strange", "Intenta ayudar y complica todo. Ya no es Hechicero Supremo: lo es Wong."],
+    ["May Parker", "La brújula moral de Peter."],
+    ["Norman Osborn", "El Duende Verde. Un científico amable con otra personalidad cruel dentro."],
+    ["Otto Octavius", "Doctor Octopus. Curado, es el primer aliado."],
+    ["Max Dillon", "Electro. Aquí roba un reactor arc."],
+    ["Flint Marko y Curt Connors", "El Hombre de Arena, que solo quiere volver con su hija, y el Lagarto."],
+    ["Matt Murdock", "El abogado de Peter: Daredevil."],
+    ["J. Jonah Jameson", "Dirige una campaña contra Spider-Man desde su canal de internet."]
+  ],
+  "cosas": [
+    ["El hechizo del olvido", "Las runas de Kof-Kol. Mal hecho, abre el multiverso; bien hecho, borra a Peter Parker de la memoria de todos."],
+    ["La caja", "La Macchina di Kadavus, que contiene el hechizo fallido."],
+    ["El multiverso", "Los universos paralelos de los que llegan los villanos y los otros Spider-Man."],
+    ["Las curas", "Remedios hechos con tecnología Stark para quitar a cada villano lo que lo volvió peligroso."],
+    ["Traje integrado", "El traje con el emblema dorado, mezcla de la tecnología de Stark y de Octavius."],
+    ["Dimensión espejo", "El plano donde Strange dobla la ciudad."],
+    ["Traje final", "Rojo y azul brillante, cosido a mano. El primero que Peter hace sin ayuda."]
+  ],
+  "creditos": "A mitad de los créditos, en un bar de México, Eddie Brock y su simbionte Venom, llegados de otro universo, intentan entender este mundo de superhéroes cuando el hechizo los devuelve al suyo; sobre la barra queda una gota negra del simbionte. Al final se muestra un avance de Doctor Strange en el Multiverso de la Locura.",
+  "conexiones": [
+    "Continúa la escena de los créditos de Spider-Man: Lejos de casa.",
+    "Los villanos vienen de las películas de Spider-Man de Sam Raimi (2002-2007) y de Marc Webb (2012-2014).",
+    "Matt Murdock es el Daredevil de la serie de Netflix, ahora dentro del universo principal.",
+    "Las consecuencias del hechizo se tratan en Doctor Strange en el Multiverso de la Locura.",
+    "Venom viene de la escena final de Venom: Habrá matanza.",
+    "La historia de este Peter sigue en Spider-Man: Brand New Day."
+  ],
+  "preguntas": [
+    ["¿Por qué aparecen villanos de otras películas?", "Porque el hechizo de Strange falla y atrae, de otros universos, a quienes saben que Peter Parker es Spider-Man."],
+    ["¿Quiénes son los tres Spider-Man?", "El de Tom Holland, el de Tobey Maguire y el de Andrew Garfield, cada uno de un universo distinto."],
+    ["¿Quién mata a la tía May?", "El Duende Verde, con su planeador y una bomba."],
+    ["¿Cómo termina la película?", "Todo el mundo olvida quién es Peter Parker, incluidos MJ y Ned. Peter empieza de cero, solo."],
+    ["¿Sale Daredevil?", "Sí. Matt Murdock aparece como abogado de Peter y atrapa un ladrillo en el aire."],
+    ["¿Quién dice la frase del gran poder?", "La tía May, antes de morir."]
+  ],
+  "curiosidades": [
+    "La presencia de Tobey Maguire y Andrew Garfield se negó durante meses para guardar la sorpresa.",
+    "Es la película más taquillera de Sony y la más vista del año de su estreno.",
+    "Willem Dafoe pidió hacer él mismo sus escenas de pelea.",
+    "La escena en que los tres Spider-Man se señalan imita un dibujo de la serie animada de 1967, muy usado como broma en internet."
+  ]
+}

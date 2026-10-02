@@ -1,0 +1,80 @@
+{
+  "titulo": "The Punisher: One Last Kill",
+  "anio": 2026,
+  "saga": "Saga del Multiverso · Fase 6",
+  "ficha": [
+    ["Título original", "The Punisher: One Last Kill"],
+    ["Estreno", "12 de mayo de 2026 (Disney+)"],
+    ["Dirección", "Reinaldo Marcus Green"],
+    ["Guion", "Jon Bernthal y Reinaldo Marcus Green"],
+    ["Reparto principal", "Jon Bernthal (Frank Castle), Judith Light (Ma Gnucci), Andre Royo (Dre), Deborah Ann Woll (Karen Page), Jason R. Moore (Curtis Hoyle), Kelli Barrett (Maria Castle)"],
+    ["Duración", "51 minutos. Es un especial, no una serie"],
+    ["Música", "Kris Bowers"],
+    ["Lugar en el universo", "Fase 6. Especial de televisión de Marvel"],
+    ["Cronología interna", "Nueva York, al mismo tiempo que la temporada 2 de Daredevil: Born Again"],
+    ["Tono", "Acción violenta para adultos y retrato de un hombre que no sabe vivir en paz"]
+  ],
+  "momentos": [
+    ["El piso", "Frank intenta parar"],
+    ["Los fantasmas", "Su hija, Curtis, Karen"],
+    ["Ma Gnucci", "Precio por su cabeza"],
+    ["El edificio", "Defender a los vecinos"],
+    ["La rosa", "Vuelve Punisher"]
+  ],
+  "actos": [
+    ["Un hombre sin guerra", [
+      "Frank Castle ya vengó a su familia, hace años. Ahora intenta dejar atrás a Punisher. Alquila un piso modesto en un barrio italiano de Nueva York y trata de vivir como cualquiera.",
+      "No lo consigue. Lo visitan visiones de la gente de su pasado: su hija Lisa, su amigo Curtis Hoyle, Karen Page. Sin una misión, piensa en quitarse la vida."
+    ]],
+    ["El precio", [
+      "Ma Gnucci, jefa de una familia mafiosa, quiere venganza: Castle mató a su marido y a sus tres hijos. Pone precio a su cabeza, y una multitud de criminales acude a por él.",
+      "El edificio donde vive Frank se convierte en un campo de batalla. Dentro hay vecinos que no tienen nada que ver, entre ellos Dre, un tendero, con su esposa y su hija, Charli. Frank ya no pelea por venganza: pelea para sacarlos vivos, piso por piso."
+    ]],
+    ["La rosa de papel", [
+      "Cuando todo termina, la niña le regala una rosa de papel. Frank la lleva a la tumba de su hija.",
+      "Ahí entiende que todavía sirve para algo: hay gente a la que nadie más va a defender. Vuelve a la calle, con un traje nuevo y la calavera en el pecho."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["F", "Frank"], ["G", "Ma Gnucci"], ["D", "Dre"], ["C", "Charli"], ["K", "Karen"], ["H", "Curtis"]],
+    "enlaces": [["G", "F", "quiere vengarse"], ["F", "D", "lo protege"], ["C", "F", "le da la rosa"], ["F", "K", "la recuerda"], ["F", "H", "amigos"], ["D", "C", "padre e hija"]]
+  },
+  "personajes": [
+    ["Frank Castle", "Punisher. Exmarine que perdió a su esposa y a sus dos hijos. Sin enemigo delante, se vuelve contra sí mismo."],
+    ["Ma Gnucci", "Matriarca de una familia mafiosa, a la que Frank dejó sin marido ni hijos."],
+    ["Dre", "Tendero y vecino de Frank."],
+    ["Charli", "Hija de Dre. Su gesto devuelve a Frank las ganas de seguir."],
+    ["Karen Page", "La periodista amiga de Frank. Aparece en sus visiones."],
+    ["Curtis Hoyle", "El compañero veterano, de la serie de Netflix."],
+    ["Maria y Lisa Castle", "La esposa y la hija de Frank, en sus recuerdos."]
+  ],
+  "cosas": [
+    ["La calavera", "El emblema de Punisher. Frank estrena traje al final."],
+    ["La recompensa", "El precio que Ma Gnucci pone por matar a Castle."],
+    ["El edificio", "Casi todo el especial ocurre dentro de un bloque de pisos."],
+    ["La rosa de papel", "El regalo de Charli, que Frank deja en la tumba de su hija."],
+    ["Las visiones", "Los fantasmas con los que Frank habla, fruto de su culpa."]
+  ],
+  "creditos": "El especial termina con Frank Castle de nuevo en la calle como Punisher. Su siguiente aparición es en la película Spider-Man: Brand New Day.",
+  "conexiones": [
+    "Frank escapó de la jaula de Fisk al final de la temporada 1 de Daredevil: Born Again.",
+    "Ocurre a la vez que la temporada 2 de esa serie.",
+    "Curtis Hoyle y Maria Castle vienen de la serie The Punisher de Netflix.",
+    "Ma Gnucci procede del cómic Bienvenido de nuevo, Frank, de Garth Ennis y Steve Dillon.",
+    "Punisher aparece después en Spider-Man: Brand New Day."
+  ],
+  "preguntas": [
+    ["¿Qué es One Last Kill?", "Un especial de 51 minutos de Punisher, con Jon Bernthal, estrenado en Disney+ en mayo de 2026."],
+    ["¿Quién es Ma Gnucci?", "Una jefa mafiosa que pone precio a la cabeza de Frank Castle por haber matado a su familia."],
+    ["¿Frank deja de ser Punisher?", "Lo intenta, pero al final decide seguir, porque aún puede proteger a otros."],
+    ["¿Hace falta ver Daredevil para entenderlo?", "No. Se entiende solo, aunque ocurre al mismo tiempo que la temporada 2 de Born Again."],
+    ["¿Quién lo escribió?", "El propio Jon Bernthal, junto con el director Reinaldo Marcus Green."],
+    ["¿Es para todos los públicos?", "No. Es para adultos, por su violencia y por tratar el suicidio."]
+  ],
+  "curiosidades": [
+    "Se rodó en solo doce días, en Nueva York, en el verano de 2025.",
+    "Bernthal y el director ya habían trabajado juntos en la serie La ciudad es nuestra.",
+    "Es el tercer especial de Marvel en Disney+, tras el del hombre lobo y el navideño de los Guardianes.",
+    "Un plano de Frank cayendo de una azotea fue muy criticado en internet por sus efectos."
+  ]
+}

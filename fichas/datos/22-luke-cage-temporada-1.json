@@ -1,0 +1,94 @@
+{
+  "titulo": "Luke Cage · Temporada 1",
+  "anio": 2016,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Luke Cage (temporada 1)"],
+    ["Estreno", "30 de septiembre de 2016 (Netflix; hoy en Disney+)"],
+    ["Creador", "Cheo Hodari Coker"],
+    ["Episodios", "13"],
+    ["Reparto principal", "Mike Colter (Luke Cage), Mahershala Ali (Cornell «Cottonmouth» Stokes), Alfre Woodard (Mariah Dillard), Simone Missick (Misty Knight), Theo Rossi (Shades), Erik LaRay Harvey (Willis «Diamondback» Stryker), Rosario Dawson (Claire Temple), Frankie Faison (Pop), Frank Whaley (Rafael Scarfe)"],
+    ["Música", "Adrian Younge y Ali Shaheed Muhammad"],
+    ["Lugar en el universo", "Tercera serie de los Defensores"],
+    ["Cronología interna", "Harlem, Nueva York, meses después de la primera temporada de Jessica Jones"],
+    ["Tono", "Policíaco con alma de hip hop y de cine negro de los setenta; cada episodio lleva el título de una canción de Gang Starr"]
+  ],
+  "momentos": [
+    ["La barbería", "Muere Pop"],
+    ["Seagate", "El experimento"],
+    ["Cottonmouth", "Mariah lo mata"],
+    ["La bala Judas", "Luke cae herido"],
+    ["Diamondback", "Hermano contra hermano"]
+  ],
+  "actos": [
+    ["Episodios 1 a 4: Un hombre que no quiere líos", [
+      "Luke Cage se esconde en Harlem. Barre el suelo en la barbería de Pop, un antiguo pandillero que convirtió su local en «Suiza», terreno neutral para los chicos del barrio, y por la noche lava platos en el Harlem's Paradise. El club pertenece a Cornell Stokes, al que llaman Cottonmouth, que trafica con armas mientras su prima, la concejala Mariah Dillard, lava el dinero con su proyecto para «mantener Harlem negro».",
+      "Tres chicos de la barbería roban una venta de armas de Cottonmouth. Buscándolos, uno de sus hombres ametralla el local y mata a Pop. Luke, que no quería usar sus poderes, decide plantar cara: asalta a pie el edificio donde Cottonmouth guarda su dinero, sin que las balas le hagan nada.",
+      "Cottonmouth responde con un lanzacohetes. Mientras Luke espera el rescate bajo los escombros, se cuenta su origen: se llamaba Carl Lucas y fue policía. Lo encarcelaron por un delito que no cometió en Seagate, donde un guardia lo obligaba a pelear. Allí conoció a la psicóloga Reva Connors. Tras una paliza casi mortal, el doctor Burstein lo metió en un tanque experimental para salvarlo; el experimento salió mal, o demasiado bien, y Carl salió con la piel irrompible y una fuerza enorme. Escapó y se cambió el nombre."
+    ]],
+    ["Episodios 5 a 7: La caída de Cottonmouth", [
+      "Luke se vuelve un héroe del barrio. La detective Misty Knight, capaz de reconstruir en su cabeza la escena de un crimen, sospecha de él y también de Cottonmouth. Su compañero Scarfe está comprado; Cottonmouth lo mata, pero antes de morir Scarfe entrega sus pruebas a Luke y a Claire Temple, la enfermera, que ha vuelto a Harlem.",
+      "Cottonmouth sale libre y descubre el pasado de Luke. Discute con Mariah, le echa en cara los abusos que ella sufrió de joven dentro de la familia, y Mariah lo mata a golpes. Shades, el enviado del proveedor de armas, la ayuda a culpar a Luke.",
+      "Esa misma noche, alguien dispara a Luke con una bala que sí le atraviesa la piel."
+    ]],
+    ["Episodios 8 a 10: La bala Judas", [
+      "El tirador es Willis Stryker, Diamondback, el traficante para el que trabajaban Shades y Cottonmouth. Las balas Judas están hechas con metal de los Chitauri y estallan dentro del cuerpo.",
+      "Claire lleva a Luke hasta Georgia para que el doctor Burstein lo opere: hay que hervirlo en ácido para ablandarle la piel y sacar la metralla. Allí Luke descubre que Reva sabía del experimento y le mintió.",
+      "Diamondback revela por qué lo odia: creció con Carl como su mejor amigo, pero en realidad son hermanos por parte de padre. El padre, predicador, nunca lo reconoció. Fue Willis quien hizo encarcelar a Carl."
+    ]],
+    ["Episodios 11 a 13: Harlem elige", [
+      "Diamondback toma rehenes en el Harlem's Paradise y hiere a Misty. Mata a un policía con un guante de fuerza para culpar a Luke, y Mariah aprovecha el miedo para que la ciudad compre balas Judas. El barrio protege a Luke: los vecinos salen a la calle con sudaderas agujereadas como la suya.",
+      "Diamondback aparece con un traje de combate que iguala la fuerza de Luke, y pelean en plena calle ante todo Harlem. Luke lo vence.",
+      "Misty tenía una testigo contra Mariah, pero Shades la mata y Mariah sale libre y dueña del club. Unos agentes federales reconocen a Luke como el fugitivo Carl Lucas y se lo llevan a Seagate. En la barbería aparece una carpeta con las pruebas de su inocencia, y el doctor Burstein visita a Diamondback en el hospital."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["L", "Luke"], ["C", "Cottonmouth"], ["M", "Mariah"], ["D", "Diamondback"], ["K", "Misty"], ["S", "Shades"]],
+    "enlaces": [["L", "C", "enemigos"], ["C", "M", "primos"], ["D", "L", "medio hermanos"], ["K", "L", "lo investiga"], ["S", "M", "aliados"], ["S", "D", "trabaja para él"]]
+  },
+  "personajes": [
+    ["Luke Cage", "Carl Lucas. Piel a prueba de balas y fuerza sobrehumana. Tranquilo, lector, y harto de huir."],
+    ["Cornell «Cottonmouth» Stokes", "Dueño del Harlem's Paradise. Quiso ser músico, y su abuela lo crió para ser gánster. Odia su apodo."],
+    ["Mariah Dillard", "Concejala y prima de Cornell. Empieza negando lo que es y acaba mandando."],
+    ["Misty Knight", "Detective criada en Harlem. Brillante y cabezota."],
+    ["Shades", "Hernán Álvarez. Estratega frío que estuvo preso en Seagate con Luke. Nunca se quita las gafas de sol."],
+    ["Diamondback", "Willis Stryker. Traficante de armas que cita la Biblia y vive para vengarse de su hermano."],
+    ["Pop", "Henry Hunter. Dueño de la barbería y conciencia del barrio."],
+    ["Claire Temple", "La enfermera de las otras series. Aquí se enamora de Luke."],
+    ["Rafael Scarfe", "Compañero de Misty, vendido a Cottonmouth."],
+    ["Doctor Noah Burstein", "El científico de Seagate que dio sus poderes a Luke."],
+    ["Bobby Fish", "Amigo de Pop que mantiene abierta la barbería."],
+    ["Mama Mabel", "La abuela de Cornell y Mariah, jefa criminal de Harlem en otra época."]
+  ],
+  "cosas": [
+    ["Piel irrompible", "Las balas rebotan en Luke y los cuchillos se doblan. También se cura muy rápido."],
+    ["Bala Judas", "Munición hecha con metal Chitauri por Industrias Hammer. Perfora y estalla dentro. La única arma que hiere a Luke."],
+    ["Harlem's Paradise", "El club nocturno de Cottonmouth, con música en vivo. Sobre el despacho cuelga un retrato del rapero Notorious B.I.G. con corona."],
+    ["Barbería de Pop", "«Suiza»: el lugar donde no entran las peleas del barrio."],
+    ["Seagate", "Prisión en una isla de Georgia donde experimentaban con los presos."],
+    ["La sudadera", "La sudadera con capucha llena de agujeros de bala se vuelve el símbolo de Luke."],
+    ["«Sweet Christmas»", "La exclamación de Luke, sacada de los cómics de los setenta."]
+  ],
+  "creditos": "No hay escenas después de los créditos. La temporada termina con Luke esposado camino de Seagate, tranquilo, mientras Mariah y Shades brindan en el club.",
+  "conexiones": [
+    "Luke sale de la cárcel con ayuda de Foggy Nelson al principio de The Defenders.",
+    "Reva Connors y el pasado de Luke se cuentan también en Jessica Jones, temporada 1.",
+    "Las armas vienen de Industrias Hammer, la empresa de Justin Hammer en Iron Man 2.",
+    "Claire Temple pasa después a Iron Fist y a The Defenders.",
+    "Misty Knight pierde un brazo en The Defenders y recibe uno biónico en la temporada 2."
+  ],
+  "preguntas": [
+    ["¿Qué poderes tiene Luke Cage?", "Piel irrompible, fuerza sobrehumana y una curación muy rápida."],
+    ["¿Cómo consiguió sus poderes?", "En la prisión de Seagate, cuando el doctor Burstein lo sometió a un experimento para salvarle la vida."],
+    ["¿Cuál es el verdadero nombre de Luke Cage?", "Carl Lucas. Se lo cambió al escapar de la cárcel."],
+    ["¿Quién es Cottonmouth?", "Cornell Stokes, jefe criminal de Harlem y dueño del Harlem's Paradise. Lo mata su prima Mariah."],
+    ["¿Quién es Diamondback?", "Willis Stryker, medio hermano de Luke, que lo incriminó y trata de matarlo con las balas Judas."],
+    ["¿Qué puede herir a Luke Cage?", "Las balas Judas, hechas con metal alienígena."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece en un cartel de la policía, como en las demás series de Netflix.",
+    "En un flashback, Luke lleva la tiara plateada y la camisa amarilla de su traje clásico de los cómics, y dice que parece un tonto.",
+    "El rapero Method Man aparece como él mismo y le dedica una canción a Luke.",
+    "El día del estreno, la demanda fue tanta que el servicio de Netflix se cayó durante unas horas."
+  ]
+}

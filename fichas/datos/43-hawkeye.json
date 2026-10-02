@@ -1,0 +1,92 @@
+{
+  "titulo": "Hawkeye",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Hawkeye (en español, Ojo de Halcón)"],
+    ["Estreno", "Del 24 de noviembre al 22 de diciembre de 2021 (Disney+)"],
+    ["Creador", "Jonathan Igla. Dirección de Rhys Thomas y del dúo Bert y Bertie"],
+    ["Episodios", "6 (miniserie)"],
+    ["Reparto principal", "Jeremy Renner (Clint Barton), Hailee Steinfeld (Kate Bishop), Vera Farmiga (Eleanor Bishop), Tony Dalton (Jack Duquesne), Alaqua Cox (Maya Lopez), Fra Fee (Kazi), Florence Pugh (Yelena Belova), Vincent D'Onofrio (Wilson Fisk), Linda Cardellini (Laura Barton)"],
+    ["Música", "Christophe Beck y Michael Paraskevas"],
+    ["Lugar en el universo", "Fase 4"],
+    ["Cronología interna", "La semana antes de la Navidad de 2024, en Nueva York"],
+    ["Tono", "Comedia de acción navideña, basada en los cómics de Matt Fraction y David Aja"]
+  ],
+  "momentos": [
+    ["2012", "Una niña ve a Ojo de Halcón"],
+    ["La subasta", "Kate se pone el traje de Ronin"],
+    ["Echo", "La jefa de los chándales"],
+    ["Yelena", "Viene a por Clint"],
+    ["Nochebuena", "Kingpin en la juguetería"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: El traje de Ronin", [
+      "En 2012, durante la batalla de Nueva York, una niña llamada Kate Bishop pierde a su padre y ve desde su casa destrozada a un hombre sin poderes saltar de una azotea disparando flechas. Decide ser como él.",
+      "En 2024, Clint Barton pasa unos días en Nueva York con sus tres hijos. Lleva un audífono, por tantos años de explosiones, y arrastra el duelo por Natasha. Quiere estar en casa para Navidad.",
+      "Kate, de veintidós años, campeona de tiro con arco y de esgrima, desconfía del prometido de su madre, Jack Duquesne. Lo sigue hasta una subasta clandestina donde se venden objetos sacados de las ruinas de la base de los Vengadores, entre ellos el traje y la espada de Ronin. Unos mafiosos con chándal asaltan el lugar; Kate se pone el traje para escapar, y rescata a un perro tuerto.",
+      "Todas las bandas que Ronin atacó creen que ha vuelto. Clint ve el traje en las noticias: Ronin era él, en los cinco años sin su familia. Encuentra a Kate y tiene que quedarse a arreglarlo."
+    ]],
+    ["Episodios 3 y 4: La mafia del chándal", [
+      "A la Mafia del Chándal la dirige Maya Lopez, una joven sorda con una pierna ortopédica que pelea imitando lo que ve. Su padre fue asesinado por Ronin, y ella quiere venganza. Su mano derecha es Kazi.",
+      "Clint y Kate escapan en una persecución por un puente con flechas trucadas: una que explota, una de masilla y una que crece gracias a las partículas Pym. Clint sospecha que alguien por encima de Maya mueve los hilos, alguien de quien no quiere ni oír hablar.",
+      "En una azotea, mientras intentan recuperar un reloj robado de la subasta, los ataca además una mujer enmascarada. Clint reconoce su forma de pelear: es una Viuda Negra. Aparta a Kate del caso para protegerla."
+    ]],
+    ["Episodios 5 y 6: Tan fácil como dar en el blanco", [
+      "La Viuda es Yelena Belova. Desapareció en el Blip en mitad de una misión y volvió, para ella un segundo después, a un mundo donde su hermana Natasha había muerto. Le dijeron que el culpable era Clint. Se presenta en casa de Kate y, entre macarrones con queso, le cuenta quién la contrató: Eleanor Bishop, la madre de Kate.",
+      "Clint le dice la verdad a Maya vestido de Ronin: alguien avisó aquella noche para que matara a su padre, y fue su propio jefe. Yelena envía una foto que lo confirma: Eleanor trabaja para Wilson Fisk, Kingpin.",
+      "En la fiesta de Navidad del Rockefeller Center, Eleanor le dice a Fisk que lo deja. Kazi dispara desde un edificio. Los amigos de Clint y Kate, un grupo de aficionados a los juegos de rol, evacúan a la gente, y los dos arqueros usan todas las flechas trucadas sobre la pista de hielo.",
+      "Kate se enfrenta a Kingpin en una juguetería y lo tumba haciendo estallar sus flechas. Luego entrega a su madre a la policía por el asesinato del tío de Jack. Yelena pelea con Clint decidida a matarlo, hasta que él silba la señal secreta que Natasha y ella usaban de niñas, y le cuenta cómo murió su hermana.",
+      "Maya mata a Kazi y encañona a Fisk en un callejón; se oye un disparo. Clint llega a casa el día de Navidad, con Kate y el perro. Le devuelve el reloj a su esposa, Laura: detrás tiene el emblema de S.H.I.E.L.D. y el número 19. Queman juntos el traje de Ronin."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["C", "Clint"], ["K", "Kate"], ["M", "Maya"], ["Y", "Yelena"], ["F", "Fisk"], ["E", "Eleanor"]],
+    "enlaces": [["C", "K", "maestro y aprendiz"], ["M", "C", "quiere vengarse"], ["Y", "C", "lo culpa"], ["F", "M", "tío que la engaña"], ["E", "K", "madre e hija"], ["E", "F", "trabaja para él"]]
+  },
+  "personajes": [
+    ["Clint Barton", "Ojo de Halcón. Cansado, medio sordo y con mucha culpa. Solo quiere volver con su familia."],
+    ["Kate Bishop", "Rica, habladora y muy buena con el arco. Idolatra a Clint y acaba siendo su compañera."],
+    ["Maya Lopez", "Jefa de la Mafia del Chándal. En los cómics es Echo."],
+    ["Yelena Belova", "La hermana de Natasha. Peligrosa y divertida a partes iguales."],
+    ["Wilson Fisk", "Kingpin, el de Daredevil. Aquí lleva camisa hawaiana y aguanta flechas y atropellos."],
+    ["Eleanor Bishop", "Madre de Kate. Debe dinero a Fisk desde que murió su marido."],
+    ["Jack Duquesne", "Prometido de Eleanor, aficionado a las espadas. Parece culpable y es inocente."],
+    ["Kazi", "Kazimierz Kazimierczak, lugarteniente de Maya y hombre de Fisk."],
+    ["Laura Barton", "Esposa de Clint. Fue agente de S.H.I.E.L.D."],
+    ["Lucky", "El perro tuerto que come pizza."],
+    ["Los rolistas", "Grace, Wendy, Missy y Orville, aficionados que se disfrazan y ayudan."],
+    ["William Lopez", "Padre de Maya, asesinado por Ronin."]
+  ],
+  "cosas": [
+    ["Ronin", "La identidad de Clint durante el Blip: un justiciero con espada que mataba criminales."],
+    ["Flechas trucadas", "De explosivos, ácido, masilla, red, ventosa, y una con partículas Pym que la hace gigante."],
+    ["El reloj", "Un Rolex de la base de los Vengadores. Pertenece a Laura Barton, la agente 19."],
+    ["Mafia del Chándal", "Banda de matones de Europa del Este que dicen «bro» en cada frase."],
+    ["Rogers: El musical", "Obra de Broadway sobre la batalla de Nueva York. Clint no la soporta."],
+    ["El silbido", "La señal de Natasha y Yelena, de su infancia en Ohio."],
+    ["Audífono", "Clint pierde oído y aprende lengua de signos con Maya."]
+  ],
+  "creditos": "Después del último episodio no hay una escena, sino un regalo: el número completo de Rogers: El musical, con la canción «Salvemos la ciudad».",
+  "conexiones": [
+    "Yelena llega por la escena final de Black Widow.",
+    "Kingpin es el de la serie Daredevil, con el mismo actor.",
+    "Maya Lopez protagoniza la serie Echo, que empieza justo después del disparo.",
+    "El pasado de Clint como Ronin se vio en Vengadores: Endgame.",
+    "Kate Bishop reaparece en The Marvels, donde Kamala Khan la recluta."
+  ],
+  "preguntas": [
+    ["¿Quién es Kate Bishop?", "Una joven arquera de Nueva York que admira a Ojo de Halcón desde niña y se convierte en su compañera."],
+    ["¿Quién era Ronin?", "Clint Barton. Durante los cinco años del Blip mató criminales por todo el mundo con una espada."],
+    ["¿Por qué Yelena quiere matar a Clint?", "Porque le dijeron que él fue el responsable de la muerte de su hermana Natasha."],
+    ["¿Quién es el jefe de la Mafia del Chándal?", "Maya Lopez los dirige, pero por encima de ella está Wilson Fisk, Kingpin."],
+    ["¿Qué tiene de especial el reloj?", "Es de Laura Barton y revela que fue la agente 19 de S.H.I.E.L.D."],
+    ["¿Fisk muere al final?", "Maya le dispara, pero no se ve. En Echo se confirma que sobrevivió."]
+  ],
+  "curiosidades": [
+    "Alaqua Cox, que interpreta a Maya, es sorda y lleva una prótesis en la pierna, como su personaje. Era su primer trabajo como actriz.",
+    "Las portadas y los títulos de crédito copian el diseño de los cómics de David Aja.",
+    "Las canciones del musical son de Marc Shaiman y Scott Wittman, autores de Hairspray.",
+    "Lucky lo interpreta una perra llamada Jolt, a la que borraron un ojo por ordenador."
+  ]
+}

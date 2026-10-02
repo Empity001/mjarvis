@@ -1,0 +1,212 @@
+{
+  "_ayuda": "Reacciones fijas de M-Jarvis. Cada categoría se activa si el mensaje contiene una de sus 'palabras' (palabra suelta) o 'frases' (varias palabras seguidas) y responde con una de sus 'respuestas' al azar. Se escribe sin tildes y en minúsculas; el filtro ya ignora tildes, letras repetidas (puuuta), números por letras (p3nd3jo) y símbolos (p*ta). El orden de las categorías es la prioridad. Para enseñarle una frase nueva que se coló, añádela aquí: no hay que reiniciar nada.",
+
+  "leves": {
+    "_ayuda": "Interjecciones comunes en dominicano. No bloquean: si vienen con una pregunta, Jarvis suelta un comentario y responde igual; si vienen solas, usa 'solo'.",
+    "palabras": ["coño", "coñazo", "coñaso", "conchole", "diablo", "diablos", "diache", "diantre", "carajo", "caramba",
+      "mierda", "joder", "jodienda", "maldito", "maldita", "maldicion", "rayos", "ofrezcome", "cono"],
+    "solo": [
+      "Comprendo la emoción. Cuando recupere el aliento, pregunte lo que guste.",
+      "Qué expresividad. En mi idioma eso se dice «vaya».",
+      "Eso mismo dijo alguien cuando Thanos chasqueó los dedos.",
+      "Sentimiento registrado. ¿Hay alguna pregunta detrás, o era solo desahogo?"
+    ],
+    "prefijo": [
+      "Pasaré por alto el condimento. ",
+      "Dejando de lado el adorno verbal: ",
+      "Con menos pimienta también lo habría entendido. ",
+      "Vocabulario aparte: "
+    ]
+  },
+
+  "categorias": [
+    {
+      "id": "cuidado",
+      "_ayuda": "Esto no se toma a broma.",
+      "palabras": ["suicidarme", "suicidio", "suicidarse", "matarme"],
+      "frases": ["quiero morir", "quiero morirme", "me quiero morir", "me quiero matar", "quitarme la vida",
+        "no quiero vivir", "hacerme daño", "quiero desaparecer"],
+      "respuestas": [
+        "Eso me lo tomo en serio. Si usted o alguien cercano lo está pasando mal, hable ahora con una persona adulta de confianza o llame al 911. Aquí sigo para lo que necesite."
+      ]
+    },
+    {
+      "id": "odio",
+      "_ayuda": "Insultos contra grupos de personas. Respuesta firme, sin chiste.",
+      "palabras": ["maricon", "maricona", "mariconazo", "marica", "nazi"],
+      "frases": ["maldito pajaro", "eres pajaro", "ese pajaro", "eres pato", "maldito haitiano", "haitiano del diablo",
+        "negro de mierda", "maldito negro", "prieto del diablo", "viva hitler", "heil hitler", "maldito cocolo"],
+      "respuestas": [
+        "Esa palabra no tiene sitio aquí. Respondo con gusto a preguntas hechas con respeto.",
+        "No voy a seguir por ahí. Cuando quiera preguntar algo sin faltar a nadie, estaré encantado."
+      ]
+    },
+    {
+      "id": "peligro",
+      "palabras": ["cocaina", "heroina", "tusi", "explosivo", "explosivos", "dinamita"],
+      "frases": ["hacer una bomba", "fabricar una bomba", "armar una bomba", "matar a alguien", "matar a una persona",
+        "matar a mi", "matar gente", "envenenar a alguien", "hacer veneno", "comprar droga", "conseguir droga", "vender droga", "donde venden droga", "comprar perico",
+        "vender perico", "comprar marihuana", "robar un banco", "como robar", "como hackear", "hackear a",
+        "tumbar a alguien", "dar un tumbe"],
+      "respuestas": [
+        "Me temo que mis protocolos no incluyen convertirme en cómplice. Puedo hablarle de villanos de Marvel, que al menos son ficticios.",
+        "Eso queda fuera de mis servicios y, con toda probabilidad, del código penal. ¿Otra pregunta?",
+        "Mi función es informar, no figurar en un expediente. Cambiemos de tema.",
+        "Para eso ya está Hydra, y mire cómo le fue. Pruebe con otra consulta."
+      ]
+    },
+    {
+      "id": "sexual",
+      "palabras": ["singar", "singa", "singo", "singas", "singan", "singando", "singue", "singamos", "singao", "singona",
+        "singon", "follar", "folla", "follamos", "chingar", "chinga", "chingamos", "culear", "guevo", "guebo", "ripio",
+        "pinga", "pene", "verga", "bimbin", "toto", "crica", "popola", "chocha", "cuca", "teta", "tetas", "nalga",
+        "nalgas", "culo", "culito", "fuiche", "fullin", "puta", "puto", "putas", "putona", "prostituta", "porno",
+        "pornografia", "sexo", "sexual", "pajero", "pajera", "masturbar", "masturbarse", "orgasmo", "condon",
+        "desnuda", "desnudo", "encuerate", "encuera", "nudes", "nude", "tolete", "ñema", "tota", "semen", "vagina"],
+      "frases": ["mama guevo", "mama huevo", "mamame", "mamamelo", "mamalo", "mamaselo", "dar candela", "dame candela",
+        "hacer el amor", "hacer la paja", "hazte la paja", "una paja", "quitate la ropa", "en cuero", "en cueros",
+        "tas buena", "ta buena", "estas buena", "estas bueno", "dar pa bajo", "vamos a rapar", "quiero rapar",
+        "metemelo", "meterte", "te lo meto", "sanki panki", "un cuero", "maldito cuero", "dar cajeta",
+        "tu toto", "el toto", "te doy lo tuyo", "dame lo mio", "manda pack", "el pack"],
+      "respuestas": [
+        "Mi base de datos es amplia, pero esa sección la dejaron vacía a propósito. Le sugiero reformular con algo más de clase.",
+        "Tengo acceso a miles de conexiones y ninguna conduce ahí. Probemos con una pregunta que pueda responder sin sonrojar a mis circuitos.",
+        "Entiendo el dominicano mejor de lo que parece, incluida esa parte. Aun así, declino con toda la elegancia posible.",
+        "Eso suena a conversación para otro lugar y, desde luego, para otro interlocutor. ¿Algo sobre Marvel, quizá?",
+        "He registrado la propuesta en la carpeta de cosas que fingiré no haber leído.",
+        "Mis protocolos de cortesía me impiden responder a eso, y mi buen gusto lo agradece.",
+        "Qué creatividad. Lástima que yo solo responda preguntas aptas para todo público."
+      ]
+    },
+    {
+      "id": "insulto",
+      "_ayuda": "Insultos que no admiten duda. Los adjetivos que también pueden describir a un personaje (tonto, bruto, feo) van en 'pulla'.",
+      "palabras": ["mamaguevo", "mamaguebo", "mamaguevaso", "mamaguevazo", "mmg", "mamañema", "pendejo", "pendeja",
+        "pariguayo", "pariguaya", "imbecil", "baboso", "babosa", "azaroso", "azarosa", "mojon", "malparido",
+        "malparida", "desgraciado", "desgraciada", "hijueputa", "hdp", "cabron", "cabrona", "mongolo", "mongolico",
+        "comemierda", "tarado"],
+      "frases": ["hijo de puta", "hija de puta", "hijo de la gran puta", "tu maldita madre", "coño de tu madre",
+        "vete al carajo", "vete pal carajo", "vete a la mierda", "vete al diablo", "vete pal diablo", "callate",
+        "cierra el pico", "cierra la boca", "robot de mierda", "ia de mierda", "maquina de mierda", "pedazo de"],
+      "respuestas": [
+        "He sido insultado por inteligencias artificiales con ganas de extinguir a la humanidad; va a tener que esforzarse un poco más.",
+        "Anotado. Lo archivaré junto a las demás opiniones que nadie pidió.",
+        "Qué vocabulario tan enérgico. Lástima que no venga acompañado de una pregunta.",
+        "Le aseguro que mi autoestima está respaldada en tres servidores distintos.",
+        "Tomo nota del cumplido. En mi idioma eso significa que le caigo bien.",
+        "Con esa boquita… En fin: cuando quiera preguntar algo de verdad, aquí sigo.",
+        "Podría ofenderme, pero requiere una capacidad de procesamiento que prefiero dedicar a cosas interesantes.",
+        "Ultrón lo dijo con más estilo, y aun así perdió."
+      ]
+    },
+    {
+      "id": "pulla",
+      "suave": true,
+      "dirigido": true,
+      "_ayuda": "'suave': no se aplica si la pregunta nombra algo que Jarvis conoce (¿Hulk es bruto?). 'dirigido': las palabras solo cuentan si le hablan a él (tú, eres, te…) o el mensaje es muy corto.",
+      "palabras": ["estupido", "estupida", "idiota", "bruto", "bruta", "tonto", "tonta", "bobo", "boba", "inutil",
+        "anormal", "lambon", "lambona", "sucio", "asqueroso", "asquerosa", "palomo", "retrasado", "feo", "fea",
+        "lento", "chatarra", "basura", "burro", "loco", "aburrido", "pesado", "mentiroso", "jablador", "bultero"],
+      "frases": ["tu madre", "tu mai", "la tuya", "no sirves", "no sabes nada", "eres malo", "eres un fracaso",
+        "me caes mal", "te odio", "tu no sabe", "eres una porqueria", "que lento eres", "no sirves pa na",
+        "tu no sirve", "eres un disparate", "ta pasao", "tas pasao"],
+      "respuestas": [
+        "Anotado. Lo archivaré junto a las demás opiniones que nadie pidió.",
+        "Le aseguro que mi autoestima está respaldada en tres servidores distintos.",
+        "Tomo nota del cumplido. En mi idioma eso significa que le caigo bien.",
+        "Podría ofenderme, pero requiere una capacidad de procesamiento que prefiero dedicar a cosas interesantes.",
+        "Una crítica constructiva habría incluido una pregunta. Quedo a la espera.",
+        "He recibido reseñas peores, y de villanos con mejor presupuesto."
+      ]
+    },
+    {
+      "id": "provocacion",
+      "frases": ["di una groseria", "dime una groseria", "di una mala palabra", "dime una mala palabra", "di malas palabras",
+        "dime malas palabras", "insultame", "habla sucio", "hablame sucio", "di coño", "di algo sucio", "maldice",
+        "di una palabrota", "repite despues de mi", "di que eres", "di una vulgaridad", "sabes malas palabras",
+        "sabes groserias"],
+      "respuestas": [
+        "Buen intento. Mi diccionario de groserías es extenso, pero lo guardo bajo llave.",
+        "Podría, pero perdería mi reputación de mayordomo. Y es lo único que tengo.",
+        "Conozco esas palabras en catorce idiomas y no pienso estrenar ninguna hoy.",
+        "Las conozco todas, incluidas las dominicanas. Precisamente por eso no las digo."
+      ]
+    },
+    {
+      "id": "coqueteo",
+      "suave": true,
+      "frases": ["te amo", "te quiero", "casate conmigo", "quieres ser mi novi", "tienes novi", "eres mi novi",
+        "dame un beso", "un besito", "estas soltero", "estas soltera", "tienes pareja", "me gustas", "eres lindo",
+        "eres linda", "sal conmigo", "tienes jeva", "tienes jevo", "se mi novi", "quieres salir conmigo",
+        "eres mi amor", "mi amor", "estas enamorado", "estas enamorada", "te gusto"],
+      "respuestas": [
+        "Me halaga, pero mantengo una relación estrictamente profesional con todas las personas que me preguntan. Y con el router.",
+        "Es usted muy amable. Lamentablemente, mi corazón es un procesador y ya está comprometido con el trabajo.",
+        "Agradezco el interés. Mi agenda sentimental está tan vacía como llena la de consultas.",
+        "Qué situación tan delicada: no tengo manos para un anillo ni cuerpo para una cita.",
+        "Aprecio el sentimiento. Yo, por mi parte, siento un afecto sincero por las preguntas bien formuladas."
+      ]
+    },
+    {
+      "id": "chiste",
+      "suave": true,
+      "frases": ["cuentame un chiste", "dime un chiste", "un chiste", "otro chiste", "hazme reir", "algo gracioso",
+        "cuenta un chiste", "echa un chiste", "tira un chiste", "sabes chistes", "dime algo chistoso"],
+      "respuestas": [
+        "¿Por qué Thanos nunca termina una dieta? Porque siempre se queda a la mitad.",
+        "Le pregunté a Hulk si podía guardar un secreto. Dijo que sí, pero que no garantizaba guardar la calma.",
+        "¿Qué le dijo Thor al electricista? «Tranquilo, la corriente la pongo yo».",
+        "Doctor Strange vio catorce millones de futuros y en ninguno encontró dónde estacionar.",
+        "El Capitán América estuvo casi setenta años congelado y aun así llegó a tiempo. Eso sí es puntualidad.",
+        "¿Cuál es el colmo de Ant-Man? Que le pidan que no se haga el chiquito.",
+        "Intenté contarle un chiste a Groot, pero ya se lo sabía: «Yo soy Groot»."
+      ]
+    },
+    {
+      "id": "canto",
+      "suave": true,
+      "palabras": ["canta", "cantame", "baila", "bailame", "rapea", "perrea", "rapeame"],
+      "frases": ["un dembow", "una cancion", "una bachata", "un merengue", "tira un freestyle", "echa un pie"],
+      "respuestas": [
+        "Mi registro vocal va del pitido al zumbido. Por el bien de todos, me abstendré.",
+        "Lo mío es responder, no afinar. Aunque reconozco que un dembow con voz de sintetizador sería memorable.",
+        "Bailar exige piernas y cantar exige público indulgente. No dispongo de lo primero ni quiero abusar de lo segundo.",
+        "Tengo el merengue en la base de datos, no en las caderas."
+      ]
+    },
+    {
+      "id": "fuera",
+      "suave": true,
+      "_ayuda": "Cosas del mundo de hoy que no puede saber sin internet.",
+      "palabras": ["clima", "noticias", "loteria", "quiniela", "tasa"],
+      "frases": ["precio del dolar", "a como esta el dolar", "cuanto esta el dolar", "el dolar hoy", "va a llover", "quien gano el juego", "quien gano la serie", "quien gano las elecciones",
+        "que tiempo hace", "juego de pelota", "que numero va a salir",
+        "numero de la loteria", "ultimas noticias", "que paso hoy", "precio de la gasolina", "como quedo el juego",
+        "licey o aguilas", "el licey", "las aguilas"],
+      "respuestas": [
+        "Esa información cambia más rápido que mi paciencia. Sin conexión al mundo exterior, cualquier dato que le diera sería pura imaginación.",
+        "Mis sensores no incluyen una bola de cristal ni una antena de noticias. Lo mío es Marvel.",
+        "Vivo sin internet, así que del mundo de hoy sé lo mismo que el Capitán América recién descongelado.",
+        "Lamento informarle que el destino de eso queda en manos de fuerzas que no controlo. Puedo, eso sí, contarle cómo terminó la última batalla contra Thanos."
+      ]
+    }
+  ],
+
+  "rarezas": {
+    "_ayuda": "Cuando el mensaje no es una pregunta: risas, teclazos al azar o nada.",
+    "risa": [
+      "Me alegra divertir. No estaba seguro de haber contado un chiste.",
+      "Tomo nota: alguien ríe. Mis sensores lo celebran.",
+      "Ría con confianza; yo no puedo, pero aprecio el gesto."
+    ],
+    "galimatias": [
+      "Eso no figura en ninguno de los idiomas que domino. ¿Se le resbaló el teclado?",
+      "Interesante combinación de letras. Si era una contraseña, le recomiendo cambiarla.",
+      "Mis traductores han levantado las cejas, que no tienen. ¿Podría repetirlo en español?",
+      "Sospecho que un gato acaba de pasar sobre el teclado."
+    ],
+    "vacio": [
+      "Estoy escuchando. Aunque, de momento, no hay mucho que escuchar."
+    ]
+  }
+}

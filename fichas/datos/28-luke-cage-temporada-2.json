@@ -1,0 +1,92 @@
+{
+  "titulo": "Luke Cage · Temporada 2",
+  "anio": 2018,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Luke Cage (temporada 2)"],
+    ["Estreno", "22 de junio de 2018 (Netflix; hoy en Disney+)"],
+    ["Creador", "Cheo Hodari Coker"],
+    ["Episodios", "13"],
+    ["Reparto principal", "Mike Colter (Luke Cage), Alfre Woodard (Mariah Dillard), Mustafa Shakir (John «Bushmaster» McIver), Simone Missick (Misty Knight), Theo Rossi (Shades), Gabrielle Dennis (Tilda Johnson), Rosario Dawson (Claire Temple), Reg E. Cathey (James Lucas), Finn Jones (Danny Rand)"],
+    ["Música", "Adrian Younge y Ali Shaheed Muhammad"],
+    ["Lugar en el universo", "Después de The Defenders"],
+    ["Cronología interna", "Harlem, Nueva York, tras la batalla contra la Mano"],
+    ["Tono", "Saga de familias criminales con música en vivo; cada episodio lleva el título de una canción de Pete Rock y CL Smooth"]
+  ],
+  "momentos": [
+    ["El héroe", "Luke es famoso"],
+    ["El puente", "Bushmaster lo tumba"],
+    ["Las cabezas", "Mariah lo pierde todo"],
+    ["La matanza", "Mariah responde"],
+    ["El trono", "Luke hereda el club"]
+  ],
+  "actos": [
+    ["Episodios 1 a 4: El héroe de Harlem", [
+      "Luke Cage ya no se esconde. Es una celebridad: hay una aplicación que avisa dónde está, y le ofrecen dinero por patrocinios. Vive con Claire Temple y persigue a los traficantes que venden una heroína con su nombre.",
+      "Su padre, el reverendo James Lucas, llega a Harlem y Luke no quiere verlo. La rabia le crece. Cuando rompe una pared de un puñetazo en plena discusión, Claire se marcha de la ciudad.",
+      "Mariah Dillard, que ahora usa su apellido de soltera, Stokes, quiere vender el negocio de armas de la familia y hacerse respetable con un negocio de bolsa. Shades es su socio y su pareja. Mariah intenta acercarse a su hija Tilda, médica y dueña de una tienda de hierbas.",
+      "De Brooklyn llega John McIver, Bushmaster, un jamaicano que quiere Harlem como herencia. Reta a Luke delante de las cámaras en un puente y lo tumba de una patada. El vídeo da la vuelta a la ciudad."
+    ]],
+    ["Episodios 5 a 9: La deuda de los Stokes", [
+      "Bushmaster no es irrompible por un experimento: toma una planta, la belladona, preparada según la tradición de su isla, que lo hace fuerte y lo cura, y que poco a poco lo consume.",
+      "Su odio viene de lejos. Su padre fue socio de los Stokes en el club Harlem's Paradise; los Stokes lo mataron para quedarse con todo y quemaron viva a su madre. Bushmaster le roba a Mariah toda su fortuna, deja las cabezas de sus socios clavadas en picas en la inauguración de su centro benéfico e incendia su casa con ella dentro. Luke la salva.",
+      "La detective Misty Knight, sin un brazo desde The Defenders, recibe una prótesis biónica regalo de Danny Rand. Shades mata a su amigo de siempre, Comanche, al descubrir que informaba a la policía.",
+      "Mariah, arruinada, deja de fingir. Entra en el restaurante de la familia de Bushmaster, mata a todos los presentes y quema vivo al tío de él."
+    ]],
+    ["Episodios 10 a 13: Quién manda en Harlem", [
+      "Danny Rand ayuda a Luke a destruir el almacén de belladona y le enseña a respirar antes de golpear. Shades, que tenía un código, no soporta la matanza y entrega a Mariah a la policía.",
+      "Desde la cárcel, Mariah sigue ordenando muertes. Tilda descubre que nació de una violación dentro de la familia, y que su madre nunca la quiso por eso. La visita y le da un beso con los labios envenenados. Mariah muere en la sala de visitas.",
+      "Bushmaster, deshecho por la planta, vuelve a Jamaica. Shades acaba detenido. En su testamento, Mariah deja el Harlem's Paradise a Luke, convencida de que el poder lo estropeará.",
+      "Luke acepta: si Harlem necesita a alguien que mantenga el orden, lo hará él, desde el despacho del club. Misty y sus amigos lo miran con miedo. La puerta se cierra entre ellos."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["L", "Luke"], ["M", "Mariah"], ["B", "Bushmaster"], ["S", "Shades"], ["T", "Tilda"], ["K", "Misty"]],
+    "enlaces": [["B", "M", "venganza de familia"], ["L", "B", "rivales"], ["M", "S", "pareja y socios"], ["M", "T", "madre e hija"], ["K", "L", "aliados"], ["T", "B", "lo cura"]]
+  },
+  "personajes": [
+    ["Luke Cage", "Héroe famoso al que le pesa la rabia. Termina como «sheriff» de Harlem, sentado en la silla de un gánster."],
+    ["Mariah Dillard", "Mariah Stokes. Política convertida en reina del crimen, tan cruel como la abuela que la crió."],
+    ["Bushmaster", "John McIver. Jefe de una banda jamaicana de Brooklyn. Pelea con capoeira y cree tener derecho a Harlem."],
+    ["Shades", "Hernán Álvarez. Estratega leal, hasta que Mariah rompe las reglas."],
+    ["Tilda Johnson", "Hija de Mariah, doctora y herbolaria. En los cómics es Nightshade."],
+    ["Misty Knight", "Detective con un brazo biónico. Tentada de fabricar pruebas, como hizo su compañero."],
+    ["Claire Temple", "Deja a Luke al verlo dominado por la ira."],
+    ["James Lucas", "Padre de Luke, predicador. Los dos hacen las paces."],
+    ["Comanche", "Amigo de Shades desde la cárcel de Seagate."],
+    ["Anansi", "Tío de Bushmaster, dueño del restaurante Gwen's."],
+    ["Danny Rand", "Iron Fist. Un episodio de «héroes de alquiler», como en los cómics."],
+    ["D. W. Griffith", "Vecino que vende vídeos de Luke y se vuelve su ayudante."]
+  ],
+  "cosas": [
+    ["Belladona", "La planta que da fuerza y curación a Bushmaster. Tilda sabe prepararla."],
+    ["Harlem's Paradise", "El club de los Stokes. Quien lo tiene manda en Harlem."],
+    ["Brazo biónico", "La prótesis que Industrias Rand fabrica para Misty."],
+    ["Los Stylers", "La banda jamaicana de Bushmaster."],
+    ["La bala Judas", "La munición que hiere a Luke. Aquí intentan usarla otra vez."],
+    ["El Basquiat", "El cuadro del despacho del club. Mariah se lo deja a Tilda."],
+    ["Mama Mabel", "La matriarca de los Stokes, origen de todas las deudas de sangre."]
+  ],
+  "creditos": "No hay escenas después de los créditos. El final imita al de El Padrino: Luke recibe visitas en el despacho del club mientras la puerta se cierra ante quienes lo quieren.",
+  "conexiones": [
+    "Misty perdió el brazo en The Defenders.",
+    "Danny Rand y Colleen Wing aparecen como invitados, y Misty visita a Colleen en la temporada 2 de Iron Fist.",
+    "Foggy Nelson, de Daredevil, ayuda a Luke con una demanda.",
+    "La serie fue cancelada tras esta temporada, y la historia del Luke jefe de Harlem quedó sin continuar.",
+    "Luke hace una aparición en el último episodio de Jessica Jones."
+  ],
+  "preguntas": [
+    ["¿Quién es Bushmaster?", "John McIver, un jefe criminal jamaicano que busca vengarse de la familia Stokes. Tiene fuerza sobrehumana gracias a la planta belladona."],
+    ["¿Cómo muere Mariah?", "Su hija Tilda la envenena con un beso en la cárcel."],
+    ["¿Por qué Bushmaster odia a los Stokes?", "Porque mataron a su padre para quedarse con el club y quemaron a su madre."],
+    ["¿Cómo consigue Misty su brazo nuevo?", "Es una prótesis biónica que le regala Danny Rand."],
+    ["¿Cómo termina Luke Cage?", "Como dueño del Harlem's Paradise y protector del barrio, con el riesgo de convertirse en lo que combatía."],
+    ["¿Por qué Claire deja a Luke?", "Porque le asusta su ira, que le recuerda a la violencia que vio en su propia familia."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece en un cartel publicitario.",
+    "Fue el último papel de Reg E. Cathey, que murió antes del estreno; la temporada está dedicada a él.",
+    "En cada episodio actúa en el club un músico real, como Ghostface Killah o KRS-One.",
+    "Mustafa Shakir aprendió capoeira para las peleas de Bushmaster."
+  ]
+}

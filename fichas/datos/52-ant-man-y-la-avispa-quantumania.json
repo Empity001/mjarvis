@@ -1,0 +1,92 @@
+{
+  "titulo": "Ant-Man y la Avispa: Quantumanía",
+  "anio": 2023,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Ant-Man and the Wasp: Quantumania"],
+    ["Estreno", "17 de febrero de 2023 (Estados Unidos)"],
+    ["Dirección", "Peyton Reed"],
+    ["Guion", "Jeff Loveness"],
+    ["Reparto principal", "Paul Rudd (Scott Lang), Evangeline Lilly (Hope van Dyne), Jonathan Majors (Kang), Kathryn Newton (Cassie Lang), Michelle Pfeiffer (Janet van Dyne), Michael Douglas (Hank Pym), Corey Stoll (M.O.D.O.K.), Bill Murray (Krylar), Katy O'Brian (Jentorra)"],
+    ["Duración", "124 minutos"],
+    ["Música", "Christophe Beck"],
+    ["Lugar en el universo", "Primera película de la Fase 5. Presenta a Kang el Conquistador"],
+    ["Cronología interna", "2026, en San Francisco y en el Reino Cuántico"],
+    ["Recaudación", "Cerca de 476 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["La señal", "Cassie llama al Reino Cuántico"],
+    ["Allá abajo", "Un mundo entero"],
+    ["El secreto", "Janet conoció a Kang"],
+    ["El núcleo", "Miles de Scotts"],
+    ["La revuelta", "Las hormigas llegan"]
+  ],
+  "actos": [
+    ["Acto 1: Absorbidos", [
+      "Scott Lang disfruta de la fama: ha escrito un libro sobre cómo ayudó a salvar el universo, y la gente lo saluda por la calle, a veces confundiéndolo con Spider-Man. Su hija Cassie, que ya tiene dieciocho años y creció cinco de ellos sin él, por el Blip, es una activista que acaba detenida, y le reprocha que se haya acomodado.",
+      "Cassie ha construido, con ayuda de Hank Pym, un aparato que envía una señal al Reino Cuántico para cartografiarlo. Cuando Janet van Dyne lo ve, se asusta y corre a apagarlo. Tarde: algo responde, y la máquina los absorbe a los cinco.",
+      "Caen separados. Scott y Cassie, por un lado; Hope, Hank y Janet, por otro. El Reino Cuántico no es un vacío: tiene cielos, ciudades y pueblos enteros de seres extraños, y casi todos huyen de alguien."
+    ]],
+    ["Acto 2: El Conquistador", [
+      "Scott y Cassie dan con un grupo de rebeldes dirigidos por Jentorra. Para entender su idioma tienen que beber el líquido de una criatura gelatinosa. Los rebeldes luchan contra el hombre que destruyó sus hogares, y que está buscando a los recién llegados.",
+      "Janet guía a los suyos y, a regañadientes, cuenta lo que calló en treinta años allí. No estuvo sola. Encontró a otro náufrago, un viajero cuya nave se había roto, y lo ayudó a reparar el núcleo de energía. Al tocarlo vio quién era: Kang, un conquistador que borra líneas de tiempo enteras. Sus propias variantes le temían tanto que lo desterraron al único lugar fuera del tiempo.",
+      "Janet agrandó el núcleo con partículas Pym para que nadie pudiera usarlo, y quedó atrapada con él. Kang, sin nave, se construyó allí un imperio.",
+      "A Scott y a Cassie los captura un cazador de Kang: una cabeza enorme dentro de un sillón flotante con brazos y piernas diminutos. Es Darren Cross, el villano al que Scott encogió hasta el nivel subatómico; Kang lo recogió, deforme, y lo convirtió en M.O.D.O.K.",
+      "Kang le propone un trato a Scott, que es ladrón: recuperar el núcleo o ver morir a su hija. Dentro del núcleo, cada decisión de Scott crea una copia suya, hasta que hay miles. Todas quieren lo mismo, salvar a Cassie, y forman una torre humana, como hormigas. Hope llega y lo ayuda a encoger el núcleo. Kang se lo lleva y no cumple."
+    ]],
+    ["Acto 3: Los pequeños", [
+      "Cassie emite un mensaje a todo el Reino Cuántico, y los rebeldes atacan la fortaleza. Hank aparece con refuerzos: sus hormigas cayeron con ellos en una zona donde el tiempo corre más rápido, y han vivido miles de años, hasta volverse una civilización avanzada.",
+      "Cassie convence a Darren de que todavía puede dejar de ser un miserable. M.O.D.O.K. se lanza contra el escudo de Kang y muere convencido de que, al final, fue un Vengador.",
+      "Janet repara el núcleo y abre el camino a casa. Scott se queda para detener a Kang, que le advierte: si él no escapa, vendrán otros peores. Pelean a puñetazos. Hope vuelve a ayudarlo, y Kang cae dentro del núcleo, que lo absorbe.",
+      "En casa todo parece normal. Pero Scott no deja de pensar en lo que Kang le dijo, y en si no habrá empeorado las cosas."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Scott"], ["C", "Cassie"], ["K", "Kang"], ["J", "Janet"], ["H", "Hope"], ["M", "M.O.D.O.K."]],
+    "enlaces": [["S", "C", "padre e hija"], ["J", "K", "lo dejó atrapado"], ["K", "S", "lo chantajea"], ["S", "H", "pareja"], ["M", "K", "le sirve"], ["C", "M", "lo convence"]]
+  },
+  "personajes": [
+    ["Scott Lang", "Ant-Man. Quiere recuperar el tiempo perdido con su hija."],
+    ["Cassie Lang", "Inventora y rebelde, con su propio traje para cambiar de tamaño."],
+    ["Kang el Conquistador", "Viajero del tiempo del futuro. Tranquilo y terrible. Una variante del hombre que Loki conoció al final del tiempo."],
+    ["Janet van Dyne", "Guerrera del Reino Cuántico. Carga con el secreto de haber ayudado a Kang."],
+    ["Hope van Dyne", "La Avispa. Dirige la empresa Pym para fines humanitarios."],
+    ["Hank Pym", "Solo quería estudiar a sus hormigas."],
+    ["M.O.D.O.K.", "Darren Cross, convertido en un arma con forma de cabeza gigante."],
+    ["Jentorra", "Líder de los rebeldes."],
+    ["Quaz", "Telépata. Le desagrada oír lo que piensa la gente."],
+    ["Veb", "Criatura gelatinosa obsesionada con los agujeros del cuerpo."],
+    ["Lord Krylar", "Viejo amigo de Janet que se pasó al bando de Kang."]
+  ],
+  "cosas": [
+    ["Reino Cuántico", "Un universo bajo el nuestro, fuera del tiempo y del espacio, con vida propia."],
+    ["El núcleo multiversal", "El motor de la nave de Kang, capaz de llevarlo a cualquier tiempo y universo."],
+    ["La nave de Kang", "Un trono con anillos giratorios."],
+    ["Tormenta de probabilidad", "Dentro del núcleo, cada posibilidad se vuelve una copia real."],
+    ["Las hormigas evolucionadas", "La colonia de Hank, tras milenios de adelanto."],
+    ["El libro de Scott", "Sus memorias, tituladas Cuidado con el pequeñín."],
+    ["El traje de Kang", "Armadura que absorbe y dispara energía."]
+  ],
+  "creditos": "A mitad de los créditos, tres variantes de Kang comentan la muerte del desterrado y su preocupación porque los héroes de la Tierra han empezado a tocar el multiverso. Convocan a todas las demás: un estadio lleno de miles de Kangs. Al final, en 1901, un inventor llamado Victor Timely presenta una máquina ante el público; entre los asistentes están Loki y Mobius.",
+  "conexiones": [
+    "Kang es una variante de El Que Permanece, de la temporada 1 de Loki.",
+    "La escena final pertenece a la temporada 2 de Loki.",
+    "Darren Cross es el villano de la primera Ant-Man.",
+    "Cassie creció durante el Blip, como se vio en Vengadores: Endgame.",
+    "El plan de Marvel de hacer de Kang el gran villano de la saga se abandonó después; su lugar lo ocupa el Doctor Doom en Avengers: Doomsday."
+  ],
+  "preguntas": [
+    ["¿Quién es Kang?", "Un conquistador del futuro que viaja por el tiempo y el multiverso. Sus propias variantes lo desterraron al Reino Cuántico."],
+    ["¿Qué es M.O.D.O.K.?", "Darren Cross, el villano de la primera película, convertido en una cabeza gigante con armas."],
+    ["¿Por qué Janet no había contado nada?", "Por vergüenza: ayudó a Kang antes de saber quién era, y lo dejó atrapado allí."],
+    ["¿Kang muere?", "Es absorbido por su núcleo. Pero existen miles de variantes suyas."],
+    ["¿Qué es el Consejo de Kangs?", "La reunión de todas las versiones de Kang de los distintos universos."],
+    ["¿Quién es Victor Timely?", "Una variante de Kang que vive en 1901 y aparece en Loki."]
+  ],
+  "curiosidades": [
+    "Casi toda la película se rodó en un plató rodeado de pantallas gigantes, la misma técnica de The Mandalorian.",
+    "Es la primera película de Ant-Man sin Luis, el personaje de Michael Peña.",
+    "Tuvo una de las peores acogidas de la crítica de todo el universo.",
+    "Corey Stoll rodó a M.O.D.O.K. con la cara estirada por ordenador."
+  ]
+}

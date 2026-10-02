@@ -1,0 +1,91 @@
+{
+  "titulo": "Loki · Temporada 1",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Loki (temporada 1)"],
+    ["Estreno", "Del 9 de junio al 14 de julio de 2021 (Disney+)"],
+    ["Creador", "Michael Waldron. Dirección de Kate Herron"],
+    ["Episodios", "6"],
+    ["Reparto principal", "Tom Hiddleston (Loki), Owen Wilson (Mobius), Sophia Di Martino (Sylvie), Gugu Mbatha-Raw (Ravonna Renslayer), Wunmi Mosaku (Cazadora B-15), Jonathan Majors (El Que Permanece), Richard E. Grant (Loki Clásico), Tara Strong (voz de Miss Minutos)"],
+    ["Música", "Natalie Holt"],
+    ["Lugar en el universo", "Fase 4. Abre el multiverso"],
+    ["Cronología interna", "Fuera del tiempo. Parte del Nueva York de 2012 visto en Vengadores: Endgame"],
+    ["Tono", "Ciencia ficción de oficina, con humor y una historia sobre aprender a quererse"]
+  ],
+  "momentos": [
+    ["La AVT", "Loki detenido por existir"],
+    ["La variante", "Otra Loki: Sylvie"],
+    ["Lamentis", "El fin de una luna"],
+    ["El Vacío", "Muchos Lokis y un monstruo"],
+    ["La Ciudadela", "El Que Permanece"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: La Autoridad de Variación Temporal", [
+      "Este Loki es el de 2012: el que, en Vengadores: Endgame, recoge el Teseracto del suelo y desaparece. No ha vivido nada de lo que vino después. Cae en el desierto de Gobi y lo detienen unos agentes con armadura.",
+      "Lo llevan a la AVT, una burocracia inmensa fuera del tiempo. Según su propaganda, tres seres llamados los Guardianes del Tiempo unieron todas las líneas temporales en una, la Sagrada Línea Temporal. Quien se sale del camino previsto es una variante, y su rama se «poda». En los cajones de los oficinistas hay Gemas del Infinito usadas de pisapapeles.",
+      "El agente Mobius le enseña la película de su vida: la muerte de su madre por su culpa, la paz con Thor y su propia muerte a manos de Thanos. Loki llora y admite que hace daño porque es lo único que sabe hacer. Mobius lo necesita para atrapar a otra variante que mata agentes: otra versión de Loki.",
+      "Loki deduce dónde se esconde: en los apocalipsis, donde nada de lo que hagas cambia el futuro. La encuentran en un huracán del año 2050. Ella lanza cargas temporales por toda la línea y huye por una puerta. Loki la sigue."
+    ]],
+    ["Episodios 3 y 4: Sylvie", [
+      "La variante es una mujer que se hace llamar Sylvie. La AVT se la llevó de niña y lleva toda la vida huyendo. Los dos quedan atrapados en Lamentis, una luna que va a ser destruida por un planeta, sin energía para escapar. Hablan y beben, y descubren lo imposible: se gustan.",
+      "Ese afecto entre dos Lokis crea una rama tan grande que la AVT los localiza. Sylvie revela un secreto: los empleados de la AVT no fueron creados por los Guardianes, son variantes secuestradas a las que borraron la memoria. Mobius lo comprueba, y la jueza Ravonna Renslayer ordena podarlo.",
+      "Ante los Guardianes del Tiempo, Sylvie decapita a uno: son robots. Renslayer poda a Loki."
+    ]],
+    ["Episodios 5 y 6: El final del tiempo", [
+      "Los podados no mueren: van al Vacío, un vertedero al final del tiempo donde una nube viva, Alioth, devora todo lo que llega. Allí sobreviven otros Lokis: uno anciano con el traje clásico, un niño, un presumido con martillo y un caimán.",
+      "Sylvie se poda a sí misma para llegar allí. El Loki Clásico crea una ilusión de Asgard entero para distraer a Alioth y muere riendo, mientras Loki y Sylvie hechizan juntos a la bestia. Detrás hay una ciudadela.",
+      "Los recibe un hombre amable y cansado: El Que Permanece. En el siglo XXXI, un científico descubrió los universos paralelos; sus variantes se pusieron en contacto y acabaron en una guerra que casi lo destruye todo. Él la ganó, aisló una sola línea temporal y creó la AVT para mantenerla.",
+      "Les ofrece elegir: ocupar su puesto o matarlo, y con eso liberar a sus otras versiones, mucho peores. Loki le cree y quiere pensarlo. Sylvie solo quiere venganza. Pelean, se besan, y ella lo empuja por una puerta temporal. Luego mata a El Que Permanece, que sonríe: «Nos vemos pronto».",
+      "La línea temporal se ramifica sin control. Loki corre a avisar a Mobius, pero Mobius no lo conoce, y en el vestíbulo de la AVT hay ahora una estatua del hombre de la ciudadela."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["L", "Loki"], ["S", "Sylvie"], ["M", "Mobius"], ["R", "Renslayer"], ["K", "El Que Permanece"], ["B", "B-15"]],
+    "enlaces": [["L", "S", "la misma persona, enamorados"], ["L", "M", "amigos"], ["R", "M", "lo traiciona"], ["S", "K", "lo mata"], ["K", "R", "su jefe oculto"], ["S", "B", "le abre los ojos"]]
+  },
+  "personajes": [
+    ["Loki", "El dios del engaño, sin la redención de las películas. Aquí aprende a confiar y a no estar solo."],
+    ["Sylvie", "Una Loki de otra línea. Desconfiada y furiosa. Su poder es hechizar mentes."],
+    ["Mobius", "Analista de la AVT. Cree en su trabajo, sueña con una moto acuática y ve algo bueno en Loki."],
+    ["Ravonna Renslayer", "Jueza de la AVT. Prefiere una mentira ordenada."],
+    ["Cazadora B-15", "Soldado de la AVT. Recuerda su vida anterior gracias a Sylvie."],
+    ["El Que Permanece", "El creador de la AVT. Una variante de un hombre que tendrá muchos nombres, entre ellos Kang."],
+    ["Miss Minutos", "Reloj animado y sonriente, mascota de la AVT y mucho más."],
+    ["Loki Clásico", "Un Loki viejo que sobrevivió a Thanos fingiendo su muerte y vivió solo."],
+    ["Loki Niño y Loki Caimán", "Variantes del Vacío. El niño mató a Thor."],
+    ["Casey", "Recepcionista de la AVT. No sabe qué es un pez."]
+  ],
+  "cosas": [
+    ["AVT", "Autoridad de Variación Temporal (TVA). Vigila que el tiempo siga un único camino."],
+    ["Sagrada Línea Temporal", "La única historia permitida."],
+    ["Variante", "Quien se desvía de su destino. También, cada versión distinta de una misma persona."],
+    ["Evento Nexus", "El desvío que crea una rama nueva."],
+    ["Podar", "Borrar a alguien o una rama entera. En realidad, enviarlo al Vacío."],
+    ["TemPad", "El aparato que abre puertas en el tiempo."],
+    ["Alioth", "La criatura de humo que guarda el fin del tiempo."],
+    ["El multiverso", "Los universos paralelos que nacen cuando muere El Que Permanece."]
+  ],
+  "creditos": "Después de los créditos del último episodio aparece un sello de la AVT sobre un expediente: «Loki volverá en la temporada 2».",
+  "conexiones": [
+    "Parte de la escena del Teseracto perdido en Vengadores: Endgame.",
+    "El multiverso liberado se ve en ¿Qué pasaría si…?, Spider-Man: Sin camino a casa y Doctor Strange en el Multiverso de la Locura.",
+    "Kang, otra variante de El Que Permanece, es el villano de Ant-Man y la Avispa: Quantumanía.",
+    "La historia sigue en la temporada 2.",
+    "La AVT reaparece en Deadpool y Wolverine."
+  ],
+  "preguntas": [
+    ["¿Qué es la AVT?", "La Autoridad de Variación Temporal, una organización fuera del tiempo que elimina cualquier desvío de la línea temporal."],
+    ["¿Quién es Sylvie?", "Una variante de Loki, mujer, que escapó de la AVT de niña y busca destruirla."],
+    ["¿Este Loki es el mismo que murió en Infinity War?", "No. Es el Loki de 2012, que escapó con el Teseracto en Endgame."],
+    ["¿Quién es El Que Permanece?", "El hombre que creó la AVT para impedir una guerra entre sus propias variantes. Una de ellas es Kang el Conquistador."],
+    ["¿Qué es una variante?", "Una versión de una persona que se sale del camino que la línea temporal le tenía fijado."],
+    ["¿Cómo empieza el multiverso?", "Cuando Sylvie mata a El Que Permanece, la línea temporal se divide en infinitas ramas."]
+  ],
+  "curiosidades": [
+    "El aspecto de la AVT se inspira en las oficinas de los años sesenta y setenta, con tecnología antigua.",
+    "El Loki Caimán se rodó con un muñeco de peluche que luego se sustituyó por ordenador.",
+    "Fue la serie de Marvel más vista de Disney+ en su estreno.",
+    "Tom Hiddleston dio a sus compañeros una charla de dos horas sobre el personaje antes del rodaje."
+  ]
+}

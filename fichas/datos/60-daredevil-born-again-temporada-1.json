@@ -1,0 +1,93 @@
+{
+  "titulo": "Daredevil: Born Again · Temporada 1",
+  "anio": 2025,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Daredevil: Born Again (temporada 1)"],
+    ["Estreno", "Del 4 de marzo al 15 de abril de 2025 (Disney+)"],
+    ["Responsable", "Dario Scardapane. Dirección principal de Justin Benson y Aaron Moorhead"],
+    ["Episodios", "9"],
+    ["Reparto principal", "Charlie Cox (Matt Murdock), Vincent D'Onofrio (Wilson Fisk), Margarita Levieva (Heather Glenn), Deborah Ann Woll (Karen Page), Elden Henson (Foggy Nelson), Wilson Bethel (Dex Poindexter), Ayelet Zurer (Vanessa Fisk), Jon Bernthal (Frank Castle), Nikki M. James (Kirsten McDuffie), Michael Gandolfini (Daniel Blake), Kamar de los Reyes (Héctor Ayala)"],
+    ["Música", "The Newton Brothers"],
+    ["Lugar en el universo", "Fase 5. Continuación de la serie Daredevil de Netflix, con el mismo reparto"],
+    ["Cronología interna", "Nueva York, 2026 y 2027"],
+    ["Tono", "Drama criminal y político para adultos: un abogado sin máscara frente a un alcalde mafioso"]
+  ],
+  "momentos": [
+    ["Foggy", "Bullseye lo mata"],
+    ["El alcalde", "Fisk gana las elecciones"],
+    ["Tigre Blanco", "Un juicio y una ejecución"],
+    ["Muse", "Un asesino que pinta con sangre"],
+    ["Ley marcial", "Fisk toma la ciudad"]
+  ],
+  "actos": [
+    ["Episodio 1: El día que murió Foggy", [
+      "Matt Murdock, Foggy Nelson y Karen Page celebran en su bar de siempre. Benjamin Poindexter, Dex, el asesino al que llaman Bullseye, dispara desde enfrente y mata a Foggy. Matt pelea con él por la escalera y la azotea, fuera de sí, y lo tira al vacío. Dex sobrevive y va a prisión.",
+      "Un año después, Matt ha dejado de ser Daredevil: ese día estuvo a punto de matar, y no confía en sí mismo. Karen se ha ido a San Francisco. Él tiene un bufete nuevo con Kirsten McDuffie y sale con una terapeuta, Heather Glenn.",
+      "Wilson Fisk, recuperado del disparo de Maya Lopez, se presenta a alcalde de Nueva York prometiendo acabar con los justicieros enmascarados. Matt y él se sientan frente a frente en una cafetería: cada uno promete dejar en paz al otro mientras cumpla. Fisk gana las elecciones."
+    ]],
+    ["Episodios 2 a 5: La ciudad de Fisk", [
+      "Matt defiende a Héctor Ayala, acusado de matar a un policía en el metro. Ayala es el Tigre Blanco, un justiciero con un amuleto que le da fuerza, y lo que hizo fue defender a un hombre de dos policías corruptos. Para ganar, Matt revela su identidad ante el jurado. Lo absuelven. Esa noche, un policía con la calavera de Punisher tatuada lo mata de un tiro.",
+      "Fisk gobierna de día e intenta salvar su matrimonio. Vanessa llevó sus negocios criminales mientras él estaba fuera y tuvo un amante; él lo tiene encerrado en una jaula. Van juntos a terapia de pareja, con Heather Glenn.",
+      "Fisk crea una Fuerza Especial contra Justicieros, formada por los policías más violentos, y quiere convertir el puerto de Red Hook en su gran obra. Matt visita a Frank Castle, Punisher, y le echa en cara que esos policías lleven su símbolo. Castle le dice que deje de fingir que ya no es Daredevil.",
+      "En un episodio aparte, Matt queda atrapado en el atraco a un banco el día de San Patricio y lo resuelve sin traje, junto al director de la sucursal, Yusuf Khan, el padre de Ms. Marvel."
+    ]],
+    ["Episodios 6 a 9: El diablo vuelve", [
+      "Un asesino en serie, Muse, pinta murales por la ciudad con la sangre de sus víctimas. Secuestra a Angela, la sobrina de Ayala. Matt se pone el traje otra vez para rescatarla. Muse es un paciente de Heather, obsesionado con ella; cuando la ataca, Matt la salva y ella lo mata de un disparo. Fisk atribuye el mérito a su fuerza especial, y Heather empieza a odiar a los enmascarados.",
+      "Dex escapa de la cárcel. Matt descubre que la muerte de Foggy no fue un arrebato: fue un encargo de Vanessa Fisk, porque Foggy iba a ganar un caso que destapaba el plan de Red Hook. En un baile de gala, Dex dispara a Fisk, y Matt se pone delante de la bala.",
+      "Karen vuelve. Con ella y con Castle, Matt entiende el plan: Red Hook es un puerto franco, fuera de la ley, por el que los Fisk pueden mover cualquier cosa, el primer paso de una ciudad propia.",
+      "Fisk provoca un apagón y lo aprovecha para declarar la ley marcial y prohibir a los justicieros. Cuando el jefe de policía se le opone, lo mata delante de sus hombres aplastándole la cabeza. Castle cae preso. Matt, herido, reúne en el bar a los pocos policías y amigos honrados que quedan: para recuperar la ciudad va a hacer falta un ejército."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["M", "Matt"], ["F", "Fisk"], ["V", "Vanessa"], ["K", "Karen"], ["H", "Heather"], ["D", "Dex"]],
+    "enlaces": [["M", "F", "tregua que se rompe"], ["F", "V", "matrimonio en crisis"], ["V", "D", "lo contrató"], ["M", "K", "vuelven a unirse"], ["M", "H", "pareja"], ["D", "M", "mató a Foggy"]]
+  },
+  "personajes": [
+    ["Matt Murdock", "Abogado ciego. Intenta ser solo eso durante un año, hasta que no puede más."],
+    ["Wilson Fisk", "Kingpin, ahora alcalde. Usa la ley como antes usaba el crimen."],
+    ["Vanessa Fisk", "Tan capaz y despiadada como su marido."],
+    ["Karen Page", "Vuelve cuando Matt la necesita."],
+    ["Foggy Nelson", "El mejor amigo de Matt. Su muerte lo cambia todo."],
+    ["Heather Glenn", "Terapeuta y pareja de Matt. Acaba trabajando para el alcalde."],
+    ["Benjamin Poindexter", "Bullseye. No falla nunca."],
+    ["Frank Castle", "Punisher. Vive escondido y ayuda a regañadientes."],
+    ["Héctor Ayala", "El Tigre Blanco, héroe de barrio."],
+    ["Muse", "Bastian Cooper, asesino en serie con máscara blanca."],
+    ["Kirsten McDuffie y Cherry", "La socia de Matt y su investigador, un policía retirado."],
+    ["Daniel Blake", "Joven ayudante de Fisk, deslumbrado por él."],
+    ["BB Urich", "Periodista, sobrina de Ben Urich. Hace entrevistas en la calle."],
+    ["Agente Powell", "El peor de los policías de la fuerza especial."]
+  ],
+  "cosas": [
+    ["Fuerza Especial contra Justicieros", "La policía personal de Fisk. Varios llevan la calavera de Punisher."],
+    ["Red Hook", "El puerto de Brooklyn que Fisk convierte en zona franca."],
+    ["El amuleto del Tigre Blanco", "Medallón que da fuerza y agilidad. Lo hereda Angela."],
+    ["Los murales de Muse", "Pinturas hechas con sangre humana."],
+    ["Josie's", "El bar de Matt, Foggy y Karen."],
+    ["El traje", "Matt lo guarda en un armario durante un año."],
+    ["La ley marcial", "Toque de queda y veto a los enmascarados, decretados por el alcalde."]
+  ],
+  "creditos": "No hay escenas después de los créditos, salvo una breve en el último episodio: Frank Castle, preso en una jaula de Fisk, engaña a un guardia que lo admira y se escapa.",
+  "conexiones": [
+    "Continúa las tres temporadas de Daredevil de Netflix.",
+    "Fisk viene del final de Echo, donde vio la oportunidad de ser alcalde.",
+    "Yusuf Khan es el padre de Kamala Khan, Ms. Marvel.",
+    "Jack Duquesne, el Espadachín, viene de Hawkeye.",
+    "La historia sigue en la temporada 2 y en el especial de Punisher."
+  ],
+  "preguntas": [
+    ["¿Quién mata a Foggy Nelson?", "Bullseye, por encargo de Vanessa Fisk."],
+    ["¿Cómo llega Fisk a alcalde?", "Gana las elecciones de Nueva York con una campaña contra los justicieros."],
+    ["¿Por qué Matt deja de ser Daredevil?", "Porque casi mata a Bullseye tras la muerte de Foggy, y teme perder el control."],
+    ["¿Quién es el Tigre Blanco?", "Héctor Ayala, un justiciero puertorriqueño. Lo asesina un policía tras ser absuelto."],
+    ["¿Quién es Muse?", "Un asesino en serie que pinta murales con la sangre de sus víctimas."],
+    ["¿Cómo termina la temporada?", "Con Fisk imponiendo la ley marcial en Nueva York y Matt organizando una resistencia."]
+  ],
+  "curiosidades": [
+    "La serie se rehízo a mitad de rodaje, en 2023, para parecerse más a la de Netflix y recuperar a Foggy y Karen.",
+    "Kamar de los Reyes, el Tigre Blanco, murió antes del estreno; la serie le dedica un episodio.",
+    "La pelea inicial está rodada como un plano continuo, como las de la serie original.",
+    "Es la primera serie de Daredevil producida directamente por Marvel Studios."
+  ]
+}

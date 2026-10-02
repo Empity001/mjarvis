@@ -1,0 +1,90 @@
+{
+  "titulo": "Ant-Man y la Avispa",
+  "anio": 2018,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Ant-Man and the Wasp"],
+    ["Estreno", "6 de julio de 2018 (Estados Unidos)"],
+    ["Dirección", "Peyton Reed"],
+    ["Guion", "Chris McKenna, Erik Sommers, Paul Rudd, Andrew Barrer y Gabriel Ferrari"],
+    ["Reparto principal", "Paul Rudd (Scott Lang), Evangeline Lilly (Hope van Dyne), Michael Douglas (Hank Pym), Michelle Pfeiffer (Janet van Dyne), Hannah John-Kamen (Ava Starr), Laurence Fishburne (Bill Foster), Walton Goggins (Sonny Burch), Michael Peña (Luis), Randall Park (Jimmy Woo), Abby Ryder Fortson (Cassie Lang)"],
+    ["Duración", "118 minutos"],
+    ["Música", "Christophe Beck"],
+    ["Lugar en el universo", "Fase 3. Se estrenó después de Infinity War, pero ocurre justo antes"],
+    ["Cronología interna", "2018, dos años después de Capitán América: Civil War"],
+    ["Recaudación", "Cerca de 623 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["El arresto", "Scott encerrado en casa"],
+    ["El sueño", "Un mensaje de Janet"],
+    ["Fantasma", "Atraviesa las paredes"],
+    ["El laboratorio", "Un edificio de bolsillo"],
+    ["El rescate", "Janet vuelve"]
+  ],
+  "actos": [
+    ["Acto 1: Tres días", [
+      "En 1987, Janet van Dyne se encogió sin límite para desactivar un misil y se perdió en el Reino Cuántico. Su esposo Hank Pym y su hija Hope nunca dejaron de buscarla, y desde que Scott Lang entró allí y volvió, creen que es posible traerla.",
+      "Por haber ayudado al Capitán América en Alemania, Scott lleva dos años en arresto domiciliario en San Francisco, con una tobillera electrónica y el agente del FBI Jimmy Woo vigilándolo. Le faltan tres días. Hank y Hope, fugitivos por culpa de él, no le hablan.",
+      "Scott sueña que es Janet jugando al escondite con una niña. Llama a Hank, y esa misma noche Hope lo secuestra y deja en su casa una hormiga gigante con la tobillera. El sueño era un mensaje: Janet dejó algo en la cabeza de Scott cuando él pasó por el Reino Cuántico."
+    ]],
+    ["Acto 2: Todos quieren el laboratorio", [
+      "Hank y Hope han construido un túnel cuántico dentro de un laboratorio que se encoge hasta el tamaño de una maleta con ruedas. Les falta una pieza, y Hope, con su traje de Avispa, con alas y aguijones, va a comprársela al traficante Sonny Burch. Burch quiere quedarse con todo.",
+      "Aparece además una figura blanca que atraviesa las paredes y se lleva el laboratorio: Fantasma. Es Ava Starr. De niña, un accidente en el laboratorio de su padre, antiguo socio de Hank, mató a sus padres y dejó su cuerpo desfasado: sus moléculas se separan y se juntan sin parar, con un dolor constante. S.H.I.E.L.D. la usó como espía. Se está muriendo, y cree que la energía cuántica de Janet puede curarla.",
+      "La ayuda Bill Foster, antiguo colega de Hank en el proyecto Goliat, que la cuidó como a una hija. Scott, mientras tanto, corre a casa cada vez que Woo va a inspeccionar, con un traje estropeado que lo deja del tamaño de un niño o de un edificio cuando quiere."
+    ]],
+    ["Acto 3: Persecución por San Francisco", [
+      "Janet habla por boca de Scott y les da las coordenadas: tienen dos horas, o el Reino Cuántico cambiará y la perderán por un siglo. Luis, interrogado con «suero de la verdad» por Burch, revela dónde están, contando la historia a su manera.",
+      "Hank entra con una cápsula en el Reino Cuántico. Fuera, todos persiguen el laboratorio por las cuestas de la ciudad: coches que encogen y crecen, un dispensador de caramelos Pez gigante, y Scott, enorme, saliendo de la bahía para detener un ferry.",
+      "Hank encuentra a Janet, envejecida y cambiada por treinta años en ese lugar, y vuelven juntos. Janet pone las manos sobre Ava y le cede parte de su energía, que la estabiliza. Scott llega a casa segundos antes que el FBI y queda libre. Burch acaba detenido."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Scott"], ["H", "Hope"], ["P", "Hank"], ["J", "Janet"], ["A", "Ava"], ["B", "Bill"]],
+    "enlaces": [["S", "H", "pareja y socios"], ["P", "H", "padre e hija"], ["P", "J", "esposos"], ["A", "B", "él la cuida"], ["P", "B", "viejos rivales"], ["A", "J", "necesita su energía"]]
+  },
+  "personajes": [
+    ["Scott Lang", "Ant-Man. Padre entregado y preso en su casa. Quiere hacer lo correcto sin perder a su hija."],
+    ["Hope van Dyne", "La Avispa. Mejor luchadora que Scott, con alas y aguijones de energía."],
+    ["Hank Pym", "El inventor. Orgulloso y difícil; se le acumulan los antiguos socios enfadados."],
+    ["Janet van Dyne", "La primera Avispa. Treinta años en el Reino Cuántico le dieron poderes que no explica."],
+    ["Ava Starr", "Fantasma. No es una villana: es una joven desesperada por dejar de sufrir."],
+    ["Bill Foster", "Profesor y antiguo Goliat. Protege a Ava."],
+    ["Sonny Burch", "Traficante de tecnología con modales de dueño de restaurante."],
+    ["Luis", "Socio de Scott en la empresa de seguridad X-Con."],
+    ["Jimmy Woo", "Agente del FBI. Admira en secreto los trucos de magia de Scott."],
+    ["Cassie Lang", "La hija de Scott, de diez años. Quiere ser su compañera."],
+    ["Dave y Kurt", "Los empleados de X-Con. Kurt teme a la Baba Yaga."]
+  ],
+  "cosas": [
+    ["Reino Cuántico", "Dimensión subatómica. Allí el tiempo pasa de otro modo, y hay energía capaz de curar."],
+    ["Túnel cuántico", "La máquina de Hank para entrar y salir del Reino Cuántico."],
+    ["Laboratorio portátil", "Un edificio entero que se encoge con un mando y se lleva como una maleta."],
+    ["Traje de la Avispa", "Encoge, vuela y dispara."],
+    ["Desfase", "El estado de Ava: su cuerpo pasa a través de las cosas."],
+    ["Coches encogidos", "Hank los lleva en una caja de juguetes."],
+    ["Partículas curativas", "La energía cuántica que el equipo recoge para Ava."]
+  ],
+  "creditos": "A mitad de los créditos, Scott entra al Reino Cuántico desde un túnel montado en la furgoneta de Luis, para recoger energía para Ava. Hank, Janet y Hope lo dirigen por radio. A mitad de la cuenta atrás, los tres se convierten en polvo: es el chasquido de Thanos. Scott queda atrapado. Al final, en su casa vacía, la hormiga gigante toca la batería.",
+  "conexiones": [
+    "La escena de los créditos coincide con el final de Vengadores: Infinity War.",
+    "Scott sale del Reino Cuántico cinco años después, en Vengadores: Endgame, y trae la idea del viaje en el tiempo.",
+    "Explica por qué Ant-Man no estuvo en Infinity War: cumplía arresto domiciliario.",
+    "Jimmy Woo reaparece en WandaVision.",
+    "El Reino Cuántico es el escenario de Ant-Man y la Avispa: Quantumanía.",
+    "Ava Starr vuelve en Thunderbolts*."
+  ],
+  "preguntas": [
+    ["¿Quién es la Avispa?", "Hope van Dyne, hija de Hank Pym y Janet van Dyne. Su madre fue la primera Avispa."],
+    ["¿Quién es Fantasma?", "Ava Starr, una joven que atraviesa objetos desde un accidente cuántico de su infancia."],
+    ["¿Rescatan a Janet van Dyne?", "Sí. Hank entra en el Reino Cuántico y la trae después de treinta años."],
+    ["¿Por qué Scott estaba en arresto domiciliario?", "Por pelear junto al Capitán América en Civil War, rompiendo los Acuerdos de Sokovia."],
+    ["¿Qué pasa en la escena de los créditos?", "Hank, Janet y Hope desaparecen por el chasquido de Thanos, y Scott queda atrapado en el Reino Cuántico."],
+    ["¿Qué es el Reino Cuántico?", "Una dimensión a la que se llega encogiéndose más allá del átomo."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece como un hombre cuyo coche se encoge, y dice que los años sesenta fueron divertidos pero ahora los está pagando.",
+    "Es la primera película de Marvel Studios con una heroína en el título.",
+    "Michelle Pfeiffer y Michael Douglas fueron rejuvenecidos por ordenador para la escena de 1987.",
+    "En el Reino Cuántico se ve por un instante algo parecido a una ciudad, que la tercera película desarrolla."
+  ]
+}

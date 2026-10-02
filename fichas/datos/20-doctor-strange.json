@@ -1,0 +1,94 @@
+{
+  "titulo": "Doctor Strange: Hechicero Supremo",
+  "anio": 2016,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Doctor Strange"],
+    ["Estreno", "4 de noviembre de 2016 (Estados Unidos)"],
+    ["Dirección", "Scott Derrickson"],
+    ["Guion", "Jon Spaihts, Scott Derrickson y C. Robert Cargill"],
+    ["Reparto principal", "Benedict Cumberbatch (Stephen Strange), Chiwetel Ejiofor (Karl Mordo), Rachel McAdams (Christine Palmer), Benedict Wong (Wong), Mads Mikkelsen (Kaecilius), Tilda Swinton (la Anciana), Michael Stuhlbarg (Nicodemus West), Benjamin Bratt (Jonathan Pangborn)"],
+    ["Duración", "115 minutos"],
+    ["Música", "Michael Giacchino"],
+    ["Lugar en el universo", "Fase 3. Introduce la magia y la Gema del Tiempo"],
+    ["Cronología interna", "De 2016 a 2017: el aprendizaje de Strange dura muchos meses"],
+    ["Recaudación", "Cerca de 678 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["El accidente", "Strange pierde las manos"],
+    ["Kamar-Taj", "Abre la mente"],
+    ["El Santuario", "La capa lo elige"],
+    ["La Anciana", "Su secreto y su muerte"],
+    ["Dormammu", "«He venido a negociar»"]
+  ],
+  "actos": [
+    ["Acto 1: El cirujano", [
+      "En Kamar-Taj, un templo de Katmandú, el hechicero Kaecilius y sus seguidores matan al bibliotecario y arrancan unas páginas de un libro prohibido. La Anciana, maestra del lugar, los persigue por un Londres que se dobla sobre sí mismo, pero escapan.",
+      "En Nueva York, Stephen Strange es un neurocirujano brillante y vanidoso que solo acepta los casos que le dan prestigio. Una noche, mirando el teléfono mientras conduce, se sale de la carretera. Sobrevive, pero los nervios de sus manos quedan destrozados y le tiemblan sin remedio.",
+      "Gasta su fortuna en operaciones que no funcionan y aparta a Christine Palmer, la doctora que lo quiere. Entonces oye hablar de Jonathan Pangborn, un hombre con la médula rota que volvió a caminar, y él le da un nombre: Kamar-Taj."
+    ]],
+    ["Acto 2: El aprendiz", [
+      "En Nepal, el hechicero Mordo lo lleva ante la Anciana. Strange se burla de sus mapas de chakras, y ella, de un empujón, le saca la forma astral del cuerpo y lo lanza a un viaje por el multiverso. Él vuelve y suplica: «Enséñeme».",
+      "Aprende despacio, hasta que la Anciana lo abandona en el Everest para que abra un portal o muera. Después avanza más rápido que nadie, leyendo incluso mientras duerme. Wong, el nuevo bibliotecario, le explica que tres Santuarios, en Nueva York, Londres y Hong Kong, forman un escudo que protege la Tierra de otras dimensiones.",
+      "Strange usa a escondidas el Ojo de Agamotto, una reliquia que manipula el tiempo, y lee las páginas robadas. Hablan de Dormammu, señor de la Dimensión Oscura, un lugar sin tiempo donde nadie muere. Kaecilius quiere entregarle la Tierra a cambio de vida eterna."
+    ]],
+    ["Acto 3: Los Santuarios", [
+      "Kaecilius destruye el Santuario de Londres, y Strange acaba defendiendo solo el de Nueva York. Lo ayuda una reliquia con voluntad propia, la Capa de Levitación, que lo elige como dueño. Herido de una puñalada, abre un portal al hospital, y Christine lo opera mientras él pelea en forma astral con un enemigo.",
+      "Kaecilius le revela que la Anciana lleva siglos alargando su vida con energía de la Dimensión Oscura, lo mismo que prohíbe a los demás. Mordo, que cree en las reglas por encima de todo, queda destrozado. En una batalla en la dimensión espejo, con Nueva York girando como un caleidoscopio, la Anciana cae herida de muerte.",
+      "Antes de morir, detiene el tiempo un instante para hablar con Strange: él siempre ganó por miedo al fracaso, y debe aprender la lección más simple, que no se trata de él."
+    ]],
+    ["Final: Negociar con Dormammu", [
+      "Cuando llegan a Hong Kong, el último Santuario ya ha caído, Wong ha muerto y la Dimensión Oscura está entrando. Strange usa el Ojo para hacer retroceder el tiempo en toda la calle mientras pelean.",
+      "Luego vuela hacia Dormammu y lo encierra con él en un bucle de tiempo. Dormammu lo mata una y otra vez, y cada vez Strange reaparece con la misma frase: «Dormammu, he venido a negociar». Está dispuesto a morir para siempre, y Dormammu a quedar preso para siempre. Al final el ser acepta: se va de la Tierra y se lleva a Kaecilius y a los suyos, a quienes les da la eternidad prometida, que resulta ser un tormento.",
+      "Mordo no perdona que se haya roto la ley natural y se marcha. Strange devuelve el Ojo a Kamar-Taj; Wong le dice que es una Gema del Infinito. Con las manos aún temblorosas, Strange se instala como guardián del Santuario de Nueva York."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Strange"], ["A", "La Anciana"], ["M", "Mordo"], ["W", "Wong"], ["K", "Kaecilius"], ["C", "Christine"]],
+    "enlaces": [["A", "S", "maestra"], ["S", "M", "compañeros"], ["S", "W", "aliados"], ["K", "A", "antiguo alumno"], ["S", "C", "se quieren"], ["S", "K", "enemigos"]]
+  },
+  "personajes": [
+    ["Stephen Strange", "Neurocirujano arrogante que pierde el uso de las manos y se convierte en Maestro de las Artes Místicas."],
+    ["La Anciana", "Hechicera Suprema, de origen celta y con siglos de vida. Protege la Tierra de las amenazas místicas."],
+    ["Karl Mordo", "Hechicero recto e inflexible. Su desengaño lo convertirá en enemigo."],
+    ["Wong", "Bibliotecario de Kamar-Taj. Serio, hasta que Strange le hace reír."],
+    ["Kaecilius", "Antiguo alumno de la Anciana. Tras perder a su familia, cree que la muerte es un insulto y busca la eternidad."],
+    ["Christine Palmer", "Cirujana de urgencias y antigua pareja de Strange."],
+    ["Dormammu", "Ser inmenso que gobierna la Dimensión Oscura y devora mundos."],
+    ["Jonathan Pangborn", "Paralítico que camina gracias a la magia. Le señala el camino a Strange."],
+    ["Nicodemus West", "Cirujano rival de Strange."]
+  ],
+  "cosas": [
+    ["Ojo de Agamotto", "Colgante que guarda la Gema del Tiempo, de color verde. Permite adelantar, retroceder y repetir el tiempo."],
+    ["Capa de Levitación", "Reliquia con voluntad propia que permite volar a quien ella elige."],
+    ["Anillo de honda", "Anillo doble con el que los hechiceros abren portales para viajar."],
+    ["Dimensión espejo", "Copia del mundo real donde se puede pelear y doblar la ciudad sin afectar a nadie."],
+    ["Dimensión Oscura", "El reino de Dormammu, fuera del tiempo."],
+    ["Los tres Santuarios", "Nueva York, Londres y Hong Kong. Juntos forman el escudo místico de la Tierra."],
+    ["Kamar-Taj", "Templo escondido en Katmandú, Nepal, donde se enseñan las artes místicas."],
+    ["Libro de Cagliostro", "El libro sobre el tiempo del que Kaecilius roba el ritual."],
+    ["Forma astral", "El espíritu separado del cuerpo, capaz de moverse y pelear."]
+  ],
+  "creditos": "A mitad de los créditos, Strange recibe a Thor en el Santuario y le sirve una jarra de cerveza que se llena sola; acepta ayudarlo a encontrar a Odín a cambio de que Loki se vaya de la Tierra. Al final, Mordo visita a Pangborn y le quita la magia que lo sostiene en pie: ha decidido que en el mundo hay demasiados hechiceros.",
+  "conexiones": [
+    "El Ojo de Agamotto contiene la Gema del Tiempo, que Strange defiende en Vengadores: Infinity War.",
+    "La escena con Thor pertenece a Thor: Ragnarok.",
+    "La Anciana aparece en Vengadores: Endgame, en el Nueva York de 2012.",
+    "El multiverso que Strange entrevé aquí es el tema de Doctor Strange en el Multiverso de la Locura.",
+    "Strange ya es conocido como cirujano en El Soldado de Invierno, donde lo nombran en una lista de objetivos de HYDRA."
+  ],
+  "preguntas": [
+    ["¿Cómo consiguió sus poderes Doctor Strange?", "No tiene poderes de nacimiento: aprendió magia en Kamar-Taj después de que un accidente le destrozara las manos."],
+    ["¿Qué es el Ojo de Agamotto?", "Una reliquia que contiene la Gema del Tiempo. Con ella se puede manipular el tiempo."],
+    ["¿Quién es Dormammu?", "El señor de la Dimensión Oscura, un ser que quiere absorber la Tierra."],
+    ["¿Cómo vence Strange a Dormammu?", "Lo atrapa en un bucle de tiempo que se repite sin fin hasta que Dormammu acepta marcharse."],
+    ["¿Quién es la Anciana?", "La Hechicera Suprema, maestra de Strange. Alargaba su vida con energía de la Dimensión Oscura."],
+    ["¿Dónde vive Doctor Strange?", "En el Santuario de Nueva York, en el 177A de la calle Bleecker."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece en un autobús, riéndose mientras lee Las puertas de la percepción, de Aldous Huxley.",
+    "Benedict Cumberbatch también interpreta a Dormammu, con captura de movimiento y de voz.",
+    "Las ciudades que se doblan se inspiran en los dibujos de Steve Ditko y en los grabados de M. C. Escher.",
+    "Strange nunca recupera del todo las manos: le siguen temblando en todas sus apariciones."
+  ]
+}

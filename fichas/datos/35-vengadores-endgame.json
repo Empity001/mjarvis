@@ -1,0 +1,98 @@
+{
+  "titulo": "Vengadores: Endgame",
+  "anio": 2019,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Avengers: Endgame"],
+    ["Estreno", "26 de abril de 2019 (Estados Unidos)"],
+    ["Dirección", "Anthony y Joe Russo"],
+    ["Guion", "Christopher Markus y Stephen McFeely"],
+    ["Reparto principal", "Robert Downey Jr. (Tony Stark), Chris Evans (Steve Rogers), Chris Hemsworth (Thor), Mark Ruffalo (Bruce Banner), Scarlett Johansson (Natasha Romanoff), Jeremy Renner (Clint Barton), Paul Rudd (Scott Lang), Karen Gillan (Nebula), Don Cheadle (James Rhodes), Bradley Cooper (voz de Rocket), Brie Larson (Carol Danvers), Josh Brolin (Thanos), Gwyneth Paltrow (Pepper Potts)"],
+    ["Duración", "181 minutos"],
+    ["Música", "Alan Silvestri"],
+    ["Lugar en el universo", "Fase 3. Cierre de la Saga del Infinito"],
+    ["Cronología interna", "2018 y, tras un salto de cinco años, 2023"],
+    ["Recaudación", "Cerca de 2.800 millones de dólares, una de las dos películas más taquilleras de la historia"]
+  ],
+  "momentos": [
+    ["El Jardín", "Thor decapita a Thanos"],
+    ["Cinco años", "Scott sale del Reino Cuántico"],
+    ["El golpe", "Viaje al pasado por las gemas"],
+    ["Vormir", "Natasha se sacrifica"],
+    ["«Yo soy Iron Man»", "Tony chasquea los dedos"]
+  ],
+  "actos": [
+    ["Acto 1: Los que quedaron", [
+      "Clint Barton ve desaparecer a su esposa y a sus tres hijos. Tony Stark y Nebula flotan a la deriva hasta que Carol Danvers, la Capitana Marvel, los lleva a la Tierra. Tony, exhausto, le reprocha a Steve Rogers no haber estado.",
+      "Encuentran a Thanos en un planeta tranquilo, herido y solo. Usó las gemas una vez más para destruirlas: ya no hay forma de deshacer lo hecho. Thor le corta la cabeza.",
+      "Pasan cinco años. El mundo está de luto. Natasha coordina a los que quedan; Steve dirige un grupo de apoyo; Clint recorre el mundo matando criminales con una espada; Tony vive junto a un lago con Pepper y su hija Morgan; Banner ha unido su mente con el cuerpo de Hulk; y Thor, gordo y hundido, bebe en Nuevo Asgard.",
+      "Una rata pisa un botón en un almacén y saca a Scott Lang del Reino Cuántico. Para él pasaron cinco horas. Trae una idea: allí dentro el tiempo funciona distinto, y quizá se pueda viajar por él."
+    ]],
+    ["Acto 2: El golpe en el tiempo", [
+      "Tony resuelve el problema del viaje en el tiempo y acepta ayudar con una condición: no perder lo que ha ganado. El plan es tomar las gemas del pasado, usarlas y devolverlas al instante exacto de donde salieron, para no crear líneas de tiempo rotas.",
+      "Nueva York, 2012: Banner convence a la Anciana de prestarle la Gema del Tiempo. Steve pelea contra sí mismo y se lleva el cetro. El Teseracto se les escapa, y Loki huye con él. Tony y Steve saltan entonces a 1970, a una base militar, donde Tony habla con su padre, Howard, y Steve ve de lejos a Peggy Carter.",
+      "Asgard, 2013: Rocket saca el Éter de Jane Foster. Thor habla con su madre, Frigga, el día en que va a morir, y recupera su martillo: sigue siendo digno.",
+      "Morag, 2014: Rhodes y Nebula toman la Gema del Poder. Pero la memoria de Nebula se conecta con la de su yo de 2014, y el Thanos de ese año ve todo el plan. Captura a Nebula y envía a la otra en su lugar.",
+      "Vormir, 2014: Natasha y Clint descubren el precio de la Gema del Alma. Pelean por quién de los dos muere. Natasha se suelta y cae."
+    ]],
+    ["Acto 3: Vengadores, unidos", [
+      "Con un guantelete hecho por Tony, Banner chasquea los dedos y trae de vuelta a todos los desaparecidos; el brazo le queda quemado. En ese momento, la Nebula de 2014 abre el paso a la nave de Thanos, que bombardea la base.",
+      "Este Thanos ha visto que su plan fracasa por los que recuerdan, y decide algo peor: deshacer el universo entero y crear otro. Steve, Tony y Thor lo enfrentan. Cuando Thor cae, el Mjolnir vuela a la mano de Steve. Thanos le rompe el escudo.",
+      "Steve se levanta solo frente a todo un ejército. Entonces oye por la radio a Sam Wilson: «A tu izquierda». Se abren portales por todas partes, y llegan Strange, Spider-Man, T'Challa, los Guardianes, los hechiceros, Wakanda y Asgard. Steve dice por fin: «Vengadores, unidos».",
+      "El guantelete pasa de mano en mano. Thanos lo recupera y chasquea los dedos; no ocurre nada. Las gemas están en la mano de Tony. «Yo soy Iron Man». Thanos y su ejército se deshacen en polvo.",
+      "El poder mata a Tony. Pepper le dice que ya puede descansar. En su funeral, junto al lago, flota su primer reactor. Thor deja Nuevo Asgard a Valquiria y se va con los Guardianes. Steve devuelve las gemas y el martillo al pasado, y no regresa: se queda a vivir su vida con Peggy. Ya anciano, espera sentado en un banco y le entrega el escudo a Sam."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["T", "Tony"], ["S", "Steve"], ["H", "Thor"], ["N", "Natasha"], ["C", "Clint"], ["X", "Thanos"], ["B", "Nebula"]],
+    "enlaces": [["T", "S", "reconciliados"], ["N", "C", "amigos"], ["T", "X", "lo derrota"], ["H", "X", "lo decapita"], ["B", "X", "hija que lo traiciona"], ["S", "H", "compañeros"]]
+  },
+  "personajes": [
+    ["Tony Stark", "Tiene por fin una familia y lo arriesga todo. Cierra la historia que empezó en una cueva."],
+    ["Steve Rogers", "Levanta el Mjolnir, lidera a todos y luego elige vivir su propia vida."],
+    ["Thor", "Roto por la culpa. Aprende que no tiene que ser quien se esperaba de él."],
+    ["Natasha Romanoff", "Mantuvo unido al equipo durante cinco años. Da la vida por la Gema del Alma."],
+    ["Clint Barton", "Sin familia, se convierte en el justiciero Ronin."],
+    ["Bruce Banner", "«Hulk inteligente»: el cerebro de Banner en el cuerpo de Hulk."],
+    ["Scott Lang", "Ant-Man. Su regreso trae la idea que lo cambia todo."],
+    ["Nebula", "Pasa de villana a pieza clave; se enfrenta a su yo del pasado y la mata."],
+    ["Thanos", "El de 2018 muere al principio. El de 2014 llega sin gemas y con todo su ejército."],
+    ["Carol Danvers", "La Capitana Marvel. Destruye la nave de Thanos."],
+    ["Pepper Potts", "Pelea con su propia armadura, Rescue."],
+    ["Morgan Stark", "Hija de Tony y Pepper. «Te quiero tres mil»."],
+    ["Rocket y Rhodes", "Los otros dos supervivientes que mantienen el equipo."]
+  ],
+  "cosas": [
+    ["Viaje en el tiempo", "Se hace a través del Reino Cuántico con partículas Pym. Cambiar el pasado no cambia el presente: crea otra línea de tiempo."],
+    ["El Blip", "Los cinco años en que media humanidad no existió. Los que vuelven no han envejecido."],
+    ["Guantelete de Stark", "El guante que Tony fabrica para usar las gemas."],
+    ["Mjolnir", "Thor lo trae de 2013. Steve Rogers es digno de levantarlo."],
+    ["Rompetormentas", "El hacha de Thor, que usa junto con el martillo."],
+    ["Trajes cuánticos", "Los trajes blancos y rojos para viajar en el tiempo."],
+    ["Nuevo Asgard", "El pueblo de pescadores de Noruega donde viven los asgardianos."],
+    ["El escudo", "Steve se lo deja a Sam Wilson."]
+  ],
+  "creditos": "No hay escenas después de los créditos, por primera vez en la saga. Al final solo se oye un martilleo sobre metal: el sonido de Tony Stark forjando su primera armadura en Iron Man.",
+  "conexiones": [
+    "Revisita Los Vengadores, Thor: El mundo oscuro y Guardianes de la Galaxia desde dentro.",
+    "El Loki que huye con el Teseracto protagoniza la serie Loki.",
+    "Sam Wilson asume el escudo en Falcon y el Soldado de Invierno.",
+    "Wanda, de luto por Visión, da origen a WandaVision.",
+    "La muerte de Natasha explica la escena final de Black Widow y la serie Hawkeye.",
+    "El mundo sin Tony es el tema de Spider-Man: Lejos de casa."
+  ],
+  "preguntas": [
+    ["¿Cómo vencen a Thanos?", "Viajan al pasado para reunir las gemas, reviven a los desaparecidos y, en la batalla final, Tony Stark usa las gemas para borrar a Thanos y a su ejército."],
+    ["¿Quién muere en Endgame?", "Natasha Romanoff en Vormir y Tony Stark al usar las gemas. También el Thanos de 2018 y el de 2014."],
+    ["¿Qué pasa con el Capitán América?", "Devuelve las gemas al pasado y se queda allí para vivir con Peggy Carter. Vuelve anciano y entrega su escudo a Sam Wilson."],
+    ["¿Por qué el Capitán América puede levantar el martillo de Thor?", "Porque es digno. Ya lo había movido un poco en La era de Ultrón."],
+    ["¿Qué es el Blip?", "El período de cinco años entre el chasquido de Thanos y el regreso de los desaparecidos."],
+    ["¿Qué significa «te quiero tres mil»?", "Es lo que Morgan le dice a su padre, Tony Stark, y lo que él repite en su mensaje de despedida."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece rejuvenecido, conduciendo un coche en 1970. Fue su último cameo.",
+    "La frase «Yo soy Iron Man» se añadió en una grabación posterior, meses después del rodaje principal.",
+    "La escena «A tu izquierda» responde a la primera conversación de Steve y Sam en El Soldado de Invierno.",
+    "Dura tres horas y un minuto; es la película más larga del universo."
+  ]
+}

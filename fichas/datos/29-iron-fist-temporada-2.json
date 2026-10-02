@@ -1,0 +1,88 @@
+{
+  "titulo": "Iron Fist · Temporada 2",
+  "anio": 2018,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Iron Fist (temporada 2)"],
+    ["Estreno", "7 de septiembre de 2018 (Netflix; hoy en Disney+)"],
+    ["Responsable", "Raven Metzner"],
+    ["Episodios", "10"],
+    ["Reparto principal", "Finn Jones (Danny Rand), Jessica Henwick (Colleen Wing), Sacha Dhawan (Davos), Tom Pelphrey (Ward Meachum), Jessica Stroup (Joy Meachum), Alice Eve (Mary Walker), Simone Missick (Misty Knight)"],
+    ["Música", "Robert Lydecker"],
+    ["Lugar en el universo", "Después de The Defenders y de la temporada 2 de Luke Cage"],
+    ["Cronología interna", "Nueva York, meses después de la caída de la Mano"],
+    ["Tono", "Más corta, más callejera y con mejores peleas que la primera"]
+  ],
+  "momentos": [
+    ["La promesa", "Danny cuida la ciudad"],
+    ["El ritual", "Davos le roba el Puño"],
+    ["Mary", "Dos mujeres en una"],
+    ["El cofre", "El origen de Colleen"],
+    ["El traspaso", "Colleen es el Puño de Hierro"]
+  ],
+  "actos": [
+    ["Episodios 1 a 3: La ciudad de Matt", [
+      "Danny Rand cumple lo que le prometió a Matt Murdock: proteger Nueva York. Vive en Chinatown con Colleen Wing, trabaja en una empresa de mudanzas y sale cada noche a pelear. Dos tríadas, los Tigres Dorados y las Hachas, están al borde de la guerra, y Danny usa el Puño cada vez más, casi con ansia.",
+      "Colleen ha dejado la espada y ayuda en un centro comunitario. Allí aparece un cofre antiguo con el emblema de su familia. Ward Meachum va a reuniones de adictos y trata de arreglar las cosas con su hermana Joy, que no quiere saber nada de él ni de Danny.",
+      "Joy se ha aliado con Davos, el hermano de armas de Danny en K'un-Lun, que lo desprecia por haber abandonado su puesto. Contratan a una exmilitar, Mary Walker, para vigilarlo. Mary tiene dos personalidades que no se recuerdan entre sí: Mary, dulce y perdida, y Walker, fría y eficaz."
+    ]],
+    ["Episodios 4 a 6: El Puño robado", [
+      "Davos consigue el cadáver de un antiguo Puño de Hierro y tres tatuadoras que conocen un ritual prohibido. Secuestran a Danny y le pasan el poder a Davos, cuyo puño brilla en rojo.",
+      "Danny queda con una pierna rota y sin poder. Davos empieza a «limpiar» la ciudad: mata a los jefes de las tríadas y a cualquiera que considere culpable, y entrena a un grupo de chicos de la calle para que lo sigan.",
+      "Se cuenta el pasado: en K'un-Lun, Danny y Davos pelearon por el derecho a enfrentar al dragón. Davos no se rindió, y su padre detuvo el combate para darle la victoria a Danny. Nunca lo ha perdonado."
+    ]],
+    ["Episodios 7 a 10: Un dragón nuevo", [
+      "Colleen entrena a Danny, y él llega a una conclusión dura: no es digno del poder, porque lo usa como una droga. Le pide a Colleen que sea ella quien lo reciba. Misty Knight los ayuda desde la policía.",
+      "Walker, que cobra de los dos bandos, captura a Davos. En el ritual, el Puño pasa a Colleen, y a ella le brilla en blanco. Davos, de nuevo sin poder, acaba detenido.",
+      "El cofre le revela a Colleen su origen: desciende de Wu Ao-Shi, la Reina Pirata de la bahía de Pinghai, la primera mujer que fue Puño de Hierro. Ward se entera de que va a ser padre, y Joy se queda sola, vigilada por Walker, que descubre que quizá tiene una tercera personalidad.",
+      "Meses después, Colleen patrulla la ciudad con una katana que brilla. Y en Japón, Danny y Ward buscan a un hombre llamado Orson Randall. Cuando los atacan, Danny saca dos pistolas, y las balas salen cargadas de chi."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["D", "Danny"], ["C", "Colleen"], ["V", "Davos"], ["J", "Joy"], ["W", "Ward"], ["M", "Mary"]],
+    "enlaces": [["D", "C", "pareja"], ["D", "V", "hermanos enfrentados"], ["V", "J", "aliados"], ["W", "J", "hermanos"], ["J", "M", "la contrata"], ["D", "W", "amigos"]]
+  },
+  "personajes": [
+    ["Danny Rand", "Más humilde. Reconoce que el poder lo domina y renuncia a él."],
+    ["Colleen Wing", "La verdadera protagonista. Hereda el Puño de Hierro y lo canaliza por su espada."],
+    ["Davos", "Criado para ser el Puño y humillado por no serlo. Roba el poder y mata en nombre de la justicia. En los cómics es la Serpiente de Acero."],
+    ["Joy Meachum", "Quiere castigar a Danny y a Ward por mentirle, y se asusta de lo que desata."],
+    ["Ward Meachum", "En recuperación. Su amistad con Danny es el corazón de la temporada."],
+    ["Mary Walker", "Exsoldado con trastorno de identidad. Mary pinta y sonríe; Walker hace el trabajo sucio. En los cómics es Typhoid Mary."],
+    ["Misty Knight", "La detective de Harlem, con su brazo biónico. Forma buen equipo con Colleen."],
+    ["BB", "Chico de la calle amigo de Colleen. Su muerte la decide a volver a pelear."],
+    ["Las hermanas Grulla", "Tatuadoras que hacen el ritual de traspaso."],
+    ["La señora Yang", "Viuda que acaba dirigiendo las Hachas."]
+  ],
+  "cosas": [
+    ["El ritual", "Ceremonia con el cuerpo de un Puño de Hierro anterior y tatuajes hechos con su sangre. Pasa el poder de una persona a otra."],
+    ["Puño rojo", "El Puño de Hierro en manos de Davos."],
+    ["Puño blanco", "El de Colleen, que también enciende su katana."],
+    ["Wu Ao-Shi", "La Reina Pirata, antepasada de Colleen y antigua Puño de Hierro."],
+    ["El cofre", "Reliquia de la familia Wing que une a Colleen con K'un-Lun."],
+    ["Las tríadas", "Tigres Dorados y Hachas, las bandas de Chinatown."],
+    ["Orson Randall", "Un Puño de Hierro anterior, famoso en los cómics por disparar chi con pistolas."]
+  ],
+  "creditos": "No hay escenas después de los créditos. El final, con Danny disparando balas de chi en Japón y Colleen con la espada encendida, preparaba una tercera temporada que nunca se hizo.",
+  "conexiones": [
+    "Danny cumple la promesa que le hizo a Matt Murdock al final de The Defenders.",
+    "Misty Knight viene de Luke Cage, donde Danny y Colleen aparecen ese mismo año.",
+    "Davos y Joy quedaron como amenaza al final de la temporada 1.",
+    "La serie fue cancelada un mes después del estreno; fue la primera de las de Netflix en caer.",
+    "El dúo de Colleen y Misty es, en los cómics, las Hijas del Dragón."
+  ],
+  "preguntas": [
+    ["¿Cómo pierde Danny el Puño de Hierro?", "Davos se lo roba con un ritual prohibido."],
+    ["¿Quién tiene el Puño de Hierro al final?", "Colleen Wing, que lo recibe en un segundo ritual. Su puño brilla en blanco."],
+    ["¿Quién es Mary Walker?", "Una exsoldado con dos personalidades, Mary y Walker, contratada para vigilar a Danny."],
+    ["¿Por qué Davos odia a Danny?", "Porque cree que el Puño de Hierro le correspondía a él, y porque Danny dejó sin defensa K'un-Lun."],
+    ["¿De quién desciende Colleen Wing?", "De Wu Ao-Shi, la Reina Pirata de Pinghai, la primera mujer Puño de Hierro."],
+    ["¿Qué hace Danny en la última escena?", "Dispara dos pistolas con balas cargadas de chi, en Japón, mientras busca a Orson Randall."]
+  ],
+  "curiosidades": [
+    "Las peleas las coordinó Clayton Barber, que venía de la película Pantera Negra.",
+    "Tiene diez episodios en lugar de los trece habituales de las series de Netflix.",
+    "Danny lleva por fin, en un recuerdo, la máscara amarilla de los cómics.",
+    "La crítica la consideró una gran mejora, pero llegó tarde para salvar la serie."
+  ]
+}

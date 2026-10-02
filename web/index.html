@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!-- Para el celular y la tableta: se puede «Añadir a pantalla de inicio» y abre como una aplicación. -->
+<meta name="theme-color" content="#0d1117">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="M-Jarvis">
+<link rel="manifest" href="app.webmanifest">
+<link rel="icon" href="icono-192.png">
+<link rel="apple-touch-icon" href="icono-180.png">
+<title>M-Jarvis</title>
+<style>
+  :root { --fondo: #0d1117; --panel: #161b22; --borde: #2a313c; --texto: #e6e8eb; --tenue: #8b949e;
+    --espera: #6aa9ff; --pensando: #4fd1c5; --documentos: #5fd38d; --general: #f5a623; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--fondo); color: var(--texto);
+    font: clamp(15px, 1.05vw, 22px) system-ui, "Segoe UI", sans-serif; }
+  body { display: flex; flex-direction: column; }
+  header { display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-bottom: 1px solid var(--borde); }
+  header h1 { margin: 0; font-size: 1.05em; letter-spacing: .18em; font-weight: 600; }
+  #estado { display: flex; align-items: center; gap: 8px; color: var(--tenue); font-size: .87em; }
+  #estado i { width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--espera)); }
+  #estado.pensando i { animation: pulso 1s ease-in-out infinite; }
+  @keyframes pulso { 50% { opacity: .25; transform: scale(.7); } }
+  main { flex: 1; min-height: 0; display: flex; }
+  #mapa { flex: 1; min-width: 0; border: 0; }
+  #charla { width: clamp(340px, 26vw, 520px); flex: none; display: flex; flex-direction: column; border-left: 1px solid var(--borde);
+    background: var(--panel); }
+  #mensajes { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .msg { max-width: 92%; padding: 9px 12px; border-radius: 10px; line-height: 1.45; overflow-wrap: anywhere; }
+  .msg p { margin: 0; white-space: pre-wrap; }
+  .yo { align-self: flex-end; background: #233044; }
+  /* El ánimo con que responde no se dice: se nota en el color del filo de cada respuesta. */
+  .jarvis { align-self: flex-start; background: var(--fondo); border: 1px solid var(--borde);
+    border-left: 3px solid var(--animo, var(--borde)); transition: border-color .4s; }
+  .jarvis.esperando p { color: var(--tenue); font-style: italic; }
+  .fuente { display: block; margin-top: 7px; font-size: .8em; color: var(--tenue); }
+  .fuente::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--c, var(--tenue)); margin-right: 6px; }
+  form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--borde); }
+  input { flex: 1; min-width: 0; padding: 10px 12px; background: var(--fondo); color: var(--texto);
+    border: 1px solid var(--borde); border-radius: 8px; font: inherit; }
+  button { padding: 10px 16px; background: var(--espera); color: #0d1117; border: 0; border-radius: 8px;
+    font: inherit; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .45; cursor: default; }
+  button.detener { background: #ff7a6b; }
+  input:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  body.solo-chat #charla { width: auto; flex: 1; border-left: 0; }
+  body.solo-chat #mensajes, body.solo-chat form { width: min(100%, 980px); margin: 0 auto; }
+  #verRed { display: none; margin-left: auto; padding: 7px 14px; background: transparent; color: var(--texto);
+    border: 1px solid var(--borde); font-weight: 500; }
+  #verRed[aria-pressed="true"] { background: #1c2a3d; border-color: var(--espera); }
+  /* Celular y tableta en vertical: primero la conversación, a toda la pantalla. La red neuronal se
+     abre con su botón (y no se carga hasta entonces: así el teléfono no trabaja de más). */
+  @media (max-width: 820px) {
+    html, body { font-size: 16px; }
+    body { height: 100dvh; }
+    header { padding: max(10px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 10px max(14px, env(safe-area-inset-left)); }
+    main { flex-direction: column; }
+    #verRed { display: block; }
+    #mapa { display: none; flex: none; height: 46%; }
+    body.con-red #mapa { display: block; }
+    #charla { width: auto; flex: 1; min-height: 0; border-left: 0; }
+    body.con-red #charla { border-top: 1px solid var(--borde); }
+    #mensajes { padding: 12px; }
+    .msg { max-width: 96%; }
+    form { padding: 10px max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left)); }
+    input, button { min-height: 46px; }  /* cómodo para el dedo; y con 16 px el iPhone no hace zoom al escribir */
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>M-JARVIS</h1>
+  <div id="estado" role="status"><i></i><span>En espera</span></div>
+  <button id="verRed" type="button" aria-pressed="false">Red neuronal</button>
+</header>
+<main>
+  <iframe id="mapa" data-src="grafo/?embebido=1" title="Mapa de conocimiento"></iframe>
+  <section id="charla" aria-label="Conversación">
+    <div id="mensajes" aria-live="polite"></div>
+    <form id="formulario">
+      <input id="campo" autocomplete="off" enterkeyhint="send" placeholder="Pregúntele algo a Jarvis…" aria-label="Pregunta" autofocus>
+      <button id="boton" type="submit">Enviar</button>
+      <button id="parar" type="button" class="detener" hidden>Detener</button>
+    </form>
+  </section>
+</main>
+<script>
+const mapa = document.getElementById('mapa'), mensajes = document.getElementById('mensajes');
+const campo = document.getElementById('campo'), boton = document.getElementById('boton');
+const estado = document.getElementById('estado');
+const ESTADOS = {
+  espera: ['En espera', 'var(--espera)'], pensando: ['Pensando…', 'var(--pensando)'],
+  documentos: ['Respondiendo desde mis archivos', 'var(--documentos)'],
+  general: ['Respondiendo de conocimiento general', 'var(--general)'],
+  ocupado: ['Ocupado', 'var(--general)'],
+  trato: ['Respondiendo', 'var(--espera)'],
+  memoria: ['Recordando la conversación', 'var(--documentos)'],
+  filtro: ['Respondiendo', '#ff7a6b'],
+  sistema: ['Diagnóstico del sistema', 'var(--pensando)'],
+  aprendizaje: ['Aprendiendo', 'var(--documentos)'],
+};
+const SIN_NOTA = ['ocupado', 'trato', 'filtro', 'sistema', 'aprendizaje'];  // respuestas directas: no llevan etiqueta de origen
+
+// La primera pregunta tras abrir la página empieza una conversación limpia en el servidor.
+let nueva = true;
+// Cada pantalla lleva su propia conversación: se identifica con un nombre al azar que guarda ella misma.
+let cliente = '';
+try { cliente = localStorage.getItem('mjarvis-cliente') || ''; } catch (e) { /* sin almacenamiento: vale para esta visita */ }
+if (!cliente) {
+  cliente = 'p-' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+  try { localStorage.setItem('mjarvis-cliente', cliente); } catch (e) { /* sin almacenamiento */ }
+}
+// El color de cada ánimo (los mismos nombres que sus nodos en la bola de M-Jarvis del mapa).
+const ANIMOS = { 'Serenidad': '#6aa9ff', 'Orgullo': '#e6d84a', 'Afecto': '#f472d0', 'Diversión': '#5fd38d',
+  'Curiosidad': '#4fd1c5', 'Entusiasmo': '#f5a623', 'Fastidio': '#ff7a6b', 'Celos': '#9ad14b', 'Indignación': '#ff4d4d',
+  'Preocupación': '#b48cf2', 'Melancolía': '#7f8fb5', 'Desconcierto': '#a3b1c2' };
+
+function ponerEstado(clave) {
+  estado.className = clave; estado.style.setProperty('--c', ESTADOS[clave][1]);
+  estado.lastElementChild.textContent = ESTADOS[clave][0];
+}
+// ?vista=chat deja solo la conversación (el mapa va en otra pantalla, abriendo /grafo/ allí).
+const verRed = document.getElementById('verRed'), estrecha = matchMedia('(max-width: 820px)');
+if (new URLSearchParams(location.search).get('vista') === 'chat') { document.body.classList.add('solo-chat'); mapa.remove(); verRed.remove(); }
+// En pantalla ancha el mapa se carga al entrar; en el celular, solo cuando se pide con el botón.
+function cargarMapa() { if (mapa.isConnected && !mapa.src) mapa.src = mapa.dataset.src; }
+if (!estrecha.matches) cargarMapa();
+estrecha.addEventListener('change', () => { if (!estrecha.matches) cargarMapa(); });
+verRed.addEventListener('click', () => {
+  const abierta = document.body.classList.toggle('con-red');
+  verRed.setAttribute('aria-pressed', String(abierta));
+  if (abierta) cargarMapa();
+  mensajes.scrollTop = mensajes.scrollHeight;
+});
+function zoomMapa(accion) { try { mapa.contentWindow.zoomMapa(accion); } catch (e) { /* sin mapa en esta página */ } }
+// Con el campo vacío, las teclas + y - mueven el zoom del mapa en vez de escribirse.
+campo.addEventListener('keydown', e => {
+  if (campo.value !== '' || !['+', '-'].includes(e.key)) return;
+  e.preventDefault(); zoomMapa(e.key === '+' ? 'acercar' : 'alejar');
+});
+function burbuja(clase, texto) {
+  const caja = document.createElement('div'), p = document.createElement('p');
+  caja.className = 'msg ' + clase; p.textContent = texto; caja.append(p);
+  mensajes.append(caja); mensajes.scrollTop = mensajes.scrollHeight;
+  return caja;
+}
+
+// Lo que Jarvis va diciendo mientras piensa. {tema} se cambia por la nota que encontró.
+const PENSANDO = {
+  inicio: ['Hmm, deme un momento…', 'Un momento…', 'Permítame un instante…', 'Déjeme ver…'],
+  documentos: ['Déjeme consultar mis archivos…', 'Veamos qué tengo sobre {tema}…', 'Revisando mis notas sobre {tema}…',
+    'Ah, {tema}. Deme un segundo para ordenar las ideas…', 'Conectando los datos…', 'Ya casi lo tengo…',
+    'Atando cabos…'],
+  general: ['Hmm, eso no figura en mis archivos; déjeme pensar…', 'Déjeme informarme…',
+    'Recurriendo a mi cultura general…', 'Un instante más…', 'Hurgando en la memoria…'],
+};
+const barajar = lista => [...lista].sort(() => Math.random() - 0.5);
+
+// Va cambiando la frase de espera hasta que llega la primera palabra de la respuesta.
+function relleno(p) {
+  let lista = barajar(PENSANDO.inicio), i = 0, tema = '', reloj = 0, vivo = true;
+  const poner = () => { if (vivo) p.textContent = lista[i++ % lista.length].replace('{tema}', tema); };
+  const cada = ms => { clearTimeout(reloj); reloj = setTimeout(() => { poner(); cada(2800); }, ms); };
+  poner(); cada(2800);
+  return {
+    ruta(fuente, nodos) {
+      if (!PENSANDO[fuente]) return;
+      tema = nodos[0] || '';
+      lista = barajar(PENSANDO[fuente].filter(f => tema || !f.includes('{tema}'))); i = 0; cada(1300);
+    },
+    parar() { vivo = false; clearTimeout(reloj); },
+  };
+}
+
+async function preguntar(pregunta) {
+  burbuja('yo', pregunta);
+  const caja = burbuja('jarvis esperando', '…'), p = caja.firstChild;
+  let primera = true, fuente = null, nodos = [], espera = null, terminada = false;
+  ocupar(+1);
+  // El mapa no se maneja desde aquí: sigue la conversación por su cuenta (vale igual para el mapa
+  // de esta página que para el de una segunda pantalla).
+  const manejar = d => {
+    // Si Jarvis está con otra pregunta, esta espera su turno en la cola y se responde después.
+    if (d.tipo === 'cola') p.textContent = d.puesto === 1 ? 'En cola: la respondo en cuanto termine la anterior.' : `En cola: hay ${d.puesto} preguntas antes.`;
+    else if (d.tipo === 'turno') { ponerEstado('pensando'); espera = relleno(p); }
+    else if (d.tipo === 'inicio') {
+      fuente = d.fuente; nodos = d.nodos; if (espera) espera.ruta(fuente, nodos);
+      if (ANIMOS[d.emocion]) { caja.style.setProperty('--animo', ANIMOS[d.emocion]); caja.title = 'Ánimo: ' + d.emocion.toLowerCase(); }
+    }
+    else if (d.tipo === 'texto') {
+      if (primera) {
+        primera = false; if (espera) espera.parar(); p.textContent = ''; caja.classList.remove('esperando');
+        ponerEstado(fuente in ESTADOS ? fuente : 'general');
+      }
+      p.textContent += d.t; mensajes.scrollTop = mensajes.scrollHeight;
+    } else if (d.tipo === 'fin') {
+      terminada = true;
+      if (SIN_NOTA.includes(fuente)) return;
+      const nota = document.createElement('small'); nota.className = 'fuente';
+      nota.style.setProperty('--c', fuente === 'general' ? 'var(--general)' : 'var(--documentos)');
+      nota.textContent = (fuente === 'documentos' ? 'De mis archivos: ' + nodos.join(', ')
+        : fuente === 'memoria' ? 'De esta conversación'
+        : 'Conocimiento general, sin documento de respaldo') + ` · ${d.segundos} s` + (d.detenida ? ' · detenida' : '');
+      caja.append(nota); mensajes.scrollTop = mensajes.scrollHeight;
+    }
+  };
+  try {
+    const r = await fetch('api/preguntar', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pregunta, nueva, cliente }) });
+    nueva = false;
+    if (!r.ok) throw new Error(r.status);
+    const lector = r.body.getReader(), dec = new TextDecoder();
+    let resto = '';
+    for (;;) {
+      const { done, value } = await lector.read();
+      if (done) break;
+      resto += dec.decode(value, { stream: true });
+      let corte;
+      while ((corte = resto.indexOf('\n')) >= 0) { manejar(JSON.parse(resto.slice(0, corte))); resto = resto.slice(corte + 1); }
+    }
+    // Si la conexión se cortó a medias (por ejemplo, el servidor se reinició), que no quede colgada.
+    if (!terminada) throw new Error('respuesta incompleta');
+  } catch (e) {
+    if (espera) espera.parar();
+    caja.classList.remove('esperando');
+    p.textContent = primera ? 'Perdí el hilo de esa pregunta: mi sistema se reinició a medias. ¿Me la repite?'
+      : p.textContent + ' … (se cortó la conexión)';
+  }
+  if (espera) espera.parar();
+  ocupar(-1); campo.focus();
+}
+
+// Cuántas preguntas de esta pantalla están en curso o en cola. Mientras haya alguna se ve «Detener»,
+// que corta la respuesta que se está dando (también con la tecla Esc); las que esperan siguen su turno.
+let pendientes = 0;
+const parar = document.getElementById('parar');
+function ocupar(cambio) {
+  pendientes += cambio; parar.hidden = pendientes === 0;
+  if (pendientes === 0) ponerEstado('espera');
+}
+function detener() { if (pendientes) fetch('api/detener', { method: 'POST' }).catch(() => {}); }
+parar.addEventListener('click', detener);
+addEventListener('keydown', e => { if (e.key === 'Escape') detener(); });
+
+document.getElementById('formulario').addEventListener('submit', e => {
+  e.preventDefault();
+  const pregunta = campo.value.trim();
+  if (!pregunta) return;
+  campo.value = '';
+  preguntar(pregunta);
+});
+</script>
+</body>
+</html>

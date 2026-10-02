@@ -1,0 +1,91 @@
+{
+  "titulo": "Iron Man 3",
+  "anio": 2013,
+  "saga": "Saga del Infinito · Fase 2",
+  "ficha": [
+    ["Título original", "Iron Man 3"],
+    ["Estreno", "Abril de 2013 (internacional) y 3 de mayo de 2013 (Estados Unidos)"],
+    ["Dirección", "Shane Black"],
+    ["Guion", "Drew Pearce y Shane Black"],
+    ["Reparto principal", "Robert Downey Jr. (Tony Stark), Gwyneth Paltrow (Pepper Potts), Don Cheadle (James Rhodes), Guy Pearce (Aldrich Killian), Rebecca Hall (Maya Hansen), Ben Kingsley (Trevor Slattery), Jon Favreau (Happy Hogan), Ty Simpkins (Harley Keener), Paul Bettany (voz de J.A.R.V.I.S.)"],
+    ["Duración", "130 minutos"],
+    ["Música", "Brian Tyler"],
+    ["Lugar en el universo", "Séptima película del Universo Cinematográfico de Marvel y primera de la Fase 2"],
+    ["Cronología interna", "Navidad de 2012, unos seis meses después de la Batalla de Nueva York"],
+    ["Recaudación", "Cerca de 1215 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Ansiedad", "Tony no duerme tras Nueva York"],
+    ["El Mandarín", "Atentados y ataque a Malibú"],
+    ["Tennessee", "Tony sin armadura investiga"],
+    ["El engaño", "El Mandarín es un actor"],
+    ["Los muelles", "Todas las armaduras contra Killian"]
+  ],
+  "actos": [
+    ["Prólogo: Berna, Nochevieja de 1999", [
+      "En una fiesta en Berna, Suiza, Tony Stark conoce a la científica Maya Hansen, que investiga Extremis, un tratamiento capaz de regenerar tejido vivo. Esa misma noche Tony deja plantado en una azotea a Aldrich Killian, un científico con discapacidad que quería proponerle trabajar en su empresa, Advanced Idea Mechanics (A.I.M.). Tony narra que esa noche creó a sus propios demonios."
+    ]],
+    ["Acto 1: La ansiedad de Tony y los atentados del Mandarín", [
+      "Meses después de la Batalla de Nueva York, Tony sufre ataques de ansiedad e insomnio. No para de construir armaduras: va por la Mark 42, cuyas piezas vuelan hasta su cuerpo. Pepper Potts dirige Stark Industries y Happy Hogan es el jefe de seguridad.",
+      "Un terrorista llamado el Mandarín reivindica una serie de explosiones en las que nunca aparecen restos de bombas. Happy sigue a un hombre sospechoso, Eric Savin, hasta el Teatro Chino de Hollywood; una explosión lo deja en coma. Tony, furioso, amenaza al Mandarín por televisión y le da la dirección de su casa.",
+      "Maya Hansen llega a la mansión de Malibú para avisarle, pero tres helicópteros del Mandarín la destruyen. Tony pone la armadura a Pepper para salvarla y luego escapa con ella puesta. J.A.R.V.I.S. lo lleva, siguiendo un plan de vuelo ya cargado, hasta Rose Hill, en Tennessee, donde la armadura se queda sin energía. El mundo lo cree muerto."
+    ]],
+    ["Acto 2: Tennessee, Extremis y el falso Mandarín", [
+      "En Rose Hill, Tony se refugia en el garaje de un niño, Harley Keener, que lo ayuda a reparar la armadura. Investigando una explosión antigua descubre la verdad: las «bombas» son personas tratadas con Extremis cuyo cuerpo no lo resiste, se recalienta y estalla. Dos agentes con Extremis, Ellen Brandt y Savin, lo atacan y Tony los vence sin armadura.",
+      "Con armas caseras, Tony entra en la mansión del Mandarín en Miami y descubre que el terrorista es un actor británico, Trevor Slattery, contratado para dar la cara. El verdadero responsable es Aldrich Killian, que usa Extremis en soldados heridos y encubre los accidentes como atentados. Killian secuestra a Pepper y le inyecta Extremis; Maya, que trabajaba para él, se arrepiente y Killian la mata.",
+      "Killian roba la armadura Iron Patriot de Rhodes para secuestrar al presidente Ellis en el Air Force One. Tony, manejando la Mark 42 a distancia, rescata en el aire a trece personas que caen del avión. El vicepresidente Rodríguez está aliado con Killian a cambio de Extremis para su hija."
+    ]],
+    ["Acto 3: Los muelles y el Protocolo Fiesta en Casa", [
+      "Tony y Rhodes llegan a un muelle petrolero donde Killian piensa ejecutar al presidente ante las cámaras. Tony activa el Protocolo Fiesta en Casa: J.A.R.V.I.S. trae volando todas las armaduras que guardaba, la Legión de Hierro, y cada una pelea sola contra los soldados de Extremis mientras Tony salta de una a otra.",
+      "Rhodes libera al presidente. Pepper cae al fuego desde gran altura, pero Extremis la salva; con sus nuevos poderes es ella quien acaba con Killian. Tony ordena el Protocolo Borrón y Cuenta Nueva y hace estallar todas las armaduras como fuegos artificiales, en señal de que Pepper es lo primero.",
+      "Tony cura a Pepper de Extremis, se opera para quitarse la metralla del pecho y lanza al mar su viejo reactor arc. Termina diciendo que podrán quitarle la casa y los juguetes, pero no una cosa: él es Iron Man."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["T", "Tony"], ["P", "Pepper"], ["R", "Rhodes"], ["K", "Killian"], ["M", "Maya"], ["S", "Trevor"]],
+    "enlaces": [["T", "P", "pareja"], ["T", "R", "amigo"], ["T", "K", "lo humilló en 1999"], ["K", "M", "jefe"], ["K", "S", "lo contrató"], ["K", "P", "la secuestra"]]
+  },
+  "personajes": [
+    ["Tony Stark", "Inventor y dueño de Stark Industries. Tras casi morir en Nueva York sufre ansiedad y se refugia construyendo armaduras. En esta película demuestra que es un héroe incluso sin el traje."],
+    ["Pepper Potts", "Directora de Stark Industries y pareja de Tony. Killian la secuestra y le inyecta Extremis; gracias a eso sobrevive a una caída y derrota a Killian."],
+    ["James Rhodes", "Coronel de la Fuerza Aérea y amigo de Tony. Su armadura War Machine fue repintada con los colores de la bandera y rebautizada Iron Patriot."],
+    ["Aldrich Killian", "Fundador de A.I.M. y el verdadero villano. Usa Extremis en sí mismo: se regenera, genera calor extremo y hasta escupe fuego. Inventó al Mandarín para ocultar sus accidentes."],
+    ["Maya Hansen", "Botánica y genetista que creó Extremis. Trabaja para Killian, pero al final intenta detenerlo y él la mata."],
+    ["Trevor Slattery", "Actor británico con problemas de adicción, contratado para interpretar al Mandarín en los vídeos. No sabe que los atentados son reales."],
+    ["Harley Keener", "Niño de Rose Hill, Tennessee, que ayuda a Tony a reparar la armadura. Tony le regala un taller entero como agradecimiento."],
+    ["Happy Hogan", "Antiguo chofer de Tony y ahora jefe de seguridad de Stark Industries. Queda en coma por la explosión del Teatro Chino y despierta al final."],
+    ["Eric Savin y Ellen Brandt", "Soldados mejorados con Extremis que trabajan para Killian. Savin suplanta a Rhodes dentro de la armadura Iron Patriot."],
+    ["Presidente Ellis", "Presidente de los Estados Unidos, secuestrado por Killian para ejecutarlo en directo."]
+  ],
+  "cosas": [
+    ["Extremis", "Tratamiento que reescribe el cuerpo para que se regenere. Da fuerza, curación y calor extremo, pero si el cuerpo no lo acepta, la persona estalla."],
+    ["Armadura Mark 42", "Armadura cuyas piezas vuelan por separado hasta Tony y que puede manejarse a distancia. Es un prototipo y falla a menudo."],
+    ["Iron Patriot", "La armadura War Machine de Rhodes pintada de rojo, blanco y azul por decisión del gobierno."],
+    ["Legión de Hierro", "Las decenas de armaduras que Tony construyó por insomnio. Llegan todas a la batalla final con el Protocolo Fiesta en Casa."],
+    ["A.I.M.", "Advanced Idea Mechanics, la empresa de investigación de Killian que desarrolla Extremis."],
+    ["Los Diez Anillos", "La organización terrorista cuyo nombre y símbolos usa el falso Mandarín. Su verdadero líder aparece años después en Shang-Chi."],
+    ["Rose Hill, Tennessee", "Pueblo donde ocurrió una de las primeras explosiones de Extremis y donde Tony se esconde."],
+    ["Mansión de Malibú", "La casa de Tony frente al mar, destruida por los helicópteros de Killian."]
+  ],
+  "creditos": "Después de los créditos se descubre que toda la película era Tony contándole su historia a Bruce Banner, como si fuera su psicólogo. Banner se había quedado dormido y le recuerda que él no es ese tipo de doctor.",
+  "conexiones": [
+    "El cortometraje All Hail the King muestra a Trevor Slattery en prisión y revela que el verdadero Mandarín existe; la historia sigue en Shang-Chi y la leyenda de los Diez Anillos.",
+    "La ansiedad de Tony viene directamente de la Batalla de Nueva York de Los Vengadores.",
+    "Harley Keener reaparece, ya adolescente, en el funeral de Tony en Vengadores: Endgame.",
+    "Tony vuelve a construir armaduras en Vengadores: La era de Ultrón, donde la Legión de Hierro son robots."
+  ],
+  "preguntas": [
+    ["¿Quién es el villano de Iron Man 3?", "Aldrich Killian, el fundador de A.I.M. El Mandarín que sale en los vídeos es un actor, Trevor Slattery, contratado para distraer."],
+    ["¿Qué es Extremis?", "Un tratamiento que hace que el cuerpo se regenere y produzca calor extremo. Quien no lo resiste acaba estallando, y esas explosiones son los supuestos atentados."],
+    ["¿Por qué Tony tiene ataques de ansiedad?", "Por lo que vivió en la Batalla de Nueva York, cuando atravesó el portal con un misil y casi muere."],
+    ["¿Cuántas armaduras tiene Tony en esta película?", "Llega hasta la Mark 42. En la batalla final aparecen todas las demás, la Legión de Hierro."],
+    ["¿Qué pasa con las armaduras al final?", "Tony las destruye todas con el Protocolo Borrón y Cuenta Nueva, como promesa a Pepper."],
+    ["¿Tony se quita el reactor del pecho?", "Sí. Se opera para sacarse la metralla y ya no necesita el reactor arc en el pecho."]
+  ],
+  "curiosidades": [
+    "Es la primera película de la Fase 2 y transcurre en Navidad, algo habitual en las películas de su director, Shane Black.",
+    "Stan Lee aparece como juez de un concurso de belleza.",
+    "Fue la segunda película de Marvel Studios en superar los mil millones de dólares, después de Los Vengadores.",
+    "El niño Harley fue interpretado por Ty Simpkins, que volvió a aparecer, ya crecido, en Vengadores: Endgame."
+  ]
+}

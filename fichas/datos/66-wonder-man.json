@@ -1,0 +1,88 @@
+{
+  "titulo": "Wonder Man",
+  "anio": 2026,
+  "saga": "Saga del Multiverso · Fase 6",
+  "ficha": [
+    ["Título original", "Wonder Man"],
+    ["Estreno", "27 de enero de 2026, los ocho episodios a la vez (Disney+)"],
+    ["Creadores", "Destin Daniel Cretton y Andrew Guest"],
+    ["Episodios", "8, de unos 30 minutos"],
+    ["Reparto principal", "Yahya Abdul-Mateen II (Simon Williams), Ben Kingsley (Trevor Slattery), X Mayo (Janelle Jackson), Zlatko Burić (Von Kovak), Arian Moayed (agente Cleary), Byron Bowers (DeMarr Davis), Joe Pantoliano y Josh Gad (ellos mismos)"],
+    ["Música", "Joel P. West"],
+    ["Lugar en el universo", "Fase 6. Sello Marvel Spotlight: una historia pequeña, que se entiende sola"],
+    ["Cronología interna", "Los Ángeles, de 2025 a 2027"],
+    ["Tono", "Comedia sobre Hollywood y la amistad entre dos actores, con muy poca acción"]
+  ],
+  "momentos": [
+    ["El despido", "Un actor sin suerte"],
+    ["Trevor", "Un viejo actor y un espía"],
+    ["El Portero", "Por qué no hay actores con poderes"],
+    ["El rodaje", "Simon consigue el papel"],
+    ["Yucca Valley", "La fuga"]
+  ],
+  "actos": [
+    ["Episodios 1 a 3: La prueba", [
+      "Simon Williams es un actor de Los Ángeles con talento y mala suerte: piensa demasiado cada papel y agota a los directores. En un mismo día lo despiden de una serie y lo deja su novia.",
+      "En un cine conoce a Trevor Slattery, el veterano actor inglés que una vez fingió ser el terrorista conocido como el Mandarín. Trevor le habla de una gran oportunidad: el director europeo Von Kovak va a rehacer Wonder Man, una vieja película de superhéroes que Simon adoraba de niño. Simon se cuela en la prueba, y con los consejos de Trevor lo hace muy bien.",
+      "Simon tiene un secreto. Cuando sus emociones lo desbordan, de su cuerpo sale una energía que revienta lo que tiene cerca. En Hollywood eso es el fin de una carrera: hay una norma, la Cláusula del Portero, que prohíbe contratar a personas con poderes.",
+      "Trevor tampoco es del todo sincero. Acaba de salir de la cárcel, y el Departamento de Control de Daños lo obliga a espiar a Simon a cambio de no volver. Lo acompaña a una fiesta familiar con un micrófono oculto. Allí, en una discusión con su hermano, Simon rompe la encimera de la cocina de un golpe, y le confiesa a Trevor que es la única persona, fuera de su familia, que lo sabe. Trevor destruye la grabación."
+    ]],
+    ["Episodios 4 a 6: El Portero y la segunda prueba", [
+      "Un episodio cuenta el origen de la norma. DeMarr Davis, portero de un club, quedó expuesto a unos residuos y obtuvo el poder de convertir su cuerpo en una puerta a otra dimensión. El actor Josh Gad lo contrató, lo metió en una película de atracos, y fue un éxito. En la segunda parte, Davis perdió el control, y Gad desapareció dentro de él. Control de Daños lo vigila desde entonces, y los estudios prohibieron a los actores con poderes.",
+      "Unos traficantes acorralan a Simon y a Trevor, y Simon tiene que usar su poder; un chico lo graba con una cámara. Consiguen salir del lío a tiempo para la segunda prueba, en la mansión del director.",
+      "Simon, agotado, falla en los ejercicios de improvisación mientras Trevor deslumbra. Trevor le aconseja que deje de esconder lo que siente y lo use. La escena que hacen juntos convence a Von Kovak, y los contrata a los dos."
+    ]],
+    ["Episodios 7 y 8: El papel de su vida", [
+      "Empieza el rodaje. Una periodista prepara un reportaje sobre ellos, entrevista a la familia y a la exnovia de Simon, y pregunta a Trevor por su trato con el gobierno. Simon, convencido de que van a descubrirlo, pierde el control en el plató, y una explosión destruye el decorado.",
+      "Trevor hace entonces su mejor actuación. Se graba un vídeo con el traje y la voz del Mandarín y se atribuye el atentado. Control de Daños sabe que miente, pero lo detiene igualmente: necesita presos para justificar su carísima prisión nueva en el desierto, en Yucca Valley.",
+      "El director insiste en seguir rodando, y le pide a Simon que use lo que siente por la traición de su amigo. Otro actor ocupa el papel de Trevor. La película se estrena y es un éxito, y Simon es por fin una estrella.",
+      "Simon ha entendido además cómo funciona su energía. Se hace pasar por alguien que prepara un papel de guardia para entrar en la prisión, llega hasta la celda de Trevor y lo saca volando."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Simon"], ["T", "Trevor"], ["C", "Cleary"], ["K", "Von Kovak"], ["J", "Janelle"], ["D", "El Portero"]],
+    "enlaces": [["S", "T", "amigos"], ["C", "T", "lo obliga a espiar"], ["K", "S", "lo dirige"], ["J", "S", "su agente"], ["C", "S", "lo vigila"], ["D", "C", "preso"]]
+  },
+  "personajes": [
+    ["Simon Williams", "Actor obsesivo y solitario, muy unido a su madre. Tiene poderes de energía iónica: fuerza, resistencia y vuelo."],
+    ["Trevor Slattery", "Actor de teatro venido a menos, exadicto. Busca redimirse, y lo hace con una mentira."],
+    ["Janelle Jackson", "La agente de Simon, que no se rinde con él."],
+    ["Von Kovak", "Director excéntrico y exigente."],
+    ["Agente Cleary", "De Control de Daños, el mismo de Spider-Man: Sin camino a casa y Ms. Marvel."],
+    ["DeMarr Davis", "El Portero. Su accidente cambió las reglas de Hollywood."],
+    ["Josh Gad", "El actor, haciendo de sí mismo."],
+    ["Joe Pantoliano", "Actor y rival de Trevor, también como él mismo."],
+    ["Eric Williams", "Hermano de Simon, que no cree en su carrera."],
+    ["Kathy Friedman", "La periodista que hace demasiadas preguntas."]
+  ],
+  "cosas": [
+    ["Energía iónica", "El poder de Simon. Estalla con las emociones fuertes hasta que aprende a dirigirlo."],
+    ["Cláusula del Portero", "La norma de los estudios que veta a los actores con poderes."],
+    ["Wonder Man, la película", "El filme de superhéroes dentro de la serie, que Simon protagoniza."],
+    ["Control de Daños", "El departamento que vigila a personas con poderes."],
+    ["Yucca Valley", "La prisión del desierto adonde llevan a Trevor."],
+    ["El Mandarín", "El personaje terrorista que Trevor interpretó en Iron Man 3, y que vuelve a usar."]
+  ],
+  "creditos": "No hay escena después de los créditos. La serie termina con Simon y Trevor alejándose por el aire sobre el desierto. Se anunció una segunda temporada, que fue cancelada en julio de 2026.",
+  "conexiones": [
+    "Trevor Slattery viene de Iron Man 3 y de Shang-Chi y la leyenda de los Diez Anillos.",
+    "El agente Cleary y Control de Daños aparecen en Spider-Man: Sin camino a casa y Ms. Marvel.",
+    "En los cómics, Wonder Man es miembro de los Vengadores y su hermano Eric es el villano Segador.",
+    "Es el segundo título del sello Marvel Spotlight, después de Echo.",
+    "Uno de sus creadores, Destin Daniel Cretton, dirigió Shang-Chi y Spider-Man: Brand New Day."
+  ],
+  "preguntas": [
+    ["¿Quién es Wonder Man?", "Simon Williams, un actor de Hollywood con poderes de energía, que consigue el papel de un superhéroe llamado Wonder Man."],
+    ["¿Qué es la Cláusula del Portero?", "Una norma que prohíbe a los estudios contratar a actores con superpoderes."],
+    ["¿Por qué Trevor espía a Simon?", "Porque Control de Daños lo amenaza con devolverlo a la cárcel si no lo hace."],
+    ["¿Cómo salva Trevor a Simon?", "Se culpa de la explosión del plató haciéndose pasar otra vez por el Mandarín."],
+    ["¿Cómo termina?", "Simon triunfa como actor y saca a Trevor de la prisión de Control de Daños."],
+    ["¿Tiene muchas peleas?", "Casi ninguna. Es una comedia sobre actores y amistad."]
+  ],
+  "curiosidades": [
+    "Se rodó entre 2023 y 2024 y estuvo terminada más de un año antes de su estreno.",
+    "Yahya Abdul-Mateen II fue nominado al Emmy por el papel.",
+    "El Portero es un personaje menor de los cómics de los años ochenta.",
+    "Ben Kingsley, ganador del Óscar por Gandhi, interpreta a Trevor desde 2013."
+  ]
+}

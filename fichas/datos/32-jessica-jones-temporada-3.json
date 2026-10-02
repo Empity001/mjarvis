@@ -1,0 +1,89 @@
+{
+  "titulo": "Jessica Jones · Temporada 3",
+  "anio": 2019,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Jessica Jones (temporada 3)"],
+    ["Estreno", "14 de junio de 2019 (Netflix; hoy en Disney+)"],
+    ["Creadora", "Melissa Rosenberg"],
+    ["Episodios", "13"],
+    ["Reparto principal", "Krysten Ritter (Jessica Jones), Rachael Taylor (Trish Walker), Eka Darville (Malcolm Ducasse), Carrie-Anne Moss (Jeri Hogarth), Benjamin Walker (Erik Gelden), Jeremy Bobb (Gregory Sallinger), Sarita Choudhury (Kith Lyonne), Rebecca De Mornay (Dorothy Walker), Mike Colter (Luke Cage)"],
+    ["Música", "Sean Callery"],
+    ["Lugar en el universo", "Última temporada de las series de Marvel en Netflix"],
+    ["Cronología interna", "Un año después de la temporada 2"],
+    ["Tono", "Novela negra: qué diferencia a una heroína de una justiciera"]
+  ],
+  "momentos": [
+    ["El cuchillo", "Apuñalan a Jessica"],
+    ["Sallinger", "Un asesino sin poderes"],
+    ["Hellcat", "Trish sale de noche"],
+    ["Dorothy", "La madre de Trish muere"],
+    ["La estación", "Jessica se queda"]
+  ],
+  "actos": [
+    ["Episodios 1 a 4: Dos enmascaradas", [
+      "Jessica intenta ser una heroína de verdad, y no le sale bien: acepta casos que ayudan a la gente, pero no cree en sí misma. No se habla con Trish desde que mató a su madre.",
+      "Trish tiene ahora agilidad, equilibrio y visión nocturna. Se entrena en secreto y sale de noche con la cara tapada a cazar criminales. Sus métodos son cada vez más duros.",
+      "Jessica conoce a Erik Gelden, un jugador simpático con un don: siente el mal de las personas como un dolor de cabeza, más fuerte cuanto peor es lo que han hecho, y lo usa para chantajearlas. Una noche, alguien que venía a por Erik apuñala a Jessica en su propia casa. Pierde el bazo."
+    ]],
+    ["Episodios 5 a 9: Sallinger", [
+      "El atacante es Gregory Sallinger, un hombre culto, con varios títulos universitarios, que lleva años matando sin que nadie lo note. Desprecia a los que tienen poderes: los llama tramposos que no se han ganado nada. Fotografía a sus víctimas en el momento en que pierden la máscara.",
+      "Es más listo que la policía y conoce la ley. Hace públicas las debilidades de Jessica y se presenta como la víctima de una mujer violenta. Jessica y Trish vuelven a trabajar juntas para conseguir pruebas, y cada vez que Trish se salta las reglas, el caso se complica.",
+      "Sallinger secuestra a Dorothy Walker, la madre de Trish, y la mata."
+    ]],
+    ["Episodios 10 a 13: La hermana", [
+      "Jessica consigue que Sallinger confiese y que lo arresten. Trish no quiere un juicio: lo mata a golpes en un ascensor. Ya había matado a otros dos hombres, y está convencida de que hace lo correcto.",
+      "Jessica comprende que tiene que detener a la persona que más quiere. Trish huye hacia un avión privado. Jessica la alcanza y la entrega. Cuando ve su propia cara en las noticias, Trish dice lo que no se atrevía a pensar: «Soy la mala». La llevan a la Balsa, la prisión para gente con poderes.",
+      "Jeri Hogarth, cada vez más enferma, destroza la vida de un antiguo amor, Kith, para recuperarla, y acaba sola. Malcolm, que trabajaba para ella haciendo cosas de las que se avergüenza, lo deja.",
+      "Luke Cage visita a Jessica y le cuenta que él también tuvo que entregar a su hermano. Jessica le da a Malcolm las llaves de Alias Investigations y va a la estación a comprar un billete para irse lejos. Entonces oye en su cabeza la voz de Kilgrave, felicitándola por rendirse. Se da la vuelta y se queda."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["J", "Jessica"], ["T", "Trish"], ["S", "Sallinger"], ["E", "Erik"], ["M", "Malcolm"], ["H", "Hogarth"]],
+    "enlaces": [["J", "T", "hermanas"], ["S", "J", "la ataca"], ["T", "S", "lo mata"], ["J", "E", "relación"], ["M", "H", "trabaja para ella"], ["E", "T", "aliados"]]
+  },
+  "personajes": [
+    ["Jessica Jones", "Decide por fin qué clase de heroína quiere ser: una que no mata."],
+    ["Trish Walker", "Con poderes y sin freno. Su caída es el centro de la temporada. En los cómics es Hellcat."],
+    ["Gregory Sallinger", "Asesino en serie, inteligente y resentido. No tiene poderes. En los cómics es Foolkiller."],
+    ["Erik Gelden", "Detecta la maldad ajena. Usa el don para sacar dinero, hasta que conoce a Jessica."],
+    ["Malcolm Ducasse", "Investigador del bufete de Hogarth. Recupera su conciencia y hereda la agencia."],
+    ["Jeri Hogarth", "Enferma y despiadada. Lo consigue todo menos compañía."],
+    ["Kith Lyonne", "Violonchelista, primer amor de Jeri."],
+    ["Dorothy Walker", "Madre de Trish. Muere a manos de Sallinger."],
+    ["Detective Costa", "El policía honrado que confía en Jessica."],
+    ["Gillian", "La nueva ayudante de Jessica, de lengua afilada."],
+    ["Luke Cage", "Aparece en el último episodio."],
+    ["Kilgrave", "Solo una voz y una luz morada al final."]
+  ],
+  "cosas": [
+    ["Poderes de Trish", "Agilidad de gata, reflejos y vista en la oscuridad, por el tratamiento de la temporada 2."],
+    ["El don de Erik", "Dolores de cabeza que miden cuánto mal ha hecho alguien."],
+    ["Las fotos de Sallinger", "Retratos de sus víctimas en el instante de «la verdad»."],
+    ["La Balsa", "La prisión flotante de Capitán América: Civil War, adonde llevan a Trish."],
+    ["Alias Investigations", "Pasa a manos de Malcolm."],
+    ["El bazo", "Jessica lo pierde y nota que ya no es tan resistente."]
+  ],
+  "creditos": "No hay escenas después de los créditos. El último plano es Jessica alejándose de la ventanilla de la estación, con media sonrisa, mientras la luz morada se apaga.",
+  "conexiones": [
+    "Es la última temporada de todas las series de Marvel en Netflix.",
+    "La Balsa aparece en Capitán América: Civil War.",
+    "Luke Cage menciona lo ocurrido con su hermano en su propia serie.",
+    "Krysten Ritter vuelve como Jessica Jones en la temporada 2 de Daredevil: Born Again.",
+    "La voz final es la de David Tennant, Kilgrave, villano de la temporada 1."
+  ],
+  "preguntas": [
+    ["¿Quién es el villano de la temporada 3?", "Gregory Sallinger, un asesino en serie sin poderes. Pero el verdadero conflicto es con Trish."],
+    ["¿Qué poderes tiene Trish Walker?", "Agilidad, reflejos y visión nocturna. Los usa como justiciera enmascarada."],
+    ["¿Qué le pasa a Trish al final?", "Mata a varios hombres, Jessica la detiene y la encierran en la Balsa."],
+    ["¿Quién es Erik Gelden?", "Un hombre que siente la maldad de los demás como dolor de cabeza. Es pareja de Jessica un tiempo."],
+    ["¿Cómo termina Jessica Jones?", "Entrega la agencia a Malcolm y va a marcharse, pero al oír la voz de Kilgrave decide quedarse en Nueva York."],
+    ["¿Sale Luke Cage?", "Sí, en una escena del último episodio."]
+  ],
+  "curiosidades": [
+    "Krysten Ritter dirigió el segundo episodio.",
+    "Se estrenó cuando Netflix ya había cancelado todas las series de Marvel, así que se escribió como despedida.",
+    "Trish lleva en un momento un traje amarillo y azul, guiño al de Hellcat.",
+    "Erik se basa en un personaje menor de los cómics llamado Mind-Wave."
+  ]
+}

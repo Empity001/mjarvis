@@ -1,0 +1,94 @@
+{
+  "titulo": "Guardianes de la Galaxia",
+  "anio": 2014,
+  "saga": "Saga del Infinito · Fase 2",
+  "ficha": [
+    ["Título original", "Guardians of the Galaxy"],
+    ["Estreno", "1 de agosto de 2014 (Estados Unidos)"],
+    ["Dirección", "James Gunn"],
+    ["Guion", "James Gunn y Nicole Perlman"],
+    ["Reparto principal", "Chris Pratt (Peter Quill), Zoe Saldaña (Gamora), Dave Bautista (Drax), Bradley Cooper (voz de Rocket), Vin Diesel (voz de Groot), Lee Pace (Ronan), Michael Rooker (Yondu), Karen Gillan (Nébula), Djimon Hounsou (Korath), Glenn Close (Nova Prime), John C. Reilly (Rhomann Dey), Benicio del Toro (el Coleccionista), Josh Brolin (Thanos)"],
+    ["Duración", "121 minutos"],
+    ["Música", "Tyler Bates, con las canciones del casete Awesome Mix Vol. 1"],
+    ["Lugar en el universo", "Décima película del Universo Cinematográfico de Marvel. Fase 2. Primera ambientada casi por completo en el espacio"],
+    ["Cronología interna", "2014, con un prólogo en 1988"],
+    ["Recaudación", "Cerca de 773 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["El Orbe", "Quill lo roba en Morag"],
+    ["La cárcel", "El equipo se conoce en el Kyln"],
+    ["Knowhere", "El Coleccionista explica las gemas"],
+    ["Ronan", "Se queda con la Gema del Poder"],
+    ["Xandar", "«Nosotros somos Groot»"]
+  ],
+  "actos": [
+    ["Prólogo: Misuri, 1988", [
+      "El niño Peter Quill ve morir de cáncer a su madre, Meredith, en un hospital. Sale corriendo con su walkman y un regalo sin abrir, y una nave lo abduce: son los Devastadores, piratas espaciales dirigidos por Yondu Udonta."
+    ]],
+    ["Acto 1: El Orbe y cinco desconocidos", [
+      "Veintiséis años después, Peter, que se hace llamar Star-Lord, roba una esfera llamada el Orbe en las ruinas del planeta Morag mientras baila con su casete. Lo interceptan los hombres de Ronan el Acusador, un fanático kree que rechaza la paz entre su imperio y el planeta Xandar. Ronan trabaja para Thanos: si le entrega el Orbe, Thanos destruirá Xandar.",
+      "Peter traiciona a Yondu y trata de vender el Orbe por su cuenta en Xandar. Allí lo atacan a la vez Gamora, hija adoptiva de Thanos enviada por Ronan, y dos cazarrecompensas: Rocket, un mapache modificado genéticamente, y Groot, un árbol humanoide. La policía de Xandar, el Cuerpo Nova, arresta a los cuatro y los envía a la prisión espacial Kyln.",
+      "En el Kyln conocen a Drax el Destructor, que quiere matar a Gamora porque Ronan asesinó a su esposa y a su hija. Gamora confiesa que piensa traicionar a Ronan y vender el Orbe a un comprador. Rocket diseña un plan de fuga y los cinco escapan juntos en la nave de Peter, la Milano."
+    ]],
+    ["Acto 2: Knowhere y la Gema del Poder", [
+      "Viajan a Knowhere, una colonia minera construida dentro de la cabeza cortada de un ser gigantesco, un Celestial. El comprador es el Coleccionista, que abre el Orbe: dentro hay una Gema del Infinito, capaz de arrasar planetas enteros. Su esclava Carina la toca para liberarse y la explosión destruye la colección.",
+      "Drax, borracho, llama a Ronan para enfrentarlo. Ronan lo derrota con facilidad. Nébula, la otra hija de Thanos, destruye la cápsula de Gamora, que queda flotando en el espacio; Peter le pone su casco para salvarla y llama a Yondu, que los captura a ambos.",
+      "Ronan toma la Gema del Poder, la incrusta en su martillo y traiciona a Thanos: ahora él mismo destruirá Xandar. Peter convence a los demás de pelear aunque no tengan casi ninguna posibilidad, y pacta con Yondu prometiéndole la gema."
+    ]],
+    ["Acto 3: La batalla de Xandar", [
+      "Los Devastadores y el Cuerpo Nova se enfrentan juntos a la nave de Ronan, el Dark Aster. Los pilotos Nova unen sus naves en una red para detenerla. Gamora vence a Nébula, que huye. Rocket estrella una nave contra Ronan y el Dark Aster cae sobre la ciudad.",
+      "Groot envuelve a sus amigos en un capullo de ramas para protegerlos del impacto, sabiendo que morirá. Cuando Rocket le pregunta por qué, responde: «Nosotros somos Groot». En tierra, Peter distrae a Ronan retándolo a bailar, Rocket y Drax rompen el martillo y Peter atrapa la gema.",
+      "La gema debería matarlo, pero Gamora, Drax y Rocket le dan la mano y comparten su poder. Juntos destruyen a Ronan. Peter le entrega a Yondu una esfera falsa y la verdadera queda bajo custodia del Cuerpo Nova, que les borra los antecedentes. Peter abre por fin el regalo de su madre: otro casete, Awesome Mix Vol. 2. De una ramita de Groot crece un Groot bebé."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["Q", "Quill"], ["G", "Gamora"], ["D", "Drax"], ["R", "Rocket"], ["A", "Ronan"], ["Y", "Yondu"]],
+    "enlaces": [["Q", "G", "aliados"], ["Q", "Y", "lo crió"], ["R", "Q", "equipo"], ["D", "A", "venganza"], ["G", "A", "lo traiciona"], ["D", "R", "equipo"]]
+  },
+  "personajes": [
+    ["Peter Quill, Star-Lord", "Terrícola criado por piratas espaciales. Ladrón simpático y fanático de la música de los años setenta. Su padre no es humano."],
+    ["Gamora", "Asesina de piel verde, hija adoptiva de Thanos, que mató a su familia. Busca redimirse traicionándolo."],
+    ["Drax el Destructor", "Guerrero que lo entiende todo de forma literal. Vive para vengar a su esposa y a su hija, asesinadas por Ronan."],
+    ["Rocket", "Mapache alterado con experimentos. Genio de las armas y los planes, con muy mal carácter."],
+    ["Groot", "Árbol humanoide y compañero de Rocket. Solo sabe decir «Yo soy Groot». Se sacrifica por el equipo y renace como un brote."],
+    ["Ronan el Acusador", "Fanático del imperio kree que quiere arrasar Xandar. Empuña un martillo de guerra."],
+    ["Nébula", "Hija adoptiva de Thanos, mitad máquina. Rival de Gamora y aliada de Ronan."],
+    ["Yondu Udonta", "Jefe de los Devastadores, de piel azul. Controla una flecha con silbidos. Crió a Peter."],
+    ["Thanos", "El Titán Loco. Aparece sentado en su trono y presta su ejército a Ronan a cambio del Orbe."],
+    ["El Coleccionista", "Taneleer Tivan, que guarda seres y objetos raros en Knowhere."],
+    ["Korath", "Cazador kree al servicio de Ronan."],
+    ["Nova Prime y Rhomann Dey", "La jefa del Cuerpo Nova y uno de sus oficiales, que ya había arrestado antes a Quill."]
+  ],
+  "cosas": [
+    ["El Orbe", "Esfera metálica que contiene la Gema del Poder, de color morado."],
+    ["Gema del Poder", "Gema del Infinito que da una fuerza capaz de destruir planetas. Mata a cualquier ser común que la toque."],
+    ["La Milano", "La nave de Peter Quill, de color naranja y azul."],
+    ["Awesome Mix Vol. 1", "El casete con canciones que la madre de Peter le grabó. Lo escucha en un walkman."],
+    ["Xandar", "Planeta capital del Imperio Nova, defendido por el Cuerpo Nova."],
+    ["El Kyln", "Prisión espacial de alta seguridad de la que escapa el equipo."],
+    ["Knowhere", "Colonia minera dentro del cráneo de un Celestial muerto."],
+    ["Flecha Yaka", "Flecha de Yondu que vuela guiada por sus silbidos."],
+    ["Dark Aster", "La enorme nave de guerra de Ronan."]
+  ],
+  "creditos": "A mitad de los créditos, el Groot bebé baila en su maceta cuando Drax no mira. Al final, el Coleccionista está sentado entre los restos de su colección junto al perro cosmonauta Cosmo y a Howard el Pato.",
+  "conexiones": [
+    "La Gema del Poder es la primera que Thanos consigue en Vengadores: Infinity War, tras arrasar Xandar.",
+    "El origen de Peter Quill se explica en Guardianes de la Galaxia Vol. 2.",
+    "El Coleccionista ya había aparecido al final de Thor: El mundo oscuro.",
+    "Los kree vuelven a ser importantes en Capitana Marvel, donde aparecen Ronan y Korath más jóvenes."
+  ],
+  "preguntas": [
+    ["¿Quiénes son los Guardianes de la Galaxia?", "Peter Quill, Gamora, Drax, Rocket y Groot: cinco delincuentes que acaban salvando un planeta juntos."],
+    ["¿Qué hay dentro del Orbe?", "La Gema del Poder, una de las seis Gemas del Infinito."],
+    ["¿Por qué Peter sobrevive al tocar la gema?", "Porque no es del todo humano y porque sus amigos comparten el poder con él dándose la mano."],
+    ["¿Groot muere?", "El Groot adulto se sacrifica, pero de una de sus ramas crece un Groot nuevo."],
+    ["¿Quién es el villano?", "Ronan el Acusador, un guerrero kree que quiere destruir Xandar."],
+    ["¿Qué significa «Yo soy Groot»?", "Es lo único que Groot sabe decir; el sentido cambia según el tono, y Rocket lo entiende."]
+  ],
+  "curiosidades": [
+    "Es la primera vez que Thanos habla en una película, interpretado por Josh Brolin.",
+    "Stan Lee aparece en Xandar coqueteando con una joven mientras Rocket lo observa.",
+    "La banda sonora de canciones antiguas llegó al número uno en ventas en Estados Unidos.",
+    "Vin Diesel grabó la frase «Yo soy Groot» en varios idiomas."
+  ]
+}

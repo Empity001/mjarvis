@@ -1,0 +1,93 @@
+{
+  "titulo": "Deadpool y Wolverine",
+  "anio": 2024,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Deadpool & Wolverine"],
+    ["Estreno", "26 de julio de 2024 (Estados Unidos)"],
+    ["Dirección", "Shawn Levy"],
+    ["Guion", "Ryan Reynolds, Rhett Reese, Paul Wernick, Zeb Wells y Shawn Levy"],
+    ["Reparto principal", "Ryan Reynolds (Wade Wilson), Hugh Jackman (Logan), Emma Corrin (Cassandra Nova), Matthew Macfadyen (Paradox), Morena Baccarin (Vanessa), Rob Delaney (Peter), Dafne Keen (Laura), Jennifer Garner (Elektra), Wesley Snipes (Blade), Channing Tatum (Gambito), Chris Evans (Johnny Storm)"],
+    ["Duración", "128 minutos"],
+    ["Música", "Rob Simonsen"],
+    ["Lugar en el universo", "Fase 5. Única película de Marvel Studios de 2024, y la primera para adultos"],
+    ["Cronología interna", "2024, en el universo de las películas de X-Men de Fox, en la AVT y en el Vacío"],
+    ["Recaudación", "Cerca de 1.338 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["La AVT", "Un universo que se muere"],
+    ["El peor Wolverine", "Wade elige a su Logan"],
+    ["El Vacío", "Cassandra Nova"],
+    ["Los olvidados", "Héroes de otras películas"],
+    ["La máquina", "Dos inmortales de la mano"]
+  ],
+  "actos": [
+    ["Acto 1: Importar", [
+      "Wade Wilson, Deadpool, intentó entrar en los Vengadores y lo rechazaron. Dejó el traje, vende coches usados y rompió con Vanessa. Lo único que le queda es la foto de sus nueve amigos.",
+      "El día de su cumpleaños se lo llevan agentes de la Autoridad de Variación Temporal. Un funcionario, Paradox, le explica que su universo se muere. Cada universo tiene un «ser ancla», una persona tan importante que, cuando falta, la línea se apaga poco a poco. El del suyo era Logan, Wolverine, que murió. Paradox no quiere esperar miles de años: piensa borrar ese universo de golpe con una máquina, y le ofrece a Wade un puesto en la línea principal, con los Vengadores.",
+      "Wade roba un aparato de la AVT y recorre el multiverso buscando otro Wolverine que sirva de ancla. Encuentra muchos. Se trae al que la AVT considera el peor: un Logan borracho, con el traje amarillo, que le falló a todo su mundo. Paradox los expulsa a los dos al Vacío."
+    ]],
+    ["Acto 2: El Vacío", [
+      "El Vacío es el vertedero del final del tiempo, donde la AVT tira lo que sobra. Lo gobierna Cassandra Nova, hermana gemela de Charles Xavier, a la que él intentó matar antes de nacer. Lee y remueve las mentes metiendo los dedos dentro de la cabeza, y entrega a quien la molesta a Alioth, la nube que devora.",
+      "Deadpool y Wolverine no se soportan y se pelean hasta el agotamiento, sin poder matarse. Se cruzan con Johnny Storm, la Antorcha Humana de otro universo, que acaba mal por culpa de la lengua de Wade.",
+      "Una versión amable de Deadpool los lleva con los que resisten: héroes de películas antiguas a los que nadie recuerda. Elektra, Blade, Gambito, que nunca llegó a tener su película, y Laura, la niña del universo de Logan, ya crecida. Laura le dice a este Logan lo que el suyo significó para ella.",
+      "Logan confiesa por qué lleva el traje: sus X-Men le pedían que se lo pusiera y él se negaba. Una noche que se fue a beber, los mataron a todos. Se lo puso después, para acordarse.",
+      "Juntos asaltan la guarida de Cassandra, instalada en el esqueleto de un Ant-Man gigante. Logan le perdona la vida cuando ella lo deja ver su mente, y Cassandra los devuelve a casa con un anillo de hechicero que le quitó a un Strange."
+    ]],
+    ["Acto 3: Las anclas", [
+      "En su universo los espera un ejército de Deadpools de todas las líneas, a los que tienen que abrirse paso a cuchilladas, una y otra vez, porque ninguno puede morir. Los salva Peter, el amigo sin poderes de Wade, a quien todos los Deadpools adoran.",
+      "Cassandra ha llegado detrás. Toma el control de la máquina de Paradox, que no solo borra un universo: puede borrarlos todos, y dejar el Vacío como único lugar existente.",
+      "Para destruir la máquina, alguien tiene que unir con su cuerpo dos corrientes de energía opuestas, y morirá. Los dos quieren ser ese alguien. Entran juntos y se dan la mano. La energía pasa por los dos, que se curan de cualquier cosa, y la máquina revienta con Cassandra dentro.",
+      "La AVT detiene a Paradox. El universo de Wade deja de morirse; quizá el ancla era otra cosa. Wade pide además un favor para los amigos del Vacío. En su piso, alrededor de la mesa, cenan todos: sus nueve amigos, Laura, la perra más fea del multiverso y Logan, que por fin tiene dónde quedarse."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["D", "Deadpool"], ["W", "Wolverine"], ["C", "Cassandra"], ["P", "Paradox"], ["L", "Laura"], ["V", "Vanessa"]],
+    "enlaces": [["D", "W", "enemigos y amigos"], ["C", "P", "le quita la máquina"], ["L", "W", "le recuerda a su Logan"], ["D", "V", "quiere recuperarla"], ["P", "D", "lo recluta"], ["C", "W", "le lee la mente"]]
+  },
+  "personajes": [
+    ["Wade Wilson", "Deadpool. Mercenario que no puede morir ni callarse. Habla con el público y sabe que está en una película."],
+    ["Logan", "Wolverine, una variante que perdió a todos los suyos. Huesos de adamantium, garras y curación."],
+    ["Cassandra Nova", "Telépata poderosísima, criada en el Vacío. Tranquila y cruel."],
+    ["Paradox", "Burócrata de la AVT con ambición de jefe."],
+    ["Laura", "X-23, la hija clonada de Logan, de la película Logan."],
+    ["Elektra, Blade y Gambito", "Héroes de películas anteriores al universo de Marvel Studios, olvidados en el Vacío."],
+    ["Johnny Storm", "La Antorcha Humana de las películas de 2005, con la cara del actor que luego fue el Capitán América."],
+    ["Nicepool", "Un Deadpool amable y guapo, con melena."],
+    ["Dogpool", "Mary Puppins, una perra muy fea con traje de Deadpool."],
+    ["Peter", "El amigo corriente de Wade. Lleva su propio traje."],
+    ["Vanessa", "El amor de Wade."],
+    ["Happy Hogan", "Entrevista a Wade para los Vengadores y le dice que no."]
+  ],
+  "cosas": [
+    ["Ser ancla", "La persona de la que depende la existencia de un universo."],
+    ["El Destructor del Tiempo", "La máquina de Paradox para borrar líneas temporales."],
+    ["El Vacío", "El vertedero de la AVT, visto en Loki, con Alioth."],
+    ["Adamantium", "El metal irrompible del esqueleto de Wolverine."],
+    ["El traje amarillo", "El uniforme clásico de Wolverine en los cómics, por primera vez en el cine, con máscara incluida."],
+    ["La AVT", "La Autoridad de Variación Temporal, de la serie Loki."],
+    ["El Cuerpo de Deadpool", "Cien versiones de Deadpool: una dama, un niño, un vaquero, una cabeza voladora."]
+  ],
+  "creditos": "Durante los créditos se muestran imágenes de rodaje de las películas de Marvel hechas por el estudio Fox, de X-Men a Los Cuatro Fantásticos, como despedida. Al final, Wade enseña una grabación para demostrar que Johnny Storm sí dijo todos los insultos que él le atribuyó.",
+  "conexiones": [
+    "Trae a Deadpool y a los X-Men de las películas de Fox al multiverso de Marvel Studios.",
+    "La AVT, el Vacío y Alioth vienen de Loki.",
+    "El Logan muerto es el de la película Logan, de 2017, igual que Laura.",
+    "Recupera a actores de Elektra, Blade y Los Cuatro Fantásticos de los años 2000.",
+    "Es la película para adultos más taquillera de la historia."
+  ],
+  "preguntas": [
+    ["¿De qué trata Deadpool y Wolverine?", "Deadpool busca en el multiverso a un Wolverine que salve su universo, que se apaga desde la muerte de Logan."],
+    ["¿Es el mismo Wolverine de siempre?", "No. El original murió en Logan. Este es una variante de otro universo, con el mismo actor."],
+    ["¿Quién es Cassandra Nova?", "La hermana gemela malvada del Profesor X, que gobierna el Vacío."],
+    ["¿Qué es un ser ancla?", "Alguien tan importante para su universo que, si muere, ese universo se va apagando."],
+    ["¿Deadpool es parte del universo de Marvel?", "Sí. Con esta película entra en su multiverso, aunque sigue viviendo en su propio universo."],
+    ["¿Es apta para niños?", "No. Es la primera película de Marvel Studios clasificada para adultos, por su violencia y su lenguaje."]
+  ],
+  "curiosidades": [
+    "Hugh Jackman había dejado el personaje en 2017; volvió a interpretarlo a los 55 años.",
+    "Channing Tatum intentó durante una década hacer una película de Gambito que nunca se rodó.",
+    "Henry Cavill aparece unos segundos como otro Wolverine.",
+    "La pelea con los Deadpools está rodada como un largo plano lateral, con la canción «Like a Prayer», de Madonna."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "titulo": "WandaVision",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "WandaVision"],
+    ["Estreno", "Del 15 de enero al 5 de marzo de 2021 (Disney+)"],
+    ["Creadora", "Jac Schaeffer. Dirección de Matt Shakman"],
+    ["Episodios", "9 (miniserie)"],
+    ["Reparto principal", "Elizabeth Olsen (Wanda Maximoff), Paul Bettany (Visión), Kathryn Hahn (Agnes / Agatha Harkness), Teyonah Parris (Monica Rambeau), Randall Park (Jimmy Woo), Kat Dennings (Darcy Lewis), Josh Stamberg (Tyler Hayward), Evan Peters («Pietro»)"],
+    ["Música", "Christophe Beck; canciones de Kristen Anderson-Lopez y Robert Lopez"],
+    ["Lugar en el universo", "Primera serie de Marvel Studios y comienzo de la Fase 4"],
+    ["Cronología interna", "2023, tres semanas después de Vengadores: Endgame"],
+    ["Tono", "Empieza como comedia de televisión antigua y se convierte en un drama sobre el duelo"]
+  ],
+  "momentos": [
+    ["La comedia", "Recién casados en Westview"],
+    ["S.W.O.R.D.", "El Hex visto desde fuera"],
+    ["Los gemelos", "Billy y Tommy"],
+    ["Agatha", "«Fue Agatha todo el tiempo»"],
+    ["La Bruja Escarlata", "Wanda acepta su nombre"]
+  ],
+  "actos": [
+    ["Episodios 1 a 3: Una comedia perfecta", [
+      "Wanda y Visión son un matrimonio recién llegado a Westview, un pueblo de Nueva Jersey. Viven dentro de una comedia de televisión en blanco y negro de los años cincuenta, con risas de público: ella esconde sus poderes, él trabaja en una oficina sin saber qué hace, y la vecina Agnes entra sin llamar.",
+      "Cada episodio salta a otra década: los sesenta, los setenta en color. Pero hay grietas. Nadie recuerda de dónde vino, una voz en la radio pregunta «Wanda, ¿quién te está haciendo esto?», y aparecen anuncios inquietantes sobre Stark, HYDRA y Sokovia.",
+      "Wanda queda embarazada y da a luz en un día a dos gemelos, Tommy y Billy. Una vecina nueva, Geraldine, menciona a Ultrón, y Wanda la expulsa del pueblo a través de un muro de energía."
+    ]],
+    ["Episodios 4 a 6: Desde fuera", [
+      "Geraldine es Monica Rambeau, agente de S.W.O.R.D., que acaba de volver del Blip y se entera de que su madre murió mientras tanto. Fuera del pueblo, S.W.O.R.D. rodea una barrera con forma de hexágono, el Hex, y recibe lo que ocurre dentro como una señal de televisión. Trabajan allí el agente Jimmy Woo y la astrofísica Darcy Lewis.",
+      "El director Hayward enseña un vídeo: Wanda entrando en la sede de S.W.O.R.D. para llevarse el cadáver de Visión. La presenta como una terrorista que tiene secuestrado a un pueblo entero.",
+      "Dentro, los gemelos crecen en horas y Visión empieza a sospechar: despierta la mente de un vecino, que le suplica ayuda. A la puerta llama Pietro, el hermano muerto de Wanda, con otra cara. Visión intenta salir del Hex y empieza a deshacerse; para salvarlo, Wanda agranda el Hex y se traga el campamento."
+    ]],
+    ["Episodios 7 y 8: Antes en…", [
+      "Agnes lleva a Wanda a su sótano y se quita la máscara: es Agatha Harkness, una bruja de los tiempos de Salem que absorbió la vida de todo su aquelarre. Ella mató al perro, y el falso Pietro era un vecino hechizado. Quiere saber cómo Wanda hizo algo tan grande.",
+      "La obliga a recorrer sus recuerdos. De niña, en Sokovia, Wanda veía comedias americanas con su familia cuando cayó la bomba. Los experimentos de HYDRA con la Gema de la Mente no le dieron la magia: despertaron la que ya tenía. Con Visión, en la base de los Vengadores, aprendió a soportar la pena: «¿Qué es el duelo, sino el amor que persevera?».",
+      "Tras Endgame, Wanda fue a pedir el cuerpo de Visión para enterrarlo, y lo vio desmontado en piezas. No se lo llevó. Condujo hasta Westview, donde Visión había comprado un terreno para envejecer juntos. Allí su dolor estalló y creó el pueblo falso, la casa y un Visión nuevo, hecho de su propia magia.",
+      "Agatha le pone nombre a eso: magia del caos. Wanda es la Bruja Escarlata."
+    ]],
+    ["Episodio 9: El final de la serie", [
+      "Hayward ha reactivado el cuerpo original, ahora blanco y sin recuerdos, para que destruya al otro. Los dos Visiones pelean y luego discuten, con el dilema del barco de Teseo, quién es el verdadero. El Visión de Wanda le devuelve la memoria al blanco, que se marcha volando.",
+      "Agatha le roba poder a Wanda en cada ataque. Wanda la deja hacer mientras dibuja runas en las paredes del Hex, dentro de las cuales solo ella puede usar magia. Recupera todo, se viste de Bruja Escarlata y condena a Agatha a vivir como la vecina Agnes.",
+      "Los vecinos, libres por un momento, le suplican que los deje ir. Wanda deshace el Hex, sabiendo que con él desaparecen su marido y sus hijos. Acuesta a los niños y se despide de Visión, que le dice que ya ha sido una voz, un cuerpo y un recuerdo, y que volverán a saludarse. Monica, que ha ganado poderes al cruzar la barrera, la deja marchar."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["W", "Wanda"], ["V", "Visión"], ["A", "Agatha"], ["M", "Monica"], ["H", "Hayward"], ["G", "Gemelos"]],
+    "enlaces": [["W", "V", "lo recrea"], ["A", "W", "la manipula"], ["M", "W", "la comprende"], ["H", "V", "lo reactiva"], ["W", "G", "madre"], ["H", "M", "su jefe"]]
+  },
+  "personajes": [
+    ["Wanda Maximoff", "Ha perdido a sus padres, a su hermano y a Visión. Su dolor crea un mundo. Acepta ser la Bruja Escarlata."],
+    ["Visión", "El de Westview es una creación de Wanda, amable y curioso. El blanco es el cuerpo original, sin memoria."],
+    ["Agatha Harkness", "Bruja de más de trescientos años, divertida y sin escrúpulos."],
+    ["Monica Rambeau", "Capitana de S.W.O.R.D., hija de Maria Rambeau. Obtiene el poder de ver y atravesar la energía."],
+    ["Jimmy Woo", "Agente del FBI, el de Ant-Man y la Avispa. Aprendió por fin el truco de cartas."],
+    ["Darcy Lewis", "La becaria de Thor, ahora doctora en astrofísica."],
+    ["Tyler Hayward", "Director de S.W.O.R.D. Quiere a Visión como arma."],
+    ["Billy y Tommy", "Los gemelos. Billy lee mentes y Tommy tiene supervelocidad."],
+    ["«Pietro»", "Un vecino llamado Ralph Bohner, controlado por Agatha."],
+    ["Los vecinos", "Personas reales atrapadas en papeles que Wanda les dio sin querer."]
+  ],
+  "cosas": [
+    ["El Hex", "La barrera hexagonal que rodea Westview y reescribe todo lo que entra."],
+    ["S.W.O.R.D.", "Agencia que vigila amenazas con armas y seres conscientes. Fundada por Maria Rambeau."],
+    ["Magia del caos", "El poder de Wanda: crear y cambiar la realidad."],
+    ["El Darkhold", "El Libro de los Condenados, que tenía Agatha. Contiene la profecía de la Bruja Escarlata."],
+    ["Visión blanco", "El cuerpo original de Visión, reconstruido por S.W.O.R.D."],
+    ["Las runas", "Signos que anulan la magia de cualquiera salvo de quien los traza."],
+    ["Los anuncios", "Cortes publicitarios que resumen los traumas de Wanda."]
+  ],
+  "creditos": "A mitad de los créditos del último episodio, una agente que resulta ser una Skrull le dice a Monica que un viejo amigo de su madre quiere verla, y señala al cielo. Al final, Wanda vive retirada en una cabaña de montaña; mientras prepara té, su forma astral estudia el Darkhold, y se oye a sus hijos pedir ayuda.",
+  "conexiones": [
+    "Ocurre tres semanas después de Vengadores: Endgame.",
+    "Wanda, corrompida por el Darkhold, es la antagonista de Doctor Strange en el Multiverso de la Locura.",
+    "Monica Rambeau, la niña de Capitana Marvel, protagoniza The Marvels.",
+    "Agatha Harkness vuelve en su propia serie, Agatha All Along, con Billy.",
+    "El Visión blanco queda libre; su historia sigue pendiente.",
+    "Los Skrulls de la escena final enlazan con Invasión Secreta."
+  ],
+  "preguntas": [
+    ["¿Qué pasa en Westview?", "Wanda, sin proponérselo, encierra el pueblo en una realidad falsa con forma de comedia de televisión, donde vive con un Visión creado por ella."],
+    ["¿Visión está vivo?", "El de Westview desaparece con el Hex. El cuerpo original fue reactivado, blanco, con los recuerdos devueltos, y se fue."],
+    ["¿Quién es Agatha Harkness?", "Una bruja antigua que se hace pasar por la vecina Agnes para robar el poder de Wanda."],
+    ["¿Por qué se llama Bruja Escarlata?", "Es el nombre de una figura profetizada en el Darkhold, capaz de crear con magia del caos. Agatha se lo revela a Wanda."],
+    ["¿Los hijos de Wanda son reales?", "Existen solo dentro del Hex y desaparecen con él, aunque al final Wanda oye sus voces."],
+    ["¿Cómo consigue poderes Monica Rambeau?", "Al atravesar tres veces la barrera del Hex, que cambia sus células."]
+  ],
+  "curiosidades": [
+    "El primer episodio se grabó con público real, como las comedias de los años cincuenta.",
+    "La canción «Agatha All Along» ganó un premio Emmy.",
+    "Evan Peters interpretó a otro Quicksilver en las películas de los X-Men de Fox; su aparición fue una broma con el público.",
+    "Recibió 23 nominaciones a los Emmy."
+  ]
+}

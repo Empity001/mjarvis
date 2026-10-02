@@ -1,0 +1,93 @@
+{
+  "titulo": "The Punisher · Temporada 1",
+  "anio": 2017,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's The Punisher (temporada 1)"],
+    ["Estreno", "17 de noviembre de 2017 (Netflix; hoy en Disney+)"],
+    ["Creador", "Steve Lightfoot"],
+    ["Episodios", "13"],
+    ["Reparto principal", "Jon Bernthal (Frank Castle), Ebon Moss-Bachrach (David «Micro» Lieberman), Ben Barnes (Billy Russo), Amber Rose Revah (Dinah Madani), Daniel Webber (Lewis Wilson), Paul Schulze (William Rawlins), Jason R. Moore (Curtis Hoyle), Jaime Ray Newman (Sarah Lieberman), Michael Nathanson (Sam Stein), Deborah Ann Woll (Karen Page)"],
+    ["Música", "Tyler Bates"],
+    ["Lugar en el universo", "Derivada de la temporada 2 de Daredevil"],
+    ["Cronología interna", "Nueva York, meses después de la temporada 2 de Daredevil"],
+    ["Tono", "Thriller de conspiración militar sobre los soldados que vuelven de la guerra. Sin superpoderes y muy violento"]
+  ],
+  "momentos": [
+    ["Pete", "Frank vive escondido"],
+    ["Micro", "Un aliado en un sótano"],
+    ["Cerbero", "La operación secreta"],
+    ["Billy", "El amigo era el traidor"],
+    ["El carrusel", "La cara de Russo"]
+  ],
+  "actos": [
+    ["Episodios 1 a 3: Un muerto con un mazo", [
+      "Frank Castle termina de matar a los últimos miembros de las bandas que estuvieron en el tiroteo del parque y quema su chaleco de la calavera. El mundo lo cree muerto. Con el nombre de Pete Castiglione trabaja en una obra, derribando muros con un mazo, y no duerme por las pesadillas con su esposa Maria.",
+      "Lo localiza David Lieberman, Micro, un analista de la agencia de espionaje al que también dan por muerto. Micro recibió un vídeo de Afganistán en el que unos soldados estadounidenses torturan y matan a un policía afgano, Ahmad Zubair; al intentar denunciarlo le dispararon. Desde entonces vigila a su esposa y a sus hijos por cámaras, escondido en un sótano.",
+      "Frank reconoce el vídeo: él estaba allí. Era la Operación Cerbero, un escuadrón ilegal de la CIA en Kandahar que se pagaba con heroína traída en los cadáveres de los soldados. La dirigía un agente al que llamaban Agente Naranja."
+    ]],
+    ["Episodios 4 a 8: La conspiración", [
+      "La familia de Frank no murió por accidente: los mataron porque creyeron que él había filtrado el vídeo. Frank y Micro forman una sociedad incómoda. Para vigilar a la familia Lieberman, Frank se hace amigo de Sarah, la esposa, que cree que su marido murió.",
+      "La agente Dinah Madani, de Seguridad Nacional, era compañera de Zubair y busca a los culpables. Se acerca a Billy Russo, antiguo marine, mejor amigo de Frank y dueño de la empresa de seguridad Anvil, y empieza una relación con él.",
+      "Billy formó parte de Cerbero y trabaja para el Agente Naranja, que es William Rawlins, un alto cargo de la CIA. En una operación, Billy mata al compañero de Madani, Sam Stein. Frank descubre que su hermano de armas supo que iban a matar a su familia y no hizo nada."
+    ]],
+    ["Episodios 9 a 11: Lewis", [
+      "En paralelo, Lewis Wilson, un veterano muy joven del grupo de apoyo que dirige Curtis Hoyle, amigo de Frank, no consigue adaptarse a la vida civil. Cava una trinchera en el jardín, mata a un compañero y empieza a poner bombas en nombre de una libertad que no sabe explicar.",
+      "Ataca a un senador en un hotel y toma como rehén a Karen Page. Frank lo acorrala y Lewis se hace estallar. Las cámaras muestran al mundo que Punisher sigue vivo."
+    ]],
+    ["Episodios 12 y 13: Recuerdos", [
+      "Los hombres de Russo secuestran a Sarah y a su hijo. Frank se entrega a cambio. Rawlins lo tortura para conseguir su confesión mientras Micro lo ve todo por una cámara; Frank se suelta y mata a Rawlins con sus propias manos. Madani llega con los agentes y le salva la vida. La familia Lieberman vuelve a reunirse.",
+      "Billy huye y cita a Frank de noche en el carrusel del parque donde murió su familia, con dos adolescentes como rehenes. Madani recibe un tiro en la cabeza y sobrevive. Frank vence a Billy y, en vez de matarlo, le arrastra la cara contra un espejo roto: quiere que cada mañana recuerde lo que hizo.",
+      "La CIA y Seguridad Nacional tapan el escándalo y le dan a Frank una identidad limpia. Billy queda en coma, con la cara destrozada. Frank se sienta por primera vez en el grupo de veteranos de Curtis y confiesa que, sin una guerra que pelear, tiene miedo."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["F", "Frank"], ["M", "Micro"], ["B", "Billy"], ["D", "Madani"], ["R", "Rawlins"], ["C", "Curtis"]],
+    "enlaces": [["F", "M", "socios"], ["F", "B", "hermano que lo traiciona"], ["B", "D", "la engaña"], ["R", "B", "lo dirige"], ["F", "C", "amigos"], ["D", "R", "lo persigue"]]
+  },
+  "personajes": [
+    ["Frank Castle", "Punisher. Exmarine de fuerzas especiales. Bajo la violencia hay un hombre de familia que no sabe vivir sin ella."],
+    ["David «Micro» Lieberman", "Analista y pirata informático. Charlatán y terco; lo único que quiere es volver con los suyos."],
+    ["Billy Russo", "Huérfano, guapo y ambicioso. Se hizo rico con Anvil. Vendió a su mejor amigo. En los cómics es Jigsaw."],
+    ["Dinah Madani", "Agente de Seguridad Nacional de origen iraní. Persigue la verdad sobre Kandahar."],
+    ["William Rawlins", "El Agente Naranja. Jefe de operaciones de la CIA que montó Cerbero. Frank le dejó ciego un ojo de un puñetazo."],
+    ["Curtis Hoyle", "Exsanitario de la marina que perdió una pierna. Dirige un grupo de apoyo para veteranos."],
+    ["Lewis Wilson", "Veterano joven con trauma de guerra que termina poniendo bombas."],
+    ["Sarah Lieberman", "Esposa de Micro. Cría sola a sus hijos, Leo y Zach."],
+    ["Sam Stein", "Compañero de Madani. Lo mata Russo."],
+    ["Karen Page", "Periodista. La única amiga que le queda a Frank."],
+    ["Maria Castle", "La esposa de Frank, que aparece en sus recuerdos."],
+    ["Marion James", "Subdirectora de la CIA que tapa el caso."]
+  ],
+  "cosas": [
+    ["Operación Cerbero", "Escuadrón clandestino de la CIA en Afganistán, dedicado a secuestrar, torturar y matar, y financiado con heroína."],
+    ["La calavera", "El símbolo blanco del chaleco de Punisher."],
+    ["Anvil", "La empresa de militares privados de Billy Russo."],
+    ["El vídeo de Zubair", "La prueba del asesinato de un policía afgano. Por él murieron los Castle."],
+    ["El sótano de Micro", "La base llena de pantallas desde donde David espía a su propia familia."],
+    ["Pete Castiglione", "El nombre falso de Frank. Castiglione es el apellido original del personaje en los cómics."],
+    ["El carrusel", "El tiovivo del parque donde mataron a la familia de Frank."]
+  ],
+  "creditos": "No hay escenas después de los créditos. La temporada termina con Frank en el círculo de veteranos, diciendo que por primera vez no tiene una guerra y que está asustado.",
+  "conexiones": [
+    "Continúa la historia de Frank Castle presentada en la temporada 2 de Daredevil, y aclara quién era el Herrero.",
+    "Karen Page y el detective Brett Mahoney vienen de Daredevil.",
+    "Billy Russo vuelve en la temporada 2 con la cara marcada y sin memoria.",
+    "Jon Bernthal retoma el papel en Daredevil: Born Again.",
+    "Es la única de las series de Netflix sin relación con la Mano ni con poderes."
+  ],
+  "preguntas": [
+    ["¿Por qué mataron a la familia de Punisher?", "Porque sus jefes creyeron que Frank había filtrado un vídeo de la Operación Cerbero. El tiroteo del parque fue una trampa para matarlo a él."],
+    ["¿Quién es Micro?", "David Lieberman, un analista de inteligencia dado por muerto que ayuda a Frank con ordenadores y cámaras."],
+    ["¿Quién es Billy Russo?", "El mejor amigo de Frank en los marines. Lo traicionó y acaba con la cara desfigurada. En los cómics se convierte en Jigsaw."],
+    ["¿Qué fue la Operación Cerbero?", "Un escuadrón ilegal de la CIA en Afganistán, del que formaron parte Frank y Billy, pagado con tráfico de heroína."],
+    ["¿Punisher tiene poderes?", "No. Es un soldado muy bien entrenado, con una resistencia y una determinación fuera de lo normal."],
+    ["¿Quién es el Agente Naranja?", "William Rawlins, el jefe de la CIA que dirigía Cerbero. Frank lo mata."]
+  ],
+  "curiosidades": [
+    "Netflix encargó la serie por el éxito de Jon Bernthal en Daredevil; no estaba en el plan original.",
+    "El estreno se retrasó unas semanas tras el tiroteo de Las Vegas de octubre de 2017.",
+    "Varios veteranos reales participaron como asesores y como extras en el grupo de apoyo.",
+    "Frank casi no lleva la calavera en toda la temporada: quema el chaleco al principio y solo vuelve a ponérselo cerca del final."
+  ]
+}

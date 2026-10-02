@@ -1,0 +1,89 @@
+{
+  "titulo": "Guardianes de la Galaxia Vol. 3",
+  "anio": 2023,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Guardians of the Galaxy Vol. 3"],
+    ["Estreno", "5 de mayo de 2023 (Estados Unidos)"],
+    ["Dirección y guion", "James Gunn"],
+    ["Reparto principal", "Chris Pratt (Peter Quill), Zoe Saldaña (Gamora), Dave Bautista (Drax), Karen Gillan (Nebula), Pom Klementieff (Mantis), Bradley Cooper (voz de Rocket), Vin Diesel (voz de Groot), Chukwudi Iwuji (el Alto Evolucionador), Will Poulter (Adam Warlock), Sean Gunn (Kraglin), Maria Bakalova (voz de Cosmo), Linda Cardellini (voz de Lylla)"],
+    ["Duración", "150 minutos"],
+    ["Música", "John Murphy, con canciones de los años setenta a los dos mil"],
+    ["Lugar en el universo", "Fase 5. Final de la trilogía"],
+    ["Cronología interna", "2026, después del Especial de Navidad"],
+    ["Recaudación", "Cerca de 845 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["El ataque", "Rocket cae herido"],
+    ["La jaula", "Rocket y sus amigos"],
+    ["Contra-Tierra", "Un mundo de animales"],
+    ["La nave", "Rescatar a todos"],
+    ["La despedida", "El equipo se separa"]
+  ],
+  "actos": [
+    ["Acto 1: Salvar a Rocket", [
+      "En Knowhere, Peter Quill bebe para olvidar que la Gamora que quiso murió, y que la que existe ahora, llegada del pasado, no lo conoce. Un ser dorado, Adam Warlock, cae del cielo para llevarse a Rocket, y lo deja al borde de la muerte.",
+      "No pueden curarlo: su cuerpo lleva un dispositivo que lo mata si alguien lo interviene. Hace falta una clave que solo tiene la empresa que lo fabricó. Los Guardianes asaltan su sede, una estación hecha de carne, con ayuda de unos Saqueadores entre los que está Gamora.",
+      "Mientras agoniza, Rocket recuerda. Era una cría de mapache cuando el Alto Evolucionador, un científico obsesionado con crear la sociedad perfecta, lo llenó de implantes. Creció en una jaula con tres amigos operados como él: Lylla, una nutria con brazos de metal; Teefs, una morsa con ruedas, y Floor, una coneja con patas de araña. Juntos soñaban con ver el cielo y elegirse nombres."
+    ]],
+    ["Acto 2: El creador", [
+      "Rocket resultó más listo que su creador: resolvió en un segundo un fallo que él no entendía. El Alto Evolucionador, humillado, decidió sacarle el cerebro para estudiarlo y descartar a los demás. La noche de la fuga, mató a Lylla de un tiro. Rocket le destrozó la cara a zarpazos; los guardias mataron a Teefs y a Floor, y él escapó solo en una nave.",
+      "La clave no está en los archivos. La tiene un ayudante del Alto Evolucionador, en Contra-Tierra, una copia de nuestro planeta poblada por animales con forma humana. Los Guardianes la visitan, y descubren que a su creador también le parece un fracaso: la destruye con todos sus habitantes dentro.",
+      "Peter, Groot y Nebula consiguen la clave en su nave. Peter reanima el corazón de Rocket. En ese instante, Rocket ve a Lylla en un lugar blanco; ella le dice que todavía no le toca, que su historia tiene un propósito."
+    ]],
+    ["Acto 3: Todos", [
+      "Drax, Mantis y Nebula quedan atrapados en la nave del Alto Evolucionador, donde hay cientos de niños enjaulados, su siguiente experimento. Los Guardianes deciden rescatarlos a todos. Kraglin acerca Knowhere, y la perra Cosmo tiende un puente con la mente para que crucen.",
+      "Rocket encuentra jaulas llenas de animales, y en una de ellas, crías de mapache. Lee la etiqueta y entiende por fin qué es él. Insiste en no dejar a ninguno.",
+      "El Alto Evolucionador lo acorrala; debajo de la máscara no le queda cara. Los Guardianes lo vencen juntos, y Rocket no lo remata: es un Guardián de la Galaxia. Peter se queda atrás y se congela en el espacio; lo salva Adam Warlock, a quien Groot había salvado antes.",
+      "El equipo se separa en paz. Peter vuelve a la Tierra a ver a su abuelo, al que dejó hace más de treinta años. Mantis se va a descubrir quién es sin obedecer a nadie. Nebula y Drax se quedan a cuidar a los niños; Drax no nació para destruir, sino para ser padre. Gamora regresa con los Saqueadores. Rocket queda como capitán. Y todos bailan."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["R", "Rocket"], ["A", "Alto Evolucionador"], ["P", "Peter"], ["G", "Gamora"], ["N", "Nebula"], ["L", "Lylla"]],
+    "enlaces": [["A", "R", "lo creó"], ["R", "L", "amigos de jaula"], ["P", "R", "mejor amigo"], ["P", "G", "ella no lo recuerda"], ["N", "P", "aliados"], ["A", "L", "la mata"]]
+  },
+  "personajes": [
+    ["Rocket", "El centro de la historia. Mapache alterado, genio de la ingeniería, que por fin acepta lo que es."],
+    ["El Alto Evolucionador", "Científico que juega a ser Dios. No odia a sus criaturas: las desprecia."],
+    ["Peter Quill", "Star-Lord. Aprende a dejar de huir."],
+    ["Gamora", "La de 2014. Dura y sin recuerdos del equipo; no vuelve a enamorarse de Peter."],
+    ["Nebula", "Ahora es la que organiza y cuida, a su manera áspera."],
+    ["Drax y Mantis", "Los dos encuentran para qué sirven fuera de las órdenes de otros."],
+    ["Groot", "Grande y fuerte. Al final se le entiende."],
+    ["Adam Warlock", "Ser poderosísimo recién nacido, con mente de niño."],
+    ["Lylla, Teefs y Floor", "La familia de Rocket en la jaula."],
+    ["Kraglin y Cosmo", "Heredan un puesto en el equipo."],
+    ["Ayesha", "La sacerdotisa dorada del Vol. 2, creadora de Adam."]
+  ],
+  "cosas": [
+    ["Lote 89", "El grupo de experimentos al que pertenecía Rocket. Él era el 89P13."],
+    ["Contra-Tierra", "Planeta copia de la Tierra, con animales evolucionados a la fuerza."],
+    ["Orgocorp", "La empresa de biología del Alto Evolucionador, con sede en una estación orgánica."],
+    ["El dispositivo", "Un interruptor en el corazón de Rocket que impide curarlo."],
+    ["Knowhere", "La base de los Guardianes, que ahora puede moverse."],
+    ["El Zune", "El reproductor de música que Peter le regala a Rocket."],
+    ["La flecha de Yondu", "Kraglin aprende a controlarla."]
+  ],
+  "creditos": "A mitad de los créditos se presenta el nuevo equipo de los Guardianes: Rocket como capitán, Groot, Kraglin, Cosmo, Adam Warlock y Phyla, una de las niñas rescatadas. Al final, Peter Quill desayuna cereales con su abuelo en la Tierra, y un cartel anuncia que el legendario Star-Lord volverá.",
+  "conexiones": [
+    "Cierra la historia empezada en Guardianes de la Galaxia y Vol. 2.",
+    "La Gamora actual es la de 2014, que llegó en Vengadores: Endgame.",
+    "Adam Warlock se anunció en una escena de los créditos del Vol. 2.",
+    "El Especial de Navidad presentó Knowhere, a Cosmo y el parentesco de Mantis y Peter.",
+    "Fue el último trabajo de James Gunn para Marvel antes de dirigir el estudio de DC."
+  ],
+  "preguntas": [
+    ["¿Cuál es el origen de Rocket?", "Era una cría de mapache con la que experimentó el Alto Evolucionador, que le dio inteligencia con implantes."],
+    ["¿Quién es el Alto Evolucionador?", "Un científico que crea y destruye especies enteras buscando la sociedad perfecta."],
+    ["¿Quién es Adam Warlock?", "Un ser artificial creado por los Soberanos. Empieza como enemigo y termina en el equipo."],
+    ["¿Muere algún Guardián?", "No. Rocket está a punto, pero sobrevive."],
+    ["¿Qué pasa con los Guardianes al final?", "Se separan. Rocket dirige un equipo nuevo, y Peter vuelve a la Tierra."],
+    ["¿Peter y Gamora terminan juntos?", "No. Esta Gamora es otra persona, y vuelve con los Saqueadores."]
+  ],
+  "curiosidades": [
+    "Groot dice al final «Los quiero, chicos», y por primera vez el público lo entiende, como si ya fuera de la familia.",
+    "James Gunn ha dicho que toda la trilogía fue siempre la historia de Rocket.",
+    "Tiene el récord de más prótesis de maquillaje hechas para una sola película.",
+    "Los Humanimales de Contra-Tierra se hicieron con máscaras reales y no por ordenador."
+  ]
+}

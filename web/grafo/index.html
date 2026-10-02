@@ -1,0 +1,1757 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M-Jarvis · Mapa de conocimiento</title>
+<style>
+  :root { --fondo: #0d1117; --panel: #161b22; --borde: #2a313c; --texto: #e6e8eb; --tenue: #8b949e; --acento: #6aa9ff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--fondo); color: var(--texto);
+    font: 14px system-ui, "Segoe UI", sans-serif; overflow: hidden; }
+  body { display: flex; }
+  #lienzo { position: relative; flex: 1; min-width: 0; }
+  canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible, input:focus-visible { outline: 2px solid var(--acento); outline-offset: 1px; }
+
+  /* Barra superior: cuenta de nodos y buscador con resultados. */
+  #barra { position: absolute; top: 10px; left: 12px; right: 12px; display: flex; gap: 10px; align-items: center; pointer-events: none; }
+  #barra > * { pointer-events: auto; }
+  #cuenta { flex: 1; min-width: 0; color: var(--tenue); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; }
+  #busca { position: relative; width: min(260px, 46%); }
+  #buscar { width: 100%; padding: 7px 10px; background: var(--panel); color: var(--texto);
+    border: 1px solid var(--borde); border-radius: 8px; font: inherit; }
+  #hallados { position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: var(--panel); border: 1px solid var(--borde);
+    border-radius: 8px; overflow: hidden; display: none; z-index: 4; }
+  #hallados button { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 7px 10px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #hallados button:hover, #hallados button:first-child { background: #1f2630; }
+  #hallados button::before, .chip::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--c); margin-right: 7px; }
+
+  /* Panel de notas: lo que hay dentro de los nodos elegidos, sobre el mapa y sin moverlo. */
+  #izq { position: absolute; left: 12px; top: 54px; max-height: calc(100% - 70px); width: min(330px, calc(100% - 120px));
+    display: none; flex-direction: column; background: rgba(22, 27, 34, .95); border: 1px solid var(--borde); border-radius: 10px; z-index: 3; }
+  body.con-notas #izq { display: flex; }
+  #izq header { display: flex; align-items: center; gap: 6px; padding: 9px 10px 9px 14px; border-bottom: 1px solid var(--borde); }
+  #izq header b { flex: 1; font-size: 13px; }
+  #acciones { display: none; gap: 6px; padding: 9px 12px 0; flex-wrap: wrap; }
+  #izq.eleccion #acciones { display: flex; }
+  .accion { background: none; border: 1px solid var(--borde); border-radius: 6px; padding: 4px 9px; font-size: 12.5px; }
+  .accion:hover { border-color: var(--acento); }
+  #notas { overflow-y: auto; padding: 10px 12px 12px; }
+  #ruta { color: #c2c7ce; line-height: 1.5; margin: 0 0 10px; font-size: 13px; }
+  .nota { border-left: 3px solid var(--c); padding: 2px 0 2px 10px; margin-bottom: 14px; }
+  .nota small { color: var(--tenue); text-transform: uppercase; letter-spacing: .05em; font-size: 10.5px; }
+  .nota h4 { margin: 2px 0 0; font-size: 15px; font-weight: 600; }
+  .nota p { margin: 6px 0 8px; line-height: 1.45; color: #c2c7ce; }
+  .nota .lazos { color: var(--tenue); font-size: 12px; margin-bottom: 5px; }
+  .chip { display: inline-block; background: none; border: 1px solid var(--borde); border-radius: 12px;
+    padding: 3px 10px; margin: 0 6px 6px 0; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .chip:hover { border-color: var(--c); }
+  .chip i { color: var(--tenue); font-style: normal; margin-left: 6px; font-size: 12px; }
+
+  /* Herramientas del mapa, en columna. */
+  #herr { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 6px; z-index: 2; }
+  #herr button, #formas button { min-width: 78px; padding: 7px 10px; background: var(--panel); border: 1px solid var(--borde);
+    border-radius: 8px; font-size: 12.5px; }
+  #herr button:hover, #formas button:hover { border-color: var(--acento); }
+  #herr button:active { transform: translateY(1px); }
+  #herr button[aria-pressed="true"], #formas button[aria-pressed="true"] { border-color: var(--acento); color: #cfe2ff; background: #18263a; }
+  #herr .signo { font-size: 17px; line-height: 1; padding: 6px 10px; }
+  #formas { position: absolute; right: 100px; top: 50%; transform: translateY(-50%); display: none; flex-direction: column; gap: 6px;
+    background: var(--fondo); border: 1px solid var(--borde); border-radius: 10px; padding: 8px; z-index: 3; }
+  body.menu-formas #formas { display: flex; }
+  #aviso { position: absolute; left: 12px; bottom: 16px; display: none; align-items: center; gap: 10px; background: var(--panel);
+    border: 1px solid var(--borde); border-radius: 8px; padding: 6px 8px 6px 12px; color: #c2c7ce; z-index: 2; }
+  #pista { position: absolute; right: 100px; bottom: 16px; color: var(--tenue); font-size: 12px; pointer-events: none; text-align: right; }
+
+  /* Panel de análisis. */
+  aside { width: 300px; flex: none; background: var(--panel); border-left: 1px solid var(--borde); padding: 14px 16px; overflow-y: auto; }
+  body.sin-der aside { display: none; }
+  aside h3 { margin: 18px 0 8px; font-size: 13px; font-weight: 600; }
+  aside h3:first-child { margin-top: 2px; }
+  .tema { display: block; width: 100%; text-align: left; background: none; border: 1px solid var(--c);
+    border-radius: 6px; padding: 7px 10px; margin-bottom: 8px; }
+  .tema[aria-pressed="true"] { background: color-mix(in srgb, var(--c) 18%, transparent); }
+  .tema b { display: block; font-weight: 600; }
+  .tira { display: inline-block; width: 44px; height: 6px; border-radius: 3px; background: var(--borde);
+    vertical-align: middle; margin-right: 6px; overflow: hidden; }
+  .tira i { display: block; height: 100%; background: var(--c); }
+  .tema span { color: var(--tenue); font-size: 12px; }
+  #datos { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 5px 12px; color: #c2c7ce; }
+  #datos dt { color: var(--tenue); }
+  #datos dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Subtítulos de la conversación, para cuando el mapa va solo en una segunda pantalla. */
+  #voz { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); width: min(720px, calc(100% - 240px));
+    background: rgba(13, 17, 23, .86); border: 1px solid var(--borde); border-radius: 10px; padding: 12px 16px;
+    opacity: 0; transition: opacity .4s; pointer-events: none; }
+  #voz.visible { opacity: 1; }
+  #voz small { color: var(--tenue); }
+  #voz p { margin: 4px 0 0; font-size: 1.15em; line-height: 1.45; }
+
+  /* Dentro de la interfaz de M-Jarvis el mapa va solo: sin análisis, sin barra y sin subtítulos. */
+  body.embebido aside, body.embebido #barra, body.embebido #voz, body.embebido #pista, body.embebido [data-h="analisis"],
+  body.embebido [data-h="completa"] { display: none; }
+  body.embebido #izq { top: 10px; max-height: calc(100% - 26px); }
+  body.embebido #herr button, body.embebido #formas button { min-width: 0; padding: 5px 8px; font-size: 12px; }
+  body.embebido #formas { right: 84px; }
+  .nota .apagada { margin: 0 0 6px; font-size: 12px; color: #f5a623; }
+  /* Dentro del chat en un celular: solo los botones imprescindibles, para que se vea la red. */
+  @media (max-width: 520px) { body.embebido [data-h="nombres"], body.embebido [data-h="hilos"] { display: none; } }
+  @media (max-height: 560px) {
+    #herr { gap: 4px; }
+    #herr button, #formas button { min-width: 0; padding: 4px 8px; font-size: 11.5px; }
+    #herr .signo { font-size: 14px; padding: 3px 8px; }
+    #formas { right: 84px; }
+  }
+  @media (max-width: 860px) {
+    aside { position: fixed; inset: 0 0 0 auto; width: min(300px, 86vw); z-index: 5; }
+    #voz { width: calc(100% - 32px); bottom: 64px; }
+    #pista { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="lienzo">
+  <canvas id="c"></canvas>
+  <div id="barra">
+    <div id="cuenta"></div>
+    <div id="busca">
+      <input id="buscar" type="search" placeholder="Buscar nodo…" aria-label="Buscar nodo" autocomplete="off">
+      <div id="hallados"></div>
+    </div>
+  </div>
+  <section id="izq" aria-label="Notas de los nodos elegidos">
+    <header><b id="izqTitulo">Selección</b><button type="button" class="accion" id="izqCerrar" aria-label="Cerrar el panel de notas">Cerrar</button></header>
+    <div id="acciones">
+      <button type="button" class="accion" data-a="aislar" title="Deja a la vista solo estos nodos y sus conexiones">Solo esto</button>
+      <button type="button" class="accion" data-a="ocultar" title="Quita estos nodos de la vista">Ocultar</button>
+      <button type="button" class="accion" data-a="apagar" title="M-Jarvis deja de usar estas notas para responder. No se borran: se pueden volver a activar">Desactivar</button>
+      <button type="button" class="accion" data-a="limpiar" title="Suelta la selección (tecla Esc)">Limpiar</button>
+    </div>
+    <div id="notas"></div>
+  </section>
+  <div id="formas" role="menu" aria-label="Forma del mapa">
+    <button type="button" data-f="plano" title="Tecla 1">Plano</button>
+    <button type="button" data-f="cerebro" title="Tecla 2">Cerebro</button>
+    <button type="button" data-f="esfera" title="Tecla 3">Esfera</button>
+    <button type="button" data-f="dona" title="Tecla 4">Dona</button>
+    <button type="button" data-f="galaxia" title="Tecla 5">Galaxia</button>
+    <button type="button" data-f="nubes" title="Tecla 6. Cada tema, en su propia nube">Nubes</button>
+    <button type="button" data-f="cuerpo" title="Tecla 7. Una figura humana hecha con lo que sabe">Cuerpo</button>
+  </div>
+  <div id="herr">
+    <button type="button" class="signo" data-h="acercar" aria-label="Acercar el mapa" title="Acercar (tecla +)">+</button>
+    <button type="button" class="signo" data-h="alejar" aria-label="Alejar el mapa" title="Alejar (tecla -)">−</button>
+    <button type="button" data-h="ajustar" title="Ver todo el mapa (tecla 0)">Ver todo</button>
+    <button type="button" data-h="forma" aria-haspopup="menu" title="Plano o en 3D: cerebro, esfera, dona, galaxia, nubes, cuerpo">Forma</button>
+    <button type="button" data-h="girar" aria-pressed="false" title="Gira solo, despacio (tecla G). Solo en 3D">Girar</button>
+    <button type="button" data-h="nombres" aria-pressed="true" title="Mostrar u ocultar los nombres (tecla N)">Nombres</button>
+    <button type="button" data-h="hilos" aria-pressed="true" title="Mostrar u ocultar las conexiones (tecla H)">Hilos</button>
+    <button type="button" data-h="completa" title="Pantalla completa (tecla F)">Pantalla</button>
+    <button type="button" data-h="analisis" aria-pressed="true" title="Temas, conceptos y cifras">Análisis</button>
+  </div>
+  <div id="aviso"><span id="avisoTexto"></span><button type="button" class="accion" id="mostrarTodo">Mostrar todo</button></div>
+  <div id="pista"></div>
+  <div id="voz" aria-live="polite"><small id="vozP"></small><p id="vozR"></p></div>
+</div>
+<aside>
+  <h3>Temas principales</h3>
+  <div id="temas"></div>
+  <h3>Conceptos más influyentes</h3>
+  <div id="top"></div>
+  <h3>Cifras de la red</h3>
+  <dl id="datos"></dl>
+</aside>
+<script>
+if (location.search.includes('embebido')) document.body.classList.add('embebido');
+const EMBEBIDO = document.body.classList.contains('embebido');
+const PALETA = ['#5fd38d', '#f472d0', '#f5a623', '#e6d84a', '#6aa9ff', '#b48cf2', '#4fd1c5', '#ff7a6b', '#a3b1c2'];
+// Las nubes de fuera del cerebro van cada una en un solo color: trato (-1) y otros universos (-2).
+// Fuera del cerebro (que es solo Marvel) hay nubes: cada una es una bola aparte, con su color, su
+// sitio (en radios del cerebro; arriba es Y negativa) y su nombre.
+const NUBES = {
+  '-1': { nombre: 'M-Jarvis', color: '#9fe8ff', centro: [1.2, -0.8], radio: 0.3 },  // cómo conversa: trato, charla y emociones
+  '-2': { nombre: 'Otros universos', color: '#d8c9a8', centro: [-1.3, 0.72], radio: 0.4 },
+  '-3': { nombre: 'Taller', color: '#b7f0a0', centro: [-1.2, -0.8], radio: 0.26 },
+  // Preguntas que ya tienen respuesta escrita: se contestan desde aquí al instante; si no está aquí, se busca en el cerebro.
+  '-4': { nombre: 'Preguntas resueltas', color: '#ffc98a', centro: [1.25, 0.76], radio: 0.3 },
+  // Notas desactivadas: siguen existiendo, pero M-Jarvis no las usa. Salen del cerebro y esperan aquí.
+  '-9': { nombre: 'Desactivadas', color: '#6b7584', centro: [-0.5, 1.3], radio: 0.17 },
+};
+const color = g => g < 0 ? NUBES[g].color : PALETA[g % PALETA.length];
+const aPlano = t => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+const cv = document.getElementById('c'), cx = cv.getContext('2d');
+// El mapa quieto se pinta una vez en esta capa; los impulsos se animan encima sin repintarlo todo.
+const capa = document.createElement('canvas'), cb = capa.getContext('2d');
+let sucio = true;
+let N = [], L = [], porId = {}, W = 0, H = 0, dpr = 1;
+let cam = { x: 0, y: 0, k: 1 }, alpha = 1, corriendo = false, encuadre = true;
+let hover = null, arrastre = null, paneo = null, giroMano = null, pulsado = null, filtro = '', tema = -1;
+let encendidos = new Set();
+// Nodos elegidos a mano (uno o varios), sus vecinos y, si son dos, el camino que los une.
+let marcados = new Set(), aura = new Set(), ruta = [], aislado = null, izqCerrado = false;
+// Lo que cada pantalla recuerda: forma, giro, nombres, hilos y si el panel de análisis está abierto.
+let PREF = {};
+try { PREF = JSON.parse(localStorage.getItem('mjarvis-mapa') || '{}'); } catch (e) {}
+let forma = 'plano', giro = !!PREF.giro, nombres = PREF.nombres !== false, hilos = PREF.hilos !== false;
+if (PREF.sinDer || innerWidth < 860) document.body.classList.add('sin-der');  // en pantallas estrechas el análisis empieza cerrado
+function guardar() {
+  try {
+    localStorage.setItem('mjarvis-mapa', JSON.stringify({ forma, giro, nombres, hilos, sinDer: document.body.classList.contains('sin-der') }));
+  } catch (e) {}
+}
+
+function medir() {
+  dpr = window.devicePixelRatio || 1; W = cv.clientWidth; H = cv.clientHeight;
+  cv.width = capa.width = W * dpr; cv.height = capa.height = H * dpr; sucio = true; despertar();
+}
+
+// ---- Las tres dimensiones ----
+// En plano cada nodo vive en (x, y). En 3D tiene además un sitio fijo en la forma elegida (t3); al
+// cambiar de forma viaja desde donde estaba (o3). La vista se gira con el ratón y se proyecta con
+// perspectiva: lo que queda delante se ve más grande y más vivo.
+const RADIO = 430, FOCAL = 1700;
+let rot = { a: 0, b: 0 }, trans = 1, metaRot = null, metaCam = null, giroTrig = [1, 0, 1, 0], polvo = [];
+const esPlano = () => forma === 'plano' && trans >= 1;
+const suave = t => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+function orientar() { giroTrig = [Math.cos(rot.a), Math.sin(rot.a), Math.cos(rot.b), Math.sin(rot.b)]; }
+function lugar3(n) {
+  const d = forma === 'plano' ? [n.x, n.y, 0] : n.t3;
+  if (trans >= 1 || !n.o3) return d;
+  const e = suave(trans), o = n.o3;
+  return [o[0] + (d[0] - o[0]) * e, o[1] + (d[1] - o[1]) * e, o[2] + (d[2] - o[2]) * e];
+}
+function girado(X, Y, Z) {
+  const [ca, sa, cb2, sb] = giroTrig, x1 = X * ca + Z * sa, z1 = -X * sa + Z * ca;
+  const z2 = Y * sb + z1 * cb2, f = FOCAL / (FOCAL - z2);
+  return [x1 * f, (Y * cb2 - z1 * sb) * f, z2, f];
+}
+function proyectar(n) {
+  if (esPlano()) { n.qx = n.x; n.qy = n.y; n.z = 0; n.f = 1; return; }
+  const p = lugar3(n), c = n.c3;
+  // Las nubes de fuera no dan vueltas alrededor del cerebro: cada una gira sobre su propio centro
+  // y se queda en su sitio de la pantalla, sin taparlo nunca.
+  if (c && forma !== 'plano') {
+    [n.qx, n.qy, n.z, n.f] = girado(p[0] - c[0], p[1] - c[1], p[2]);
+    n.qx += c[0]; n.qy += c[1];
+  } else [n.qx, n.qy, n.z, n.f] = girado(p[0], p[1], p[2]);
+}
+const aPantalla = n => { proyectar(n); return [(n.qx - cam.x) * cam.k + W / 2, (n.qy - cam.y) * cam.k + H / 2]; };
+const aMundo = (px, py) => [(px - W / 2) / cam.k + cam.x, (py - H / 2) / cam.k + cam.y];
+const visible = n => !n.oculto && (!aislado || aislado.has(n));
+
+// Números al azar que salen siempre iguales: así la forma es la misma en todas las pantallas.
+function azar(semilla) {
+  return () => {
+    semilla = semilla + 0x6D2B79F5 | 0;
+    let t = Math.imul(semilla ^ semilla >>> 15, 1 | semilla);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+// El cerebro, hecho de elipsoides: dos hemisferios, dos lóbulos temporales, cerebelo y tallo.
+// (x de lado a lado, y hacia arriba, z hacia el frente; centro y radios.)
+// Por cada hemisferio: el cuerpo, el lóbulo frontal (delante y algo más bajo), el occipital (atrás, en
+// punta) y el temporal (debajo, hacia delante). Más los dos lóbulos del cerebelo, atrás y abajo.
+const LOBULOS = [-1, 1].flatMap(s => [
+  [s * 0.33, 0.2, -0.04, 0.31, 0.4, 0.66],
+  [s * 0.3, 0.1, 0.5, 0.28, 0.33, 0.36],
+  [s * 0.27, 0.12, -0.6, 0.25, 0.3, 0.3],
+  [s * 0.43, -0.2, 0.2, 0.2, 0.17, 0.44],
+  [s * 0.2, -0.4, -0.56, 0.25, 0.17, 0.24],
+]);
+function enCerebro(x, y, z) {
+  let menor = 9;
+  for (const [a, b, c, rx, ry, rz] of LOBULOS) {
+    const v = ((x - a) / rx) ** 2 + ((y - b) / ry) ** 2 + ((z - c) / rz) ** 2;
+    if (v < menor) menor = v;
+  }
+  // El tallo: un cilindro que baja desde el centro y se inclina hacia atrás, afinándose.
+  if (y < -0.3 && y > -0.98) {
+    const t = (-0.3 - y) / 0.68, radio = 0.105 - 0.035 * t, eje = -0.16 - 0.2 * t;
+    const v = (x * x + (z - eje) ** 2) / (radio * radio);
+    if (v < menor) menor = v;
+  }
+  return menor;
+}
+// Un punto al azar de la forma, en una esfera de radio 1 (o null si el intento cae fuera).
+function candidatoDe(nombre, r) {
+  if (nombre === 'esfera') {
+    const y = r() * 2 - 1, rad = Math.sqrt(1 - y * y), ang = r() * 6.2832;
+    return [Math.cos(ang) * rad, y, Math.sin(ang) * rad];
+  }
+  if (nombre === 'dona') {
+    const u = r() * 6.2832, v = r() * 6.2832, d = 0.72 + 0.27 * Math.cos(v);
+    if (r() > d / 0.99) return null;  // la cara de fuera tiene más superficie que la de dentro
+    return [d * Math.cos(u), 0.27 * Math.sin(v), d * Math.sin(u)];
+  }
+  if (nombre === 'galaxia') {
+    const rad = 0.08 + 0.94 * Math.sqrt(r()), brazo = Math.floor(r() * 3), ang = brazo * 2.0944 + rad * 4.4 + (r() - 0.5) * 0.7;
+    return [Math.cos(ang) * rad, (r() - 0.5) * 0.34 * (1.15 - rad), Math.sin(ang) * rad];
+  }
+  // cerebro: solo la corteza, con la cisura entre los dos hemisferios y los surcos que la pliegan
+  const x = (r() * 2 - 1) * 0.74, y = r() * 1.62 - 0.98, z = (r() * 2 - 1) * 0.92, v = enCerebro(x, y, z);
+  if (v > 1 || v < 0.72) return null;
+  if (y > -0.2 && Math.abs(x) < 0.04) return null;  // la cisura longitudinal
+  // Surcos: franjas onduladas donde no hay neuronas. Solo en los hemisferios, no en el cerebelo ni el tallo.
+  if (y > -0.3 && Math.abs(Math.sin(10.5 * z + 2.2 * Math.sin(6 * y) + 1.4 * Math.sin(5 * x))) < 0.16) return null;
+  // El cerebelo es más fino: láminas horizontales muy juntas.
+  if (y < -0.3 && z < -0.25 && Math.abs(Math.sin(34 * y + 4 * Math.sin(7 * x))) < 0.22) return null;
+  return [x, y, z];
+}
+// Devuelve `cuantos` puntos de la forma, repartidos de modo que ninguno quede a menos de cierta
+// distancia de otro: así las bolas caben sin tocarse. Devuelve también esa distancia mínima.
+function puntos(nombre, cuantos, semilla) {
+  const candidato = typeof nombre === 'function' ? (_, r) => nombre(r) : candidatoDe;  // una forma con nombre, o una pieza suelta
+  // Las piezas sueltas (un brazo, un escudo) son mucho más pequeñas que una forma entera: se parte de
+  // una distancia menor y se baja a pasos más largos, para no gastar rondas que no pueden salir.
+  const pieza = typeof nombre === 'function', encoge = pieza ? 0.75 : 0.9;
+  let minima = (pieza ? 0.3 : 1.15) * Math.sqrt(12 / Math.max(cuantos, 1));
+  for (let ronda = 0; ronda < 40; ronda++, minima *= encoge) {
+    const r = azar(semilla), salida = [], rejilla = new Map(), m2 = minima * minima;
+    for (let intento = 0; intento < cuantos * 45 && salida.length < cuantos; intento++) {
+      const p = candidato(nombre, r);
+      if (!p) continue;
+      const i = Math.floor(p[0] / minima), j = Math.floor(p[1] / minima), k = Math.floor(p[2] / minima);
+      let libre = true;
+      for (let a = i - 1; libre && a <= i + 1; a++) for (let b = j - 1; libre && b <= j + 1; b++) for (let c = k - 1; c <= k + 1; c++) {
+        const q = rejilla.get(a * 73856093 ^ b * 19349663 ^ c * 83492791);
+        if (!q) continue;
+        for (const o of q) if ((o[0] - p[0]) ** 2 + (o[1] - p[1]) ** 2 + (o[2] - p[2]) ** 2 < m2) { libre = false; break; }
+        if (!libre) break;
+      }
+      if (!libre) continue;
+      const clave = i * 73856093 ^ j * 19349663 ^ k * 83492791;
+      if (!rejilla.has(clave)) rejilla.set(clave, []);
+      rejilla.get(clave).push(p); salida.push(p);
+    }
+    if (salida.length >= cuantos) return [salida, minima];
+  }
+  return [[], 0.02];
+}
+// Orden que mantiene juntos los puntos vecinos: así cada tema ocupa una región de la forma.
+function orden3(p) {
+  let c = 0;
+  const q = p.map(v => Math.max(0, Math.min(1023, Math.floor((v + 1.05) / 2.1 * 1024))));
+  for (let b = 9; b >= 0; b--) c = c * 8 + ((q[0] >> b & 1) * 4 + (q[1] >> b & 1) * 2 + (q[2] >> b & 1));
+  return c;
+}
+// ---- Vista «Nubes»: cada tema es una nube aparte ----
+// El tema más grande va en el centro y los demás se acomodan alrededor sin pisarse. Dentro de cada
+// nube, la nota más conectada queda en el medio. Las nubes se tocan solo por sus hilos.
+let anillos = [];  // el borde de cada nube: [x, y, radio, grupo]
+function formarNubes(saber) {
+  const porTema = new Map();
+  saber.forEach(n => { if (!porTema.has(n.grupo)) porTema.set(n.grupo, []); porTema.get(n.grupo).push(n); });
+  // Una nota suelta (o dos) no es un tema: todas esas van juntas a una sola nube, «Notas sueltas».
+  const sueltas = [];
+  for (const [grupo, notas] of [...porTema]) if (notas.length < 3) { sueltas.push(...notas); porTema.delete(grupo); }
+  if (sueltas.length) porTema.set(SUELTAS, sueltas);
+  // De mayor a menor: el tema más grande, al centro. Las sueltas, las últimas, a la orilla.
+  const temas = [...porTema.entries()].sort((a, b) => (a[0] === SUELTAS) - (b[0] === SUELTAS) || b[1].length - a[1].length || a[0] - b[0]);
+  const paso = 26, puestas = [];
+  let lejos = 0;
+  for (const [grupo, notas] of temas) {
+    const radio = paso * 0.62 * Math.sqrt(notas.length) + 8;
+    let x = 0, y = 0;
+    // Se busca, en espiral desde el centro, el primer hueco donde quepa sin tocar a ninguna otra.
+    // El paso de la espiral va con el tamaño de la nube, y como van de mayor a menor, cada una
+    // empieza a buscar no muy lejos de donde cupo la anterior: así se colocan cientos en un momento.
+    const tramo = Math.max(10, radio * 0.3);
+    let i = Math.floor((lejos * 0.5 / tramo) ** 2);
+    do {
+      const d = tramo * Math.sqrt(i), ang = i * 2.39996;
+      x = Math.cos(ang) * d; y = Math.sin(ang) * d * 0.72;  // algo apaisado, como la pantalla
+      i++;
+    } while (puestas.some(p => (p[0] - x) ** 2 + (p[1] - y) ** 2 < (p[2] + radio + 16) ** 2));
+    lejos = Math.hypot(x, y / 0.72);
+    puestas.push([x, y, radio, grupo]);
+    notas.sort((a, b) => b.vecinos.size - a.vecinos.size);
+    notas.forEach((n, i) => {
+      const d = radio * Math.sqrt(i / notas.length) * 0.94, ang = i * 2.39996;
+      // Cada nube es una lenteja: plana de frente y con algo de fondo, para que al girar se vea volumen.
+      n.t3 = [x + Math.cos(ang) * d, y + Math.sin(ang) * d, (i % 2 ? 1 : -1) * Math.sqrt(Math.max(0, radio * radio - d * d)) * 0.4];
+    });
+  }
+  // Todo a la escala del resto de las formas.
+  const ancho = Math.max(...puestas.map(p => Math.hypot(p[0], p[1] / 0.72) + p[2]), 1), escala = RADIO * 1.12 / ancho;
+  saber.forEach(n => { n.t3 = n.t3.map(v => v * escala); n.r3 = Math.min(n.r, paso * escala * 0.46); });
+  anillos = puestas.filter(p => p[2] > paso * 1.6).map(p => [p[0] * escala, p[1] * escala, p[2] * escala, p[3]]);
+  rotulos3 = anillos.filter(a => porTema.get(a[3]).length >= 12).map(a => ({ tema: a[3], cuantos: porTema.get(a[3]).length, x: a[0], y: a[1] - a[2] }));
+}
+const SUELTAS = 99999;  // el «tema» de las notas que no llegan a formar uno
+// Los rótulos de las vistas de nubes y de cuerpo. En las nubes, el nombre del tema encima de cada una;
+// en la figura, a los lados, con una línea hasta la parte del cuerpo, como en una lámina de anatomía.
+let rotulos3 = [];
+const nombreTema = {};
+const PARTES = {  // qué se lee junto a cada parte, y dónde (mismas medidas que la figura)
+  cabeza: ['Universo Marvel', 0.98, 0.84], reactor: ['Iron Man · el reactor', 0.98, 0.62], torso: ['Hulk', 0.98, 0.46],
+  telarana: ['Spider-Man · la telaraña', 0.98, 0.28], cintura: ['Viuda Negra y Ojo de Halcón', 0.98, 0.08],
+  martillo: ['Thor · el Mjolnir', 0.98, -0.2], musloI: ['Guardianes y Thanos', 0.98, -0.38], musloD: ['Ant-Man y el reino cuántico', 0.98, -0.54],
+  calle: ['Héroes de la calle', 0.98, -0.82],
+  corazon: ['Corazón · cómo está hecho M-Jarvis', -0.74, 0.46], escudo: ['Capitán América · el escudo', -0.74, 0.2],
+  garras: ['Pantera Negra · las garras', -0.74, -0.1],
+};
+
+// ---- Vista «Cuerpo»: una figura humana hecha con lo que sabe ----
+// Es solo otra manera de mirar el mismo cerebro. La cabeza es el universo Marvel en general; el corazón,
+// cómo está hecho M-Jarvis (su red de trato); y cada gran personaje ocupa la parte del cuerpo de su
+// objeto más famoso: el escudo en el brazo, el martillo en la mano, el reactor en el pecho.
+const hacia = (p, q, t) => [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t, p[2] + (q[2] - p[2]) * t];
+function tubo(p0, p1, r0, r1, fondo) {  // un miembro: de p0 a p1, con radio r0 al empezar y r1 al acabar
+  const eje = [p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2]], largo = Math.hypot(...eje), a = eje.map(v => v / largo);
+  return r => {
+    const t = r(), c = hacia(p0, p1, t), v = [r() - 0.5, r() - 0.5, r() - 0.5];
+    const punto = v[0] * a[0] + v[1] * a[1] + v[2] * a[2], w = v.map((x, i) => x - punto * a[i]), n = Math.hypot(...w) || 1;
+    const radio = r0 + (r1 - r0) * t;
+    return [c[0] + w[0] / n * radio, c[1] + w[1] / n * radio, c[2] + w[2] / n * radio * (fondo || 1)];
+  };
+}
+const bola = (c, radio) => r => {
+  const y = r() * 2 - 1, rad = Math.sqrt(1 - y * y), ang = r() * 6.2832;
+  return [c[0] + Math.cos(ang) * rad * radio, c[1] + y * radio, c[2] + Math.sin(ang) * rad * radio];
+};
+const disco = (c, radio) => r => {  // de cara a quien mira
+  const d = radio * Math.sqrt(r()), ang = r() * 6.2832;
+  return [c[0] + Math.cos(ang) * d, c[1] + Math.sin(ang) * d, c[2] + (r() - 0.5) * 0.015];
+};
+const varios = (...partes) => r => partes[Math.floor(r() * partes.length)](r);  // reparte entre varias piezas
+// (x hacia la derecha de la pantalla, y hacia arriba, z hacia quien mira; la figura mide dos unidades.)
+const CUERPO = {
+  cabeza: r => { const p = candidatoDe('cerebro', r); return p && [p[0] * 0.2, 0.79 + p[1] * 0.2, p[2] * 0.2]; },
+  corazon: bola([-0.05, 0.36, 0.06], 0.055),
+  reactor: disco([0, 0.4, 0.125], 0.075),
+  torso: varios(tubo([0, 0.55, 0], [0, 0.26, 0], 0.2, 0.17, 0.55), tubo([0, 0.26, 0], [0, 0.04, 0], 0.17, 0.165, 0.55)),
+  cintura: tubo([0, 0.06, 0], [0, -0.02, 0], 0.175, 0.18, 0.6),
+  escudo: disco([-0.47, 0.17, 0.12], 0.19),
+  garras: varios(tubo([-0.5, -0.2, 0.02], [-0.56, -0.36, 0.06], 0.012, 0.004), tubo([-0.47, -0.21, 0.03], [-0.49, -0.38, 0.07], 0.012, 0.004),
+    tubo([-0.44, -0.2, 0.02], [-0.42, -0.36, 0.06], 0.012, 0.004), bola([-0.47, -0.17, 0], 0.05)),
+  martillo: varios(tubo([0.38, -0.28, 0.04], [0.58, -0.28, 0.04], 0.06, 0.06), tubo([0.38, -0.28, 0.04], [0.58, -0.28, 0.04], 0.06, 0.06),
+    tubo([0.48, -0.22, 0.04], [0.48, 0.02, 0.04], 0.016, 0.016)),
+  telarana: varios(tubo([0.36, 0.16, 0], [0.45, -0.1, 0], 0.05, 0.04), tubo([0.45, -0.08, 0.02], [0.88, 0.3, 0.1], 0.012, 0.03)),
+  musloI: tubo([-0.1, -0.02, 0], [-0.13, -0.46, 0], 0.085, 0.06),
+  musloD: tubo([0.1, -0.02, 0], [0.13, -0.46, 0], 0.085, 0.06),
+  // Los héroes de la calle son los que pisan el suelo: de las rodillas a los pies, en las dos piernas.
+  calle: varios(tubo([-0.13, -0.46, 0], [-0.14, -0.88, 0], 0.058, 0.04), tubo([0.13, -0.46, 0], [0.14, -0.88, 0], 0.058, 0.04),
+    tubo([-0.13, -0.46, 0], [-0.14, -0.88, 0], 0.058, 0.04), tubo([0.13, -0.46, 0], [0.14, -0.88, 0], 0.058, 0.04),
+    tubo([-0.14, -0.94, -0.02], [-0.17, -0.96, 0.13], 0.045, 0.035), tubo([0.14, -0.94, -0.02], [0.17, -0.96, 0.13], 0.045, 0.035)),
+};
+const PIERNAS = varios(CUERPO.musloI, CUERPO.musloD, CUERPO.calle, CUERPO.calle);
+// Solo para la silueta: los miembros que ninguna nota ocupa también se dibujan en puntos tenues.
+const SILUETA = varios(CUERPO.torso, CUERPO.torso, PIERNAS, PIERNAS, PIERNAS, bola([0, 0.79, 0], 0.16),
+  tubo([0, 0.62, 0], [0, 0.55, 0], 0.055, 0.06), tubo([-0.22, 0.5, 0], [-0.36, 0.16, 0], 0.06, 0.05), tubo([-0.36, 0.16, 0], [-0.46, -0.12, 0], 0.048, 0.04),
+  tubo([0.22, 0.5, 0], [0.36, 0.16, 0], 0.06, 0.05), tubo([0.36, 0.16, 0], [0.46, -0.12, 0], 0.048, 0.04), bola([0.47, -0.18, 0], 0.05));
+// A qué parte va cada nota, según su nombre y el documento del que salió. Lo que no encaja en ninguna
+// es Marvel en general, y va a la cabeza.
+const REPARTO = [
+  [/capit[aá]n[- ]am[eé]rica|steve rogers|escudo|bucky|soldado[- ]de[- ]invierno|falcon|sam wilson|peggy|civil[- ]war|un[- ]nuevo[- ]mundo/i, 'escudo'],
+  [/pantera|wakanda|t'challa|shuri|vibranium|killmonger|okoye|namor/i, 'garras'],
+  [/thor|mjolnir|asgard|loki|od[ií]n|hela|valquiria|ragnarok/i, 'martillo'],
+  [/iron[- ]?man|tony|stark|armadura|pepper|jarvis|ultr[oó]n|reactor|ironheart|riri/i, 'reactor'],
+  [/spider|peter parker|telara|mysterio|buitre|lejos[- ]de[- ]casa|camino[- ]a[- ]casa/i, 'telarana'],
+  [/hulk|banner|abominaci|skaar/i, 'torso'],
+  [/viuda|black[- ]widow|natasha|yelena|ojo de halc[oó]n|hawkeye|clint|kate bishop|thunderbolts/i, 'cintura'],
+  [/guardianes|star-lord|quill|rocket|groot|gamora|nebula|thanos|gemas?|infinity|endgame|marvels|capitana/i, 'musloI'],
+  [/ant-man|avispa|scott lang|cu[aá]ntic|pym|kang|quantumania|fant[aá]sticos|reed richards|galactus/i, 'musloD'],
+  [/daredevil|punisher|kingpin|fisk|jessica[- ]jones|luke[- ]cage|iron[- ]fist|defenders|hell's kitchen|\becho\b|maya lopez|born[- ]again/i, 'calle'],
+];
+function formarCuerpo(saber) {
+  const grupos = {};
+  for (const n of saber) {
+    const texto = n.id + ' ' + (n.fuente || ''), parte = (REPARTO.find(([patron]) => patron.test(texto)) || [0, 'cabeza'])[1];
+    (grupos[parte] = grupos[parte] || []).push(n);
+  }
+  grupos.corazon = N.filter(n => n.grupo === -1);  // la red de trato late en el pecho
+  for (const [parte, notas] of Object.entries(grupos)) {
+    const [sitios, hueco] = puntos(CUERPO[parte], notas.length, 11);
+    sitios.sort((a, b) => orden3(a) - orden3(b));
+    notas.sort((a, b) => a.grupo - b.grupo || b.vecinos.size - a.vecinos.size);
+    notas.forEach((n, i) => {
+      const p = sitios[i] || [0, 0, 0];
+      n.t3 = [p[0] * RADIO, -p[1] * RADIO, p[2] * RADIO]; n.c3 = null;
+      n.r3 = Math.min(n.r, Math.max(1.6, hueco * RADIO * 0.46));
+    });
+    if (!notas.length) continue;
+    const medio = [0, 1, 2].map(e => notas.reduce((s, n) => s + n.t3[e], 0) / notas.length), [texto, x, y] = PARTES[parte];
+    rotulos3.push({ texto, cuantos: notas.length, x: x * RADIO, y: -y * RADIO, hasta: medio, lado: x > 0 ? 'left' : 'right' });
+  }
+}
+
+function formar(nombre) {
+  const saber = N.filter(n => n.grupo >= 0), tam = {};
+  anillos = []; rotulos3 = [];
+  saber.forEach(n => tam[n.grupo] = (tam[n.grupo] || 0) + 1);
+  if (nombre === 'nubes') formarNubes(saber);
+  else if (nombre === 'cuerpo') formarCuerpo(saber);
+  else {
+    saber.sort((a, b) => tam[b.grupo] - tam[a.grupo] || a.grupo - b.grupo || b.vecinos.size - a.vecinos.size);
+    const [sitios, hueco] = puntos(nombre, saber.length, 7);
+    sitios.sort((a, b) => orden3(a) - orden3(b));
+    // Cada bola ocupa como mucho algo menos de la mitad del hueco hasta su vecina: no se tocan, y la
+    // forma se sigue leyendo. Las más conectadas siguen siendo las más grandes.
+    const tope = hueco * RADIO * 0.46;
+    saber.forEach((n, i) => {
+      const p = sitios[i] || [0, 0, 0];
+      n.t3 = [p[0] * RADIO, -p[1] * RADIO, p[2] * RADIO]; n.r3 = Math.min(n.r, tope);
+    });
+  }
+  // Las nubes de fuera (trato, otros universos, taller) no se mezclan: cada una es una bola aparte.
+  for (const [g, nube] of Object.entries(NUBES)) {
+    if (nombre === 'cuerpo' && g === '-1') continue;  // en la figura, el trato es el corazón
+    const suyos = N.filter(n => n.grupo === +g), [sitiosNube, huecoNube] = puntos('esfera', suyos.length, 3 - g);
+    sitiosNube.forEach((p, i) => {
+      suyos[i].t3 = [(nube.centro[0] + p[0] * nube.radio) * RADIO, (nube.centro[1] - p[1] * nube.radio) * RADIO, p[2] * nube.radio * RADIO];
+      suyos[i].c3 = [nube.centro[0] * RADIO, nube.centro[1] * RADIO];
+      suyos[i].r3 = Math.min(suyos[i].r, huecoNube * nube.radio * RADIO * 0.46);
+    });
+  }
+  // Silueta: puntos tenues que dibujan la forma. No son notas; solo marcan el contorno.
+  polvo = nombre === 'nubes' ? [] : nombre === 'cuerpo'
+    ? puntos(SILUETA, 620, 99)[0].map(p => [p[0] * RADIO, -p[1] * RADIO, p[2] * RADIO])
+    : puntos(nombre, 420, 99)[0].map(p => [p[0] * RADIO * 1.03, -p[1] * RADIO * 1.03, p[2] * RADIO * 1.03]);
+  tender(nombre === 'cerebro');
+}
+
+// ---- El cerebro, como tejido de verdad ----
+// En la forma de cerebro las conexiones no son rayas rectas: cada una es una fibra (un axón) que sale
+// de la corteza, se hunde hacia el interior y vuelve a salir donde está la otra neurona, como en una
+// tractografía. Las que unen los dos hemisferios cruzan todas por el centro, por el cuerpo calloso.
+// Son las conexiones reales de las notas; no hay ninguna fibra de adorno.
+const TRAMOS = 10;
+function tender(si) {
+  // (En estas coordenadas, «arriba» es Y negativa.)
+  const r = azar(41), calloso = [0, -0.1 * RADIO, 0.02 * RADIO], luna = [1.18 * RADIO, -0.8 * RADIO, 0];
+  const tallo = [0, 0.27 * RADIO, -0.17 * RADIO];  // por donde suben y bajan las fibras del cerebelo y el tallo
+  const entre = (p, q, t) => [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t, p[2] + (q[2] - p[2]) * t];
+  for (const l of L) {
+    const A = l.a.t3, B = l.b.t3;
+    // Entre una nube y el cerebro (o entre dos nubes) no hay fibra curva: es un nervio recto, que se
+    // pinta de punta a punta. Dentro de una nube, la fibra gira con ella (fc = su centro).
+    if (!si || !A || !B || l.a.grupo !== l.b.grupo && (l.a.grupo < 0 || l.b.grupo < 0)) { l.f = null; continue; }
+    l.fc = l.a.c3 || null;
+    const largo = Math.hypot(B[0] - A[0], B[1] - A[1], B[2] - A[2]), medio = entre(A, B, 0.5);
+    const temblor = () => (r() - 0.5) * 0.1 * RADIO;  // para que las fibras de un mismo haz no se pisen
+    // Las fibras de un mismo tema viajan juntas, por su propio camino: forman haces de un color.
+    const g = l.a.grupo * 2.399, haz = [Math.cos(g) * 0.11 * RADIO, Math.sin(g * 1.7) * 0.13 * RADIO, Math.sin(g) * 0.2 * RADIO];
+    // Y ninguna va recta: cada una ondula un poco de lado mientras avanza.
+    const onda = [temblor() * 0.9, temblor() * 0.9, temblor() * 0.9], fase = r() * 6.283;
+    let c1, c2;
+    if (l.a.grupo < 0 || l.b.grupo < 0) {  // las nubes de fuera: cada una con su centro; entre nube y cerebro, un nervio casi recto
+      const suya = NUBES[l.a.grupo];
+      const centro = l.a.grupo !== l.b.grupo ? medio : [suya.centro[0] * RADIO, suya.centro[1] * RADIO, 0];
+      c1 = c2 = entre(medio, centro, 0.5);
+    } else if ((A[1] > 0.3 * RADIO) !== (B[1] > 0.3 * RADIO)) {  // entre el cerebro y el cerebelo o el tallo
+      const paso = [tallo[0] + temblor() * 0.5, tallo[1], tallo[2] + temblor() * 0.5];
+      c1 = entre(A, paso, 0.8); c2 = entre(B, paso, 0.8);
+    } else if (A[0] * B[0] < 0 && Math.abs(A[0] - B[0]) > 0.25 * RADIO) {  // de un hemisferio al otro
+      const paso = [calloso[0], calloso[1] + haz[1] * 0.5 + temblor() * 0.5, calloso[2] + medio[2] * 0.55 + haz[2] * 0.6 + temblor()];
+      c1 = entre(A, paso, 0.78); c2 = entre(B, paso, 0.78);
+    } else {  // dentro de un hemisferio: cuanto más larga, más honda
+      const lado = A[0] + B[0] > 0 ? 1 : -1;
+      const nucleo = [lado * 0.24 * RADIO + haz[0] + temblor(), medio[1] * 0.35 - 0.08 * RADIO + haz[1] + temblor(), medio[2] * 0.62 + haz[2] + temblor()];
+      const centro = entre(medio, nucleo, Math.min(0.85, 0.22 + largo / (1.25 * RADIO)));
+      c1 = entre(A, centro, 0.72); c2 = entre(B, centro, 0.72);
+    }
+    const f = l.f = new Float32Array((TRAMOS + 1) * 3);
+    for (let i = 0; i <= TRAMOS; i++) {
+      const t = i / TRAMOS, u = 1 - t, a = u * u * u, b = 3 * u * u * t, c = 3 * u * t * t, d = t * t * t;
+      const vaiven = Math.sin(Math.PI * t) * Math.sin(Math.PI * 3 * t + fase);  // cero en las dos puntas
+      for (let e = 0; e < 3; e++) f[i * 3 + e] = a * A[e] + b * c1[e] + c * c2[e] + d * B[e] + onda[e] * vaiven;
+    }
+  }
+}
+// Una fibra, ya girada y puesta en pantalla: [x0, y0, x1, y1, …] y la profundidad de su punto medio.
+const hebra = new Float32Array((TRAMOS + 1) * 2);
+function proyectarFibra(f, centro) {
+  const [ca, sa, cb2, sb] = giroTrig, k = cam.k, ox = W / 2 - cam.x * k, oy = H / 2 - cam.y * k;
+  const cx0 = centro ? centro[0] : 0, cy0 = centro ? centro[1] : 0;
+  let hondo = 0;
+  for (let i = 0; i <= TRAMOS; i++) {
+    const X = f[i * 3] - cx0, Y = f[i * 3 + 1] - cy0, Z = f[i * 3 + 2];
+    const x1 = X * ca + Z * sa, z1 = -X * sa + Z * ca, z2 = Y * sb + z1 * cb2, p = FOCAL / (FOCAL - z2);
+    hebra[i * 2] = (x1 * p + cx0) * k + ox; hebra[i * 2 + 1] = ((Y * cb2 - z1 * sb) * p + cy0) * k + oy;
+    if (i === TRAMOS / 2) hondo = z2;
+  }
+  return hondo;
+}
+// El cuerpo de cada neurona es una mancha de luz de su color, más blanca en el centro.
+const somas = {};
+function soma(grupo) {
+  if (somas[grupo]) return somas[grupo];
+  const lienzo = document.createElement('canvas'), c = lienzo.getContext('2d'), [r, g, b] = rgb(grupo);
+  lienzo.width = lienzo.height = 64;
+  const luz = c.createRadialGradient(32, 32, 0, 32, 32, 32);
+  luz.addColorStop(0, 'rgba(255,255,255,0.95)');
+  luz.addColorStop(0.14, `rgba(${Math.min(255, r + 60)},${Math.min(255, g + 60)},${Math.min(255, b + 60)},0.95)`);
+  luz.addColorStop(0.34, `rgba(${r},${g},${b},0.8)`);
+  luz.addColorStop(0.5, `rgba(${r},${g},${b},0.2)`);
+  luz.addColorStop(1, `rgba(${r},${g},${b},0)`);
+  c.fillStyle = luz; c.fillRect(0, 0, 64, 64);
+  return somas[grupo] = lienzo;
+}
+
+function pintarNeuronas(cx, vistos, e) {
+  const { foco, hay, z, ligero, enGiro, relacionados } = e;
+  const grosor = Math.max(0.7, Math.min(1.7, cam.k * 2.1)), salto = ligero ? 5 : enGiro ? 2 : 1;
+  // Fibras en reposo: por color y por profundidad (fondo, medio, frente). Se suman como luz, así que
+  // donde pasan muchas juntas el haz brilla más, igual que en las imágenes de microscopio.
+  const haces = new Map(), raices = new Map(), fuertes = [];
+  let cuenta = 0;
+  const nervios = new Path2D();
+  for (const l of L) {
+    if (!visible(l.a) || !visible(l.b)) continue;
+    const on = enlaceActivo(l), medio = !foco && (encendidos.has(l.a.id) || encendidos.has(l.b.id));
+    if (on || medio) { fuertes.push([l, on]); continue; }
+    if (!l.f) {  // nervio recto entre una nube y el cerebro
+      if (hilos && !ligero) { nervios.moveTo(l.a.sx, l.a.sy); nervios.lineTo(l.b.sx, l.b.sy); }
+      continue;
+    }
+    if (!hilos || cuenta++ % salto) continue;
+    const hondo = proyectarFibra(l.f, l.fc), capa = hondo > RADIO * 0.22 ? 2 : hondo > -RADIO * 0.22 ? 1 : 0, clave = l.a.grupo * 3 + capa;
+    let t = haces.get(clave);
+    if (!t) haces.set(clave, t = new Path2D());
+    t.moveTo(hebra[0], hebra[1]);
+    for (let i = 1; i <= TRAMOS; i++) t.lineTo(hebra[i * 2], hebra[i * 2 + 1]);
+    if (ligero || capa === 0) continue;
+    // Junto a cada neurona la fibra es más gruesa: son sus dendritas, que se afinan al alejarse.
+    let d = raices.get(clave);
+    if (!d) raices.set(clave, d = new Path2D());
+    d.moveTo(hebra[0], hebra[1]); d.lineTo(hebra[2], hebra[3]); d.lineTo(hebra[4], hebra[5]);
+    const n = TRAMOS * 2;
+    d.moveTo(hebra[n], hebra[n + 1]); d.lineTo(hebra[n - 2], hebra[n - 1]); d.lineTo(hebra[n - 4], hebra[n - 3]);
+  }
+  cx.globalCompositeOperation = 'lighter'; cx.lineCap = 'round'; cx.lineJoin = 'round';
+  const tenue = (hay ? 0.22 : 1) * (salto > 1 ? 1.5 : 1);
+  for (const [clave, t] of haces) {
+    const capa = ((clave % 3) + 3) % 3;
+    cx.globalAlpha = [0.05, 0.085, 0.15][capa] * tenue; cx.lineWidth = [0.6, 0.85, 1.1][capa] * grosor;
+    cx.strokeStyle = color(Math.floor(clave / 3)); cx.stroke(t);
+  }
+  for (const [clave, t] of raices) {
+    const capa = ((clave % 3) + 3) % 3;
+    cx.globalAlpha = [0, 0.09, 0.17][capa] * tenue; cx.lineWidth = [0, 1.4, 1.9][capa] * grosor;
+    cx.strokeStyle = color(Math.floor(clave / 3)); cx.stroke(t);
+  }
+  cx.globalAlpha = hay ? 0.03 : 0.09; cx.lineWidth = 0.7; cx.strokeStyle = '#8fa3bd'; cx.stroke(nervios);
+  for (const [l, on] of fuertes) {  // las fibras en uso, encendidas de punta a punta
+    const camino = on && enRuta(l);
+    cx.globalAlpha = on ? 0.95 : 0.45; cx.lineWidth = (camino ? 3 : on ? 1.9 : 1.2) * grosor; cx.strokeStyle = camino ? '#ffffff' : color(l.a.grupo);
+    cx.beginPath();
+    if (l.f) {
+      proyectarFibra(l.f, l.fc);
+      cx.moveTo(hebra[0], hebra[1]);
+      for (let i = 1; i <= TRAMOS; i++) cx.lineTo(hebra[i * 2], hebra[i * 2 + 1]);
+    } else { cx.moveTo(l.a.sx, l.a.sy); cx.lineTo(l.b.sx, l.b.sy); }
+    cx.stroke();
+  }
+  // Los cuerpos de las neuronas, del fondo al frente. Ya no se suman como luz: si no, se queman en blanco.
+  cx.globalCompositeOperation = 'source-over';
+  const ocupado = [], lista = [], vivas = [];
+  vistos.sort((a, b) => a.z - b.z);
+  for (const n of vistos) {
+    const on = activo(n), medio = !foco && relacionados.has(n);
+    if (on || medio) vivas.push([n, on]);
+    else {
+      // En reposo, de cada neurona solo se ve un punto de luz donde nacen sus fibras: lo que se
+      // muestra es la red, no las bolas. Una neurona suelta, sin fibras, se ve algo más.
+      const s = Math.max(1.3, Math.min(n.vecinos.size ? 3.4 : 5, n.sr * (n.vecinos.size ? 0.6 : 1)));
+      cx.globalAlpha = (hay ? 0.12 : 0.2 + 0.7 * n.luz * n.luz);
+      cx.drawImage(soma(n.grupo), n.sx - s, n.sy - s, s * 2, s * 2);
+    }
+    // Solo las neuronas en uso reservan sitio: las demás son puntos de luz, y un nombre puede ir encima.
+    if (on) ocupado.push([n.sx - 7, n.sy - 7, n.sx + 7, n.sy + 7]);
+    if (n.sx < -40 || n.sx > W + 40 || n.sy < -40 || n.sy > H + 40) continue;
+    if (!on && !medio && (hay || !nombres || n.z < RADIO * 0.25)) continue;
+    lista.push({ n, x: n.sx, y: n.sy, r: on ? 6 : 2, on, luz: on ? 1 : 0.6 + 0.4 * n.luz, texto: on ? n.id : corto(n),
+      tam: Math.max(11, Math.min(18, n.fs * z * n.f * (0.8 + 0.2 * n.luz))) * (on ? 1.08 : 1),
+      peso: (on ? 1000 : 0) + (n === hover || marcados.has(n) ? 500 : 0) + n.vecinos.size * (0.4 + n.luz) });
+  }
+  cx.globalCompositeOperation = 'lighter';  // las que están en uso sí resplandecen
+  for (const [n, on] of vivas) {
+    const s = Math.max(on ? 9 : 5, Math.min(26, n.sr * (on ? 3.6 : 2.6)));
+    cx.globalAlpha = on ? 1 : 0.8;
+    cx.drawImage(soma(n.grupo), n.sx - s, n.sy - s, s * 2, s * 2);
+  }
+  cx.globalCompositeOperation = 'source-over';
+  for (const [n, on] of vivas) {
+    if (!on || !(marcados.has(n) || encendidos.has(n.id))) continue;
+    cx.globalAlpha = 1; cx.strokeStyle = '#fff'; cx.lineWidth = 1.5;
+    cx.beginPath(); cx.arc(n.sx, n.sy, Math.max(4, n.sr * 1.25), 0, 6.283); cx.stroke();
+  }
+  rotular(cx, lista, ocupado, hay, ligero ? 8 : Math.round((enGiro ? 8 : 12) + 26 * Math.min(1, cam.k)));
+  letreros(cx);
+}
+// Desde dónde se mira cada forma al llegar: las planas, desde arriba; las nubes y la figura, de frente.
+const miradaDe = f => f === 'plano' || f === 'nubes' ? { a: 0, b: 0 } : f === 'cuerpo' ? { a: -0.32, b: -0.06 }
+  : { a: -0.55, b: f === 'dona' || f === 'galaxia' ? -0.8 : -0.22 };
+function cambiarForma(f) {
+  document.body.classList.remove('menu-formas');
+  if (f === forma || !N.length) return;
+  for (const n of N) n.o3 = lugar3(n).slice();
+  if (f !== 'plano') formar(f);
+  rot.a = Math.atan2(Math.sin(rot.a), Math.cos(rot.a));
+  metaRot = miradaDe(f);
+  forma = f; trans = 0; encuadre = true; metaCam = null;
+  botones(); guardar(); mover();
+}
+
+function paso() {
+  // Cada nodo solo se repele con los de su celda y las vecinas: con cientos de notas, compararlos
+  // todos contra todos era lo que más procesador gastaba, y de lejos la repulsión es casi nula.
+  const celda = N.length > 1500 ? 150 : 280, cubos = new Map();  // con miles de notas, vecindario más corto
+  for (const n of N) {
+    n.ci = Math.floor(n.x / celda); n.cj = Math.floor(n.y / celda);
+    const clave = n.ci * 100003 + n.cj;
+    if (!cubos.has(clave)) cubos.set(clave, []);
+    cubos.get(clave).push(n);
+  }
+  for (const a of N) {
+    for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++) {
+      const cubo = cubos.get((a.ci + i) * 100003 + a.cj + j);
+      if (!cubo) continue;
+      // Una celda abarrotada se mira por muestreo: basta para separarla y no dispara el coste.
+      const salto = cubo.length > 24 ? Math.ceil(cubo.length / 24) : 1;
+      for (let q = (a.ci + a.cj + cubo.length) % salto; q < cubo.length; q += salto) {
+        const b = cubo[q];
+        if (b === a) continue;
+        const dx = a.x - b.x || 0.5, dy = a.y - b.y || 0.5, d2 = Math.max(dx * dx + dy * dy, 400), d = Math.sqrt(d2);
+        const f = 13000 * salto / d2 * alpha;  // más separación = nombres legibles
+        a.vx += dx / d * f; a.vy += dy / d * f;
+      }
+    }
+    a.vx -= (a.x - a.cx) * 0.015 * alpha; a.vy -= (a.y - (a.cy || 0)) * 0.015 * alpha;
+  }
+  for (const l of L) {
+    const dx = l.b.x - l.a.x, dy = l.b.y - l.a.y, d = Math.sqrt(dx * dx + dy * dy) || 1;
+    // Los enlaces dentro de un mismo tema tiran más: así los temas forman racimos.
+    const f = (d - 160) * (l.a.grupo === l.b.grupo ? 0.035 : 0.012) * alpha, fx = dx / d * f, fy = dy / d * f;
+    l.a.vx += fx; l.a.vy += fy; l.b.vx -= fx; l.b.vy -= fy;
+  }
+  for (const n of N) {
+    if (n === arrastre) { n.vx = n.vy = 0; continue; }
+    n.vx = Math.max(-25, Math.min(25, n.vx * 0.8)); n.vy = Math.max(-25, Math.min(25, n.vy * 0.8));
+    n.x += n.vx; n.y += n.vy;
+  }
+  alpha *= N.length > 1500 ? 0.966 : N.length > 400 ? 0.978 : 0.988;  // los mapas grandes se asientan en menos pasos
+}
+
+function encuadrar(rapidez) {
+  let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+  if (forma === 'plano') {
+    for (const n of N) {
+      if (!visible(n)) continue;
+      x0 = Math.min(x0, n.x); x1 = Math.max(x1, n.x); y0 = Math.min(y0, n.y); y1 = Math.max(y1, n.y);
+    }
+    if (x0 > x1) return;
+  } else { x0 = -RADIO * (N.some(n => n.grupo === -2) ? 1.8 : 1.2); x1 = RADIO * 1.5; y0 = -RADIO * 1.12; y1 = RADIO * 1.18; }  // la forma y su luna, giren como giren
+  const v = rapidez || 0.15, margen = EMBEBIDO ? 60 : 140;
+  const k = Math.min(2, (W - margen) / (x1 - x0 || 1), (H - 110) / (y1 - y0 || 1));
+  cam.x += ((x0 + x1) / 2 - cam.x) * v; cam.y += ((y0 + y1) / 2 - cam.y) * v; cam.k += (k - cam.k) * v;
+}
+
+function dibujar(ahora) {
+  if (sucio) { esPlano() ? pintarBase(cb) : pintar3D(cb); sucio = false; }
+  cx.setTransform(1, 0, 0, 1, 0, 0); cx.clearRect(0, 0, cv.width, cv.height); cx.drawImage(capa, 0, 0);
+  pintarImpulsos(typeof ahora === 'number' ? ahora : performance.now());
+}
+
+// ---- Qué está en uso ----
+const hayEleccion = () => hover || marcados.size;
+const hayEnfoque = () => hover || marcados.size || encendidos.size || filtro || tema >= 0;
+const activo = n => (hover && (n === hover || hover.vecinos.has(n))) || marcados.has(n) || aura.has(n) ||
+  encendidos.has(n.id) || (filtro && n.plano.includes(filtro)) || (tema >= 0 && n.grupo === tema);
+const enlaceActivo = l => (hover && (l.a === hover || l.b === hover)) || marcados.has(l.a) || marcados.has(l.b) ||
+  (encendidos.has(l.a.id) && encendidos.has(l.b.id)) || (tema >= 0 && l.a.grupo === tema && l.b.grupo === tema);
+// En el mapa, las notas de un documento se nombran sin la coletilla «(07-iron-man-3)»; en el panel van enteras.
+const corto = n => n.id.replace(/ \(\d\d-[^)]*\)$/, '');
+function enRuta(l) {
+  const i = ruta.indexOf(l.a);
+  return i >= 0 && (ruta[i + 1] === l.b || ruta[i - 1] === l.b);
+}
+
+// Nombres, del más importante al menos. Cada uno busca un hueco libre (derecha, izquierda, abajo,
+// arriba); si no hay hueco no se escribe, salvo que sea una nota en uso. Al acercar aparecen más.
+function rotular(cx, lista, ocupado, hay, tope) {
+  lista.sort((a, b) => b.peso - a.peso);
+  cx.textAlign = 'left'; cx.textBaseline = 'middle'; cx.lineJoin = 'round';
+  let puestos = 0, allegados = 0;
+  for (const e of lista) {
+    // Solo lo elegido o en uso lleva nombre pase lo que pase; sus vecinos, si caben y hasta catorce:
+    // una neurona con doscientas conexiones no puede tapar el mapa de letreros.
+    const forzar = e.n === hover || marcados.has(e.n) || encendidos.has(e.n.id);
+    if (e.on && !forzar && allegados >= 14) continue;
+    if (!e.on && puestos >= tope) continue;
+    const fs = e.tam, rotulo = e.texto || e.n.id;
+    cx.font = `${e.on ? 600 : 400} ${fs}px system-ui, "Segoe UI", sans-serif`;
+    const w = cx.measureText(rotulo).width, h = fs * 1.3, g = e.r + 5;
+    const sitios = [[e.x + g, e.y - h / 2], [e.x - g - w, e.y - h / 2], [e.x - w / 2, e.y + g], [e.x - w / 2, e.y - g - h]];
+    let sitio = sitios.find(([sx, sy]) => !ocupado.some(c => sx - 3 < c[2] && sx + w + 3 > c[0] && sy < c[3] && sy + h > c[1]));
+    if (!sitio) { if (!forzar) continue; sitio = sitios[0]; }
+    ocupado.push([sitio[0] - 3, sitio[1], sitio[0] + w + 3, sitio[1] + h]);
+    if (!e.on) puestos++; else if (!forzar) allegados++;
+    if (e.on) {  // las notas en uso llevan fondo para leerse sobre las líneas
+      cx.globalAlpha = 0.82; cx.fillStyle = '#0d1117';
+      cx.beginPath();
+      if (cx.roundRect) cx.roundRect(sitio[0] - 5, sitio[1] - 1, w + 10, h + 2, 5); else cx.rect(sitio[0] - 5, sitio[1] - 1, w + 10, h + 2);
+      cx.fill();
+    }
+    cx.globalAlpha = (e.on ? 1 : (hay ? 0.8 : 0.95)) * (e.luz || 1);
+    cx.lineWidth = 4; cx.strokeStyle = '#0d1117'; cx.strokeText(rotulo, sitio[0], sitio[1] + h / 2);
+    cx.fillStyle = e.on ? '#ffffff' : '#d3d9e0'; cx.fillText(rotulo, sitio[0], sitio[1] + h / 2);
+  }
+  cx.globalAlpha = 1;
+}
+
+function pintarBase(cx) {
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.clearRect(0, 0, W, H);
+  const foco = hayEleccion(), hayFoco = hayEnfoque();
+  // Lo relacionado con las notas en uso se ve a media luz; el resto se apaga.
+  const relacionados = new Set();
+  for (const n of N) if (encendidos.has(n.id)) n.vecinos.forEach(v => { if (!encendidos.has(v.id)) relacionados.add(v); });
+  // De lejos, los nodos cercanos se funden en burbujas (como en agar.io) y se separan al acercar.
+  const fundido = cam.k < 0.6, malla = 58 / cam.k, burbujas = new Map();
+  for (const n of N) {
+    n.b = null; n.charco = false;
+    if (!visible(n)) continue;
+    // Todo lo que no está en uso se dibuja como charco, a cualquier distancia: de cerca, un
+    // charquito por nodo; de lejos, los charcos de un cúmulo se juntan en uno.
+    n.charco = !activo(n) && (foco || !relacionados.has(n));
+    if (!fundido || !n.charco) continue;
+    const clave = Math.floor(n.x / malla) * 100003 + Math.floor(n.y / malla) + (n.grupo < 0 ? -n.grupo * 0.25 : 0);
+    let b = burbujas.get(clave);  // las dos redes no se mezclan en una misma burbuja
+    if (!b) burbujas.set(clave, b = { x: 0, y: 0, area: 0, cuantos: 0, jefe: n, grupos: {}, num: burbujas.size });
+    const [x, y] = aPantalla(n);
+    b.x += x; b.y += y; b.area += n.r * n.r; b.cuantos++;
+    b.grupos[n.grupo] = (b.grupos[n.grupo] || 0) + 1;
+    if (n.vecinos.size > b.jefe.vecinos.size) b.jefe = n;
+    n.b = b;
+  }
+  for (const b of burbujas.values()) {
+    b.x /= b.cuantos; b.y /= b.cuantos;
+    b.grupo = +Object.keys(b.grupos).reduce((a, g) => b.grupos[g] > b.grupos[a] ? g : a);
+  }
+  const lugar = n => n.b ? [n.b.x, n.b.y] : aPantalla(n);
+  const trazar = (x1, y1, x2, y2) => {
+    cx.beginPath(); cx.moveTo(x1, y1);
+    cx.quadraticCurveTo((x1 + x2) / 2 - (y2 - y1) * 0.16, (y1 + y2) / 2 + (x2 - x1) * 0.16, x2, y2); cx.stroke();
+  };
+  // Cada cúmulo es un charco de curvas de nivel, y los cúmulos conectados se funden en un mismo
+  // charco. Es un dibujo quieto: solo cambia al mover o acercar.
+  // Mientras el mapa se mueve o se acomoda no se calculan los charcos (es lo más caro): cada nota va
+  // como un punto de su color, y al quedarse quieto vuelve el dibujo completo.
+  const ligero = apurado() || (alpha > 0.02 && N.length > 800);
+  if (!ligero) pintarCharcos(cx, hayFoco);
+  for (const l of L) {
+    if (!visible(l.a) || !visible(l.b)) continue;
+    const on = enlaceActivo(l), medio = !foco && (encendidos.has(l.a.id) || encendidos.has(l.b.id));
+    if (!on && !medio && (fundido || !hilos || ligero)) continue;  // de lejos, la conexión es el charco que se junta
+    const [x1, y1] = lugar(l.a), [x2, y2] = lugar(l.b);
+    // De cerca, las conexiones cortas también van dentro del charco; solo las largas llevan un hilo fino.
+    if (!on && !medio && Math.hypot(x2 - x1, y2 - y1) < alcance()) continue;
+    const camino = on && enRuta(l);
+    cx.globalAlpha = on ? 0.9 : medio ? 0.4 : (hayFoco ? 0.06 : 0.1); cx.lineWidth = camino ? 3 : on ? 1.5 : 1;
+    cx.strokeStyle = camino ? '#ffffff' : color(l.a.grupo);
+    trazar(x1, y1, x2, y2);
+  }
+  const z = Math.max(0.7, Math.min(cam.k, 1.5));
+  // Nodos. Cada uno reserva su sitio para que ningún nombre se le escriba encima.
+  const ocupado = [], lista = [], puntos = new Map();
+  for (const n of N) {
+    if ((n.b && !ligero) || !visible(n)) continue;  // va dentro de una burbuja, o está oculto
+    const [x, y] = aPantalla(n), on = activo(n), r = n.r * z, medio = !foco && relacionados.has(n);
+    if (n.charco && ligero) {  // en movimiento: un punto de su color, todos los de un color de una pasada
+      let t = puntos.get(n.grupo);
+      if (!t) puntos.set(n.grupo, t = new Path2D());
+      const rp = Math.max(1.1, n.r * Math.min(cam.k, 1) * 0.75);
+      t.moveTo(x + rp, y); t.arc(x, y, rp, 0, 6.283);
+      continue;
+    }
+    if (n.charco) {  // su cuerpo es el charco; aquí solo un punto claro que marca dónde está
+      cx.globalAlpha = hayFoco ? 0.25 : 0.9; cx.fillStyle = '#f2f4f7';
+      cx.beginPath(); cx.arc(x, y, 1.8, 0, 6.283); cx.fill();
+    } else {
+      cx.globalAlpha = hayFoco && !on ? 0.7 : 1;
+      cx.fillStyle = color(n.grupo);
+      cx.beginPath(); cx.arc(x, y, r, 0, 6.283); cx.fill();
+      if (marcados.has(n) || encendidos.has(n.id)) { cx.strokeStyle = '#fff'; cx.lineWidth = 2; cx.stroke(); }
+    }
+    ocupado.push([x - r - 2, y - r - 2, x + r + 2, y + r + 2]);
+    // Con algo en uso, solo llevan nombre esas notas y sus relacionadas: el resto estorba.
+    if ((hayFoco && !on && !medio) || (!nombres && !on) || x < -40 || x > W + 40 || y < -40 || y > H + 40) continue;
+    lista.push({ n, x, y, r, on, texto: on ? n.id : corto(n), tam: Math.max(11.5, Math.min(18, n.fs * z)) * (on ? 1.08 : 1),
+      peso: (on ? 1000 : 0) + (n === hover || marcados.has(n) ? 500 : 0) + n.vecinos.size });
+  }
+  cx.globalAlpha = hayFoco ? 0.22 : 0.85;
+  for (const [grupo, t] of puntos) { cx.fillStyle = color(grupo); cx.fill(t); }
+  for (const b of burbujas.values()) {
+    const x = b.x, y = b.y, r = 2;  // el cúmulo ya está dibujado como charco; aquí solo va su nombre
+    if (ligero || hayFoco || !nombres || b.cuantos < 3 || x < -40 || x > W + 40 || y < -40 || y > H + 40) continue;
+    cx.globalAlpha = 0.9; cx.fillStyle = color(b.grupo);
+    cx.beginPath(); cx.arc(x, y, r, 0, 6.283); cx.fill();
+    lista.push({ n: b.jefe, texto: corto(b.jefe), tam: 11 + Math.min(6, Math.sqrt(b.cuantos)),
+      x, y, r, on: false, peso: b.cuantos });
+  }
+  rotular(cx, lista, ocupado, hayFoco, Infinity);
+  letreros(cx);
+}
+
+// El nombre de cada nube, encima de ella: así se sabe qué es cada bola de fuera del cerebro.
+function letreros(cx) {
+  cx.font = '600 12.5px system-ui, "Segoe UI", sans-serif'; cx.textAlign = 'center'; cx.textBaseline = 'alphabetic';
+  for (const [g, nube] of Object.entries(NUBES)) {
+    if (forma === 'cuerpo' && g === '-1') continue;  // en la figura el trato es el corazón, y ya tiene su rótulo
+    let x = 0, arriba = 1e9, cuantos = 0;
+    for (const n of N) {
+      if (n.grupo !== +g || !visible(n)) continue;
+      const [sx, sy] = aPantalla(n);
+      x += sx; arriba = Math.min(arriba, sy); cuantos++;
+    }
+    if (!cuantos) continue;
+    cx.globalAlpha = 0.9; cx.lineWidth = 4; cx.strokeStyle = '#0d1117'; cx.fillStyle = nube.color;
+    cx.strokeText(`${nube.nombre} (${cuantos})`, x / cuantos, arriba - 12);
+    cx.fillText(`${nube.nombre} (${cuantos})`, x / cuantos, arriba - 12);
+  }
+  if (forma !== 'plano' && trans >= 1 && (anillos.length || rotulos3.length)) {
+    const k = cam.k, ox = W / 2 - cam.x * k, oy = H / 2 - cam.y * k, hay = hayEnfoque();
+    cx.lineWidth = 1;
+    for (const [x, y, radio, g] of anillos) {  // el borde de cada nube
+      cx.beginPath();
+      for (let i = 0; i <= 40; i++) {
+        const ang = i * 0.15708, [qx, qy] = girado(x + Math.cos(ang) * radio * 1.04, y + Math.sin(ang) * radio * 1.04, 0);
+        cx.lineTo(qx * k + ox, qy * k + oy);
+      }
+      cx.globalAlpha = hay ? 0.1 : 0.26; cx.strokeStyle = g === SUELTAS ? '#8fa3bd' : color(g); cx.stroke();
+    }
+    cx.font = '600 12px system-ui, "Segoe UI", sans-serif';
+    for (const r of rotulos3) {
+      let px, py;
+      if (r.hasta) {  // la figura: el rótulo se queda quieto y una línea lo une a su parte del cuerpo
+        px = r.x * k + ox; py = r.y * k + oy;
+        const [qx, qy] = girado(r.hasta[0], r.hasta[1], r.hasta[2]);
+        cx.globalAlpha = 0.32; cx.strokeStyle = '#8fa3bd';
+        cx.beginPath(); cx.moveTo(px + (r.lado === 'left' ? -6 : 6), py - 4); cx.lineTo(qx * k + ox, qy * k + oy); cx.stroke();
+        cx.textAlign = r.lado; cx.fillStyle = '#d5e0ee';
+      } else {  // las nubes: el nombre del tema, encima
+        const suelta = r.tema === SUELTAS;
+        if (!suelta && !nombreTema[r.tema]) continue;
+        const [qx, qy] = girado(r.x, r.y, 0);
+        px = qx * k + ox; py = qy * k + oy - 7;
+        cx.textAlign = 'center'; cx.fillStyle = suelta ? '#aebbd0' : color(r.tema);
+      }
+      const texto = `${r.texto || (r.tema === SUELTAS ? 'Notas sueltas' : nombreTema[r.tema])} (${r.cuantos})`;
+      cx.globalAlpha = hay ? 0.45 : 0.92; cx.lineWidth = 4; cx.strokeStyle = '#0d1117';
+      cx.strokeText(texto, px, py); cx.fillText(texto, px, py); cx.lineWidth = 1;
+    }
+  }
+  cx.globalAlpha = 1; cx.textAlign = 'left';
+}
+
+// ---- La vista en 3D ----
+// Sin charcos: cada nota es un punto de luz en la forma. Lo de delante se ve grande y vivo, lo de
+// detrás pequeño y apagado; los hilos cruzan por dentro como el cableado de un cerebro.
+// Mientras la vista se mueve (girar, arrastrar, acercar, acomodarse) se pinta lo justo; al soltar,
+// el dibujo completo. Con miles de notas, es la diferencia entre ir fluido e ir a saltos.
+let prisa = 0, relojCalma = 0;
+const apurado = () => performance.now() < prisa || !!giroMano || !!paneo || trans < 1 || !!metaRot || !!metaCam;
+function conPrisa(ms) {
+  prisa = performance.now() + ms;
+  clearTimeout(relojCalma); relojCalma = setTimeout(redibujar, ms + 30);
+}
+const CAPAS = [0.13, 0.3, 0.62, 1];  // opacidad de las bolas según lo lejos que quedan: del fondo al frente
+
+function pintar3D(cx) {
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.clearRect(0, 0, W, H);
+  orientar();
+  const foco = hayEleccion(), hay = hayEnfoque(), z = Math.max(0.8, Math.min(cam.k * 1.45, 1.5));
+  const ligero = apurado(), enGiro = giro && !ligero && N.length > 1200;
+  const relacionados = new Set();
+  for (const n of N) if (encendidos.has(n.id)) n.vecinos.forEach(v => { if (!encendidos.has(v.id)) relacionados.add(v); });
+  const hondo = v => Math.max(0, Math.min(1, (v / RADIO + 1) / 2));  // 0 al fondo, 1 al frente
+  const tejido = forma === 'cerebro' && trans >= 1;  // el cerebro se pinta como fibras y somas, no como bolas
+  if (forma !== 'plano' && !tejido) {  // la silueta de la forma, en tres pasadas según la profundidad
+    const tandas = [new Path2D(), new Path2D(), new Path2D()];
+    for (const p of polvo) {
+      const [qx, qy, pz] = girado(p[0], p[1], p[2]);
+      tandas[Math.min(2, Math.floor(hondo(pz) * 3))].rect((qx - cam.x) * cam.k + W / 2, (qy - cam.y) * cam.k + H / 2, 1.5, 1.5);
+    }
+    cx.fillStyle = '#8fa3bd';
+    tandas.forEach((t, i) => { cx.globalAlpha = (0.07 + 0.1 * i) * suave(trans) * (hay ? 0.5 : 1); cx.fill(t); });
+  }
+  // Cada bola mide lo que cabe en su hueco (r3), a escala real: al alejar se achican con la forma y
+  // nunca se montan unas sobre otras.
+  const vistos = [];
+  for (const n of N) {
+    if (!visible(n)) continue;
+    [n.sx, n.sy] = aPantalla(n);
+    n.luz = hondo(n.z);
+    n.sr = Math.max(0.9, (n.r3 || n.r) * cam.k * n.f * (0.5 + 0.5 * n.luz));
+    vistos.push(n);
+  }
+  if (tejido) return pintarNeuronas(cx, vistos, { foco, hay, z, ligero, enGiro, relacionados });
+  // Hilos en reposo, agrupados por color y por si van delante o detrás: así se pintan de pocas pasadas.
+  // En movimiento no se pintan; girando solo, únicamente los de delante.
+  const hebras = new Map(), fuertes = [];
+  for (const l of L) {
+    if (!visible(l.a) || !visible(l.b)) continue;
+    const on = enlaceActivo(l), medio = !foco && (encendidos.has(l.a.id) || encendidos.has(l.b.id));
+    if (on || medio) { fuertes.push([l, on]); continue; }
+    if (!hilos || ligero) continue;
+    const delante = l.a.z + l.b.z > 0 ? 1 : 0;
+    if (enGiro && !delante) continue;
+    const clave = l.a.grupo * 2 + delante;
+    let t = hebras.get(clave);
+    if (!t) hebras.set(clave, t = new Path2D());
+    t.moveTo(l.a.sx, l.a.sy); t.lineTo(l.b.sx, l.b.sy);
+  }
+  cx.lineWidth = 1;
+  // Con miles de hilos, cada uno pesa menos; y en la figura menos aún, para que no tapen la silueta.
+  const tenue = (L.length > 2500 ? 0.55 : 1) * (forma === 'cuerpo' ? 0.45 : 1);
+  for (const [clave, t] of hebras) {
+    const delante = ((clave % 2) + 2) % 2;
+    cx.globalAlpha = (hay ? 0.04 : (delante ? 0.2 : 0.07)) * tenue; cx.strokeStyle = color(Math.floor(clave / 2)); cx.stroke(t);
+  }
+  for (const [l, on] of fuertes) {
+    const camino = on && enRuta(l);
+    cx.globalAlpha = on ? 0.9 : 0.4; cx.lineWidth = camino ? 3 : on ? 1.5 : 1; cx.strokeStyle = camino ? '#ffffff' : color(l.a.grupo);
+    cx.beginPath(); cx.moveTo(l.a.sx, l.a.sy); cx.lineTo(l.b.sx, l.b.sy); cx.stroke();
+  }
+  // Bolas en reposo: una pasada por color y por capa de profundidad, del fondo al frente. Las que
+  // están en uso se pintan después, una a una y encima.
+  const capas = CAPAS.map(() => new Map()), vivas = [], ocupado = [], lista = [];
+  for (const n of vistos) {
+    const on = activo(n), medio = !foco && relacionados.has(n);
+    if (on || medio) vivas.push([n, on]);
+    else {
+      const capa = capas[Math.min(3, Math.floor(n.luz * 4))];
+      let t = capa.get(n.grupo);
+      if (!t) capa.set(n.grupo, t = new Path2D());
+      t.moveTo(n.sx + n.sr, n.sy); t.arc(n.sx, n.sy, n.sr, 0, 6.283);
+    }
+    if ((n.z > 0 && n.sr > 2.5) || on) ocupado.push([n.sx - n.sr - 2, n.sy - n.sr - 2, n.sx + n.sr + 2, n.sy + n.sr + 2]);
+    if (n.sx < -40 || n.sx > W + 40 || n.sy < -40 || n.sy > H + 40) continue;
+    // Sin nada en uso, solo se nombran los de delante. En la figura, ninguno: ahí mandan los rótulos de las partes.
+    if (!on && !medio && (hay || !nombres || n.z < RADIO * 0.25 || forma === 'cuerpo')) continue;
+    lista.push({ n, x: n.sx, y: n.sy, r: n.sr, on, luz: on ? 1 : 0.6 + 0.4 * n.luz, texto: on ? n.id : corto(n),
+      tam: Math.max(11, Math.min(18, n.fs * z * n.f * (0.8 + 0.2 * n.luz))) * (on ? 1.08 : 1),
+      peso: (on ? 1000 : 0) + (n === hover || marcados.has(n) ? 500 : 0) + n.vecinos.size * (0.4 + n.luz) });
+  }
+  // Con miles de notas, la cara de atrás se deja casi apagada: se intuye la forma y no estorba a la de delante.
+  const fondo = N.length > 1200 ? [0.05, 0.13, 0.6, 1] : CAPAS;
+  capas.forEach((capa, i) => {
+    cx.globalAlpha = hay ? Math.min(0.14, fondo[i]) : fondo[i];
+    for (const [grupo, t] of capa) { cx.fillStyle = color(grupo); cx.fill(t); }
+  });
+  vivas.sort((a, b) => a[0].z - b[0].z);
+  for (const [n, on] of vivas) {
+    const r = Math.max(n.sr, on ? 3.2 : 2);  // lo que está en uso se ve aunque la vista esté lejos
+    cx.globalAlpha = on ? 1 : 0.75; cx.fillStyle = color(n.grupo);
+    cx.beginPath(); cx.arc(n.sx, n.sy, r, 0, 6.283); cx.fill();
+    if (marcados.has(n) || encendidos.has(n.id)) { cx.globalAlpha = 1; cx.strokeStyle = '#fff'; cx.lineWidth = 2; cx.stroke(); }
+  }
+  rotular(cx, lista, ocupado, hay, ligero ? 10 : Math.round((enGiro ? 10 : 14) + 30 * Math.min(1, cam.k)));
+  letreros(cx);
+}
+
+// ---- Charcos: la vista plana ----
+// Cada nodo fundido aporta a un campo de densidad sobre una rejilla; las conexiones cortas aportan
+// a lo largo de su recorrido, y por eso los cúmulos conectados se juntan. Del campo se sacan curvas
+// de nivel (marching squares), como en un mapa topográfico, con el color del tema que domina cada zona.
+// Los niveles son fracciones de la zona más densa: así siempre hay curvas por dentro, igual de
+// cerca que de lejos, y no un simple borde.
+const NIVELES = [0.05, 0.12, 0.21, 0.32, 0.45, 0.6, 0.78], OPACIDAD = [0.34, 0.44, 0.54, 0.64, 0.74, 0.84, 0.95];
+// Para cada combinación de esquinas dentro del nivel, qué lados de la celda une la curva
+// (0 arriba, 1 derecha, 2 abajo, 3 izquierda).
+const CORTES = [[], [[3, 0]], [[0, 1]], [[3, 1]], [[1, 2]], [[3, 0], [1, 2]], [[0, 2]], [[3, 2]],
+  [[3, 2]], [[0, 2]], [[0, 1], [3, 2]], [[1, 2]], [[3, 1]], [[0, 1]], [[3, 0]], []];
+
+// Hasta qué largo (en pantalla) una conexión se dibuja como charcos que se juntan. De cerca solo las cortas.
+const alcance = () => 216 / Math.pow(Math.max(1, cam.k / 0.6), 1.3);
+const relleno = document.createElement('canvas'), tonos = {};
+const rgb = g => tonos[g] || (tonos[g] = [1, 3, 5].map(i => parseInt(color(g).slice(i, i + 2), 16)));
+
+function pintarCharcos(cx, hayFoco) {
+  // En pantallas grandes la rejilla es algo más gruesa: el dibujo es el mismo y cuesta la mitad.
+  const g = W * H > 1300000 ? 6 : W * H > 600000 ? 5 : 4, cols = Math.ceil(W / g) + 2, filas = Math.ceil(H / g) + 2;
+  // De cerca el charco de cada nodo crece con el zoom; de lejos nunca baja de un mínimo, para que se junten.
+  // Crece más despacio que el zoom: por eso al acercar los charcos se van separando en charquitos.
+  const escala = 0.6 + (Math.max(0.6, Math.min(cam.k, 2.2)) - 0.6) * 0.25, puente = alcance();
+  const total = cols * filas;
+  const campo = new Float32Array(total), fuerte = new Float32Array(total), dueno = new Int16Array(total);
+  const rojo = new Float32Array(total), verde = new Float32Array(total), azul = new Float32Array(total);
+  const salpicar = (x, y, R, peso, grupo) => {
+    const i0 = Math.max(0, Math.floor((x - R) / g)), i1 = Math.min(cols - 1, Math.ceil((x + R) / g));
+    const j0 = Math.max(0, Math.floor((y - R) / g)), j1 = Math.min(filas - 1, Math.ceil((y + R) / g));
+    const [cr, cg, cb] = rgb(grupo);
+    for (let j = j0; j <= j1; j++) for (let i = i0; i <= i1; i++) {
+      const dx = i * g - x, dy = j * g - y, q = 1 - (dx * dx + dy * dy) / (R * R);
+      if (q <= 0) continue;
+      const v = peso * q * q, k = j * cols + i;
+      campo[k] += v; rojo[k] += v * cr; verde[k] += v * cg; azul[k] += v * cb;
+      if (v > fuerte[k]) { fuerte[k] = v; dueno[k] = grupo; }
+    }
+  };
+  for (const n of N) {
+    if (!n.charco) continue;
+    const [x, y] = aPantalla(n);
+    if (x > -60 && x < W + 60 && y > -60 && y < H + 60) salpicar(x, y, (22 + n.r * 2.6) * escala, 0.7 + Math.sqrt(n.vecinos.size) * 0.22, n.grupo);
+  }
+  for (const l of L) {  // el puente entre dos cúmulos conectados y cercanos
+    if (!l.a.charco || !l.b.charco) continue;
+    const [x1, y1] = aPantalla(l.a), [x2, y2] = aPantalla(l.b), largo = Math.hypot(x2 - x1, y2 - y1);
+    if (largo < 24 || largo > puente) continue;
+    const pasos = Math.ceil(largo / 22);
+    for (let s = 1; s < pasos; s++) salpicar(x1 + (x2 - x1) * s / pasos, y1 + (y2 - y1) * s / pasos, 22, cam.k < 0.6 ? 0.42 : 0.6, l.a.grupo);
+  }
+  cx.lineWidth = 1.15; cx.lineJoin = 'round';
+  let cima = 0;
+  for (let k = 0; k < campo.length; k++) if (campo[k] > cima) cima = campo[k];
+  // El relleno se pinta en una imagen pequeña (un punto por celda, con la mezcla de colores de los
+  // nodos que la tocan) y se estira suavizada: así no se ven cuadritos ni saltos de color.
+  // La orilla tiene tope: un nodo suelto siempre alcanza a tener su charquito, por denso que sea el resto.
+  const borde = Math.max(0.5, Math.min(0.6, NIVELES[0] * cima));
+  if (relleno.width !== cols || relleno.height !== filas) { relleno.width = cols; relleno.height = filas; }
+  const cr = relleno.getContext('2d'), imagen = cr.createImageData(cols, filas), px = imagen.data;
+  const base = hayFoco ? 0.07 : 0.3, extra = hayFoco ? 0.05 : 0.32;
+  for (let k = 0; k < total; k++) {
+    const v = campo[k];
+    if (v <= borde * 0.8) continue;
+    const p = k * 4, entrada = Math.min(1, (v - borde * 0.8) / (borde * 0.4));
+    px[p] = rojo[k] / v; px[p + 1] = verde[k] / v; px[p + 2] = azul[k] / v;
+    px[p + 3] = 255 * entrada * (base + extra * Math.min(1, v / cima));
+  }
+  cr.putImageData(imagen, 0, 0);
+  cx.globalAlpha = 1; cx.imageSmoothingEnabled = true; cx.imageSmoothingQuality = 'high';
+  cx.drawImage(relleno, -g / 2, -g / 2, cols * g, filas * g);
+  // De cerca bastan la orilla y un par de curvas por dentro; de lejos, el relieve completo.
+  const cerca = cam.k >= 1;
+  // Todas las curvas salen de una sola pasada por la rejilla: en cada celda solo se miran los
+  // niveles que caen entre su esquina más baja y la más alta (casi siempre, ninguno).
+  const curvas = [];
+  NIVELES.forEach((fraccion, orden) => {
+    if (cerca && orden % 3) return;
+    curvas.push({ nivel: orden ? Math.max(borde + 0.1, fraccion * cima) : borde, orden, trazos: new Map() });
+  });
+  for (let j = 0; j < filas - 1; j++) for (let i = 0; i < cols - 1; i++) {
+    const k = j * cols + i, a = campo[k], b = campo[k + 1], c = campo[k + cols + 1], d = campo[k + cols];
+    const alto = Math.max(a, b, c, d);
+    if (alto <= borde) continue;
+    const bajo = Math.min(a, b, c, d);
+    for (const curva of curvas) {
+      const nivel = curva.nivel;
+      if (nivel >= alto) break;  // los niveles van de menor a mayor
+      if (nivel < bajo) continue;
+      const caso = (a > nivel) | (b > nivel) << 1 | (c > nivel) << 2 | (d > nivel) << 3;
+      if (caso === 0 || caso === 15) continue;
+      const x = i * g, y = j * g, en = (p, q) => (nivel - p) / (q - p) * g;
+      const lado = [[x + en(a, b), y], [x + g, y + en(b, c)], [x + en(d, c), y + g], [x, y + en(a, d)]];
+      const grupo = dueno[fuerte[k] > fuerte[k + cols + 1] ? k : k + cols + 1];
+      let trazo = curva.trazos.get(grupo);
+      if (!trazo) curva.trazos.set(grupo, trazo = new Path2D());
+      for (const [p, q] of CORTES[caso]) { trazo.moveTo(lado[p][0], lado[p][1]); trazo.lineTo(lado[q][0], lado[q][1]); }
+    }
+  }
+  for (const curva of curvas) {
+    cx.globalAlpha = hayFoco ? 0.16 : OPACIDAD[curva.orden] * (cerca && curva.orden ? 0.6 : 1);
+    for (const [grupo, trazo] of curva.trazos) { cx.strokeStyle = color(grupo); cx.stroke(trazo); }
+  }
+  cx.globalAlpha = 1;
+}
+
+// ---- Impulsos: las "neuronas" conectándose mientras Jarvis busca y responde ----
+const QUIETO = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let impulsos = [], destellos = [], modo = null, animando = false, ultimoCuadro = 0, ultimoBrote = 0;
+
+function curva(l) {
+  if (l.f && forma === 'cerebro' && trans >= 1) { proyectarFibra(l.f, l.fc); return Array.from(hebra); }  // el impulso viaja por la fibra
+  const [x1, y1] = aPantalla(l.a), [x2, y2] = aPantalla(l.b), comba = esPlano() ? 0.16 : 0;
+  return [x1, y1, (x1 + x2) / 2 - (y2 - y1) * comba, (y1 + y2) / 2 + (x2 - x1) * comba, x2, y2];
+}
+function puntoEn(c, t) {
+  if (c.length > 6) {  // una fibra: tramos rectos encadenados
+    const n = c.length / 2 - 1, u = Math.min(n - 1e-6, Math.max(0, t) * n), i = Math.floor(u), s = u - i;
+    return [c[i * 2] + (c[i * 2 + 2] - c[i * 2]) * s, c[i * 2 + 1] + (c[i * 2 + 3] - c[i * 2 + 1]) * s];
+  }
+  const u = 1 - t;
+  return [u * u * c[0] + 2 * u * t * c[2] + t * t * c[4], u * u * c[1] + 2 * u * t * c[3] + t * t * c[5]];
+}
+function lanzar(l, desdeB, fuerte, espera) {
+  impulsos.push({ l, desdeB, fuerte, t0: performance.now() + (espera || 0), dura: fuerte ? 650 : 900 });
+}
+// Onda de activación: de cada nodo encendido salen impulsos hacia sus vecinos.
+function onda(ids) {
+  let i = 0;
+  for (const l of L) {
+    const a = ids.includes(l.a.id), b = ids.includes(l.b.id);
+    if (a || b) lanzar(l, !a, true, (i++ % 12) * 55);
+  }
+}
+// Los impulsos solo recorren relaciones reales de las notas que Jarvis está usando; si la pregunta
+// no toca ninguna nota, el mapa se queda quieto.
+function brotar(ahora) {
+  if (!modo || !encendidos.size) return;
+  if (modo === 'buscar') {
+    // Pensando: repasa una y otra vez todo lo relacionado con las notas encontradas.
+    if (ahora - ultimoBrote > 1500) { ultimoBrote = ahora; onda([...encendidos]); }
+  } else if (ahora - ultimoBrote > 380) {
+    // Respondiendo: circula entre las notas que la respuesta va usando; si es una sola, hacia sus vecinas.
+    const entre = L.filter(l => encendidos.has(l.a.id) && encendidos.has(l.b.id));
+    const activos = entre.length ? entre : L.filter(l => encendidos.has(l.a.id) || encendidos.has(l.b.id));
+    if (!activos.length) return;
+    ultimoBrote = ahora;
+    const l = activos[Math.floor(Math.random() * activos.length)];
+    lanzar(l, entre.length ? Math.random() < 0.5 : !encendidos.has(l.a.id), true);
+  }
+}
+// Notas que la búsqueda consideró antes de elegir: un destello breve en cada una, en orden.
+window.considerar = ids => {
+  const ahora = performance.now();
+  (ids || []).forEach((id, i) => { if (porId[id]) destellos.push({ n: porId[id], t: ahora + i * 110, fuerte: false }); });
+  if (ids && ids.length) arrancar();
+};
+// Mientras escribe: enciende las notas que la respuesta va nombrando, con un impulso desde una ya encendida.
+window.mencionar = texto => {
+  const plano = aPlano(texto);
+  let cambio = false;
+  for (const n of N) {
+    if (n.grupo < 0 || encendidos.has(n.id) || n.plano.length < 4 || !plano.includes(n.plano)) continue;
+    const origen = L.find(l => (l.a === n && encendidos.has(l.b.id)) || (l.b === n && encendidos.has(l.a.id)));
+    encendidos.add(n.id); sucio = true; cambio = true;
+    if (origen) lanzar(origen, origen.b !== n, true);
+    destellos.push({ n, t: performance.now() + (origen ? 600 : 0), fuerte: true });
+    arrancar();
+  }
+  if (cambio) fichas();
+};
+
+// ---- Seguir la conversación en vivo ----
+// El servidor avisa de cada pregunta y de cada trozo de respuesta; así este mapa funciona igual
+// dentro de la interfaz que solo, a pantalla completa, en un segundo monitor.
+let charla = { fuente: null, texto: '', primera: true }, relojVoz = 0;
+function subtitulo(pregunta, respuesta) {
+  const caja = document.getElementById('voz');
+  if (pregunta !== null) document.getElementById('vozP').textContent = pregunta;
+  document.getElementById('vozR').textContent = respuesta;
+  caja.classList.add('visible'); clearTimeout(relojVoz);
+}
+function seguir(d) {
+  if (d.tipo === 'pregunta') {
+    charla = { fuente: null, texto: '', primera: true };
+    window.actividad('buscar'); subtitulo(d.texto, '…');
+  } else if (d.tipo === 'inicio') {
+    // Junto a las notas que usa se enciende, en la bola de M-Jarvis, el ánimo con que responde.
+    charla.fuente = d.fuente; window.considerar(d.consideradas); window.iluminar((d.nodos || []).concat(d.emocion || []));
+    if (d.mapa) zoomMapa(d.mapa);
+  } else if (d.tipo === 'texto') {
+    if (charla.primera) { charla.primera = false; window.actividad('responder'); }
+    charla.texto += d.t; subtitulo(null, charla.texto);
+    if (charla.fuente === 'documentos') window.mencionar(charla.texto);
+  } else if (d.tipo === 'fin') {
+    window.iluminar((d.nodos || []).concat(d.emocion || [])); window.actividad(null);
+    relojVoz = setTimeout(() => document.getElementById('voz').classList.remove('visible'), 20000);
+  } else if (d.tipo === 'apagadas') {
+    ponerApagadas(d.notas);  // alguien desactivó o activó notas desde otra pantalla
+  } else if (d.tipo === 'ingesta' && d.fin && !d.error) {
+    location.reload();  // Jarvis aprendió un documento nuevo: el mapa se vuelve a dibujar con él
+  }
+}
+new EventSource('../api/eventos').onmessage = e => seguir(JSON.parse(e.data));
+function pintarImpulsos(ahora) {
+  if (!impulsos.length && !destellos.length) return;
+  cx.setTransform(dpr, 0, 0, dpr, 0, 0); cx.lineCap = 'round';
+  impulsos = impulsos.filter(p => {
+    const avance = (ahora - p.t0) / p.dura;
+    if (avance < 0) return true;
+    if (avance >= 1) { destellos.push({ n: p.desdeB ? p.l.a : p.l.b, t: ahora, fuerte: p.fuerte }); return false; }
+    if (!visible(p.l.a) || !visible(p.l.b)) return true;
+    const c = curva(p.l), dir = t => puntoEn(c, p.desdeB ? 1 - t : t);
+    cx.strokeStyle = p.fuerte ? '#ffffff' : color(p.l.a.grupo);
+    cx.globalAlpha = p.fuerte ? 0.9 : 0.6; cx.lineWidth = p.fuerte ? 2.4 : 1.6;
+    cx.beginPath();
+    for (let i = 0; i <= 6; i++) {
+      const [x, y] = dir(Math.max(0, avance - 0.28 + 0.28 * i / 6));
+      i ? cx.lineTo(x, y) : cx.moveTo(x, y);
+    }
+    cx.stroke();
+    const [hx, hy] = dir(avance);
+    cx.globalAlpha = 1; cx.fillStyle = '#ffffff';
+    cx.beginPath(); cx.arc(hx, hy, p.fuerte ? 3 : 2, 0, 6.283); cx.fill();
+    return true;
+  });
+  destellos = destellos.filter(d => {
+    const edad = (ahora - d.t) / 550;
+    if (edad < 0) return true;
+    if (edad >= 1) return false;
+    if (!visible(d.n)) return true;
+    const [x, y] = aPantalla(d.n);
+    cx.globalAlpha = (1 - edad) * (d.fuerte ? 0.9 : 0.5); cx.lineWidth = 1.5; cx.strokeStyle = color(d.n.grupo);
+    cx.beginPath(); cx.arc(x, y, d.n.r * Math.min(cam.k, 1.5) * d.n.f + 3 + edad * (d.fuerte ? 14 : 8), 0, 6.283); cx.stroke();
+    return true;
+  });
+  cx.globalAlpha = 1;
+}
+function animar(ahora) {
+  if (ahora - ultimoCuadro >= 33) { ultimoCuadro = ahora; brotar(ahora); dibujar(ahora); }  // ~30 cuadros/s
+  if (modo || impulsos.length || destellos.length) requestAnimationFrame(animar);
+  else { animando = false; dibujar(ahora); }
+}
+function arrancar() { if (!animando && !QUIETO) { animando = true; requestAnimationFrame(animar); } }
+// Lo llama la interfaz: 'buscar' mientras piensa, 'responder' mientras escribe, null al terminar.
+window.actividad = m => { modo = m; sucio = true; if (m) arrancar(); else redibujar(); };
+
+function cuadro() {
+  if (alpha > 0.02) { paso(); if (encuadre) encuadrar(); }
+  sucio = true; dibujar();
+  if (alpha > 0.02) requestAnimationFrame(cuadro); else corriendo = false;
+}
+// El mapa solo gasta CPU mientras se acomoda o se toca; quieto no consume.
+function despertar(a) {
+  if (a) alpha = Math.max(alpha, a);
+  if (!corriendo) { corriendo = true; requestAnimationFrame(cuadro); }
+}
+function redibujar() { sucio = true; if (!corriendo && !animando && !moviendo) requestAnimationFrame(dibujar); }
+
+// Movimientos de la vista: el viaje entre formas, el giro hacia un nodo y el giro continuo.
+let moviendo = false, ultimoMov = 0, ultimoGiro = 0;
+function mover() { if (!moviendo) { moviendo = true; ultimoMov = performance.now(); requestAnimationFrame(movimiento); } }
+function movimiento(ahora) {
+  const dt = Math.min(60, ahora - ultimoMov); ultimoMov = ahora;
+  let sigue = false, pinta = false;
+  if (trans < 1) {
+    trans = QUIETO ? 1 : Math.min(1, trans + dt / 950); sigue = pinta = true;
+    if (encuadre) encuadrar(0.2);
+    if (trans >= 1 && forma === 'plano') { rot = { a: 0, b: 0 }; metaRot = null; despertar(alpha > 0.02 ? 0 : 0.05); }
+  }
+  if (metaRot) {
+    rot.a += (metaRot.a - rot.a) * 0.14; rot.b += (metaRot.b - rot.b) * 0.14; sigue = pinta = true;
+    if (Math.abs(metaRot.a - rot.a) + Math.abs(metaRot.b - rot.b) < 0.002) { rot = metaRot; metaRot = null; }
+  }
+  if (metaCam) {
+    cam.x += (metaCam.x - cam.x) * 0.16; cam.y += (metaCam.y - cam.y) * 0.16; cam.k += (metaCam.k - cam.k) * 0.16; sigue = pinta = true;
+    if (Math.abs(metaCam.x - cam.x) + Math.abs(metaCam.y - cam.y) < 0.5 && Math.abs(metaCam.k - cam.k) < 0.004) metaCam = null;
+  }
+  if (giro && forma !== 'plano' && !giroMano && !metaRot && !document.hidden) {
+    sigue = true;
+    if (ahora - ultimoGiro >= 33) { rot.a += (ahora - (ultimoGiro || ahora)) * 0.00017; ultimoGiro = ahora; pinta = true; }  // una vuelta en ~37 s
+  } else ultimoGiro = 0;
+  if (pinta) { sucio = true; if (!animando) dibujar(ahora); }
+  if (sigue) requestAnimationFrame(movimiento); else moviendo = false;
+}
+
+function nodoEn(px, py) {
+  let mejor = null, minimo = 1e9;
+  const plano = esPlano();
+  for (const n of N) {
+    if (!visible(n)) continue;
+    // En 3D se usa el sitio y el tamaño con que se pintó la última vez: no hay que proyectar otra vez.
+    let x, y, radio;
+    if (plano) { [x, y] = aPantalla(n); radio = n.r * cam.k; } else { x = n.sx; y = n.sy; radio = n.sr || 2; }
+    const d = Math.hypot(px - x, py - y);
+    if (!(d < radio + 7)) continue;
+    const m = plano ? d : -n.z;  // en 3D gana el que está más cerca de quien mira
+    if (m < minimo) { mejor = n; minimo = m; }
+  }
+  return mejor;
+}
+
+// ---- Elegir nodos ----
+// Camino más corto entre dos nodos, de conexión en conexión.
+function camino(a, b) {
+  const previo = new Map([[a, null]]), cola = [a];
+  for (let i = 0; i < cola.length; i++) {
+    const n = cola[i];
+    if (n === b) { const paso = []; for (let p = b; p; p = previo.get(p)) paso.unshift(p); return paso; }
+    for (const v of n.vecinos) if (!previo.has(v) && visible(v)) { previo.set(v, n); cola.push(v); }
+  }
+  return [];
+}
+function recalcular() {
+  const m = [...marcados];
+  aura = new Set(); ruta = m.length === 2 ? camino(m[0], m[1]) : [];
+  m.forEach(n => n.vecinos.forEach(v => aura.add(v)));
+  ruta.forEach(n => aura.add(n));
+  izqCerrado = false; fichas(); redibujar();
+}
+function marcar(n, fijo) {
+  if (marcados.has(n) && !fijo) marcados.delete(n); else marcados.add(n);
+  recalcular();
+}
+function soltar() { if (marcados.size) { marcados.clear(); recalcular(); } }
+// Lleva un nodo al centro; en 3D gira la forma hasta ponerlo de frente.
+function centrar(n) {
+  encuadre = false;
+  if (forma === 'plano') metaCam = { x: n.x, y: n.y, k: Math.max(cam.k, 1.15) };
+  else {
+    const [X, Y, Z] = n.t3, llano = Math.hypot(X, Z);
+    let a = Math.atan2(-X, Z);
+    a += 6.2832 * Math.round((rot.a - a) / 6.2832);
+    metaRot = { a, b: Math.atan2(Y, llano) };
+    metaCam = { x: 0, y: 0, k: Math.max(cam.k, 1.1) };
+  }
+  mover();
+}
+
+function chip(n, alPulsar, extra) {
+  const b = document.createElement('button');
+  b.className = 'chip'; b.type = 'button'; b.style.setProperty('--c', color(n.grupo)); b.textContent = n.id; b.title = n.id;
+  if (extra) { const i = document.createElement('i'); i.textContent = extra; b.append(i); }
+  b.addEventListener('click', () => alPulsar(n));
+  return b;
+}
+// El panel de notas: qué dice cada nodo elegido y con qué se conecta. Si no hay nada elegido,
+// muestra las notas que Jarvis está usando en la respuesta.
+function fichas() {
+  const caja = document.getElementById('notas'), panel = document.getElementById('izq');
+  const elegidos = [...marcados], enUso = EMBEBIDO ? [] : [...encendidos].map(id => porId[id]).filter(n => n && visible(n));
+  const lista = elegidos.length ? elegidos : enUso;
+  document.body.classList.toggle('con-notas', lista.length > 0 && !izqCerrado);
+  panel.classList.toggle('eleccion', elegidos.length > 0);
+  document.getElementById('izqTitulo').textContent = elegidos.length ? (elegidos.length === 1 ? 'Nodo elegido' : `${elegidos.length} nodos elegidos`) : 'En uso ahora';
+  caja.textContent = '';
+  if (elegidos.length === 2) {
+    const p = document.createElement('p'); p.id = 'ruta';
+    p.textContent = ruta.length ? `Camino más corto (${ruta.length - 1} ${ruta.length === 2 ? 'paso' : 'pasos'}): ` + ruta.map(n => n.id).join('  →  ')
+      : 'Estos dos nodos no están conectados por ningún camino.';
+    caja.append(p);
+  }
+  for (const n of lista) {
+    const art = document.createElement('article'); art.className = 'nota'; art.style.setProperty('--c', color(n.grupo));
+    const origen = document.createElement('small');
+    origen.textContent = [n.tipo, n.fuente, n.pagina ? 'pág. ' + n.pagina : ''].filter(Boolean).join(' · ');
+    const titulo = document.createElement('h4'); titulo.textContent = n.id;
+    const texto = document.createElement('p'); texto.textContent = n.resumen || 'Sin texto.';
+    art.append(origen, titulo, texto);
+    const vecinos = [...n.vecinos].filter(visible).sort((a, b) => b.vecinos.size - a.vecinos.size);
+    if (vecinos.length) {
+      const lazos = document.createElement('div'); lazos.className = 'lazos';
+      lazos.textContent = `Conectado con ${vecinos.length}` + (vecinos.length > 10 ? ' (los 10 principales):' : ':');
+      art.append(lazos);
+      vecinos.slice(0, 10).forEach(v => art.append(chip(v, x => marcar(x, true))));
+    }
+    const pie = document.createElement('div');
+    const ir = document.createElement('button'); ir.type = 'button'; ir.className = 'accion'; ir.textContent = 'Centrar';
+    ir.addEventListener('click', () => centrar(n));
+    pie.append(ir);
+    if (n.tipo !== 'trato') {  // las notas de lo que sabe se pueden desactivar y volver a activar
+      const apagada = apagadas.has(n.id);
+      if (apagada) {
+        const nota = document.createElement('p'); nota.className = 'apagada';
+        nota.textContent = 'Desactivada: M-Jarvis no la usa para responder.';
+        art.insertBefore(nota, texto);
+      }
+      const interruptor = document.createElement('button'); interruptor.type = 'button'; interruptor.className = 'accion';
+      interruptor.textContent = apagada ? 'Activar' : 'Desactivar'; interruptor.style.marginLeft = '6px';
+      interruptor.title = apagada ? 'M-Jarvis vuelve a usar esta nota' : 'M-Jarvis deja de usar esta nota. No se borra';
+      interruptor.addEventListener('click', () => desactivar([n.id], apagada));
+      pie.append(interruptor);
+    }
+    if (elegidos.length) {
+      const quitar = document.createElement('button'); quitar.type = 'button'; quitar.className = 'accion'; quitar.textContent = 'Soltar';
+      quitar.title = 'Saca este nodo de la selección. No lo borra ni lo oculta';
+      quitar.style.marginLeft = '6px';
+      quitar.addEventListener('click', () => marcar(n));
+      pie.append(quitar);
+    }
+    art.append(pie);
+    caja.append(art);
+  }
+}
+// ---- Desactivar notas ----
+// Una nota desactivada no se borra: M-Jarvis deja de usarla para responder, y en el mapa sale del
+// cerebro y se va, en gris, a la bola «Desactivadas». Se activa de nuevo con el mismo botón.
+// Desde otro equipo que no sea el de M-Jarvis se pide la clave de gestión, como en el panel.
+let apagadas = new Set(), claveGestion = '', lejosPlano = 1500;
+try { claveGestion = localStorage.getItem('mjarvis-clave') || ''; } catch (e) { /* almacenamiento bloqueado: se pedirá cada vez */ }
+function ponerApagadas(ids) {
+  apagadas = new Set(ids);
+  let cambio = false;
+  for (const n of N) {
+    if (n.tipo === 'trato') continue;
+    if (n.grupo0 === undefined) { n.grupo0 = n.grupo; n.cx0 = n.cx; n.cy0 = n.cy || 0; }
+    const grupo = apagadas.has(n.id) ? -9 : n.grupo0;
+    if (grupo === n.grupo) continue;
+    cambio = true; n.grupo = grupo;
+    // En el mapa plano, las desactivadas se van abajo, fuera de todo; al activarse, vuelven a su sitio.
+    if (grupo === -9) { n.cx = -lejosPlano * 0.3; n.cy = lejosPlano; } else { n.cx = n.cx0; n.cy = n.cy0; }
+  }
+  if (!cambio) return;
+  if (forma !== 'plano') { for (const n of N) n.o3 = lugar3(n).slice(); formar(forma); trans = 0; mover(); }
+  else despertar(0.35);
+  fichas(); redibujar();
+}
+async function desactivar(ids, activar) {
+  const pedir = () => fetch('../api/desactivar', { method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Clave': claveGestion }, body: JSON.stringify({ notas: ids, activa: activar }) });
+  let r = await pedir();
+  if (r.status === 401) {
+    const nueva = prompt('Para desactivar notas desde este equipo hace falta la clave de gestión.\nSe ve en la Latitude: M-Jarvis → Compartir.');
+    if (!nueva) return;
+    claveGestion = nueva.trim();
+    try { localStorage.setItem('mjarvis-clave', claveGestion); } catch (e) { /* sin almacenamiento */ }
+    r = await pedir();
+  }
+  if (!r.ok) { alert(r.status === 401 ? 'Esa clave no es correcta.' : 'No se pudo cambiar la nota.'); return; }
+  ponerApagadas((await r.json()).apagadas);
+}
+function avisar() {
+  const total = N.length, vistos = N.filter(visible).length, caja = document.getElementById('aviso');
+  caja.style.display = vistos < total ? 'flex' : 'none';
+  document.getElementById('avisoTexto').textContent = `Vista reducida: ${vistos} de ${total} nodos`;
+}
+document.getElementById('acciones').addEventListener('click', e => {
+  const a = e.target.dataset.a;
+  if (a === 'aislar') { aislado = new Set([...marcados, ...aura]); encuadre = true; }
+  else if (a === 'ocultar') { marcados.forEach(n => n.oculto = true); marcados.clear(); }
+  else if (a === 'limpiar') marcados.clear();
+  else if (a === 'apagar') {  // si todas las elegidas ya están desactivadas, el botón las activa
+    const ids = [...marcados].filter(n => n.tipo !== 'trato').map(n => n.id);
+    if (ids.length) desactivar(ids, ids.every(i => apagadas.has(i)));
+    return;
+  } else return;
+  recalcular(); avisar();
+  if (encuadre) { if (forma === 'plano') despertar(0.03); else mover(); }
+});
+document.getElementById('mostrarTodo').addEventListener('click', () => {
+  aislado = null; N.forEach(n => n.oculto = false); encuadre = true;
+  recalcular(); avisar(); despertar(0.03);
+});
+document.getElementById('izqCerrar').addEventListener('click', () => { izqCerrado = true; document.body.classList.remove('con-notas'); });
+
+// ---- Ratón y teclado ----
+// Plano: arrastrar el fondo mueve el mapa y arrastrar un nodo lo cambia de sitio.
+// 3D: arrastrar gira la forma; con Mayús o el botón derecho, la mueve.
+// Un toque en un nodo lo elige (se pueden elegir varios); doble toque lo trae al centro.
+cv.addEventListener('contextmenu', e => e.preventDefault());
+// En pantallas táctiles (celular, tableta) no hay rueda: con dos dedos, pellizcar acerca o aleja.
+const dedos = new Map();
+let pellizco = null;
+cv.addEventListener('pointerdown', e => {
+  cv.setPointerCapture(e.pointerId);
+  dedos.set(e.pointerId, [e.offsetX, e.offsetY]);
+  if (dedos.size === 2) {
+    const [p, q] = [...dedos.values()];
+    pellizco = { d: Math.hypot(p[0] - q[0], p[1] - q[1]) || 1, k: cam.k };
+    pulsado = null; arrastre = null; paneo = null; giroMano = null;
+    return;
+  }
+  const n = nodoEn(e.offsetX, e.offsetY);
+  pulsado = { x: e.offsetX, y: e.offsetY, n, movido: false };
+  metaRot = null; metaCam = null;
+  if (n && esPlano()) arrastre = n;
+  else if (!n && forma !== 'plano' && !e.shiftKey && e.button === 0) giroMano = { x: e.offsetX, y: e.offsetY, a: rot.a, b: rot.b };
+  else if (!n) paneo = { x: e.offsetX, y: e.offsetY, cx: cam.x, cy: cam.y };
+  if (!n) cv.style.cursor = 'grabbing';
+});
+cv.addEventListener('pointermove', e => {
+  if (dedos.has(e.pointerId)) dedos.set(e.pointerId, [e.offsetX, e.offsetY]);
+  if (pellizco && dedos.size === 2) {
+    const [p, q] = [...dedos.values()], cx = (p[0] + q[0]) / 2, cy = (p[1] + q[1]) / 2;
+    const [mx, my] = aMundo(cx, cy), k = Math.max(0.15, Math.min(4, pellizco.k * Math.hypot(p[0] - q[0], p[1] - q[1]) / pellizco.d));
+    encuadre = false; metaCam = null; conPrisa(200);
+    cam.x = mx - (cx - W / 2) / k; cam.y = my - (cy - H / 2) / k; cam.k = k; redibujar();
+    return;
+  }
+  if (pulsado && Math.hypot(e.offsetX - pulsado.x, e.offsetY - pulsado.y) > 4) pulsado.movido = true;
+  if (arrastre) { if (pulsado.movido) { encuadre = false; [arrastre.x, arrastre.y] = aMundo(e.offsetX, e.offsetY); despertar(0.3); } }
+  else if (giroMano) {
+    rot.a = giroMano.a + (e.offsetX - giroMano.x) * 0.008;
+    rot.b = Math.max(-1.45, Math.min(1.45, giroMano.b - (e.offsetY - giroMano.y) * 0.008));
+    redibujar();
+  } else if (paneo) { encuadre = false; cam.x = paneo.cx - (e.offsetX - paneo.x) / cam.k; cam.y = paneo.cy - (e.offsetY - paneo.y) / cam.k; redibujar(); }
+  else if (!pulsado) {
+    const n = nodoEn(e.offsetX, e.offsetY);
+    if (n !== hover) {
+      hover = n; cv.style.cursor = n ? 'pointer' : 'grab';
+      // Con miles de notas, resaltar cuesta: se espera un instante por si el ratón solo iba de paso.
+      clearTimeout(relojHover); relojHover = setTimeout(redibujar, N.length > 1200 ? 90 : 0);
+    }
+  }
+});
+let relojHover = 0;
+addEventListener('pointercancel', e => { dedos.delete(e.pointerId); if (dedos.size < 2) pellizco = null; });
+addEventListener('pointerup', e => {
+  dedos.delete(e.pointerId);
+  if (dedos.size < 2) pellizco = null;
+  if (pulsado && !pulsado.movido) { if (pulsado.n) marcar(pulsado.n); else soltar(); }
+  const movia = arrastre || paneo || giroMano;
+  pulsado = null; arrastre = null; paneo = null; giroMano = null; cv.style.cursor = 'grab';
+  document.body.classList.remove('menu-formas');
+  if (movia) redibujar();  // se soltó: vuelve el dibujo completo
+  if (giro) mover();
+});
+cv.addEventListener('dblclick', e => { const n = nodoEn(e.offsetX, e.offsetY); if (n) { marcar(n, true); centrar(n); } });
+cv.addEventListener('wheel', e => {
+  e.preventDefault(); encuadre = false; metaCam = null; conPrisa(200);
+  const [mx, my] = aMundo(e.offsetX, e.offsetY), k = Math.max(0.15, Math.min(4, cam.k * (e.deltaY < 0 ? 1.12 : 0.89)));
+  cam.x = mx - (e.offsetX - W / 2) / k; cam.y = my - (e.offsetY - H / 2) / k; cam.k = k; redibujar();
+}, { passive: false });
+addEventListener('resize', medir);
+
+// Buscador: al escribir se iluminan los nodos que coinciden y sale una lista para saltar a uno.
+const campoBuscar = document.getElementById('buscar'), hallados = document.getElementById('hallados');
+function buscar() {
+  filtro = aPlano(campoBuscar.value.trim());
+  hallados.textContent = '';
+  const lista = filtro ? N.filter(n => n.plano.includes(filtro)).sort((a, b) => b.vecinos.size - a.vecinos.size).slice(0, 8) : [];
+  lista.forEach(n => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.style.setProperty('--c', color(n.grupo)); b.textContent = n.id;
+    b.addEventListener('click', () => ir(n));
+    hallados.append(b);
+  });
+  hallados.style.display = lista.length ? 'block' : 'none';
+  redibujar();
+  return lista;
+}
+function ir(n) {
+  campoBuscar.value = ''; buscar();
+  if (!visible(n)) { n.oculto = false; if (aislado) aislado.add(n); avisar(); }
+  marcar(n, true); centrar(n);
+}
+campoBuscar.addEventListener('input', buscar);
+campoBuscar.addEventListener('keydown', e => {
+  if (e.key === 'Enter') { const lista = buscar(); if (lista.length) ir(lista[0]); }
+  else if (e.key === 'Escape') { campoBuscar.value = ''; buscar(); campoBuscar.blur(); }
+});
+
+// Zoom y forma por botones, teclado u órdenes a Jarvis ("acerca el mapa", "ponlo en forma de cerebro").
+const FORMAS = ['plano', 'cerebro', 'esfera', 'dona', 'galaxia', 'nubes', 'cuerpo'];
+function zoomMapa(accion) {
+  if (FORMAS.includes(accion)) return cambiarForma(accion);
+  if (accion === 'girar' || accion === 'parar') { giro = accion === 'girar'; if (giro && forma === 'plano') cambiarForma('cerebro'); botones(); guardar(); mover(); return; }
+  metaCam = null;
+  if (accion === 'ajustar') { encuadre = true; for (let i = 0; i < 40; i++) encuadrar(); }
+  else { encuadre = false; cam.k = Math.max(0.15, Math.min(4, cam.k * (accion === 'acercar' ? 1.35 : 1 / 1.35))); }
+  redibujar();
+}
+window.zoomMapa = zoomMapa;
+function botones() {
+  const pone = (h, v) => document.querySelector(`[data-h="${h}"]`).setAttribute('aria-pressed', String(v));
+  pone('girar', giro); pone('nombres', nombres); pone('hilos', hilos); pone('analisis', !document.body.classList.contains('sin-der'));
+  document.querySelectorAll('#formas button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.f === forma)));
+  document.getElementById('pista').textContent = forma === 'plano'
+    ? 'Toque un nodo para elegirlo · arrastre para mover · rueda para acercar'
+    : 'Arrastre para girar · Mayús + arrastre para mover · toque un nodo para elegirlo';
+}
+function herramienta(h) {
+  if (h === 'acercar' || h === 'alejar' || h === 'ajustar') zoomMapa(h);
+  else if (h === 'forma') { document.body.classList.toggle('menu-formas'); return; }
+  else if (h === 'girar') zoomMapa(giro ? 'parar' : 'girar');
+  else if (h === 'nombres') { nombres = !nombres; redibujar(); }
+  else if (h === 'hilos') { hilos = !hilos; redibujar(); }
+  else if (h === 'completa') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {}); }
+  else if (h === 'analisis') { document.body.classList.toggle('sin-der'); medir(); }
+  botones(); guardar();
+}
+document.getElementById('herr').addEventListener('click', e => { if (e.target.dataset.h) herramienta(e.target.dataset.h); });
+document.getElementById('formas').addEventListener('click', e => { if (e.target.dataset.f) cambiarForma(e.target.dataset.f); });
+addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.ctrlKey || e.metaKey || e.altKey) return;
+  const t = e.key.toLowerCase();
+  if (t === '+' || t === '=') zoomMapa('acercar');
+  else if (t === '-') zoomMapa('alejar');
+  else if (t === '0') zoomMapa('ajustar');
+  else if (t >= '1' && t <= '7') cambiarForma(FORMAS[+t - 1]);
+  else if (t === 'g') herramienta('girar');
+  else if (t === 'n') herramienta('nombres');
+  else if (t === 'h') herramienta('hilos');
+  else if (t === 'f') herramienta('completa');
+  else if (t === 'escape') { document.body.classList.remove('menu-formas'); soltar(); }
+  else if (t === '/') { e.preventDefault(); campoBuscar.focus(); }
+  else if (forma !== 'plano' && t.startsWith('arrow')) {
+    e.preventDefault();
+    if (t === 'arrowleft') rot.a -= 0.12; else if (t === 'arrowright') rot.a += 0.12;
+    else rot.b = Math.max(-1.45, Math.min(1.45, rot.b + (t === 'arrowup' ? 0.12 : -0.12)));
+    redibujar();
+  }
+});
+
+// Lo llamará Jarvis al responder: enciende los nodos por los que pasó la respuesta.
+window.iluminar = ids => {
+  const nuevos = (ids || []).filter(i => !encendidos.has(i));
+  encendidos = new Set(ids || []); fichas(); redibujar();
+  if (nuevos.length) { onda(nuevos); arrancar(); }
+};
+
+function panel(g) {
+  const cajaT = document.getElementById('temas'), cajaC = document.getElementById('top');
+  g.temas.forEach(t => nombreTema[t.id] = t.nombre);
+  g.temas.filter(t => t.nodos >= 3).forEach(t => {  // una nota suelta no es un tema
+    const b = document.createElement('button');
+    b.className = 'tema'; b.type = 'button'; b.style.setProperty('--c', color(t.id)); b.setAttribute('aria-pressed', 'false');
+    const titulo = document.createElement('b'); titulo.textContent = t.nombre;
+    const detalle = document.createElement('span');
+    const tira = document.createElement('span'); tira.className = 'tira';
+    const parte = document.createElement('i'); parte.style.width = t.pct + '%'; tira.append(parte);
+    detalle.append(tira, `${t.pct}% · ${t.nodos} nodos · ${t.clave.slice(1).join(', ')}`);
+    b.append(titulo, detalle);
+    b.addEventListener('click', () => {
+      tema = tema === t.id ? -1 : t.id;
+      cajaT.querySelectorAll('.tema').forEach(x => x.setAttribute('aria-pressed', 'false'));
+      if (tema >= 0) b.setAttribute('aria-pressed', 'true');
+      redibujar();
+    });
+    cajaT.append(b);
+  });
+  const saber = N.filter(n => n.grupo >= 0).sort((a, b) => b.vecinos.size - a.vecinos.size);
+  saber.slice(0, 12).forEach(n => cajaC.append(chip(n, x => { marcar(x, true); centrar(x); }, String(n.vecinos.size))));
+  const datos = document.getElementById('datos'), fuentes = new Set(saber.map(n => n.fuente).filter(Boolean));
+  const fila = (nombre, valor) => {
+    const dt = document.createElement('dt'), dd = document.createElement('dd');
+    dt.textContent = nombre; dd.textContent = valor; datos.append(dt, dd);
+  };
+  fila('Notas', saber.length); fila('Conexiones', g.enlaces.length); fila('Temas', g.temas.length);
+  fila('Documentos', fuentes.size);
+  fila('Conexiones por nota', saber.length ? (g.enlaces.length * 2 / saber.length).toFixed(1) : '0');
+  fila('Notas sueltas', saber.filter(n => !n.vecinos.size).length);
+  if (saber.length) fila('La más conectada', `${saber[0].id.slice(0, 22)} (${saber[0].vecinos.size})`);
+  fila('Reglas de trato', N.filter(n => n.grupo === -1).length);
+  fila('Otros universos', N.filter(n => n.grupo === -2).length);
+  fila('Notas del taller', N.filter(n => n.grupo === -3).length);
+}
+
+// Dos redes en el mismo lienzo, sin conexiones entre ellas: la de conocimiento (lo que sabe) y,
+// a su derecha, la de trato (cómo conversa). Cada una tiene su propio centro de gravedad.
+const sinTrato = { nodos: [], enlaces: [] };
+Promise.all([
+  fetch('graph.json', { cache: 'no-store' }).then(r => r.json()),
+  fetch('trato.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : sinTrato).catch(() => sinTrato),
+]).then(([g, t]) => {
+  // Cada tema nace en su propio sector para que el acomodo sea rápido y estable.
+  // Con miles de notas el racimo inicial se abre en proporción: apretados, el acomodo se eterniza.
+  const sectores = Math.max(g.temas.length, 1), lejos = 520 + Math.sqrt(g.nodos.length) * 34, ancho = Math.max(1, Math.sqrt(g.nodos.length / 500));
+  N = g.nodos.map((n, i) => {
+    const ang = (n.grupo / sectores) * 6.283 + ((i * 0.618) % 1) * 0.7, rad = (140 + Math.sqrt((i * 0.382) % 1) * 420) * ancho;
+    if ((n.fuente || '').toLowerCase().startsWith('taller-'))  // lo del taller: su propia bola, arriba, fuera del cerebro
+      return { ...n, grupo: -3, cx: -lejos * 0.75, cy: -lejos * 0.75, x: -lejos * 0.75 + Math.cos(i * 2.4) * (40 + (i % 41) * 5),
+        y: -lejos * 0.75 + Math.sin(i * 2.4) * (40 + (i % 41) * 5), vx: 0, vy: 0, vecinos: new Set() };
+    if (n.tipo === 'dato')  // preguntas resueltas: su propia bola, abajo a la derecha
+      return { ...n, grupo: -4, cx: lejos * 0.8, cy: lejos * 0.7, x: lejos * 0.8 + Math.cos(i * 2.4) * (40 + (i % 53) * 5),
+        y: lejos * 0.7 + Math.sin(i * 2.4) * (40 + (i % 53) * 5), vx: 0, vy: 0, vecinos: new Set() };
+    if (n.tipo === 'otro universo')  // su propia nube, a la izquierda del cerebro
+      return { ...n, grupo: -2, cx: -lejos, x: -lejos + Math.cos(i * 2.4) * (60 + (i % 97) * 4), y: Math.sin(i * 2.4) * (60 + (i % 97) * 4), vx: 0, vy: 0, vecinos: new Set() };
+    return { ...n, cx: 0, x: Math.cos(ang) * rad, y: Math.sin(ang) * rad, vx: 0, vy: 0, vecinos: new Set() };
+  });
+  const conocidos = new Set(N.map(n => n.id));
+  t.nodos.filter(n => !conocidos.has(n.id)).forEach((n, i) => N.push({ ...n, grupo: -1, cx: lejos,
+    x: lejos + Math.cos(i * 2.4) * (40 + i * 5), y: Math.sin(i * 2.4) * (40 + i * 5), vx: 0, vy: 0, vecinos: new Set() }));
+  N.forEach(n => porId[n.id] = n);
+  L = g.enlaces.concat(t.enlaces).map(e => ({ a: porId[e.a], b: porId[e.b] })).filter(l => l.a && l.b);
+  L.forEach(l => { l.a.vecinos.add(l.b); l.b.vecinos.add(l.a); });
+  N.forEach(n => { n.r = 3.5 + Math.sqrt(n.vecinos.size) * 2; n.fs = 11 + Math.min(7, Math.sqrt(n.vecinos.size) * 1.5); n.plano = aPlano(n.id); n.f = 1; n.z = 0; });
+  document.getElementById('cuenta').textContent = `Conocimiento: ${g.nodos.length} nodos · ${g.enlaces.length} conexiones · ${g.temas.length} temas` +
+    (t.nodos.length ? ` — M-Jarvis: ${t.nodos.length} nodos de trato y emociones` : '');
+  panel(g);
+  lejosPlano = lejos;
+  fetch('../api/desactivadas', { cache: 'no-store' }).then(r => r.ok ? r.json() : []).then(ponerApagadas).catch(() => {});
+  // Si esta pantalla se quedó en una forma 3D, vuelve a ella sin viaje.
+  if (FORMAS.includes(PREF.forma) && PREF.forma !== 'plano') { forma = PREF.forma; formar(forma); rot = miradaDe(forma); }
+  botones(); medir();
+  if (giro) mover();
+}).catch(() => { document.getElementById('cuenta').textContent = 'No se pudo cargar graph.json'; });
+</script>
+</body>
+</html>

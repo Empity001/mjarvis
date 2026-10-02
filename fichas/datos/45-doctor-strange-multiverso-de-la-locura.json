@@ -1,0 +1,93 @@
+{
+  "titulo": "Doctor Strange en el Multiverso de la Locura",
+  "anio": 2022,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Doctor Strange in the Multiverse of Madness"],
+    ["Estreno", "6 de mayo de 2022 (Estados Unidos)"],
+    ["Dirección", "Sam Raimi"],
+    ["Guion", "Michael Waldron"],
+    ["Reparto principal", "Benedict Cumberbatch (Stephen Strange), Elizabeth Olsen (Wanda Maximoff), Xochitl Gomez (América Chávez), Benedict Wong (Wong), Rachel McAdams (Christine Palmer), Chiwetel Ejiofor (Mordo), Patrick Stewart (Charles Xavier), Hayley Atwell (Capitana Carter), John Krasinski (Reed Richards), Lashana Lynch (Maria Rambeau), Anson Mount (Rayo Negro)"],
+    ["Duración", "126 minutos"],
+    ["Música", "Danny Elfman"],
+    ["Lugar en el universo", "Fase 4"],
+    ["Cronología interna", "Finales de 2024, después de Spider-Man: Sin camino a casa y de WandaVision"],
+    ["Recaudación", "Cerca de 955 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["América", "Una chica que cruza universos"],
+    ["Wanda", "La Bruja Escarlata ataca"],
+    ["Tierra 838", "Los Illuminati"],
+    ["El otro Strange", "Un universo en ruinas"],
+    ["Wundagore", "Wanda destruye el libro"]
+  ],
+  "actos": [
+    ["Acto 1: La chica y el monstruo", [
+      "Stephen Strange sueña que, en otro universo, huye con una adolescente de un demonio, y que para salvarla decide quitarle su poder aunque la mate. Despierta. Ese día asiste a la boda de Christine Palmer con otro hombre, y ella le pregunta si es feliz.",
+      "Un monstruo de un solo ojo persigue por Nueva York a la chica del sueño. Strange y Wong la salvan. Se llama América Chávez y abre portales con forma de estrella entre universos, pero solo cuando tiene miedo. De niña abrió uno sin querer y perdió a sus dos madres. Los sueños, les explica, son ventanas a las vidas de nuestros otros yos.",
+      "Strange busca a alguien que sepa de magia y multiverso: Wanda Maximoff, que vive retirada entre manzanos. Wanda se delata al nombrar a América. Tiene el Darkhold, el libro de los condenados, y quiere el poder de la chica para ir a un universo donde sus hijos, Billy y Tommy, existen.",
+      "La Bruja Escarlata arrasa Kamar-Taj y mata a decenas de hechiceros. América, aterrada, abre un portal y cae con Strange a través de veinte universos."
+    ]],
+    ["Acto 2: Tierra 838", [
+      "Aterrizan en una Nueva York llena de plantas, donde la comida es gratis y los semáforos van al revés. Allí Mordo es el Hechicero Supremo. Los droga y los entrega a los Illuminati, el consejo que protege ese mundo: Mordo, la Capitana Carter, Rayo Negro, la Capitana Marvel de ese mundo, que es Maria Rambeau, Reed Richards y el profesor Charles Xavier.",
+      "Le cuentan que el Strange de su universo usó el Darkhold para vencer a Thanos, y que al hacerlo provocó una incursión: el choque de dos universos, que destruyó uno entero. Lo ejecutaron en secreto. Para ellos, el mayor peligro del multiverso es Stephen Strange.",
+      "Wanda, desde su mundo, se mete en el cuerpo de la Wanda de 838 mediante un conjuro del Darkhold. Entra en la sede de los Illuminati y los mata uno por uno en pocos minutos.",
+      "La Christine de ese mundo, una científica, ayuda a Strange y a América a llegar al Libro de Vishanti, el opuesto del Darkhold. Wanda lo quema, se lleva a América y arroja a Strange y a Christine a un universo destruido."
+    ]],
+    ["Acto 3: Soñar con un muerto", [
+      "En ese mundo en ruinas vive otro Strange, corrompido por el Darkhold, con un tercer ojo en la frente. Mató a sus otros yos buscando un universo donde Christine lo quisiera. Los dos pelean lanzándose notas musicales, y el Strange oscuro muere.",
+      "Strange usa el libro para hacer lo mismo que Wanda, pero no hay otro Strange vivo en su mundo: entra en el cadáver del que murió al principio. Con ese cuerpo podrido, y una capa hecha de espíritus condenados, vuela al monte Wundagore, donde Wanda prepara el ritual.",
+      "No vence a Wanda por la fuerza. Le dice a América que deje de tener miedo y confíe en sí misma. América abre un portal hacia la casa de la otra Wanda, donde están los niños. Billy y Tommy miran a la Bruja Escarlata y le tiran cosas, aterrados, llamando a su madre de verdad.",
+      "Wanda comprende en qué se ha convertido. Destruye el Darkhold en todos los universos y derrumba el templo sobre sí misma. América se queda a estudiar en Kamar-Taj. Strange arregla su reloj roto y sale a la calle, y de pronto cae de rodillas: se le abre un tercer ojo en la frente."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Strange"], ["W", "Wanda"], ["A", "América"], ["G", "Wong"], ["C", "Christine"], ["I", "Illuminati"]],
+    "enlaces": [["S", "A", "la protege"], ["W", "A", "la persigue"], ["S", "W", "antiguos aliados"], ["S", "C", "amor perdido"], ["W", "I", "los mata"], ["G", "S", "compañeros"]]
+  },
+  "personajes": [
+    ["Stephen Strange", "Sigue queriendo tener él el bisturí. Aprende a confiar en otra persona."],
+    ["Wanda Maximoff", "La Bruja Escarlata, corrompida por el Darkhold. Una madre dispuesta a todo, y la villana de la película."],
+    ["América Chávez", "Adolescente de otro universo. Única: no hay otra versión de ella en ningún mundo."],
+    ["Wong", "El Hechicero Supremo. Defiende Kamar-Taj hasta el final."],
+    ["Christine Palmer", "En el mundo principal se casa con otro. La de 838 trabaja estudiando el multiverso."],
+    ["Mordo", "El de 838 es el Hechicero Supremo, y envidia a Strange."],
+    ["Charles Xavier", "El Profesor X, en su silla amarilla. El único Illuminati que cree en Strange."],
+    ["Reed Richards", "El hombre más inteligente de su mundo, de los Cuatro Fantásticos."],
+    ["Capitana Carter", "Peggy Carter con el suero, como en ¿Qué pasaría si…?"],
+    ["Rayo Negro", "Rey de los Inhumanos. Su voz lo destruye todo."],
+    ["Los tres Strange", "El Defensor, que muere al principio; el Supremo de 838, ya ejecutado; y el Siniestro, del mundo en ruinas."]
+  ],
+  "cosas": [
+    ["El Darkhold", "El libro de los condenados. Da poder y corrompe a quien lo lee."],
+    ["Libro de Vishanti", "Su contrario: le da al hechicero lo que necesita para vencer."],
+    ["Caminar en sueños", "Conjuro del Darkhold para poseer a tu otro yo en otro universo."],
+    ["Incursión", "El choque entre dos universos, que destruye uno o los dos."],
+    ["Illuminati", "El consejo secreto de héroes de la Tierra 838."],
+    ["Tierra 616", "El número del universo principal, según la Christine de 838."],
+    ["Monte Wundagore", "Donde se escribió el Darkhold. Tiene un trono para la Bruja Escarlata."],
+    ["El tercer ojo", "La marca de haber usado el Darkhold."]
+  ],
+  "creditos": "A mitad de los créditos, una mujer vestida de morado detiene a Strange en la calle: ha provocado una incursión y tienen que arreglarla. Abre con un cuchillo una entrada a la Dimensión Oscura, y él la sigue, con su tercer ojo abierto. Es Clea. Al final, el vendedor de bolas de pizza al que Strange hechizó para que se pegara a sí mismo queda libre y grita: «¡Se acabó!».",
+  "conexiones": [
+    "Es la continuación directa de WandaVision.",
+    "El hechizo de Spider-Man: Sin camino a casa se menciona como antecedente.",
+    "Los Illuminati traen por primera vez al universo a un X-Men y a un miembro de los Cuatro Fantásticos.",
+    "Las incursiones son la amenaza que lleva a Avengers: Secret Wars.",
+    "América Chávez, en los cómics, forma parte de los Jóvenes Vengadores."
+  ],
+  "preguntas": [
+    ["¿Por qué Wanda es la villana?", "El Darkhold la corrompe. Quiere el poder de América Chávez para vivir en un universo donde sus hijos existen."],
+    ["¿Quién es América Chávez?", "Una adolescente que puede abrir portales entre universos."],
+    ["¿Quiénes son los Illuminati?", "El consejo de héroes de la Tierra 838: Xavier, Reed Richards, Capitana Carter, Rayo Negro, Maria Rambeau y Mordo."],
+    ["¿Qué es una incursión?", "El choque de dos universos, provocado por alterar demasiado el multiverso."],
+    ["¿Wanda muere?", "Derrumba el monte Wundagore sobre sí misma. No se ve su cuerpo."],
+    ["¿Por qué a Strange le sale un tercer ojo?", "Por haber usado el Darkhold."]
+  ],
+  "curiosidades": [
+    "Bruce Campbell, amigo del director, es el vendedor de bolas de pizza.",
+    "Es la película de Marvel más cercana al terror, con el estilo de Sam Raimi, autor de Posesión infernal.",
+    "Patrick Stewart llega con la música de la serie animada de los X-Men de los años noventa.",
+    "John Krasinski fue elegido porque los seguidores llevaban años pidiéndolo para el papel."
+  ]
+}

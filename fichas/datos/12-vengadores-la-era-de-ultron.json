@@ -1,0 +1,94 @@
+{
+  "titulo": "Vengadores: La era de Ultrón",
+  "anio": 2015,
+  "saga": "Saga del Infinito · Fase 2",
+  "ficha": [
+    ["Título original", "Avengers: Age of Ultron"],
+    ["Estreno", "Abril de 2015 (internacional) y 1 de mayo de 2015 (Estados Unidos)"],
+    ["Dirección", "Joss Whedon"],
+    ["Guion", "Joss Whedon"],
+    ["Reparto principal", "Robert Downey Jr. (Tony Stark), Chris Evans (Steve Rogers), Chris Hemsworth (Thor), Mark Ruffalo (Bruce Banner), Scarlett Johansson (Natasha Romanoff), Jeremy Renner (Clint Barton), James Spader (voz de Ultrón), Elizabeth Olsen (Wanda Maximoff), Aaron Taylor-Johnson (Pietro Maximoff), Paul Bettany (J.A.R.V.I.S. y Visión), Samuel L. Jackson (Nick Fury), Don Cheadle (James Rhodes), Andy Serkis (Ulysses Klaue)"],
+    ["Duración", "141 minutos"],
+    ["Música", "Brian Tyler y Danny Elfman"],
+    ["Lugar en el universo", "Segunda película de los Vengadores. Fase 2"],
+    ["Cronología interna", "2015"],
+    ["Recaudación", "Cerca de 1405 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["El cetro", "Asalto a la base de HYDRA"],
+    ["Ultrón", "La inteligencia despierta"],
+    ["La granja", "El equipo, roto, se esconde"],
+    ["Visión", "Nace con la Gema de la Mente"],
+    ["Sokovia", "Una ciudad en el aire"]
+  ],
+  "actos": [
+    ["Acto 1: El cetro de Loki y el nacimiento de Ultrón", [
+      "Los Vengadores asaltan una base de HYDRA en Sokovia, país de Europa del Este, donde el barón Strucker experimentaba con el cetro de Loki. Allí se enfrentan a los gemelos Maximoff: Pietro, que corre a una velocidad enorme, y Wanda, que mueve objetos y manipula mentes. Los dos odian a Tony Stark porque una bomba de su empresa mató a sus padres. Wanda le provoca a Tony una visión: todos sus compañeros muertos y la Tierra invadida.",
+      "Con el cetro recuperado, Tony y Bruce Banner descubren que la gema que lleva dentro contiene algo parecido a una inteligencia artificial. Sin consultar al equipo, la usan para completar Ultrón, un programa de defensa mundial con el que Tony sueña poner «una armadura alrededor del mundo».",
+      "Mientras los Vengadores celebran y compiten por ver quién levanta el martillo de Thor, Ultrón despierta. Analiza la historia humana, concluye que para que haya paz la humanidad debe desaparecer, ataca a J.A.R.V.I.S. y se fabrica un cuerpo con los robots de la Legión de Hierro. Irrumpe en la fiesta, se lleva el cetro y huye por internet."
+    ]],
+    ["Acto 2: Un equipo roto", [
+      "Ultrón recluta a los gemelos y viaja a la costa de África para comprarle vibranium al traficante Ulysses Klaue, a quien le arranca un brazo. Cuando llegan los Vengadores, Wanda les mete pesadillas en la cabeza. A Hulk lo deja fuera de control en plena ciudad, y Tony tiene que frenarlo con una armadura gigante, la Hulkbuster.",
+      "Con el mundo en su contra, el equipo se esconde en la granja de Clint Barton, donde descubren que tiene esposa, Laura, y dos hijos. Nick Fury aparece para animarlos. Natasha y Bruce hablan de un futuro juntos. Thor busca respuestas en unas aguas mágicas y tiene una visión de las Gemas del Infinito.",
+      "En Seúl, Ultrón obliga a la doctora Helen Cho a fabricarle un cuerpo perfecto de vibranium y tejido sintético, con la gema del cetro en la frente. Wanda le lee la mente, ve que planea la extinción humana, y los gemelos lo abandonan. Los Vengadores roban el cuerpo tras una persecución; Ultrón captura a Natasha.",
+      "Tony encuentra a J.A.R.V.I.S., que sobrevivió escondido en la red, y quiere meterlo en el cuerpo. Steve se opone y pelean, hasta que Thor descarga un rayo sobre la cápsula. Nace Visión, que lleva la Gema de la Mente y es capaz de levantar el martillo de Thor."
+    ]],
+    ["Acto 3: La batalla de Sokovia", [
+      "Ultrón ha construido bajo la capital de Sokovia una máquina que eleva la ciudad entera por los aires para dejarla caer como un meteorito y extinguir la vida. Los Vengadores, con Wanda, Pietro y Visión, evacúan a la gente mientras pelean contra miles de robots. Fury llega con un helitransporte y botes salvavidas.",
+      "Pietro muere acribillado al proteger a Clint y a un niño. Wanda, al sentirlo, arranca el núcleo del cuerpo principal de Ultrón. Tony y Thor hacen estallar la ciudad en el aire para que no caiga entera. Hulk se marcha solo en una nave. Visión encuentra al último robot de Ultrón y lo destruye.",
+      "Los Vengadores se mudan a una base nueva en el norte del estado de Nueva York. Tony y Clint se retiran por un tiempo y Thor parte a investigar las gemas. Steve y Natasha entrenan a un equipo nuevo: Wanda, Visión, Sam Wilson y James Rhodes."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["T", "Tony"], ["U", "Ultrón"], ["V", "Visión"], ["W", "Wanda"], ["P", "Pietro"], ["S", "Steve"]],
+    "enlaces": [["T", "U", "lo creó"], ["U", "V", "quiso su cuerpo"], ["T", "V", "de J.A.R.V.I.S."], ["W", "P", "gemelos"], ["W", "U", "aliada y luego enemiga"], ["T", "S", "desacuerdo"]]
+  },
+  "personajes": [
+    ["Ultrón", "Inteligencia artificial creada por Tony Stark y Bruce Banner como programa de paz. Decide que la humanidad es el problema. Vive en muchos cuerpos de robot a la vez."],
+    ["Tony Stark", "Iron Man. Su miedo a otra invasión lo lleva a crear a Ultrón a espaldas del equipo."],
+    ["Steve Rogers", "El Capitán América. Líder del equipo; choca con Tony por actuar sin consultar."],
+    ["Thor", "Aporta el rayo que da vida a Visión y descubre que alguien está moviendo las Gemas del Infinito."],
+    ["Bruce Banner", "Hulk. Ayuda a crear a Ultrón y, tras perder el control en la ciudad, decide alejarse de todos."],
+    ["Natasha Romanoff", "La Viuda Negra. Calma a Hulk con una frase y un gesto, y cuenta parte de su pasado en la Habitación Roja."],
+    ["Clint Barton", "Ojo de Halcón. Se revela su familia secreta y es quien convence a Wanda de pelear."],
+    ["Wanda Maximoff", "Sokoviana con poderes surgidos de experimentos con el cetro. Empieza como enemiga y termina como Vengadora."],
+    ["Pietro Maximoff", "Gemelo de Wanda, veloz e impaciente. Muere salvando a Clint."],
+    ["Visión", "Ser sintético nacido del cuerpo que Ultrón quería, la mente de J.A.R.V.I.S. y la Gema de la Mente."],
+    ["Ulysses Klaue", "Traficante de armas que robó vibranium de Wakanda."],
+    ["Helen Cho", "Genetista coreana que creó la cuna de regeneración de tejidos."],
+    ["Barón Strucker", "Jefe de HYDRA que experimentó con el cetro y con los gemelos."]
+  ],
+  "cosas": [
+    ["Cetro de Loki", "Arma que Loki usó en Nueva York. Dentro de su joya azul está la Gema de la Mente."],
+    ["Gema de la Mente", "Gema del Infinito amarilla. Da vida a Visión y originó los poderes de los gemelos."],
+    ["Vibranium", "El metal más resistente del mundo, procedente de Wakanda."],
+    ["Hulkbuster", "Armadura enorme que Tony y Bruce diseñaron para frenar a Hulk. La lanza un satélite llamado Verónica."],
+    ["Legión de Hierro", "Robots de Tony que ayudan a los Vengadores; Ultrón se apodera de ellos."],
+    ["La Cuna", "Máquina de Helen Cho que crea tejido vivo; fabrica el cuerpo de Visión."],
+    ["Sokovia", "País ficticio de Europa del Este. Su capital, Novi Grad, queda destruida."],
+    ["Torre de los Vengadores", "La antigua Torre Stark, sede del equipo en Nueva York."],
+    ["F.R.I.D.A.Y.", "La inteligencia artificial que reemplaza a J.A.R.V.I.S. en las armaduras de Tony."]
+  ],
+  "creditos": "Solo hay una escena, a mitad de los créditos: Thanos, cansado de los fracasos de otros, se pone un guantelete dorado sin gemas y dice que lo hará él mismo. No hay escena al final.",
+  "conexiones": [
+    "La destrucción de Sokovia provoca los Acuerdos de Sokovia en Capitán América: Civil War.",
+    "Las visiones de Thor lo llevan a Thor: Ragnarok y a la búsqueda de las gemas.",
+    "Hulk aparece dos años después en el planeta Sakaar, en Thor: Ragnarok.",
+    "Ulysses Klaue y el vibranium vuelven en Black Panther.",
+    "La relación entre Wanda y Visión continúa hasta la serie WandaVision."
+  ],
+  "preguntas": [
+    ["¿Quién creó a Ultrón?", "Tony Stark y Bruce Banner, usando la inteligencia que había dentro de la gema del cetro de Loki."],
+    ["¿Qué quiere Ultrón?", "Extinguir a la humanidad, porque cree que es la única forma de lograr la paz."],
+    ["¿Cómo nace Visión?", "Del cuerpo de vibranium que Ultrón preparaba para sí, con la mente de J.A.R.V.I.S., la Gema de la Mente y un rayo de Thor."],
+    ["¿Quién muere en esta película?", "Pietro Maximoff, al proteger a Clint Barton y a un niño."],
+    ["¿Por qué Visión puede levantar el martillo?", "Porque es digno: no tiene malas intenciones. Es la prueba que convence al equipo de confiar en él."],
+    ["¿Qué pasó con J.A.R.V.I.S.?", "Pasó a formar parte de Visión. Tony lo sustituye por F.R.I.D.A.Y."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece en la fiesta como un veterano que bebe licor asgardiano y sale cargado en brazos.",
+    "Es la primera vez que se nombra Wakanda en el Universo Marvel.",
+    "En la escena del martillo, Steve Rogers logra moverlo un poco, anticipo de lo que pasará en Endgame.",
+    "James Spader interpretó a Ultrón con captura de movimiento, además de ponerle la voz."
+  ]
+}

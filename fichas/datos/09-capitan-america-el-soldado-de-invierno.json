@@ -1,0 +1,91 @@
+{
+  "titulo": "Capitán América: El Soldado de Invierno",
+  "anio": 2014,
+  "saga": "Saga del Infinito · Fase 2",
+  "ficha": [
+    ["Título original", "Captain America: The Winter Soldier"],
+    ["Estreno", "Marzo de 2014 (internacional) y 4 de abril de 2014 (Estados Unidos)"],
+    ["Dirección", "Anthony Russo y Joe Russo"],
+    ["Guion", "Christopher Markus y Stephen McFeely"],
+    ["Reparto principal", "Chris Evans (Steve Rogers), Scarlett Johansson (Natasha Romanoff), Sebastian Stan (Bucky Barnes), Anthony Mackie (Sam Wilson), Robert Redford (Alexander Pierce), Samuel L. Jackson (Nick Fury), Cobie Smulders (Maria Hill), Frank Grillo (Brock Rumlow), Emily VanCamp (Sharon Carter), Hayley Atwell (Peggy Carter), Toby Jones (Arnim Zola)"],
+    ["Duración", "136 minutos"],
+    ["Música", "Henry Jackman"],
+    ["Lugar en el universo", "Novena película del Universo Cinematográfico de Marvel. Fase 2"],
+    ["Cronología interna", "2014, dos años después de la Batalla de Nueva York"],
+    ["Recaudación", "Cerca de 714 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Proyecto Insight", "Tres helitransportes armados"],
+    ["Atentado", "Disparan a Nick Fury"],
+    ["La verdad", "HYDRA vive dentro de S.H.I.E.L.D."],
+    ["Bucky", "El Soldado de Invierno sin máscara"],
+    ["La caída", "S.H.I.E.L.D. se derrumba"]
+  ],
+  "actos": [
+    ["Acto 1: Un soldado en un mundo de espías", [
+      "Steve Rogers vive en Washington D. C. y trabaja para S.H.I.E.L.D. mientras se adapta al siglo XXI. Corriendo por la mañana conoce a Sam Wilson, un veterano de rescate aéreo. Con Natasha Romanoff y el equipo STRIKE de Brock Rumlow recupera un barco de S.H.I.E.L.D., el Lemurian Star, secuestrado por el mercenario Georges Batroc. Steve descubre que Natasha tenía una misión secreta: copiar datos del barco.",
+      "Nick Fury le enseña el Proyecto Insight: tres helitransportes enormes conectados a satélites, capaces de eliminar amenazas antes de que actúen. A Steve le parece vigilar al mundo apuntándole con un arma. Fury no logra abrir los datos del barco y le pide a su superior, Alexander Pierce, que retrase el proyecto.",
+      "Fury es emboscado en plena calle por falsos policías y por un asesino con un brazo de metal. Herido, llega al apartamento de Steve, le entrega una memoria USB y le advierte que no confíe en nadie. Un disparo a través de la pared lo derriba. Fury muere en el quirófano."
+    ]],
+    ["Acto 2: HYDRA dentro de S.H.I.E.L.D.", [
+      "Steve se niega a contarle a Pierce lo que Fury le dijo. Al salir, el equipo STRIKE intenta detenerlo en un ascensor y Steve los vence a todos. Convertido en fugitivo, se une a Natasha y siguen la pista de la memoria hasta el Campamento Lehigh, en Nueva Jersey, donde Steve se entrenó en 1943.",
+      "En un búnker encuentran la mente del científico Arnim Zola guardada en viejos ordenadores. Zola les revela que HYDRA nunca murió: creció en secreto dentro de S.H.I.E.L.D. desde su fundación y ha provocado crisis durante décadas para que el mundo acepte perder libertad a cambio de seguridad. Un misil destruye el búnker.",
+      "Steve y Natasha se refugian con Sam Wilson, que tiene acceso a un traje de alas mecánicas, el EXO-7 Falcon. Interrogando al agente Jasper Sitwell descubren el plan: un algoritmo de Zola identifica a todas las personas que podrían oponerse a HYDRA y los helitransportes las eliminarán de una vez. En una autopista los ataca el Soldado de Invierno; a Steve se le cae la máscara del asesino y reconoce a Bucky Barnes, su mejor amigo, a quien creía muerto desde 1945."
+    ]],
+    ["Acto 3: La caída del Triskelion", [
+      "Maria Hill los rescata y los lleva ante Fury, que fingió su muerte con una droga. El plan es cambiar un chip en cada helitransporte para tomar el control. Steve habla por los altavoces del Triskelion y revela la verdad a todos los agentes; Sharon Carter, la Agente 13, se enfrenta a Rumlow.",
+      "Natasha, disfrazada de consejera, obliga a Pierce a ayudarla y publica en internet todos los secretos de S.H.I.E.L.D. y de HYDRA, incluido su propio pasado. Fury mata a Pierce, cuyas últimas palabras son «Hail Hydra».",
+      "Steve coloca el último chip y se niega a pelear contra Bucky: le dice que estará con él hasta el final. Los helitransportes se disparan entre sí y caen. Steve se hunde en el río Potomac y es Bucky quien lo saca del agua antes de desaparecer. S.H.I.E.L.D. queda disuelta; Fury se va a Europa y Steve y Sam empiezan a buscar a Bucky."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Steve"], ["N", "Natasha"], ["F", "Fury"], ["P", "Pierce"], ["B", "Bucky"], ["W", "Sam"]],
+    "enlaces": [["S", "N", "compañeros"], ["S", "B", "amigos de infancia"], ["S", "W", "nuevo aliado"], ["F", "P", "viejo amigo y traidor"], ["P", "B", "lo controla"], ["F", "S", "confía en él"]]
+  },
+  "personajes": [
+    ["Steve Rogers", "El Capitán América. Un soldado de 1945 que desconfía de los secretos de S.H.I.E.L.D. y termina derribándola al descubrir que HYDRA la controla."],
+    ["Natasha Romanoff", "La Viuda Negra, espía de S.H.I.E.L.D. Acompaña a Steve y hace públicos todos los secretos de la agencia, incluidos los suyos."],
+    ["Bucky Barnes", "El Soldado de Invierno. HYDRA lo rescató tras su caída en 1945, le puso un brazo de metal, le borró la memoria y lo usó como asesino durante décadas, congelándolo entre misiones."],
+    ["Sam Wilson", "Exmilitar de rescate aéreo que vuela con las alas EXO-7 Falcon. Se convierte en el compañero de Steve."],
+    ["Nick Fury", "Director de S.H.I.E.L.D. Finge su muerte para descubrir quién lo traicionó."],
+    ["Alexander Pierce", "Alto cargo del Consejo de Seguridad Mundial y amigo de Fury. Es en secreto el líder de HYDRA dentro de S.H.I.E.L.D."],
+    ["Brock Rumlow", "Jefe del equipo STRIKE y agente de HYDRA. Queda desfigurado al caer el Triskelion; más tarde se llamará Calavera."],
+    ["Arnim Zola", "Científico de HYDRA cuya mente fue guardada en ordenadores. Diseñó el algoritmo que elige a quién eliminar."],
+    ["Maria Hill", "Mano derecha de Fury. Rescata a los héroes y coordina la misión final."],
+    ["Sharon Carter", "La Agente 13, vecina encubierta de Steve y sobrina nieta de Peggy Carter."],
+    ["Peggy Carter", "Fundadora de S.H.I.E.L.D. y gran amor de Steve. Aparece ya anciana y enferma."],
+    ["Jasper Sitwell", "Agente de S.H.I.E.L.D. que resulta ser de HYDRA y revela el plan."]
+  ],
+  "cosas": [
+    ["Proyecto Insight", "Tres helitransportes de nueva generación conectados a satélites espía, pensados para eliminar amenazas antes de que ocurran."],
+    ["Algoritmo de Zola", "Programa que analiza datos de toda la población y predice quién será un obstáculo para HYDRA."],
+    ["Triskelion", "Sede central de S.H.I.E.L.D. en Washington D. C., junto al río Potomac. Queda destruida."],
+    ["HYDRA", "Organización nacida como ciencia nazi. Sobrevivió infiltrada dentro de S.H.I.E.L.D. durante setenta años."],
+    ["EXO-7 Falcon", "Mochila militar con alas plegables que permite volar a Sam Wilson."],
+    ["Brazo del Soldado de Invierno", "Brazo izquierdo de metal de Bucky, con una estrella roja en el hombro."],
+    ["Campamento Lehigh", "Base de Nueva Jersey donde Steve se entrenó y donde nació S.H.I.E.L.D."],
+    ["Lemurian Star", "Barco de S.H.I.E.L.D. vinculado al Proyecto Insight, secuestrado al inicio."]
+  ],
+  "creditos": "En la escena a mitad de los créditos, el barón Strucker, de HYDRA, tiene el cetro de Loki y presenta a dos prisioneros con poderes, los gemelos Wanda y Pietro Maximoff. En la escena final, Bucky visita vestido de civil la exposición del Capitán América en el museo Smithsonian y lee su propia historia.",
+  "conexiones": [
+    "La caída de S.H.I.E.L.D. cambia por completo la serie Agents of S.H.I.E.L.D.",
+    "El cetro de Loki y los gemelos llevan directamente a Vengadores: La era de Ultrón.",
+    "La búsqueda de Bucky continúa en Capitán América: Civil War.",
+    "Sam Wilson hereda el escudo en Vengadores: Endgame y protagoniza Falcon y el Soldado de Invierno.",
+    "En Vengadores: Endgame se repite la escena del ascensor, que Steve resuelve susurrando «Hail Hydra»."
+  ],
+  "preguntas": [
+    ["¿Quién es el Soldado de Invierno?", "Es Bucky Barnes, el mejor amigo de Steve Rogers. HYDRA lo convirtió en un asesino sin memoria, con un brazo de metal."],
+    ["¿Quién es el villano de la película?", "Alexander Pierce, el jefe secreto de HYDRA dentro de S.H.I.E.L.D. El Soldado de Invierno es su arma."],
+    ["¿Qué es el Proyecto Insight?", "Un plan para vigilar el mundo con tres helitransportes armados. HYDRA pensaba usarlo para matar a millones de personas de una vez."],
+    ["¿Nick Fury muere?", "No. Finge su muerte para poder investigar sin que HYDRA lo persiga."],
+    ["¿Qué pasa con S.H.I.E.L.D. al final?", "Queda disuelta. Todos sus secretos se publican en internet y sus agentes se dispersan."],
+    ["¿Bucky recuerda a Steve?", "Empieza a recordarlo. Por eso lo salva del río en lugar de terminar su misión."]
+  ],
+  "curiosidades": [
+    "La lista de cosas pendientes que Steve lleva en su libreta cambia según el país donde se estrenó la película.",
+    "Stan Lee aparece como el guardia del museo que descubre que falta el traje del Capitán América.",
+    "La lápida falsa de Nick Fury lleva una cita bíblica, un guiño a otro papel famoso de Samuel L. Jackson.",
+    "Fue la primera película de Marvel dirigida por los hermanos Russo, que luego hicieron Civil War, Infinity War y Endgame."
+  ]
+}

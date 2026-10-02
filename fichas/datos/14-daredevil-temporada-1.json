@@ -1,0 +1,96 @@
+{
+  "titulo": "Daredevil · Temporada 1",
+  "anio": 2015,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Daredevil (temporada 1)"],
+    ["Estreno", "10 de abril de 2015 (Netflix; hoy en Disney+)"],
+    ["Creador", "Drew Goddard, con Steven S. DeKnight al frente de la temporada"],
+    ["Episodios", "13, de unos 55 minutos"],
+    ["Reparto principal", "Charlie Cox (Matt Murdock), Deborah Ann Woll (Karen Page), Elden Henson (Foggy Nelson), Vincent D'Onofrio (Wilson Fisk), Rosario Dawson (Claire Temple), Vondie Curtis-Hall (Ben Urich), Toby Leonard Moore (James Wesley), Ayelet Zurer (Vanessa Marianna), Bob Gunton (Leland Owlsley), Scott Glenn (Stick)"],
+    ["Música", "John Paesano"],
+    ["Lugar en el universo", "Primera de las series de Netflix que llevan a The Defenders"],
+    ["Cronología interna", "Nueva York, unos dos años después de la batalla de Los Vengadores, a la que llaman «el Incidente»"],
+    ["Tono", "Serie policíaca y oscura, mucho más violenta que las películas"]
+  ],
+  "momentos": [
+    ["El accidente", "Matt queda ciego de niño"],
+    ["El bufete", "Nelson y Murdock abre"],
+    ["El pasillo", "Rescate de un niño"],
+    ["Fisk", "El rey del crimen sale a la luz"],
+    ["El traje rojo", "Nace Daredevil"]
+  ],
+  "actos": [
+    ["Origen: el niño que dejó de ver", [
+      "Matt Murdock crece en Hell's Kitchen, un barrio obrero de Nueva York, con su padre, el boxeador Jack Murdock. A los nueve años empuja a un anciano para salvarlo de un camión; el camión derrama productos químicos que le caen en los ojos. Queda ciego, pero sus otros sentidos se agudizan hasta un nivel sobrehumano: oye latidos, huele a distancia y percibe el espacio como «un mundo en llamas».",
+      "A su padre le ordenan perder una pelea contra Carl «Crusher» Creel. Jack decide ganar para que su hijo lo vea como un vencedor, apuesta por sí mismo a nombre de Matt y esa misma noche lo matan. En el orfanato, un anciano ciego llamado Stick enseña a Matt a dominar sus sentidos y a pelear, y lo abandona cuando el niño se encariña con él."
+    ]],
+    ["Episodios 1 a 4: El hombre de la máscara negra", [
+      "Ya adulto, Matt abre con su mejor amigo, Foggy Nelson, el bufete Nelson y Murdock. De noche sale con ropa negra y una máscara a golpear criminales. Su primera clienta es Karen Page, acusada de matar a un compañero de la constructora Union Allied: ella había descubierto un desvío de dinero del fondo de pensiones. Matt la salva de un asesino y Karen se queda a trabajar en el bufete.",
+      "Tras una paliza, la enfermera Claire Temple encuentra a Matt en un contenedor y lo cura. Para rescatar a un niño secuestrado por la mafia rusa, Matt pelea agotado a lo largo de un pasillo, en la escena más famosa de la serie, rodada en una sola toma.",
+      "Detrás de todo hay un hombre cuyo nombre nadie se atreve a decir: Wilson Fisk. Fisk es enorme, tímido y educado, y quiere «salvar» Hell's Kitchen derribándolo para reconstruirlo. Se enamora de Vanessa Marianna, dueña de una galería de arte. Cuando el mafioso ruso Anatoly interrumpe su cena con ella, Fisk lo mata a golpes con la puerta de un coche."
+    ]],
+    ["Episodios 5 a 9: La guerra por Hell's Kitchen", [
+      "Fisk vuela con bombas los escondites de los rusos y hace que la ciudad culpe al enmascarado. Matt queda atrapado con Vladimir, el hermano de Anatoly, que antes de morir le da un nombre: Leland Owlsley, el contable de Fisk.",
+      "Stick reaparece para destruir un arma llamada Cielo Negro, que resulta ser un niño. Matt se niega a matar y los dos rompen de nuevo. El periodista Ben Urich investiga a Fisk junto a Karen. Para adelantarse, Fisk se presenta ante las cámaras como un benefactor de la ciudad.",
+      "Se revela su pasado: de niño mató a martillazos a su padre, que golpeaba a su madre. Matt busca a Fisk y cae en una trampa: pelea con Nobu, un ninja de una organización japonesa, que muere quemado, y luego Fisk lo deja medio muerto."
+    ]],
+    ["Episodios 10 a 13: La caída de Fisk", [
+      "Foggy encuentra a Matt herido y descubre su secreto. Se siente traicionado y la amistad se rompe por un tiempo. En una gala, alguien envenena a Vanessa.",
+      "Karen y Ben visitan a la madre de Fisk. Wesley, la mano derecha de Fisk, secuestra a Karen para amenazarla, y ella lo mata con su propia pistola. Fisk entra en casa de Ben Urich y lo estrangula. Al descubrir que Owlsley y Madame Gao envenenaron a Vanessa, Fisk lanza a Owlsley por el hueco de un ascensor.",
+      "Matt encuentra al detective Hoffman, un policía corrupto que Owlsley tenía escondido, y lo convence de declarar. El FBI detiene a Fisk y a todos sus aliados: policías, un senador y periodistas. Fisk escapa del furgón, pero Matt, con un traje rojo blindado fabricado por Melvin Potter, lo vence en un callejón. La prensa le pone nombre: Daredevil."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["M", "Matt"], ["F", "Foggy"], ["K", "Karen"], ["W", "Fisk"], ["V", "Vanessa"], ["S", "Stick"]],
+    "enlaces": [["M", "F", "socios y amigos"], ["M", "K", "la defiende"], ["M", "W", "enemigos"], ["W", "V", "enamorados"], ["S", "M", "maestro"], ["K", "F", "compañeros"]]
+  },
+  "personajes": [
+    ["Matt Murdock", "Abogado ciego de día y justiciero de noche. Católico, vive atormentado por la violencia que ejerce. Nunca mata."],
+    ["Foggy Nelson", "Socio y mejor amigo de Matt desde la universidad. El corazón del bufete."],
+    ["Karen Page", "Primera clienta del bufete y luego su secretaria. Valiente y terca; guarda un pasado que no cuenta."],
+    ["Wilson Fisk", "Jefe criminal de Hell's Kitchen. Refinado y sensible, pero capaz de una furia brutal. En los cómics es Kingpin."],
+    ["Vanessa Marianna", "Galerista de arte. Conoce lo que Fisk es y aun así lo elige."],
+    ["James Wesley", "Mano derecha y único amigo de Fisk."],
+    ["Claire Temple", "Enfermera que cura a Matt y aparecerá en todas las series de los Defensores."],
+    ["Ben Urich", "Periodista veterano del New York Bulletin. Fisk lo asesina."],
+    ["Stick", "Anciano ciego que entrenó a Matt de niño. Pertenece a una guerra secreta más antigua."],
+    ["Leland Owlsley", "Contable de Fisk. Lo traiciona y muere por ello."],
+    ["Madame Gao", "Anciana que dirige el tráfico de heroína. Mucho más poderosa de lo que aparenta."],
+    ["Nobu", "Socio japonés de Fisk y ninja de la Mano."],
+    ["Jack Murdock", "Padre de Matt, boxeador. Lo matan por negarse a perder una pelea."],
+    ["Padre Lantom", "Sacerdote al que Matt confiesa sus dudas."]
+  ],
+  "cosas": [
+    ["Sentidos de Matt", "Oído, olfato, tacto y equilibrio sobrehumanos. Con ellos «ve» mejor que alguien con vista y detecta mentiras por el latido del corazón."],
+    ["Nelson y Murdock", "El pequeño bufete de abogados de Matt y Foggy en Hell's Kitchen."],
+    ["Hell's Kitchen", "Barrio de Manhattan dañado en la batalla de Nueva York. Su reconstrucción es el negocio de Fisk."],
+    ["El Incidente", "Así llaman los vecinos a la batalla de Los Vengadores contra los Chitauri."],
+    ["Traje rojo", "Armadura ligera con cuernos que Melvin Potter fabrica para Matt al final de la temporada."],
+    ["Bastones", "Los bastones de combate de Daredevil, que se unen en uno solo."],
+    ["Cielo Negro", "Arma viviente que la Mano trae a Nueva York. Su explicación llega en series posteriores."],
+    ["Conejo en una tormenta de nieve", "Cuadro blanco que Fisk compra a Vanessa. Le recuerda la pared que miraba de niño."]
+  ],
+  "creditos": "La serie no tiene escenas después de los créditos. La temporada termina con Fisk en una celda, mirando una pared blanca, y con Matt de vigilante sobre los tejados con su traje nuevo.",
+  "conexiones": [
+    "La historia continúa en Daredevil, temporada 2, con la llegada de Punisher y Elektra.",
+    "Claire Temple reaparece en Jessica Jones, Luke Cage, Iron Fist y The Defenders.",
+    "Madame Gao, Nobu y el Cielo Negro pertenecen a la Mano, la amenaza de Iron Fist y The Defenders.",
+    "Wilson Fisk vuelve en la temporada 3, en Hawkeye, en Echo y en Daredevil: Born Again.",
+    "Carl «Crusher» Creel, el rival de Jack Murdock, aparece como villano en Agentes de S.H.I.E.L.D."
+  ],
+  "preguntas": [
+    ["¿Quién es Daredevil?", "Matt Murdock, un abogado ciego de Hell's Kitchen que de noche combate el crimen gracias a sus sentidos sobrehumanos."],
+    ["¿Cómo quedó ciego Matt Murdock?", "A los nueve años salvó a un anciano de un camión y los productos químicos que llevaba le cayeron en los ojos."],
+    ["¿Daredevil puede ver?", "No ve con los ojos, pero sus otros sentidos le dan una imagen del entorno que él describe como un mundo en llamas."],
+    ["¿Quién es el villano de la primera temporada?", "Wilson Fisk, un jefe criminal que quiere derribar Hell's Kitchen para reconstruirlo a su manera."],
+    ["¿Quién mató a Ben Urich?", "Wilson Fisk, con sus propias manos, por haber visitado a su madre."],
+    ["¿Quién le hace el traje a Daredevil?", "Melvin Potter, el artesano que fabricaba la ropa blindada de Fisk."]
+  ],
+  "curiosidades": [
+    "La pelea del pasillo del episodio 2 se rodó como un único plano continuo y marcó el estilo de toda la serie.",
+    "Nadie llama «Kingpin» a Fisk en esta temporada, y el nombre «Daredevil» no se pronuncia hasta el último episodio.",
+    "Charlie Cox trabajó con un asesor ciego para aprender a moverse y a usar el bastón.",
+    "Fue la primera producción de Marvel Studios para adultos, con clasificación para mayores."
+  ]
+}

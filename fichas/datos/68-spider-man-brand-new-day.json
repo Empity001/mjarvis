@@ -1,0 +1,95 @@
+{
+  "titulo": "Spider-Man: Brand New Day",
+  "anio": 2026,
+  "saga": "Saga del Multiverso · Fase 6",
+  "ficha": [
+    ["Título original", "Spider-Man: Brand New Day (en español, Spider-Man: Un nuevo día)"],
+    ["Estreno", "31 de julio de 2026 (Estados Unidos)"],
+    ["Dirección", "Destin Daniel Cretton"],
+    ["Guion", "Chris McKenna y Erik Sommers"],
+    ["Reparto principal", "Tom Holland (Peter Parker), Zendaya (MJ), Sadie Sink (Jean Grey), Jacob Batalon (Ned), Jon Bernthal (Frank Castle), Mark Ruffalo (Bruce Banner), Florence Pugh (Yelena Belova), Tramell Tillman (Bill Metzger), Michael Mando (Mac Gargan), Liza Colón-Zayas (Jean DeWolff)"],
+    ["Duración", "145 minutos"],
+    ["Música", "Michael Giacchino"],
+    ["Lugar en el universo", "Fase 6. Cuarta película del Spider-Man de Tom Holland"],
+    ["Cronología interna", "Nueva York, 2028, cuatro años después de Sin camino a casa"],
+    ["Recaudación", "Cerca de 2.500 millones de dólares, la más taquillera de Spider-Man"]
+  ],
+  "momentos": [
+    ["Solo", "Cuatro años sin que nadie lo recuerde"],
+    ["La telépata", "Alguien salta de mente en mente"],
+    ["El cambio", "Telarañas del propio cuerpo"],
+    ["Hulk", "Banner, poseído"],
+    ["Sara", "Lo que escondía Control de Daños"]
+  ],
+  "actos": [
+    ["Acto 1: El protector sin nombre", [
+      "Han pasado cuatro años desde el hechizo que hizo que el mundo olvidara a Peter Parker. Para proteger a MJ y a Ned, Peter no volvió a buscarlos. Vive solo en un piso pequeño y se dedica por completo a ser Spider-Man. La ciudad lo adora; nadie sabe quién es. Ha detenido a criminales como el Escorpión y a los ninjas de la Mano, y visita la tumba de la tía May.",
+      "Una noche se cruza con Frank Castle, Punisher, que intenta llevarse un tanque de una instalación dañada del Departamento de Control de Daños. Algo extraño ocurre: el conductor queda como poseído, y ayuda a escapar al Escorpión. Quien hace eso intenta entrar en la cabeza de Peter y no puede.",
+      "Yelena Belova le avisa de que alguien ataca una sede tras otra de Control de Daños, buscando algo llamado «V-Max». El director del departamento, Bill Metzger, asegura no saber qué es.",
+      "MJ y Ned vuelven a Nueva York tras terminar en el MIT. Peter los mira de lejos, y ve a MJ besar a su novio."
+    ]],
+    ["Acto 2: Mutaciones", [
+      "Al día siguiente, Peter despierta distinto: sentidos mucho más agudos y unos orificios en las muñecas por los que le sale telaraña propia. En el siguiente ataque pierde el control y hiere de gravedad al Escorpión y a un policía. La detective Jean DeWolff le pide contención.",
+      "Busca a Bruce Banner, que lleva un inhibidor para no transformarse, y con su ayuda entiende lo que le pasa: sus poderes cambian con el estrés y el dolor que no ha resuelto. Peter se fabrica su propio inhibidor.",
+      "La atacante encuentra su piso y una carta que Peter escribió a MJ y nunca envió. Es una adolescente, Jean Grey, una mutante telépata capaz de saltar de un cuerpo a otro. Va a por MJ, y Peter la salva por poco. La esconde en la casa flotante de Castle, donde MJ, sin recordarlo, lo ayuda a terminar el aparato.",
+      "Jean asalta la sede central usando a Banner: le quita el inhibidor, y Hulk queda suelto. Peter pelea contra Hulk mientras Jean, dentro de Castle, abre una cámara acorazada. Peter calma a Hulk y usa su invento contra Jean; Metzger la seda y se la lleva."
+    ]],
+    ["Acto 3: Lo último que vio Sara", [
+      "MJ ha encontrado la carta. No recuerda a Peter, pero lo invita a su casa, con Ned, a pasar un rato juntos, con la máscara puesta.",
+      "Peter descubre que Metzger mintió. En los archivos censurados aparece Sara, la hermana de Jean, también telépata, a la que Control de Daños secuestró. Peter entra en la instalación de la isla Roosevelt y encuentra la verdad: «V-Max» era el rótulo gastado de una rejilla de ventilación, lo último que Sara vio antes de morir. Jean recorría la ciudad buscando un recuerdo.",
+      "Jean, rota, levanta un campo mental que deja inmóvil a todo el mundo, incluidos MJ y Ned, menos a Peter. Lo ataca con los ninjas que domina. Peter se quita el inhibidor, acepta lo que es ahora y los vence. Luego la deja entrar en su mente. Jean ve el recuerdo de la tía May queriéndolo sin condiciones, y los dos se reconocen en lo que perdieron.",
+      "Castle dispara a Jean desde lejos. Peter se pone delante y cae malherido. Jean lo mantiene vivo con su poder y suelta a la ciudad.",
+      "Peter despierta en el hospital, con Castle arrepentido a su lado. Jean se marcha, Metzger desaparece, y Control de Daños queda bajo investigación. Ante la tumba de May, Peter promete dejar de hacerlo todo solo. Días después se cruza con Ned, y por costumbre hacen su saludo secreto de manos. Ned se queda quieto, y dice su nombre."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["P", "Peter"], ["M", "MJ"], ["J", "Jean Grey"], ["F", "Castle"], ["B", "Banner"], ["D", "Metzger"]],
+    "enlaces": [["P", "M", "ella no lo recuerda"], ["J", "P", "enemigos y luego iguales"], ["P", "F", "aliados incómodos"], ["B", "P", "lo orienta"], ["D", "J", "mató a su hermana"], ["J", "B", "lo posee"]]
+  },
+  "personajes": [
+    ["Peter Parker", "Spider-Man, ya adulto. Solo por decisión propia; su cuerpo le pasa la factura."],
+    ["Jean Grey", "Adolescente mutante, telépata. No es una villana: busca a su hermana."],
+    ["MJ", "Michelle Jones-Watson. No recuerda a Peter, pero algo la lleva hacia él."],
+    ["Ned Leeds", "El mejor amigo. Es el primero en recordar."],
+    ["Frank Castle", "Punisher. Sus métodos chocan con los de Peter."],
+    ["Bruce Banner", "Hulk. Vuelve a ser dos, con un inhibidor que lo contiene."],
+    ["Yelena Belova", "La Viuda Negra, de los Nuevos Vengadores."],
+    ["Bill Metzger", "Director de Control de Daños. Esconde lo que hicieron con los mutantes."],
+    ["Mac Gargan", "El Escorpión, visto en De regreso a casa."],
+    ["Jean DeWolff", "Detective que confía en Spider-Man."],
+    ["Sara Grey", "Hermana de Jean."],
+    ["Paul", "El novio de MJ."]
+  ],
+  "cosas": [
+    ["El hechizo", "El de Doctor Strange, que borró a Peter Parker de la memoria de todos."],
+    ["Telarañas orgánicas", "Peter empieza a producirlas él mismo, sin lanzarredes."],
+    ["El inhibidor", "Aparato que contiene poderes; Banner usa uno, y Peter se hace el suyo."],
+    ["Control de Daños", "El departamento que persigue a personas con poderes. Aquí experimenta con mutantes."],
+    ["V-Max", "No era un arma: era un rótulo en una pared."],
+    ["Posesión", "El poder de Jean para saltar de un cuerpo a otro."],
+    ["El saludo", "El apretón de manos secreto de Peter y Ned."],
+    ["El traje", "Rojo y azul, inspirado en los de los Spider-Man de Tobey Maguire y Andrew Garfield."]
+  ],
+  "creditos": "La película termina con Ned recordando a Peter. Al redactar esta ficha no se pudo confirmar el contenido de las escenas de los créditos.",
+  "conexiones": [
+    "Continúa el final de Spider-Man: Sin camino a casa.",
+    "Punisher llega desde Daredevil: Born Again y su especial One Last Kill.",
+    "Jean Grey es, en los cómics, una de las fundadoras de los X-Men; los mutantes se anunciaron en Ms. Marvel.",
+    "Control de Daños aparece desde Spider-Man: De regreso a casa.",
+    "Ocurre poco antes de Avengers: Doomsday."
+  ],
+  "preguntas": [
+    ["¿De qué trata Brand New Day?", "De un Peter Parker solitario, cuatro años después de que todos lo olvidaran, que se enfrenta a una joven telépata y a cambios en sus propios poderes."],
+    ["¿Quién es la villana?", "Jean Grey, una mutante adolescente que ataca a Control de Daños porque mataron a su hermana."],
+    ["¿MJ y Ned recuerdan a Peter?", "Ned lo recuerda al final, gracias a su saludo secreto. MJ todavía no."],
+    ["¿Salen Punisher y Hulk?", "Sí. Punisher ayuda a Peter, y Bruce Banner lo aconseja y acaba transformado en Hulk."],
+    ["¿Qué les pasa a los poderes de Peter?", "Evolucionan: ahora lanza telaraña de su propio cuerpo y sus sentidos son más fuertes."],
+    ["¿Qué era V-Max?", "El rótulo de una rejilla de ventilación, lo último que vio la hermana de Jean antes de morir."]
+  ],
+  "curiosidades": [
+    "El papel de Sadie Sink se mantuvo en secreto hasta el estreno.",
+    "Tom Holland llevó el traje en la mayor parte del rodaje, mucho más que en las películas anteriores.",
+    "Se rodó en las calles de Glasgow, en Escocia, que hacen de Nueva York.",
+    "Es la primera película de este Spider-Man centrada en el crimen de calle y no en una amenaza mundial."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "titulo": "Thor: El mundo oscuro",
+  "anio": 2013,
+  "saga": "Saga del Infinito · Fase 2",
+  "ficha": [
+    ["Título original", "Thor: The Dark World"],
+    ["Estreno", "30 de octubre de 2013 (Reino Unido) y 8 de noviembre de 2013 (Estados Unidos)"],
+    ["Dirección", "Alan Taylor"],
+    ["Guion", "Christopher Yost, Christopher Markus y Stephen McFeely"],
+    ["Reparto principal", "Chris Hemsworth (Thor), Natalie Portman (Jane Foster), Tom Hiddleston (Loki), Anthony Hopkins (Odín), Christopher Eccleston (Malekith), Rene Russo (Frigga), Idris Elba (Heimdall), Kat Dennings (Darcy Lewis), Stellan Skarsgård (Erik Selvig), Jaimie Alexander (Sif)"],
+    ["Duración", "112 minutos"],
+    ["Música", "Brian Tyler"],
+    ["Lugar en el universo", "Octava película del Universo Cinematográfico de Marvel. Fase 2"],
+    ["Cronología interna", "2013, un año después de la Batalla de Nueva York"],
+    ["Recaudación", "Cerca de 645 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["El Éter", "Jane lo absorbe en Londres"],
+    ["Asgard", "Malekith ataca y muere Frigga"],
+    ["La alianza", "Thor libera a Loki"],
+    ["Svartalfheim", "Loki «muere»"],
+    ["Greenwich", "Batalla en la Convergencia"]
+  ],
+  "actos": [
+    ["Prólogo: los Elfos Oscuros", [
+      "Hace miles de años, Bor, padre de Odín, venció a los Elfos Oscuros de Svartalfheim. Su líder, Malekith, quería usar un arma llamada el Éter durante la Convergencia, una alineación de los Nueve Reinos que ocurre cada cinco mil años, para devolver el universo a la oscuridad. Malekith huyó y durmió con sus últimos soldados; Bor escondió el Éter donde nadie pudiera encontrarlo."
+    ]],
+    ["Acto 1: La paz de los Nueve Reinos y el hallazgo de Jane", [
+      "Loki está preso en los calabozos de Asgard por sus crímenes en Nueva York. Thor, junto a Sif y los Tres Guerreros, pacifica los Nueve Reinos, que quedaron en caos tras la destrucción del Bifrost. Odín quiere que sea rey, pero Thor solo piensa en Jane Foster.",
+      "En Londres, Jane, su becaria Darcy y el nuevo becario Ian investigan un almacén donde los objetos desaparecen y reaparecen: la Convergencia está abriendo portales entre mundos. Jane cae por uno de ellos hasta el lugar donde está escondido el Éter, que entra en su cuerpo.",
+      "Heimdall deja de ver a Jane y Thor baja a buscarla. Al notar que algo la protege con una fuerza desconocida, la lleva a Asgard. Odín reconoce el Éter y advierte que la matará. El despertar del Éter también despierta a Malekith."
+    ]],
+    ["Acto 2: El ataque a Asgard y la alianza con Loki", [
+      "Malekith convierte a su lugarteniente Algrim en Kurse, un guerrero casi invencible, y lo infiltra entre los prisioneros de Asgard para desactivar las defensas. Los Elfos Oscuros atacan el palacio. Frigga, madre de Thor y de Loki, protege a Jane con sus ilusiones y muere a manos de Kurse y Malekith.",
+      "Tras el funeral, Odín cierra el Bifrost y decide esperar el siguiente ataque. Thor lo desobedece: libera a Loki, el único que conoce una salida secreta de Asgard, y con ayuda de Sif, Volstagg, Fandral y Heimdall se lleva a Jane a Svartalfheim para que Malekith le saque el Éter y así poder destruirlo.",
+      "En Svartalfheim, Loki finge traicionar a Thor para acercarse a Malekith. El elfo extrae el Éter de Jane, pero el plan de destruirlo falla. Loki mata a Kurse y recibe una herida que parece mortal: muere en brazos de Thor."
+    ]],
+    ["Acto 3: La batalla de Greenwich", [
+      "Thor y Jane vuelven a Londres por un portal dentro de una cueva. Se reúnen con Darcy, Ian y el doctor Erik Selvig, que estaba internado tras ser controlado por Loki y que ha construido unos aparatos capaces de alterar los portales.",
+      "La Convergencia alcanza su punto máximo en Greenwich. Malekith llega con su nave para liberar el Éter. Thor y él pelean atravesando portales de un reino a otro, mientras el martillo Mjolnir da vueltas intentando alcanzar a su dueño. Con los aparatos de Selvig, Thor envía a Malekith a pedazos a Svartalfheim, donde su propia nave lo aplasta.",
+      "De vuelta en Asgard, Thor rechaza el trono ante Odín y elige volver a la Tierra. Cuando se marcha, «Odín» revela su verdadero rostro: es Loki, vivo y sentado en el trono."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["T", "Thor"], ["J", "Jane"], ["L", "Loki"], ["M", "Malekith"], ["F", "Frigga"], ["O", "Odín"]],
+    "enlaces": [["T", "J", "pareja"], ["T", "L", "hermanos"], ["T", "O", "hijo"], ["L", "F", "hijo adoptivo"], ["M", "F", "la mata"], ["M", "J", "quiere el Éter"]]
+  },
+  "personajes": [
+    ["Thor", "Dios del trueno y príncipe de Asgard. Debe elegir entre el trono y su vida junto a Jane en la Tierra."],
+    ["Jane Foster", "Astrofísica. Absorbe el Éter por accidente y se convierte en el objetivo de Malekith."],
+    ["Loki", "Hermano adoptivo de Thor, preso en Asgard. Ayuda a Thor para vengar a Frigga, finge su muerte y termina ocupando el trono disfrazado de Odín."],
+    ["Malekith", "Líder de los Elfos Oscuros. Quiere usar el Éter durante la Convergencia para sumir los Nueve Reinos en la oscuridad."],
+    ["Algrim, llamado Kurse", "Lugarteniente de Malekith. Una piedra maldita lo transforma en un guerrero enorme capaz de vencer a Thor."],
+    ["Odín", "Rey de Asgard. Tras la muerte de Frigga se vuelve rígido y prefiere esperar al enemigo."],
+    ["Frigga", "Reina de Asgard y madre de Thor y Loki. Enseñó a Loki su magia de ilusiones. Muere protegiendo a Jane."],
+    ["Heimdall", "Guardián del Bifrost que todo lo ve. Ayuda a Thor a escapar de Asgard, aunque eso sea traición."],
+    ["Darcy Lewis e Ian", "La becaria de Jane y su propio becario. Aportan el humor y ayudan en la batalla final."],
+    ["Erik Selvig", "Astrofísico afectado por el control mental de Loki. Sus aparatos permiten vencer a Malekith."],
+    ["Sif y los Tres Guerreros", "Sif, Volstagg, Fandral y Hogun, compañeros de armas de Thor."],
+    ["El Coleccionista", "Taneleer Tivan, guardián de una enorme colección de rarezas en Knowhere. Recibe el Éter para custodiarlo."]
+  ],
+  "cosas": [
+    ["El Éter", "Arma líquida de color rojo que se mete en el cuerpo de quien la toca. Es la Gema de la Realidad, una de las seis Gemas del Infinito."],
+    ["La Convergencia", "Alineación de los Nueve Reinos que sucede cada cinco mil años. Mientras dura, se abren portales entre los mundos."],
+    ["Svartalfheim", "El Mundo Oscuro, hogar en ruinas de los Elfos Oscuros."],
+    ["Los Nueve Reinos", "Los mundos unidos por el árbol Yggdrasil, entre ellos Asgard, Midgard (la Tierra), Jotunheim, Vanaheim y Svartalfheim."],
+    ["Mjolnir", "El martillo de Thor. En la batalla final lo persigue de portal en portal."],
+    ["Calabozos de Asgard", "La prisión donde Loki cumple condena y por donde entra Kurse."],
+    ["Greenwich", "Zona de Londres donde ocurre la batalla final, en el antiguo Colegio Naval."]
+  ],
+  "creditos": "Hay dos escenas. En la primera, Sif y Volstagg entregan el Éter al Coleccionista, porque guardar dos Gemas del Infinito juntas en Asgard (el Teseracto ya está allí) sería imprudente; él murmura: «Una menos, faltan cinco». En la segunda, Thor regresa con Jane en Londres, mientras una bestia de Jotunheim que se coló por un portal corre suelta por la ciudad.",
+  "conexiones": [
+    "Es la primera película donde se nombran las Gemas del Infinito; el Éter reaparece como Gema de la Realidad en Vengadores: Infinity War.",
+    "El Coleccionista vuelve en Guardianes de la Galaxia.",
+    "Loki en el trono de Asgard se resuelve en Thor: Ragnarok.",
+    "En Vengadores: Endgame, Thor regresa a este momento para recuperar el Éter y habla con Frigga antes de su muerte.",
+    "Jane Foster vuelve en Thor: Love and Thunder."
+  ],
+  "preguntas": [
+    ["¿Qué es el Éter?", "Es la Gema de la Realidad en forma de líquido rojo. Se aloja dentro de un ser vivo y le da poder, pero lo va consumiendo."],
+    ["¿Quién es Malekith?", "El líder de los Elfos Oscuros, que quiere apagar la luz de los Nueve Reinos usando el Éter."],
+    ["¿Loki muere en esta película?", "No. Finge su muerte en Svartalfheim y al final aparece ocupando el trono con la apariencia de Odín."],
+    ["¿Quién mata a Frigga?", "Kurse y Malekith, durante el ataque a Asgard, cuando ella protege a Jane."],
+    ["¿Qué es la Convergencia?", "Una alineación de los Nueve Reinos que abre portales entre ellos. Sucede cada cinco mil años."],
+    ["¿Por qué le dan el Éter al Coleccionista?", "Porque en Asgard ya estaba el Teseracto, y no conviene guardar dos Gemas del Infinito en el mismo lugar."]
+  ],
+  "curiosidades": [
+    "Chris Evans hace una aparición breve: Loki se transforma en el Capitán América para burlarse de Thor.",
+    "Stan Lee aparece como paciente del hospital psiquiátrico donde está Selvig y pide que le devuelvan su zapato.",
+    "El director, Alan Taylor, venía de la serie Juego de Tronos.",
+    "Es la película donde por primera vez se dice en voz alta la expresión «Gemas del Infinito»."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "titulo": "Ant-Man",
+  "anio": 2015,
+  "saga": "Saga del Infinito · Fase 2",
+  "ficha": [
+    ["Título original", "Ant-Man"],
+    ["Estreno", "17 de julio de 2015 (Estados Unidos)"],
+    ["Dirección", "Peyton Reed"],
+    ["Guion", "Edgar Wright, Joe Cornish, Adam McKay y Paul Rudd"],
+    ["Reparto principal", "Paul Rudd (Scott Lang), Michael Douglas (Hank Pym), Evangeline Lilly (Hope van Dyne), Corey Stoll (Darren Cross), Michael Peña (Luis), Bobby Cannavale (Paxton), Judy Greer (Maggie), Abby Ryder Fortson (Cassie Lang), T.I. (Dave), David Dastmalchian (Kurt), Anthony Mackie (Sam Wilson)"],
+    ["Duración", "117 minutos"],
+    ["Música", "Christophe Beck"],
+    ["Lugar en el universo", "Última película de la Fase 2"],
+    ["Cronología interna", "2015, poco después de Vengadores: La era de Ultrón; prólogo en 1989"],
+    ["Recaudación", "Cerca de 519 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["1989", "Hank Pym deja S.H.I.E.L.D."],
+    ["El robo", "Scott encuentra el traje"],
+    ["Entrenar", "Encoger y mandar hormigas"],
+    ["El golpe", "Asalto a Pym Technologies"],
+    ["Subatómico", "Scott entra al Reino Cuántico"]
+  ],
+  "actos": [
+    ["Prólogo: 1989", [
+      "En la sede en construcción de S.H.I.E.L.D., el científico Hank Pym renuncia furioso ante Howard Stark, Peggy Carter y Mitchell Carson al descubrir que intentaron copiar su invento, la Partícula Pym, que reduce la distancia entre los átomos. Jura que nadie tendrá la fórmula mientras él viva."
+    ]],
+    ["Acto 1: Un ladrón con buen corazón", [
+      "En San Francisco, Scott Lang sale de la cárcel de San Quintín. Es ingeniero eléctrico y cumplió tres años por entrar en la empresa donde trabajaba y devolver a los clientes el dinero que les habían cobrado de más. Quiere recuperar a su hija Cassie, pero su exesposa Maggie y el prometido de ella, el policía Paxton, le exigen un trabajo y una pensión.",
+      "Lo despiden por sus antecedentes y acepta un golpe que le propone su amigo Luis: la casa de un anciano rico con una caja fuerte enorme. Scott la abre con ingenio y solo encuentra un traje viejo de motociclista con un casco. Al probárselo en casa se encoge hasta el tamaño de una hormiga y casi muere en la bañera, en una pista de baile y en la calle.",
+      "Asustado, devuelve el traje y la policía lo arresta. El anciano, Hank Pym, lo visita en la celda: todo fue una prueba. Las hormigas le llevan el traje encogido y Scott escapa."
+    ]],
+    ["Acto 2: Aprender a ser Ant-Man", [
+      "Hank fue expulsado de su propia empresa, Pym Technologies, por su antiguo discípulo Darren Cross, con el voto de su hija, Hope van Dyne. Cross está a punto de lograr su propia versión de la partícula y de un traje de combate, el Yellowjacket (Chaqueta Amarilla), que piensa vender al mejor postor. Hope trabaja junto a Cross y espía para su padre.",
+      "Hank y Hope entrenan a Scott para robar el traje Yellowjacket. Aprende a encogerse para pasar por una cerradura, a pegar con la fuerza de una bala y a dirigir hormigas con un aparato en el oído: carpinteras voladoras, hormigas bala, hormigas locas que conducen electricidad y hormigas de fuego que forman puentes. Scott monta a una carpintera a la que llama Antony.",
+      "Hope no entiende por qué su padre no la deja ponerse el traje. Hank le confiesa por fin la verdad: su madre, Janet van Dyne, era la Avispa. En 1987, para desactivar un misil soviético, se encogió más allá del límite y se perdió en el Reino Cuántico, un lugar donde el tiempo y el espacio dejan de tener sentido. Hank teme perder también a Hope.",
+      "Para conseguir un aparato que necesitan, Scott entra en un almacén que resulta ser la nueva base de los Vengadores. Allí pelea contra Falcon, Sam Wilson, y logra escapar con la pieza."
+    ]],
+    ["Acto 3: El golpe y el Reino Cuántico", [
+      "Scott, Hope y Hank asaltan Pym Technologies con la ayuda de Luis, Dave y Kurt. Cross los esperaba: quiere vender el traje y las partículas a Mitchell Carson, que trabaja para HYDRA. Hank resulta herido de bala, Carson escapa con un frasco de partículas y el edificio queda destruido.",
+      "Cross se pone el Yellowjacket. Pelea con Scott dentro de un helicóptero, dentro de un maletín que cae al vacío y finalmente en la habitación de Cassie, sobre un tren de juguete que crece hasta atravesar la pared de la casa.",
+      "Para sabotear el traje blindado de Cross, Scott se encoge hasta el tamaño subatómico y se cuela entre sus moléculas. Cross muere, pero Scott sigue encogiendo sin fin dentro del Reino Cuántico. Escuchando la voz de su hija, cambia el regulador del traje por un disco de agrandar y consigue volver. Paxton lo encubre y Scott queda en paz con su familia. Hank comprende que, si Scott volvió, quizá Janet siga viva."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Scott"], ["H", "Hank"], ["V", "Hope"], ["C", "Cross"], ["L", "Luis"], ["K", "Cassie"]],
+    "enlaces": [["S", "H", "aprendiz"], ["H", "V", "padre e hija"], ["H", "C", "antiguo discípulo"], ["S", "L", "amigos"], ["S", "K", "padre e hija"], ["S", "V", "lo entrena"]]
+  },
+  "personajes": [
+    ["Scott Lang", "Ingeniero y ladrón que se convierte en Ant-Man para ganarse de nuevo a su hija."],
+    ["Hank Pym", "Científico que inventó la Partícula Pym y fue el primer Ant-Man. Esconde su tecnología desde hace décadas."],
+    ["Hope van Dyne", "Hija de Hank, ejecutiva de Pym Technologies. Sabe pelear y dominar a las hormigas mejor que Scott."],
+    ["Darren Cross", "Discípulo de Hank que le quitó la empresa. Su propia fórmula le ha dañado la mente. Usa el traje Yellowjacket."],
+    ["Cassie Lang", "Hija de Scott. Cree en su padre aunque nadie más lo haga."],
+    ["Luis", "Amigo y excompañero de celda de Scott. Cuenta historias larguísimas llenas de detalles inútiles."],
+    ["Dave y Kurt", "El conductor y el experto en informática del grupo de Luis."],
+    ["Paxton", "Policía de San Francisco y prometido de Maggie. Persigue a Scott y acaba respetándolo."],
+    ["Maggie", "Exesposa de Scott y madre de Cassie."],
+    ["Janet van Dyne", "La primera Avispa, esposa de Hank, perdida en el Reino Cuántico desde 1987."],
+    ["Mitchell Carson", "Antiguo jefe de defensa de S.H.I.E.L.D. que en realidad es de HYDRA."],
+    ["Sam Wilson", "Falcon, de los Vengadores. Pelea con Scott y luego lo busca."]
+  ],
+  "cosas": [
+    ["Partícula Pym", "Fórmula que reduce o aumenta el espacio entre los átomos. Permite encoger y agrandar objetos y personas."],
+    ["Traje de Ant-Man", "Traje con casco de los años sesenta que encoge a quien lo lleva conservando su fuerza."],
+    ["Yellowjacket", "Traje de combate de Darren Cross, amarillo y negro, con aguijones que disparan láser."],
+    ["Reino Cuántico", "Dimensión subatómica a la que se llega encogiéndose sin límite. Allí el tiempo no funciona como fuera."],
+    ["Hormigas", "Las aliadas de Ant-Man. Cada especie sirve para algo distinto y se dirigen con ondas desde un auricular."],
+    ["Discos de Pym", "Discos arrojadizos: los rojos encogen lo que tocan y los azules lo agrandan."],
+    ["Pym Technologies", "La empresa fundada por Hank Pym, en San Francisco."],
+    ["Tanque llavero", "Un tanque de guerra encogido que Hank lleva de llavero y usa para escapar."]
+  ],
+  "creditos": "A mitad de los créditos, Hank le enseña a Hope un prototipo nuevo del traje de la Avispa que había empezado con Janet, y ella responde que ya era hora. Al final, Steve Rogers y Sam Wilson tienen a Bucky Barnes con el brazo atrapado; como no pueden recurrir a Tony Stark, Sam dice que conoce a alguien.",
+  "conexiones": [
+    "La escena final pertenece a Capitán América: Civil War, donde Scott se une al bando del Capitán América.",
+    "Hope estrena el traje en Ant-Man y la Avispa, donde buscan a Janet en el Reino Cuántico.",
+    "El Reino Cuántico es la clave del viaje en el tiempo de Vengadores: Endgame.",
+    "Howard Stark y Peggy Carter aparecen en el prólogo, enlazando con Capitán América: El primer vengador."
+  ],
+  "preguntas": [
+    ["¿Quién es Ant-Man?", "Scott Lang, un ladrón con buen corazón que usa el traje inventado por Hank Pym. Hank fue el Ant-Man original."],
+    ["¿Cómo funciona el traje?", "Con la Partícula Pym, que reduce el espacio entre los átomos. Quien lo usa se encoge pero conserva su fuerza."],
+    ["¿Qué es el Reino Cuántico?", "Una dimensión subatómica. Si alguien se encoge demasiado cae en ella y puede quedar atrapado para siempre."],
+    ["¿Quién es el villano?", "Darren Cross, que copia la tecnología de Hank y crea el traje Yellowjacket."],
+    ["¿Qué le pasó a la esposa de Hank Pym?", "Janet van Dyne se perdió en el Reino Cuántico en 1987 al desactivar un misil."],
+    ["¿Cómo controla Scott a las hormigas?", "Con un aparato en el oído que emite ondas que las hormigas entienden."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece como un cantinero en una de las historias de Luis.",
+    "El proyecto fue desarrollado durante años por el director Edgar Wright, que lo dejó antes del rodaje.",
+    "Michael Douglas fue rejuvenecido por ordenador para la escena de 1989.",
+    "Es la película de la Saga del Infinito con menos escala: casi todo ocurre en una casa, una empresa y una habitación infantil."
+  ]
+}

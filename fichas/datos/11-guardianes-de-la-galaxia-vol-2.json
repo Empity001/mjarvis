@@ -1,0 +1,95 @@
+{
+  "titulo": "Guardianes de la Galaxia Vol. 2",
+  "anio": 2017,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Guardians of the Galaxy Vol. 2"],
+    ["Estreno", "5 de mayo de 2017 (Estados Unidos)"],
+    ["Dirección", "James Gunn"],
+    ["Guion", "James Gunn"],
+    ["Reparto principal", "Chris Pratt (Peter Quill), Zoe Saldaña (Gamora), Dave Bautista (Drax), Bradley Cooper (voz de Rocket), Vin Diesel (voz de Groot bebé), Kurt Russell (Ego), Michael Rooker (Yondu), Karen Gillan (Nébula), Pom Klementieff (Mantis), Elizabeth Debicki (Ayesha), Sean Gunn (Kraglin), Sylvester Stallone (Stakar Ogord)"],
+    ["Duración", "136 minutos"],
+    ["Música", "Tyler Bates, con las canciones del casete Awesome Mix Vol. 2"],
+    ["Lugar en el universo", "Se estrenó en la Fase 3, pero su historia ocurre justo después de la primera, por eso va aquí en el orden cronológico"],
+    ["Cronología interna", "2014, unos meses después de Guardianes de la Galaxia; prólogo en 1980"],
+    ["Recaudación", "Cerca de 864 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Los Soberanos", "Rocket roba las baterías"],
+    ["Ego", "Aparece el padre de Peter"],
+    ["El motín", "Yondu pierde a su tripulación"],
+    ["La verdad", "Ego mató a Meredith"],
+    ["Yondu", "Se sacrifica por Peter"]
+  ],
+  "actos": [
+    ["Prólogo: Misuri, 1980", [
+      "Un hombre joven, Ego, pasea con Meredith Quill, de quien está enamorado, y le enseña una planta extraña que ha sembrado en el bosque."
+    ]],
+    ["Acto 1: Los Soberanos y la llegada de Ego", [
+      "Los Guardianes trabajan para los Soberanos, un pueblo de piel dorada dirigido por la sacerdotisa Ayesha. Deben proteger unas baterías muy valiosas de un monstruo. Mientras pelean, el Groot bebé baila. Como pago reciben a Nébula, que estaba prisionera.",
+      "Rocket roba algunas baterías y los Soberanos los persiguen con una flota de naves manejadas a distancia. Una figura de pie sobre una nave destruye la flota entera. Los Guardianes se estrellan en el planeta Berhert, y el desconocido se presenta: es Ego, el padre de Peter.",
+      "Ego y su asistente Mantis, que siente y altera las emociones al tocar, se llevan a Peter, Gamora y Drax a su planeta. Rocket, Groot y Nébula se quedan reparando la nave."
+    ]],
+    ["Acto 2: El planeta de Ego y el motín de los Devastadores", [
+      "Ayesha contrata a Yondu para capturar a los Guardianes. Yondu está desterrado de los Devastadores por orden de Stakar Ogord, porque rompió su código al traficar con niños. Cuando Yondu duda en entregar a Peter, su tripulación se amotina, dirigida por un pirata que se hace llamar Taserface. Nébula se libera y se marcha a buscar a Gamora.",
+      "Presos en su propia nave, Yondu y Rocket mandan al Groot bebé a buscar la aleta que controla la flecha. Con ella, Yondu acaba con los amotinados y escapa con Rocket, Groot y su fiel Kraglin.",
+      "Ego revela que es un Celestial: un ser antiquísimo cuyo verdadero cuerpo es un cerebro en el centro del planeta. Enseña a Peter a usar su poder. Gamora y Nébula pelean y por fin hablan: Thanos las obligaba a luchar, y cada vez que Nébula perdía le cambiaba una parte del cuerpo por una máquina. Mantis confiesa a Drax que Ego esconde algo terrible.",
+      "Ego plantó semillas suyas en miles de mundos y tuvo hijos con seres de muchas especies buscando otro Celestial que le diera la energía para la Expansión: convertirlo todo en una extensión de sí mismo. Mató a los hijos que no heredaron su poder. Y admite que fue él quien puso el tumor en la cabeza de Meredith, porque el amor que sentía por ella lo distraía."
+    ]],
+    ["Acto 3: La batalla contra un planeta", [
+      "Peter ataca a su padre. Los Guardianes bajan al núcleo para poner una bomba en el cerebro de Ego, y solo el Groot bebé cabe por las grietas. Mantis duerme a Ego para ganar tiempo. La flota de los Soberanos vuelve a atacar.",
+      "Peter usa su poder de Celestial para pelear de igual a igual. La bomba estalla y Ego muere; con él desaparece el poder de Peter, que vuelve a ser un humano corriente.",
+      "Yondu saca a Peter del planeta que se deshace, pero solo hay un traje espacial y se lo pone a él. Antes de morir congelado le dice que Ego habrá sido su padre, pero no fue su papá. Los Devastadores, avisados por Rocket, acuden al funeral y lo despiden con fuegos de colores. Kraglin le regala a Peter un reproductor Zune y hereda la flecha."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["Q", "Quill"], ["E", "Ego"], ["Y", "Yondu"], ["G", "Gamora"], ["N", "Nébula"], ["M", "Mantis"]],
+    "enlaces": [["Q", "E", "padre biológico"], ["Q", "Y", "padre de crianza"], ["G", "N", "hermanas"], ["E", "M", "la crió como sirvienta"], ["Q", "G", "amor no dicho"], ["E", "Y", "lo contrató"]]
+  },
+  "personajes": [
+    ["Peter Quill, Star-Lord", "Descubre que es hijo de un Celestial y que ese poder viene con un precio. Al final entiende que su verdadero padre fue Yondu."],
+    ["Ego", "Un Celestial, un planeta viviente que toma forma humana. Padre de Peter y villano de la historia."],
+    ["Yondu Udonta", "Jefe de los Devastadores que crió a Peter. Ego lo contrató para llevarle a sus hijos, pero al saber lo que les pasaba se quedó con Peter."],
+    ["Gamora", "Intenta entender a su hermana y sospecha de Ego desde el principio."],
+    ["Nébula", "Hija de Thanos llena de rencor. Tras reconciliarse con Gamora se marcha decidida a matar a Thanos."],
+    ["Drax", "Se hace amigo de Mantis a su manera brutalmente sincera."],
+    ["Rocket", "Aleja a todos con su mal genio. Yondu le hace ver que los dos se portan igual por miedo."],
+    ["Groot bebé", "El brote de Groot, pequeño, inocente y poco obediente."],
+    ["Mantis", "Empática criada por Ego. Al tocar a alguien siente lo que siente y puede calmarlo o dormirlo."],
+    ["Ayesha", "Suma sacerdotisa de los Soberanos, orgullosa y vengativa."],
+    ["Kraglin", "Segundo de Yondu. Participa en el motín sin querer y luego lo ayuda."],
+    ["Stakar Ogord", "Capitán legendario de los Devastadores que desterró a Yondu."],
+    ["Taserface", "El pirata que encabeza el motín contra Yondu. Todos se ríen de su nombre."]
+  ],
+  "cosas": [
+    ["El planeta de Ego", "Mundo de aspecto paradisíaco que en realidad es el cuerpo de Ego."],
+    ["La Expansión", "El plan de Ego: hacer crecer sus semillas hasta cubrir todos los mundos."],
+    ["Celestiales", "Seres antiquísimos de poder inmenso. Ego es uno; la cabeza de otro es Knowhere."],
+    ["Los Soberanos", "Pueblo dorado y perfeccionista que crea a sus ciudadanos en cápsulas."],
+    ["Baterías Anulax", "Fuentes de energía muy valiosas que Rocket roba."],
+    ["Aleta de Yondu", "La cresta que le permite dirigir la flecha Yaka con silbidos."],
+    ["Awesome Mix Vol. 2", "El segundo casete de la madre de Peter."],
+    ["El Zune", "Reproductor con trescientas canciones que Peter recibe al final."]
+  ],
+  "creditos": "Hay cinco escenas. Kraglin practica con la flecha y se la clava a Drax. Stakar Ogord reúne a su antiguo equipo de Devastadores. Ayesha crea un ser perfecto para destruir a los Guardianes y lo llama Adam. Groot aparece ya adolescente y malhumorado. Y Stan Lee les cuenta sus historias a unos Vigilantes, que se aburren y se van.",
+  "conexiones": [
+    "Adam Warlock, el ser que crea Ayesha, aparece en Guardianes de la Galaxia Vol. 3.",
+    "Nébula persigue a Thanos y llega a Vengadores: Infinity War.",
+    "Mantis se queda con el equipo; en el especial navideño de los Guardianes se revela que también es hija de Ego.",
+    "Los Vigilantes de la escena final protagonizan la serie animada What If...?"
+  ],
+  "preguntas": [
+    ["¿Quién es el padre de Star-Lord?", "Ego, un Celestial: un planeta viviente que tomó forma humana."],
+    ["¿Por qué Ego es el villano?", "Porque quería usar a Peter para absorber todos los mundos, y porque él mismo provocó la enfermedad que mató a la madre de Peter."],
+    ["¿Cómo muere Yondu?", "Le da a Peter el único traje espacial al huir del planeta de Ego y muere en el espacio."],
+    ["¿Peter conserva sus poderes?", "No. Los pierde cuando muere Ego."],
+    ["¿Quién es Mantis?", "Una empática que servía a Ego y se une a los Guardianes."],
+    ["¿Por qué Groot es pequeño?", "Porque es el brote que creció tras el sacrificio del Groot adulto."]
+  ],
+  "curiosidades": [
+    "Aunque se estrenó en 2017, la historia ocurre en 2014, pocos meses después de la primera película.",
+    "David Hasselhoff aparece brevemente y canta una canción de los créditos.",
+    "Stan Lee aparece con los Vigilantes, confirmando que todos sus cameos son el mismo personaje.",
+    "Kurt Russell fue rejuvenecido por ordenador para el prólogo de 1980."
+  ]
+}

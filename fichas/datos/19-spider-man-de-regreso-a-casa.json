@@ -1,0 +1,96 @@
+{
+  "titulo": "Spider-Man: De regreso a casa",
+  "anio": 2017,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Spider-Man: Homecoming"],
+    ["Estreno", "7 de julio de 2017 (Estados Unidos)"],
+    ["Dirección", "Jon Watts"],
+    ["Guion", "Jonathan Goldstein, John Francis Daley, Jon Watts, Christopher Ford, Chris McKenna y Erik Sommers"],
+    ["Reparto principal", "Tom Holland (Peter Parker), Michael Keaton (Adrian Toomes), Robert Downey Jr. (Tony Stark), Marisa Tomei (May Parker), Jon Favreau (Happy Hogan), Zendaya (Michelle), Jacob Batalon (Ned), Laura Harrier (Liz), Tony Revolori (Flash), Bokeem Woodbine (Herman Schultz), Donald Glover (Aaron Davis)"],
+    ["Duración", "133 minutos"],
+    ["Música", "Michael Giacchino"],
+    ["Lugar en el universo", "Fase 3. Coproducción de Marvel Studios y Sony"],
+    ["Cronología interna", "Otoño de 2016, unos meses después de Capitán América: Civil War"],
+    ["Recaudación", "Cerca de 880 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["2012", "Toomes pierde su contrato"],
+    ["Queens", "El amigable vecino"],
+    ["Washington", "Rescate en el monumento"],
+    ["El ferry", "Tony le quita el traje"],
+    ["El baile", "El Buitre es el padre de Liz"]
+  ],
+  "actos": [
+    ["Prólogo: los restos de la batalla", [
+      "En 2012, tras la batalla de Nueva York, la empresa de Adrian Toomes recoge los restos de los Chitauri. Llega Control de Daños, una agencia creada por Tony Stark y el gobierno, y lo deja sin trabajo y endeudado. Toomes se queda con un camión de tecnología alienígena y decide usarla: durante años, él y los suyos fabrican armas y las venden en secreto.",
+      "En 2016, Peter Parker, de quince años, graba con su teléfono su viaje a Alemania para la pelea del aeropuerto. Tony lo devuelve a Queens con el traje y un consejo: que sea un amigable Spider-Man de barrio. Happy Hogan queda encargado de atender sus llamadas."
+    ]],
+    ["Acto 1: Esperando la llamada", [
+      "Pasan dos meses. Peter deja sus actividades en la escuela Midtown de Ciencia y Tecnología para patrullar cada tarde, y espera una misión que nunca llega. Detiene robos de bicicletas y ayuda a una señora a encontrar una calle.",
+      "Una noche sorprende a unos ladrones que abren un cajero con armas de energía; la tienda del señor Delmar acaba destruida. Su mejor amigo, Ned, lo descubre entrando por la ventana con el traje, y desde entonces quiere ser «el tipo de la silla».",
+      "Peter sigue a los vendedores de esas armas. El jefe aparece con unas alas mecánicas: el Buitre. Lo levanta por los aires y lo suelta en un lago; una armadura de Iron Man a control remoto lo saca del agua. Tony le ordena dejar el asunto."
+    ]],
+    ["Acto 2: Sin rueditas", [
+      "Peter y Ned quitan del traje el «protocolo de rueditas de entrenamiento» y despiertan a su inteligencia artificial, a la que Peter llama Karen. Con el equipo de decatlón académico viaja a Washington. Un núcleo Chitauri que Ned lleva en la mochila estalla en el ascensor del Monumento a Washington, y Peter escala el obelisco para salvar a sus compañeros, entre ellos Liz, la chica que le gusta.",
+      "De vuelta en Nueva York, intenta atrapar al Buitre en el ferry de Staten Island e interrumpe sin saberlo una operación del FBI. Un arma parte el barco en dos. Peter lo sujeta con telarañas hasta que llega Iron Man y lo suelda.",
+      "Tony le quita el traje. Peter dice que sin él no es nada; Tony responde que, si no es nada sin el traje, entonces no debería tenerlo."
+    ]],
+    ["Acto 3: El baile de bienvenida", [
+      "Peter vuelve a su vida normal e invita a Liz al baile. Cuando va a recogerla, le abre la puerta su padre: Adrian Toomes. En el coche, Toomes ata cabos y descubre quién es. Le da las gracias por salvar a su hija y le promete matarlo a él y a todos los que quiere si vuelve a meterse.",
+      "Peter deja a Liz en el baile y sale con su viejo traje casero. Ned lo ayuda contra Shocker. Toomes le derrumba encima un almacén; atrapado y sin nadie que lo ayude, Peter ve su reflejo en un charco, se repite la frase de Tony y levanta los escombros él solo.",
+      "Toomes asalta el avión que traslada el equipo de la Torre de los Vengadores a su nueva sede. Pelean sobre el fuselaje hasta que el avión se estrella en la playa de Coney Island. El traje del Buitre estalla y Peter saca a Toomes del fuego y lo deja atado para la policía.",
+      "Liz se muda a otro estado. Tony ofrece a Peter un traje nuevo y un puesto en los Vengadores, con rueda de prensa incluida. Peter lo rechaza: prefiere seguir cerca del suelo. En casa encuentra su traje devuelto en una bolsa de papel, y la tía May lo ve con él puesto."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["P", "Peter"], ["T", "Tony"], ["B", "Toomes"], ["N", "Ned"], ["L", "Liz"], ["M", "May"]],
+    "enlaces": [["T", "P", "mentor"], ["P", "B", "enemigos"], ["P", "N", "mejores amigos"], ["P", "L", "le gusta"], ["B", "L", "padre e hija"], ["M", "P", "tía"]]
+  },
+  "personajes": [
+    ["Peter Parker", "Spider-Man, de quince años. Listo, impaciente y con muchas ganas de demostrar que merece ser un Vengador."],
+    ["Adrian Toomes", "El Buitre. Un trabajador arruinado que se volvió traficante de armas para mantener a su familia. Desprecia a los ricos como Stark."],
+    ["Tony Stark", "Mentor de Peter. Quiere ser para él el padre que Howard no fue."],
+    ["Happy Hogan", "Jefe de seguridad de Stark y niñera a disgusto de Peter."],
+    ["May Parker", "Tía de Peter, con quien vive en Queens."],
+    ["Ned Leeds", "Mejor amigo de Peter. El primero en saber su secreto."],
+    ["Liz", "Capitana del equipo de decatlón, de último año. Hija de Toomes."],
+    ["Michelle Jones", "Compañera observadora y sarcástica. Al final dice que sus amigos la llaman MJ."],
+    ["Flash Thompson", "El compañero rico que se burla de Peter."],
+    ["Herman Schultz", "Shocker. Usa un guante que lanza golpes de vibración."],
+    ["Phineas Mason", "El inventor que fabrica las armas de Toomes."],
+    ["Aaron Davis", "Delincuente al que Peter interroga. Menciona que tiene un sobrino."],
+    ["Mac Gargan", "Comprador de armas que acaba preso. En los cómics es el Escorpión."]
+  ],
+  "cosas": [
+    ["Traje de Stark", "El traje de Spider-Man hecho por Tony: 576 combinaciones de telaraña, dron, paracaídas y una inteligencia artificial, Karen."],
+    ["Alas del Buitre", "Exoesqueleto volador hecho con tecnología Chitauri y motores de Stark."],
+    ["Control de Daños", "Agencia de Stark y del gobierno que recoge los restos de las batallas de superhéroes."],
+    ["Armas Chitauri", "Armas híbridas que Toomes vende: cañones de energía, guantes de impacto y granadas de antigravedad."],
+    ["Traje casero", "El primer traje de Peter: una sudadera roja y azul con gafas."],
+    ["Traje Araña de Hierro", "La armadura que Tony le ofrece al final. Peter la usa en Vengadores: Infinity War."],
+    ["Decatlón académico", "El equipo de concursos de conocimiento de la escuela Midtown."]
+  ],
+  "creditos": "A mitad de los créditos, en la cárcel, Mac Gargan le dice a Toomes que tiene amigos fuera que quieren conocer a Spider-Man y que ha oído que él sabe quién es; Toomes contesta que, si lo supiera, ya estaría muerto. Al final, el Capitán América, en uno de sus vídeos educativos, habla de la paciencia y de lo decepcionante que es esperar por algo que no vale la pena.",
+  "conexiones": [
+    "Empieza durante la pelea del aeropuerto de Capitán América: Civil War.",
+    "Peter usa el traje Araña de Hierro en Vengadores: Infinity War.",
+    "Control de Daños reaparece en Spider-Man: Sin camino a casa y en Ms. Marvel.",
+    "El sobrino de Aaron Davis es Miles Morales, otro Spider-Man en los cómics.",
+    "La historia sigue en Spider-Man: Lejos de casa."
+  ],
+  "preguntas": [
+    ["¿Quién es el Buitre?", "Adrian Toomes, un contratista que se quedó sin trabajo y fabrica armas con tecnología alienígena. Es el padre de Liz."],
+    ["¿Qué significa Homecoming?", "Es el baile de bienvenida de las escuelas de Estados Unidos, y también el regreso de Spider-Man al universo de Marvel Studios."],
+    ["¿Por qué Tony le quita el traje a Peter?", "Porque Peter desobedece y casi provoca una tragedia en el ferry."],
+    ["¿Peter se une a los Vengadores al final?", "No. Tony se lo ofrece y él prefiere seguir siendo un héroe de barrio."],
+    ["¿Quién es Karen?", "La inteligencia artificial del traje que Tony Stark le hizo a Peter."],
+    ["¿Sale el tío Ben?", "No. La película no cuenta el origen de Spider-Man; solo se menciona que May ha pasado por mucho."]
+  ],
+  "curiosidades": [
+    "Stan Lee aparece como Gary, un vecino que regaña a Spider-Man desde la ventana.",
+    "La escena de Peter bajo los escombros homenajea un número famoso del cómic de 1966.",
+    "Michael Keaton, el Buitre, fue Batman en 1989.",
+    "El rótulo «8 años después» es un error conocido de la cronología: entre 2012 y esta historia pasan cuatro años."
+  ]
+}

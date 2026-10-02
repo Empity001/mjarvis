@@ -1,0 +1,83 @@
+{
+  "titulo": "Guardianes de la Galaxia: Especial de Navidad",
+  "anio": 2022,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "The Guardians of the Galaxy Holiday Special"],
+    ["Estreno", "25 de noviembre de 2022 (Disney+)"],
+    ["Dirección y guion", "James Gunn"],
+    ["Reparto principal", "Chris Pratt (Peter Quill), Pom Klementieff (Mantis), Dave Bautista (Drax), Karen Gillan (Nebula), Kevin Bacon (él mismo), Sean Gunn (Kraglin), Bradley Cooper (voz de Rocket), Vin Diesel (voz de Groot), Maria Bakalova (voz de Cosmo), Michael Rooker (Yondu)"],
+    ["Duración", "44 minutos. Es un especial"],
+    ["Música", "John Murphy; canciones del grupo Old 97's"],
+    ["Lugar en el universo", "Cierre de la Fase 4"],
+    ["Cronología interna", "Navidad de 2025, entre Thor: Amor y trueno y Guardianes de la Galaxia Vol. 3"],
+    ["Tono", "Comedia navideña, tierna y absurda"]
+  ],
+  "momentos": [
+    ["Knowhere", "La nueva casa del equipo"],
+    ["La idea", "Un regalo para Peter"],
+    ["Hollywood", "Mantis y Drax en la Tierra"],
+    ["El secuestro", "Kevin Bacon"],
+    ["El regalo", "Una hermana"]
+  ],
+  "actos": [
+    ["La Navidad que Yondu arruinó", [
+      "Los Guardianes han comprado Knowhere, la ciudad construida dentro de la cabeza de un Celestial, y la están reparando. Kraglin cuenta una historia: cuando Peter Quill era niño, intentó celebrar la Navidad en la nave de los Saqueadores, y Yondu tiró el árbol y los regalos.",
+      "Peter está triste desde que perdió a Gamora. Mantis quiere animarlo, y además guarda un secreto que no se atreve a contarle: ella también es hija de Ego, así que son hermanos. Decide darle una Navidad de verdad, con el mejor regalo posible. Peter siempre habló de un héroe de la Tierra: Kevin Bacon."
+    ]],
+    ["Dos extraterrestres en Hollywood", [
+      "Mantis y Drax viajan a Los Ángeles. Los turistas se hacen fotos con ellos creyendo que van disfrazados, beben en un bar y compran un mapa de casas de famosos.",
+      "Entran en la casa de Kevin Bacon, que huye aterrado. Lo atrapan, y descubren algo que los indigna: no es un héroe, es un actor, alguien que finge. Mantis lo hipnotiza para que venga contento, y de paso se llevan adornos, luces y un muñeco de jardín."
+    ]],
+    ["El regalo", [
+      "Knowhere amanece cubierta de luces, y una banda de extraterrestres canta un villancico lleno de errores sobre Santa Claus. Peter se emociona, hasta que le traen a un hombre secuestrado. Ordena liberarlo y devolverlo a casa.",
+      "Kraglin le cuenta a Bacon cuánto ayudaron sus películas a un niño raptado. Bacon decide quedarse a la fiesta y canta con la banda.",
+      "Hay regalos para todos: Nebula le da a Rocket el brazo de Bucky Barnes, que él siempre quiso. Y Kraglin termina la historia: Yondu no tiró el regalo que Peter le hizo aquel día, lo guardó, y a la mañana siguiente le dejó a él sus dos pistolas.",
+      "A solas, Mantis le dice a Peter la verdad. Para él, que creía no tener a nadie de su sangre, es el mejor regalo de Navidad."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["P", "Peter"], ["M", "Mantis"], ["D", "Drax"], ["B", "Kevin Bacon"], ["K", "Kraglin"], ["Y", "Yondu"]],
+    "enlaces": [["M", "P", "hermanos"], ["M", "D", "compañeros de viaje"], ["M", "B", "lo secuestra"], ["Y", "P", "padre adoptivo"], ["K", "P", "le cuenta la verdad"], ["B", "P", "su héroe"]]
+  },
+  "personajes": [
+    ["Mantis", "La protagonista. Su poder de tocar emociones hace que todos obedezcan sonriendo."],
+    ["Drax", "Su compañero de viaje. Lo entiende todo al pie de la letra."],
+    ["Peter Quill", "Star-Lord, de luto por Gamora."],
+    ["Kevin Bacon", "El actor de Footloose, haciendo de sí mismo."],
+    ["Kraglin", "Antiguo segundo de Yondu. Guarda sus historias y su flecha."],
+    ["Nebula", "Mandona y, a su manera, generosa."],
+    ["Rocket y Groot", "El mapache y el árbol, que ahora es enorme y musculoso."],
+    ["Cosmo", "Perra soviética enviada al espacio, con poderes mentales. Habla."],
+    ["Yondu", "Aparece en los recuerdos, dibujado."]
+  ],
+  "cosas": [
+    ["Knowhere", "La cabeza de un Celestial muerto. Los Guardianes se la compraron al Coleccionista."],
+    ["La Bowie", "La nave nueva de los Guardianes."],
+    ["Las pistolas de Peter", "Fueron el regalo de Navidad de Yondu."],
+    ["El brazo de Bucky", "El brazo metálico del Soldado de Invierno, regalo de Nebula a Rocket."],
+    ["Los recuerdos animados", "Las escenas del pasado están hechas con dibujos calcados de imagen real."]
+  ],
+  "creditos": "Después de los créditos, Rocket y Cosmo adornan a Groot como si fuera un árbol de Navidad. Groot se mueve, todo se cae, y Rocket se queja de que ahora van a necesitar otro especial.",
+  "conexiones": [
+    "Peter mencionó a Kevin Bacon y Footloose en las dos primeras películas de los Guardianes.",
+    "El parentesco de Mantis y Peter viene de Ego, el villano de Guardianes de la Galaxia Vol. 2.",
+    "Rocket ya pedía el brazo de Bucky en Vengadores: Infinity War.",
+    "Presenta Knowhere como base, la nave y a Cosmo, que son importantes en Guardianes de la Galaxia Vol. 3.",
+    "Cosmo apareció de fondo en la colección del Coleccionista, en la primera película."
+  ],
+  "preguntas": [
+    ["¿De qué trata el especial de Navidad?", "Mantis y Drax secuestran al actor Kevin Bacon para regalárselo a Peter Quill por Navidad."],
+    ["¿Mantis y Peter Quill son hermanos?", "Sí. Los dos son hijos de Ego, y Mantis se lo cuenta al final."],
+    ["¿Por qué Kevin Bacon?", "Porque Peter, de niño, lo consideraba un gran héroe por la película Footloose."],
+    ["¿Dónde viven ahora los Guardianes?", "En Knowhere, que le compraron al Coleccionista."],
+    ["¿Quién es Cosmo?", "Una perra rusa con poderes telequinéticos que vive en Knowhere."],
+    ["¿Es importante para la historia general?", "Es ligero, pero prepara la tercera película de los Guardianes."]
+  ],
+  "curiosidades": [
+    "Se rodó al mismo tiempo que Guardianes de la Galaxia Vol. 3, con los mismos decorados.",
+    "James Gunn dijo que es lo que más le gusta de todo lo que ha hecho para Marvel.",
+    "Kevin Bacon canta de verdad: tiene un grupo con su hermano.",
+    "El villancico de la banda está inspirado en lo mal que Peter recuerda la Navidad."
+  ]
+}

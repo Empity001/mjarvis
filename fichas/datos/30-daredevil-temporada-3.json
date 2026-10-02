@@ -1,0 +1,91 @@
+{
+  "titulo": "Daredevil · Temporada 3",
+  "anio": 2018,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Daredevil (temporada 3)"],
+    ["Estreno", "19 de octubre de 2018 (Netflix; hoy en Disney+)"],
+    ["Responsable", "Erik Oleson"],
+    ["Episodios", "13"],
+    ["Reparto principal", "Charlie Cox (Matt Murdock), Deborah Ann Woll (Karen Page), Elden Henson (Foggy Nelson), Vincent D'Onofrio (Wilson Fisk), Wilson Bethel (Benjamin «Dex» Poindexter), Jay Ali (Ray Nadeem), Joanne Whalley (hermana Maggie), Ayelet Zurer (Vanessa Marianna), Peter McRobbie (padre Lantom)"],
+    ["Música", "John Paesano"],
+    ["Lugar en el universo", "Después de The Defenders. Última temporada en Netflix"],
+    ["Cronología interna", "Nueva York, meses después del derrumbe de Midland Circle"],
+    ["Tono", "Thriller oscuro sobre la fe y la tentación de matar. Adapta libremente el cómic Born Again"]
+  ],
+  "momentos": [
+    ["El convento", "Matt sobrevive"],
+    ["El hotel", "Fisk sale de la cárcel"],
+    ["El falso Daredevil", "Ataque al periódico"],
+    ["La iglesia", "Muere el padre Lantom"],
+    ["El ático", "Matt, Fisk y Dex"]
+  ],
+  "actos": [
+    ["Episodios 1 a 4: Sin Dios y sin traje", [
+      "Matt Murdock sobrevivió al derrumbe. Lo cuidan en el orfanato donde creció el padre Lantom y la hermana Maggie, una monja seca y sin paciencia para la autocompasión. Ha perdido parte del oído, y con él sus sentidos, y también la fe: decide que Matt Murdock ha muerto y que solo queda el diablo. Vuelve a la calle con la ropa negra del principio.",
+      "Wilson Fisk, preso, ofrece al FBI información sobre otras mafias a cambio de protección para Vanessa. El agente Ray Nadeem, ahogado por las deudas, acepta el trato. Tras un atentado contra el convoy, Fisk queda en «arresto domiciliario» en el ático de un hotel de lujo.",
+      "En ese atentado lo salva un agente con una puntería imposible: Benjamin Poindexter, Dex. Fisk lo estudia. Matt se cuela en la cárcel para averiguar qué trama Fisk y tiene que salir peleando por los pasillos en medio de un motín."
+    ]],
+    ["Episodios 5 a 9: El otro diablo", [
+      "Dex es un huérfano con impulsos asesinos que su psiquiatra le enseñó a sujetar con rutinas y normas. Fisk le va quitando cada apoyo: el trabajo, la chica a la que vigila, la confianza en sí mismo. Luego le ofrece un lugar a su lado.",
+      "Fisk controla ya a buena parte de los agentes del FBI que lo custodian, con chantajes. Hace que Melvin Potter fabrique otro traje de Daredevil. Dex, vestido con él, entra en la redacción del New York Bulletin y mata a un testigo y a varios periodistas delante de Karen y Foggy. La ciudad cree que Daredevil es un asesino.",
+      "Matt se enfrenta a su doble y pierde: Dex convierte en arma cualquier objeto que lance. Además descubre, escuchando rezar a la hermana Maggie, que ella es su madre: lo dejó de recién nacido, hundida en una depresión, y lo ha visto crecer sin decírselo."
+    ]],
+    ["Episodios 10 a 13: Nacer de nuevo", [
+      "Se cuenta el pasado de Karen: en su pueblo de Vermont vendía drogas con su novio, y su hermano murió en un accidente de coche que ella provocó. Karen provoca a Fisk confesándole que mató a Wesley. Fisk envía a Dex a matarla en la iglesia; el padre Lantom muere al ponerse en medio, y Matt la saca viva.",
+      "Nadeem intenta declarar ante un jurado, pero el jurado está comprado. Vanessa, ya al lado de Fisk, ordena su muerte, y Dex lo ejecuta en su casa. Nadeem dejó grabada su confesión.",
+      "Matt decide matar a Fisk. Antes le cuenta a Dex la verdad: Fisk mandó matar a la chica que él quería. La noche de la boda de Fisk y Vanessa, Dex irrumpe para matarla. Los tres pelean en el ático; Fisk le rompe la espalda a Dex contra una pared.",
+      "Matt vence a Fisk y lo tiene a su merced. No lo mata. Le impone un trato: Fisk vuelve a prisión y no tocará a Karen ni a Foggy, y a cambio Matt callará lo que sabe de Vanessa. Fisk acepta.",
+      "Matt recupera la fe, se reconcilia con su madre y habla en el funeral del padre Lantom. En una servilleta, los tres amigos escriben el nombre del nuevo bufete: Nelson, Murdock y Page. En un quirófano, unos médicos reconstruyen con metal la columna de Dex; en su ojo se dibuja una diana."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["M", "Matt"], ["F", "Fisk"], ["D", "Dex"], ["K", "Karen"], ["N", "Nadeem"], ["G", "Maggie"]],
+    "enlaces": [["M", "F", "enemigos"], ["F", "D", "lo manipula"], ["D", "M", "falso Daredevil"], ["F", "N", "lo atrapa"], ["G", "M", "su madre"], ["K", "F", "mató a Wesley"]]
+  },
+  "personajes": [
+    ["Matt Murdock", "Herido y sin fe, se plantea por primera vez matar. Termina reconciliado consigo mismo."],
+    ["Wilson Fisk", "Ya es Kingpin: lo llaman así por primera vez. Usa al FBI como su guardia personal. Su único punto débil es Vanessa."],
+    ["Benjamin «Dex» Poindexter", "Agente del FBI con puntería perfecta y una mente frágil. En los cómics es Bullseye."],
+    ["Karen Page", "Periodista. Carga con dos muertes y decide no esconderse más."],
+    ["Foggy Nelson", "Se presenta a fiscal del distrito para plantar cara a Fisk."],
+    ["Ray Nadeem", "Agente honrado y endeudado. Fisk lo corrompe paso a paso; muere tratando de enmendarlo."],
+    ["Hermana Maggie", "Monja del orfanato y madre de Matt."],
+    ["Vanessa Marianna", "Vuelve del extranjero y elige ser socia de Fisk, no solo su esposa."],
+    ["Padre Lantom", "El confesor de Matt. Sabía quién era Maggie."],
+    ["Tammy Hattley", "Jefa de Nadeem en el FBI, sometida por Fisk."],
+    ["Melvin Potter", "El artesano de los trajes. Fisk lo obliga a traicionar a Matt."],
+    ["Felix Manning", "El arreglador de Fisk."]
+  ],
+  "cosas": [
+    ["El traje negro", "Matt vuelve a la ropa negra y la venda de la primera temporada."],
+    ["El falso Daredevil", "Dex con el traje rojo, para arruinar el nombre del héroe."],
+    ["Kingpin", "El apodo de Fisk, que por fin se usa."],
+    ["Hotel Presidential", "La «cárcel» de lujo de Fisk, llena de cámaras y de agentes comprados."],
+    ["Las cintas de Dex", "Grabaciones de su terapia infantil, con las que Fisk aprende a manejarlo."],
+    ["Conejo en una tormenta de nieve", "El cuadro blanco de Fisk. Aquí lo recupera de su nueva dueña."],
+    ["Nelson, Murdock y Page", "El bufete que nace al final."]
+  ],
+  "creditos": "No hay escenas después de los créditos. La última imagen es la operación de Dex: el doctor Oyama le refuerza la columna con un metal especial, y en su ojo abierto aparece una diana.",
+  "conexiones": [
+    "Empieza donde acabó The Defenders: «Avisen a Maggie».",
+    "Netflix canceló la serie un mes después del estreno.",
+    "Matt Murdock reaparece en Spider-Man: Sin camino a casa, She-Hulk y Echo; Fisk, en Hawkeye y Echo.",
+    "La historia continúa en Daredevil: Born Again, con Dex convertido en Bullseye.",
+    "La muerte de Wesley y la de Ben Urich, de la temporada 1, pesan todavía sobre Karen y Fisk."
+  ],
+  "preguntas": [
+    ["¿Quién es Bullseye?", "Benjamin Poindexter, Dex, un agente del FBI con puntería perfecta al que Fisk convierte en asesino."],
+    ["¿Quién es la madre de Matt Murdock?", "La hermana Maggie, una monja del orfanato donde él creció."],
+    ["¿Por qué hay un Daredevil malo?", "Es Dex disfrazado. Fisk lo usa para que la ciudad odie a Daredevil."],
+    ["¿Matt mata a Fisk?", "No. Lo vence y lo devuelve a la cárcel con un pacto: Fisk deja en paz a Karen y a Foggy, y Matt no denuncia a Vanessa."],
+    ["¿Cómo sale Fisk de la cárcel?", "Se hace informante del FBI y consigue que lo trasladen a un hotel."],
+    ["¿Quién mata al padre Lantom?", "Dex, con un bastón lanzado contra Karen en la iglesia."]
+  ],
+  "curiosidades": [
+    "La pelea de la cárcel del episodio 4 es un plano continuo de once minutos.",
+    "Vincent D'Onofrio viste de blanco, como el Kingpin de los cómics, en los últimos episodios.",
+    "La temporada se inspira en Born Again, de Frank Miller y David Mazzucchelli, de 1986.",
+    "Los seguidores hicieron campaña durante años para que la serie volviera, y Marvel acabó recuperando a casi todo el reparto."
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "titulo": "Vengadores: Infinity War",
+  "anio": 2018,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Avengers: Infinity War"],
+    ["Estreno", "27 de abril de 2018 (Estados Unidos)"],
+    ["Dirección", "Anthony y Joe Russo"],
+    ["Guion", "Christopher Markus y Stephen McFeely"],
+    ["Reparto principal", "Robert Downey Jr. (Tony Stark), Chris Hemsworth (Thor), Chris Evans (Steve Rogers), Josh Brolin (Thanos), Mark Ruffalo (Bruce Banner), Scarlett Johansson (Natasha Romanoff), Benedict Cumberbatch (Doctor Strange), Tom Holland (Peter Parker), Chadwick Boseman (T'Challa), Zoe Saldaña (Gamora), Chris Pratt (Peter Quill), Elizabeth Olsen (Wanda Maximoff), Paul Bettany (Visión), Karen Gillan (Nebula), Tom Hiddleston (Loki)"],
+    ["Duración", "149 minutos"],
+    ["Música", "Alan Silvestri"],
+    ["Lugar en el universo", "Fase 3. Primera parte del final de la Saga del Infinito"],
+    ["Cronología interna", "2018, dos años después de Capitán América: Civil War"],
+    ["Recaudación", "Cerca de 2.050 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["La nave", "Thanos mata a Loki"],
+    ["Nueva York", "Se llevan a Strange"],
+    ["Vormir", "Gamora por la Gema del Alma"],
+    ["Titán", "Casi le quitan el guantelete"],
+    ["Wakanda", "El chasquido"]
+  ],
+  "actos": [
+    ["Acto 1: Thanos llega", [
+      "Thanos ya tiene la Gema del Poder: arrasó Xandar para conseguirla. Ahora asalta la nave que lleva a los supervivientes de Asgard. Vence a Hulk a puñetazos, mata a Heimdall, que con su último aliento envía a Hulk a la Tierra, y obtiene de Loki el Teseracto, que guarda la Gema del Espacio. Loki intenta apuñalarlo y Thanos lo estrangula ante Thor. Luego destruye la nave.",
+      "Hulk cae en el Santuario de Nueva York y, ya como Bruce Banner, avisa a Doctor Strange y a Tony Stark: Thanos busca las seis Gemas del Infinito para eliminar a la mitad de los seres vivos del universo con un chasquido de dedos. Dos gemas están en la Tierra: la del Tiempo, que lleva Strange, y la de la Mente, en la frente de Visión.",
+      "Dos hijos de Thanos, Ebony Maw y Cull Obsidian, atacan Nueva York. Hulk se niega a salir. Maw captura a Strange; Tony y Peter Parker, con el traje Araña de Hierro, se cuelan en su nave. Banner llama a Steve Rogers con el viejo teléfono.",
+      "En Escocia, otros dos hijos de Thanos atacan a Wanda y a Visión, que vivían escondidos. Steve, Natasha y Sam los salvan y los llevan a Wakanda, donde Shuri intentará separar la gema de Visión sin matarlo."
+    ]],
+    ["Acto 2: Las gemas", [
+      "Los Guardianes de la Galaxia recogen a Thor flotando en el espacio. Thor se va con Rocket y Groot a Nidavellir, la forja de los enanos, para fabricar un arma capaz de matar a Thanos. El rey Eitri, único superviviente, le explica que Thanos lo obligó a hacer el guantelete. Thor aguanta de lleno la energía de una estrella para encender la forja, y Groot da su brazo como mango: nace el hacha Rompetormentas.",
+      "Quill, Gamora, Drax y Mantis van a Knowhere por la Gema de la Realidad, pero Thanos ya la tiene y se lleva a Gamora, su hija adoptiva. Torturando a Nebula, la obliga a decirle dónde está la Gema del Alma.",
+      "En el planeta Vormir, el guardián de la gema, Cráneo Rojo, explica el precio: un alma por un alma, hay que sacrificar lo que uno ama. Thanos, llorando, arroja a Gamora por el precipicio.",
+      "Tony y Peter rescatan a Strange y deciden ir al planeta de Thanos, Titán, en vez de volver. Allí se unen a Quill, Drax y Mantis. Strange mira 14.000.605 futuros posibles: solo ganan en uno."
+    ]],
+    ["Acto 3: Titán y Wakanda", [
+      "En Titán, Thanos cuenta su razón: su mundo murió por falta de recursos, y él cree que sacrificar a la mitad es misericordia. Entre todos logran inmovilizarlo, y Mantis lo duerme. Están a punto de quitarle el guantelete cuando Quill se entera de que Gamora ha muerto y lo golpea. Thanos despierta, les lanza encima una luna y hiere de muerte a Tony. Strange entrega la Gema del Tiempo a cambio de la vida de Tony.",
+      "En Wakanda, el ejército de T'Challa, con Steve, Natasha, Bucky, Sam, Rhodes y Banner en la armadura Hulkbuster, resiste a miles de criaturas. Thor llega con Rompetormentas, Rocket y Groot y cambia la batalla.",
+      "Thanos aparece. Wanda, entre lágrimas, destruye la gema de Visión y con ella a él. Thanos retrocede el tiempo, revive a Visión y le arranca la gema de la frente. Thor le clava el hacha en el pecho. Thanos, herido, le dice que debió apuntar a la cabeza, y chasquea los dedos.",
+      "La mitad de los seres vivos se convierte en polvo: Bucky, T'Challa, Groot, Wanda, Sam, Mantis, Drax, Quill, Strange y, en brazos de Tony, Peter Parker, que dice que no quiere irse. Thanos se sienta a ver amanecer."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["T", "Thanos"], ["G", "Gamora"], ["I", "Tony"], ["S", "Strange"], ["H", "Thor"], ["W", "Wanda"], ["V", "Visión"]],
+    "enlaces": [["T", "G", "la sacrifica"], ["I", "S", "aliados a la fuerza"], ["H", "T", "venganza"], ["W", "V", "se aman"], ["T", "V", "le arranca la gema"], ["S", "T", "le da la Gema del Tiempo"]]
+  },
+  "personajes": [
+    ["Thanos", "El Titán Loco. Convencido de que salva al universo matando a la mitad. Es el protagonista de la película."],
+    ["Tony Stark", "Lleva seis años temiendo este día. Viaja al espacio sin billete de vuelta."],
+    ["Thor", "Lo ha perdido todo. Busca un arma y la venganza."],
+    ["Steve Rogers", "Fugitivo, con barba. Vuelve cuando lo llaman."],
+    ["Doctor Strange", "Guardián de la Gema del Tiempo. Sabe cómo termina y calla."],
+    ["Gamora", "La hija preferida de Thanos y la única que conoce dónde está la Gema del Alma."],
+    ["Peter Quill", "Su dolor por Gamora echa a perder el plan en Titán."],
+    ["Wanda Maximoff", "Tiene que matar a quien ama, y no sirve de nada."],
+    ["Visión", "Lleva en la frente la Gema de la Mente."],
+    ["Peter Parker", "El más joven. Tony lo nombra Vengador en la nave."],
+    ["Bruce Banner", "Hulk se niega a salir después de la paliza de Thanos."],
+    ["Nebula", "Torturada por su padre, escapa y llega a Titán."],
+    ["La Orden Negra", "Los hijos de Thanos: Ebony Maw, Proxima Midnight, Corvus Glaive y Cull Obsidian. Los cuatro mueren."],
+    ["Eitri", "Rey de los enanos de Nidavellir. Forjó el Mjolnir y el guantelete."]
+  ],
+  "cosas": [
+    ["Gemas del Infinito", "Seis: Espacio (azul), Mente (amarilla), Realidad (roja), Poder (morada), Tiempo (verde) y Alma (naranja). Juntas dan poder sobre todo lo que existe."],
+    ["Guantelete del Infinito", "El guante dorado que permite usar las seis gemas a la vez."],
+    ["El chasquido", "El gesto con que Thanos borra a la mitad de la vida del universo."],
+    ["Rompetormentas", "Stormbreaker. Hacha forjada en Nidavellir, capaz de invocar el Bifrost."],
+    ["Vormir", "El planeta donde se guarda la Gema del Alma. Exige un sacrificio."],
+    ["Titán", "El mundo natal de Thanos, en ruinas."],
+    ["Traje Araña de Hierro", "La armadura de Peter, con patas mecánicas."],
+    ["Nanotecnología", "La nueva armadura de Tony sale de su pecho y se reforma sola."],
+    ["Hulkbuster", "La armadura gigante que usa Banner en Wakanda."]
+  ],
+  "creditos": "Después de los créditos, Nick Fury y Maria Hill ven cómo la gente se deshace en plena calle. Hill desaparece. Antes de convertirse en polvo, Fury alcanza a enviar una señal con un viejo buscapersonas, en cuya pantalla aparece el emblema de la Capitana Marvel.",
+  "conexiones": [
+    "Abre con la nave de Asgard del final de Thor: Ragnarok.",
+    "Reúne a los personajes de dieciocho películas anteriores.",
+    "Cráneo Rojo reaparece setenta años después de Capitán América: El primer vengador.",
+    "La señal de Fury se explica en Capitana Marvel.",
+    "La historia termina en Vengadores: Endgame.",
+    "Ant-Man y Ojo de Halcón no aparecen: estaban en arresto domiciliario."
+  ],
+  "preguntas": [
+    ["¿Qué quiere Thanos?", "Reunir las seis Gemas del Infinito para eliminar a la mitad de los seres vivos del universo, creyendo que así habrá recursos para todos."],
+    ["¿Cuáles son las Gemas del Infinito?", "Espacio, Mente, Realidad, Poder, Tiempo y Alma."],
+    ["¿Quiénes desaparecen con el chasquido?", "Entre otros, Spider-Man, Doctor Strange, Pantera Negra, Bucky, Falcon, Wanda, Groot, Star-Lord, Drax, Mantis y Nick Fury."],
+    ["¿Por qué Strange entrega la Gema del Tiempo?", "Porque vio el único futuro en que ganan, y en ese futuro Tony Stark tenía que seguir vivo."],
+    ["¿Cómo consigue Thanos la Gema del Alma?", "Sacrificando a Gamora, su hija adoptiva, en Vormir."],
+    ["¿Quién muere antes del chasquido?", "Heimdall, Loki, Gamora y Visión."]
+  ],
+  "curiosidades": [
+    "Stan Lee es el conductor del autobús escolar de Peter.",
+    "Fue la primera película rodada por completo con cámaras IMAX.",
+    "Los actores recibieron guiones falsos o incompletos para evitar filtraciones.",
+    "La frase de Peter Parker antes de desaparecer fue improvisada en parte por Tom Holland."
+  ]
+}

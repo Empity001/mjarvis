@@ -1,0 +1,91 @@
+{
+  "titulo": "¿Qué pasaría si…? · Temporada 1",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "What If…? (temporada 1)"],
+    ["Estreno", "Del 11 de agosto al 6 de octubre de 2021 (Disney+)"],
+    ["Creadora", "A. C. Bradley. Dirección de Bryan Andrews"],
+    ["Episodios", "9, de unos 30 minutos, de animación"],
+    ["Voces principales", "Jeffrey Wright (el Vigilante), Hayley Atwell (Capitana Carter), Chadwick Boseman (T'Challa), Benedict Cumberbatch (Doctor Strange), Michael B. Jordan (Killmonger), Chris Hemsworth (Thor), Lake Bell (Natasha Romanoff), Ross Marquand (Ultrón), Samuel L. Jackson (Nick Fury)"],
+    ["Música", "Laura Karpman"],
+    ["Lugar en el universo", "Primera serie de animación de Marvel Studios"],
+    ["Cronología interna", "Cada episodio ocurre en un universo distinto, donde un detalle cambió la historia conocida"],
+    ["Tono", "Antología: aventuras, tragedia, terror y comedia según el capítulo"]
+  ],
+  "momentos": [
+    ["Capitana Carter", "Peggy recibe el suero"],
+    ["Strange Supremo", "Un universo destruido"],
+    ["Zombis", "Los Vengadores infectados"],
+    ["Ultrón", "Gana y ve al Vigilante"],
+    ["Los Guardianes", "El Vigilante rompe su juramento"]
+  ],
+  "actos": [
+    ["El Vigilante", [
+      "Tras la muerte de El Que Permanece, en Loki, el tiempo se ramifica en universos sin fin. Un ser inmenso llamado el Vigilante los observa todos y narra cada historia. Tiene un juramento: mirar, y no intervenir jamás."
+    ]],
+    ["Episodios 1 a 3: Otro héroe, otro mundo", [
+      "Episodio 1. En 1943, un espía dispara a Steve Rogers antes del experimento, y es la agente Peggy Carter quien recibe el suero. Se convierte en la Capitana Carter, con un escudo con la bandera británica. Steve pelea a su lado dentro de una armadura construida por Howard Stark. Peggy cruza un portal para detener a un monstruo y sale setenta años después.",
+      "Episodio 2. Los Saqueadores de Yondu se equivocan de niño y se llevan al espacio a T'Challa en lugar de Peter Quill. T'Challa crece como un Star-Lord generoso, que convence a Thanos de abandonar su plan y roba al Coleccionista.",
+      "Episodio 3. Durante la semana en que Nick Fury recluta a los Vengadores, alguien los va matando: Tony Stark, Thor, Ojo de Halcón, Hulk y Natasha. El asesino es Hank Pym, que culpa a S.H.I.E.L.D. de la muerte de su hija Hope. Sin Vengadores, Loki conquista la Tierra."
+    ]],
+    ["Episodios 4 a 7: Tragedias y fiestas", [
+      "Episodio 4. En el accidente de coche, Stephen Strange no pierde las manos: pierde a Christine. Aprende magia para deshacer esa muerte, que es un punto fijo del tiempo. Absorbe criaturas durante siglos para ganar poder y acaba destruyendo su universo. Queda solo, en una burbuja, pidiéndole ayuda a un Vigilante que no se la da.",
+      "Episodio 5. Janet van Dyne vuelve del Reino Cuántico con un virus que convierte a la gente en zombis. Caen los Vengadores. Un grupo de supervivientes, con Peter Parker, Hope, Bucky y Okoye, busca una cura; Visión esconde a una Wanda zombi a la que no es capaz de matar.",
+      "Episodio 6. Erik Killmonger salva a Tony Stark en Afganistán, así que Iron Man no nace nunca. Killmonger se gana su confianza, mata a Rhodes, a T'Challa y al propio Tony, provoca una guerra entre Estados Unidos y Wakanda y llega a ser Pantera Negra.",
+      "Episodio 7. Thor crece como hijo único, sin Loki, y es un juerguista. Organiza en la Tierra una fiesta de tamaño planetario, hasta que la Capitana Marvel y su madre, Frigga, lo ponen en su sitio."
+    ]],
+    ["Episodios 8 y 9: Ultrón y los Guardianes del Multiverso", [
+      "Episodio 8. Ultrón consigue el cuerpo de Visión y gana. Mata a Thanos de un rayo, reúne las Gemas del Infinito y acaba con toda la vida de su universo. Entonces percibe al Vigilante, descubre que hay más universos y lo ataca. Natasha y Clint, últimos humanos vivos, buscan un arma: una copia de la mente de Arnim Zola.",
+      "Episodio 9. El Vigilante rompe su juramento. Reúne a héroes de los episodios anteriores: la Capitana Carter, T'Challa Star-Lord, el Strange Supremo, Killmonger, el Thor fiestero y una Gamora de otro mundo. Son los Guardianes del Multiverso.",
+      "Natasha clava en Ultrón una flecha con el virus de Zola. Killmonger aprovecha y se queda las gemas, y Zola se las disputa. Strange los congela a los dos en una dimensión de bolsillo y se queda de vigilante para siempre.",
+      "El Vigilante devuelve a cada uno a su mundo. A Natasha, que ya no tiene el suyo, la deja en el universo que perdió a sus Vengadores."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["V", "Vigilante"], ["C", "Capitana Carter"], ["S", "Strange Supremo"], ["U", "Ultrón"], ["T", "T'Challa"], ["K", "Killmonger"]],
+    "enlaces": [["V", "U", "enemigos"], ["V", "C", "la recluta"], ["V", "S", "le pide ayuda"], ["K", "U", "le quita las gemas"], ["S", "K", "lo encierra"], ["C", "T", "compañeros"]]
+  },
+  "personajes": [
+    ["El Vigilante", "Uatu. Observador de todos los universos. Aprende que mirar sin actuar también es una decisión."],
+    ["Capitana Carter", "Peggy Carter con el suero del supersoldado. La heroína central de la serie."],
+    ["T'Challa Star-Lord", "El príncipe de Wakanda criado en el espacio. Mejora a todo el que conoce."],
+    ["Doctor Strange Supremo", "Un Strange corrompido por el duelo, que busca redimirse."],
+    ["Ultrón del Infinito", "Ultrón con el cuerpo de Visión y las seis gemas."],
+    ["Killmonger", "Tan ambicioso como en Pantera Negra, y aquí le sale bien."],
+    ["Thor fiestero", "Un Thor sin hermano y sin humildad."],
+    ["Natasha Romanoff", "La última superviviente del mundo de Ultrón."],
+    ["Hank Pym", "El asesino de los Vengadores, con el traje de Chaqueta Amarilla."],
+    ["Arnim Zola", "Su mente digital sirve de virus contra Ultrón."]
+  ],
+  "cosas": [
+    ["El multiverso", "Todos los universos que nacen de cada decisión distinta."],
+    ["Punto absoluto", "Un suceso que no puede cambiarse sin romper el universo."],
+    ["Hydra Stomper", "La armadura que Howard Stark le hace a Steve Rogers, movida por el Teseracto."],
+    ["Virus zombi", "Viene del Reino Cuántico. La Gema de la Mente puede curarlo."],
+    ["Guardianes del Multiverso", "El equipo que reúne el Vigilante."],
+    ["Las Gemas del Infinito", "En el mundo de Ultrón siguen existiendo; fuera de su universo también le funcionan."]
+  ],
+  "creditos": "A mitad de los créditos del último episodio, la Capitana Carter, de vuelta en su mundo, descubre con Natasha Romanoff la armadura Hydra Stomper, encontrada en un barco. Natasha le dice que hay alguien dentro.",
+  "conexiones": [
+    "Es consecuencia directa del final de la temporada 1 de Loki.",
+    "La Capitana Carter aparece en carne y hueso en Doctor Strange en el Multiverso de la Locura.",
+    "El episodio de los zombis dio origen a la serie Marvel Zombies.",
+    "Fue el último trabajo de Chadwick Boseman como T'Challa.",
+    "La serie tiene otras dos temporadas, con nuevos universos."
+  ],
+  "preguntas": [
+    ["¿Qué es ¿Qué pasaría si…??", "Una serie animada que muestra universos donde la historia de Marvel cambió por un detalle."],
+    ["¿Quién es el Vigilante?", "Un ser que observa todos los universos y que ha jurado no intervenir."],
+    ["¿Quién es la Capitana Carter?", "Peggy Carter, que en otro universo recibe el suero del supersoldado en lugar de Steve Rogers."],
+    ["¿Quiénes son los Guardianes del Multiverso?", "Capitana Carter, T'Challa Star-Lord, Strange Supremo, Killmonger, Thor, Gamora y Natasha, reunidos para detener a Ultrón."],
+    ["¿Es parte de la historia oficial?", "Sí. Son universos del mismo multiverso que el de las películas."],
+    ["¿Qué pasa en el episodio de los zombis?", "Un virus del Reino Cuántico convierte en zombis a casi todos los héroes, y unos pocos buscan la cura en Wakanda."]
+  ],
+  "curiosidades": [
+    "Casi todos los actores de las películas ponen la voz a sus personajes.",
+    "El estilo de dibujo imita las ilustraciones de J. C. Leyendecker.",
+    "Un episodio previsto con Gamora y Tony Stark no llegó a tiempo y se pasó a la temporada 2.",
+    "El episodio de T'Challa termina con una dedicatoria a Chadwick Boseman."
+  ]
+}

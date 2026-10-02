@@ -1,0 +1,90 @@
+{
+  "titulo": "Jessica Jones · Temporada 2",
+  "anio": 2018,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Jessica Jones (temporada 2)"],
+    ["Estreno", "8 de marzo de 2018 (Netflix; hoy en Disney+)"],
+    ["Creadora", "Melissa Rosenberg"],
+    ["Episodios", "13, todos dirigidos por mujeres"],
+    ["Reparto principal", "Krysten Ritter (Jessica Jones), Rachael Taylor (Trish Walker), Janet McTeer (Alisa Jones), Carrie-Anne Moss (Jeri Hogarth), Eka Darville (Malcolm Ducasse), J. R. Ramirez (Oscar Arocho), Callum Keith Rennie (Karl Malus), Terry Chen (Pryce Cheng), David Tennant (Kilgrave)"],
+    ["Música", "Sean Callery"],
+    ["Lugar en el universo", "Después de The Defenders"],
+    ["Cronología interna", "Nueva York, meses después de la batalla contra la Mano"],
+    ["Tono", "Novela negra sobre la familia, la rabia y el origen de los poderes de Jessica"]
+  ],
+  "momentos": [
+    ["IGH", "La clínica secreta"],
+    ["La asesina", "Una mujer más fuerte que Jessica"],
+    ["Alisa", "Es su madre"],
+    ["Trish", "Quiere poderes"],
+    ["La noria", "Trish dispara"]
+  ],
+  "actos": [
+    ["Episodios 1 a 5: IGH", [
+      "Tras matar a Kilgrave, Jessica es conocida en toda la ciudad y lo lleva mal. Su hermana Trish investiga IGH, la clínica que la trató después del accidente en que murió su familia, y la empuja a recordar los veinte días que pasó allí.",
+      "Los que saben algo de IGH van muriendo. Will Simpson, que vigilaba a Trish para protegerla, muere a manos de alguien con una fuerza brutal. Jessica sigue la pista hasta el doctor Karl Malus y hasta una mujer enorme, de carácter inestable, más fuerte que ella.",
+      "Mientras tanto, un detective rival, Pryce Cheng, intenta quedarse con su negocio, y Jessica empieza una relación con Oscar, el nuevo encargado del edificio, que tiene un hijo pequeño."
+    ]],
+    ["Episodios 6 a 9: Madre", [
+      "La mujer es Alisa Jones, su madre. También sobrevivió al accidente, mucho más herida. Malus la reconstruyó durante años con los mismos tratamientos experimentales; el resultado le dio fuerza sobrehumana y unos ataques de furia en los que no se controla. Malus y ella son pareja.",
+      "Alisa fue quien, años atrás, mató al novio de Jessica en uno de esos ataques. Jessica duda entre entregarla y proteger a la única familia que le queda. Acaba entregándola, y un guardia de la prisión maltrata a Alisa. Jessica lo mata sin querer en una pelea y disfraza la muerte de suicidio."
+    ]],
+    ["Episodios 10 a 13: Lo que Trish quiere", [
+      "Trish, enganchada al inhalador de combate de Simpson, está harta de ser la hermana sin poderes. Secuestra a Malus y lo obliga a aplicarle el tratamiento. Jessica interrumpe la operación, y Malus, viendo en qué se ha convertido su trabajo, vuela el laboratorio con él dentro.",
+      "Alisa escapa para vengarse de Trish. Jessica la detiene, y madre e hija huyen juntas por carretera; por un momento piensan en irse lejos y ser heroínas. En un parque de atracciones, sobre una noria, Alisa acepta que la van a atrapar. Antes de que se entregue, Trish le dispara y la mata.",
+      "Jessica no la perdona. Malcolm, cansado de sus desprecios, se va a trabajar con Pryce Cheng. Jessica acepta cenar con Oscar y su hijo. Y a Trish se le cae el teléfono y lo atrapa con el pie sin mirar: el tratamiento funcionó."
+    ]],
+    ["La otra historia: Jeri Hogarth", [
+      "A la abogada Jeri Hogarth le diagnostican una enfermedad incurable, la ELA, y sus socios quieren echarla. Busca una cura entre los pacientes de IGH, y una pareja de estafadores le hace creer que un hombre puede sanarla con las manos.",
+      "Cuando descubre el engaño, Jeri manipula a la mujer para que mate a su cómplice, y después fuerza a sus socios a darle su parte. Abre su propio bufete, y contrata a Malcolm y a Cheng."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["J", "Jessica"], ["A", "Alisa"], ["T", "Trish"], ["K", "Malus"], ["M", "Malcolm"], ["H", "Hogarth"]],
+    "enlaces": [["A", "J", "madre e hija"], ["J", "T", "hermanas que rompen"], ["K", "A", "la creó y la quiere"], ["T", "A", "la mata"], ["M", "J", "ayudante que se va"], ["H", "M", "lo contrata"]]
+  },
+  "personajes": [
+    ["Jessica Jones", "Descubre que la rabia que siente viene de familia, y que su madre es lo que ella podría llegar a ser."],
+    ["Alisa Jones", "Madre de Jessica, profesora de matemáticas. Fuerte, cariñosa y letal cuando pierde el control."],
+    ["Trish Walker", "Su adicción y sus ganas de ser heroína la llevan a cruzar todas las líneas."],
+    ["Karl Malus", "Genetista de IGH. No se considera un villano: cree que salvó dos vidas."],
+    ["Malcolm Ducasse", "Ayudante de Jessica, ya limpio de drogas. Quiere que lo traten como a un socio."],
+    ["Jeri Hogarth", "La abogada, enfrentada por primera vez a algo que no puede comprar."],
+    ["Oscar Arocho", "Encargado del edificio, pintor y falsificador retirado. Padre de Vido."],
+    ["Pryce Cheng", "Detective privado rival, con buena oficina y malos modos."],
+    ["Dorothy Walker", "Madre de Trish. Sigue intentando dirigirle la vida."],
+    ["Kilgrave", "Aparece un episodio, como alucinación de Jessica."],
+    ["Robert Coleman", "Un paciente de IGH con supervelocidad cuando se asusta. En los cómics es Whizzer."]
+  ],
+  "cosas": [
+    ["IGH", "Clínica privada que experimentaba con edición genética en pacientes moribundos. De ahí vienen los poderes de Jessica y de su madre."],
+    ["El accidente", "El choque de coche en que murieron el padre y el hermano de Jessica. Ella siempre se culpó por él."],
+    ["Inhalador de Simpson", "Estimulante de combate que da fuerza y reflejos por un rato. Trish se vuelve adicta."],
+    ["Alias Investigations", "La agencia de Jessica. Ahora necesita permiso de detective."],
+    ["Ataques de Alisa", "Episodios de furia en los que mata sin darse cuenta."],
+    ["La noria", "El lugar donde termina la huida de madre e hija."]
+  ],
+  "creditos": "No hay escenas después de los créditos. La última imagen es Jessica sentada a la mesa con Oscar y Vido, intentando vivir algo normal.",
+  "conexiones": [
+    "Explica el origen de los poderes de Jessica, que la temporada 1 solo insinuaba.",
+    "Foggy Nelson, de Daredevil, aparece como abogado en el bufete de Hogarth.",
+    "Los nuevos poderes de Trish la convierten en justiciera en la temporada 3. En los cómics es Hellcat.",
+    "Will Simpson, de la temporada 1, muere al principio.",
+    "Ocurre después de The Defenders, que apenas se menciona."
+  ],
+  "preguntas": [
+    ["¿Cómo consiguió sus poderes Jessica Jones?", "La clínica IGH la trató con edición genética para salvarla tras un accidente de coche. Los poderes fueron un efecto del tratamiento."],
+    ["¿Quién es Alisa Jones?", "La madre de Jessica, a quien ella creía muerta. Tiene más fuerza que su hija y ataques de furia."],
+    ["¿Qué es IGH?", "Una clínica secreta que hacía experimentos genéticos. La dirigía el doctor Karl Malus."],
+    ["¿Quién mata a la madre de Jessica?", "Trish Walker, de un disparo, en la noria."],
+    ["¿Trish consigue poderes?", "Sí. El tratamiento de Malus quedó a medias, pero al final muestra reflejos sobrehumanos."],
+    ["¿Sale Kilgrave en la temporada 2?", "Solo en un episodio, como una voz en la cabeza de Jessica."]
+  ],
+  "curiosidades": [
+    "Los trece episodios fueron dirigidos por mujeres, algo poco común en la televisión de la época.",
+    "Se estrenó el 8 de marzo, Día Internacional de la Mujer.",
+    "Stan Lee aparece en el anuncio de un bufete en un autobús.",
+    "El episodio 7 es todo un recuerdo: cuenta la vida de Jessica antes de Kilgrave."
+  ]
+}

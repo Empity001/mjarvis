@@ -1,0 +1,92 @@
+{
+  "titulo": "Jessica Jones · Temporada 1",
+  "anio": 2015,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Jessica Jones (temporada 1)"],
+    ["Estreno", "20 de noviembre de 2015 (Netflix; hoy en Disney+)"],
+    ["Creadora", "Melissa Rosenberg"],
+    ["Episodios", "13, de unos 50 minutos"],
+    ["Reparto principal", "Krysten Ritter (Jessica Jones), David Tennant (Kilgrave), Rachael Taylor (Trish Walker), Mike Colter (Luke Cage), Carrie-Anne Moss (Jeri Hogarth), Eka Darville (Malcolm Ducasse), Wil Traval (Will Simpson), Erin Moriarty (Hope Shlottman), Rosario Dawson (Claire Temple)"],
+    ["Música", "Sean Callery"],
+    ["Lugar en el universo", "Segunda serie de los Defensores"],
+    ["Cronología interna", "Nueva York, 2015, poco después de la primera temporada de Daredevil"],
+    ["Tono", "Novela negra de detectives y thriller psicológico sobre el abuso y el trauma"]
+  ],
+  "momentos": [
+    ["Alias", "Una detective con superfuerza"],
+    ["Hope", "Kilgrave ha vuelto"],
+    ["Luke", "Un hombre irrompible"],
+    ["La captura", "Kilgrave en la celda"],
+    ["El muelle", "Jessica acaba con él"]
+  ],
+  "actos": [
+    ["Antes de la serie: Kilgrave", [
+      "Jessica Jones perdió a sus padres y a su hermano en un accidente de coche cuando era adolescente. Despertó del coma con una fuerza sobrehumana y fue adoptada por la madre de Trish Walker, una estrella infantil de televisión. Trish y Jessica crecieron como hermanas.",
+      "Jessica intentó ser una heroína, hasta que conoció a Kilgrave, un hombre que controla la voluntad de cualquiera con solo hablarle. Durante meses la obligó a vivir con él y a obedecerlo en todo. Por orden suya, Jessica mató de un golpe a una mujer llamada Reva Connors. El horror la hizo reaccionar; Kilgrave fue atropellado por un autobús y ella lo creyó muerto."
+    ]],
+    ["Episodios 1 a 4: Ha vuelto", [
+      "Jessica vive sola en Hell's Kitchen, bebe demasiado y trabaja como detective privada en su agencia, Alias Investigations. Unos padres le piden encontrar a su hija, Hope Shlottman. Jessica descubre que Kilgrave está vivo y la tiene bajo su control. La rescata, pero Hope, cumpliendo una orden que él le dejó, mata a tiros a sus propios padres en un ascensor.",
+      "Jessica decide no huir: va a probar que Kilgrave existe para sacar a Hope de la cárcel, con ayuda de la abogada Jeri Hogarth. Mientras tanto vigila a Luke Cage, dueño de un bar y viudo de Reva. Los dos descubren que tienen poderes, pues la piel de Luke es irrompible, y empiezan una relación que Jessica sabe condenada por lo que calla.",
+      "Kilgrave envía al policía Will Simpson a matar a Trish. Jessica lo impide, y Simpson, ya libre, se une a ellas. Descubren que la anestesia quirúrgica anula por un tiempo el poder de Kilgrave, y que alguien fotografía a Jessica para él: su vecino Malcolm, al que Kilgrave mantiene enganchado a la droga."
+    ]],
+    ["Episodios 5 a 9: La celda", [
+      "Jessica le confiesa a Luke que ella mató a Reva, y él la deja. Kilgrave compra la casa donde Jessica creció y la recrea tal como era, para convencerla de que vivan juntos. Ella finge aceptar e intenta que use su poder para hacer el bien.",
+      "Jessica lo captura y lo encierra en una celda hermética. Así se conoce su origen: se llama Kevin Thompson, y sus padres, científicos, experimentaron con él de niño para curarle una enfermedad; el resultado fue un virus que emite y que obliga a obedecer. Kilgrave escapa haciendo que su madre se apuñale.",
+      "En la huida, Jessica descubre algo decisivo: las órdenes de Kilgrave ya no le hacen efecto. Es la única persona inmune."
+    ]],
+    ["Episodios 10 a 13: Sonríe", [
+      "Kilgrave obliga a su padre a fabricar un suero que aumente su poder. Hope, para dejar a Jessica libre de matarlo, se quita la vida. Simpson toma pastillas de combate de un programa militar y se vuelve violento y paranoico; Trish lo detiene tomando ella misma una de esas pastillas.",
+      "Kilgrave usa a Luke Cage contra Jessica. Para detenerlo, ella tiene que dispararle a la barbilla con una escopeta. La enfermera Claire Temple ayuda a salvarlo.",
+      "En el muelle, Kilgrave, con el poder multiplicado, controla a una multitud y a Trish. Jessica finge estar otra vez bajo su dominio. Cuando él se acerca y le ordena sonreír, ella lo levanta del suelo y le rompe el cuello. Queda libre de cargos, y su teléfono no deja de sonar con gente que pide ayuda."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["J", "Jessica"], ["K", "Kilgrave"], ["T", "Trish"], ["L", "Luke"], ["H", "Hogarth"], ["M", "Malcolm"]],
+    "enlaces": [["K", "J", "la controló"], ["J", "T", "hermanas adoptivas"], ["J", "L", "relación"], ["J", "H", "trabaja para ella"], ["J", "M", "vecinos"], ["K", "L", "lo usa"]]
+  },
+  "personajes": [
+    ["Jessica Jones", "Detective privada con superfuerza y resistencia. Sarcástica y solitaria, arrastra el trauma de lo que Kilgrave le hizo."],
+    ["Kilgrave", "Kevin Thompson. Controla la mente de quien lo escucha. Caprichoso y cruel, está obsesionado con Jessica. En los cómics es el Hombre Púrpura."],
+    ["Trish Walker", "Hermana adoptiva de Jessica, antigua estrella infantil y locutora de radio. Quiere ser una heroína."],
+    ["Luke Cage", "Dueño de un bar con piel irrompible. Viudo de Reva Connors."],
+    ["Jeri Hogarth", "Abogada poderosa y sin escrúpulos que contrata a Jessica."],
+    ["Malcolm Ducasse", "Vecino de Jessica. Tras librarse de Kilgrave se convierte en su ayudante."],
+    ["Hope Shlottman", "Joven atleta a la que Kilgrave obliga a matar a sus padres."],
+    ["Will Simpson", "Policía y exsoldado. Las pastillas de combate lo vuelven peligroso. En los cómics es Nuke."],
+    ["Dorothy Walker", "Madre de Trish, que la explotó de niña."],
+    ["Reva Connors", "Esposa de Luke Cage. Guardaba un pendrive con los experimentos hechos a Kilgrave."],
+    ["Claire Temple", "La enfermera de Daredevil. Aquí cura a Luke Cage."]
+  ],
+  "cosas": [
+    ["Alias Investigations", "La agencia de detectives de Jessica, que funciona en su propio apartamento."],
+    ["Poder de Kilgrave", "Un virus que emite su cuerpo. Quien lo respira obedece cualquier orden suya durante horas. No funciona por teléfono ni por vídeo."],
+    ["Poderes de Jessica", "Fuerza para levantar un coche, saltos enormes que ella llama «caer con estilo» y gran resistencia."],
+    ["IGH", "Las siglas que aparecen en los papeles del hospital donde atendieron a Jessica. Apuntan al origen de sus poderes."],
+    ["Pastillas de combate", "Rojas para la fuerza, blancas para equilibrar y azules para bajar. Las usa Simpson."],
+    ["Sufentanil", "Anestésico que deja sin poder a Kilgrave durante unas horas."],
+    ["La lista de calles", "Las calles de su infancia que Jessica recita para calmarse: Birch Street, Higgins Drive, Cobalt Lane."]
+  ],
+  "creditos": "No hay escenas después de los créditos. La última imagen es Jessica en su oficina, escuchando mensajes de personas que le piden ayuda, mientras Malcolm contesta el teléfono: «Alias Investigations, ¿en qué podemos ayudarle?».",
+  "conexiones": [
+    "Luke Cage protagoniza su propia serie, que ocurre después de estos hechos.",
+    "IGH y el origen de los poderes de Jessica son el centro de la temporada 2.",
+    "Jeri Hogarth aparece también en Daredevil, Iron Fist y The Defenders.",
+    "Jessica se une a Matt Murdock, Luke Cage y Danny Rand en The Defenders.",
+    "Krysten Ritter regresa como Jessica Jones en Daredevil: Born Again."
+  ],
+  "preguntas": [
+    ["¿Quién es Jessica Jones?", "Una detective privada de Nueva York con superfuerza, que dejó de ser heroína tras ser controlada por Kilgrave."],
+    ["¿Qué poder tiene Kilgrave?", "Controla la voluntad de las personas con solo darles una orden. En realidad emite un virus que obliga a obedecer."],
+    ["¿Cómo consiguió Jessica sus poderes?", "Tras el accidente de coche en que murió su familia, la trataron en un hospital ligado a una empresa llamada IGH. La temporada 2 lo explica."],
+    ["¿Por qué Jessica es inmune a Kilgrave?", "Desde la noche en que la obligó a matar a Reva, sus órdenes dejaron de hacerle efecto. Ella lo descubre a mitad de la temporada."],
+    ["¿Cómo muere Kilgrave?", "Jessica finge estar bajo su control y, cuando él se acerca, le rompe el cuello."],
+    ["¿Qué relación tienen Jessica y Luke Cage?", "Son pareja por un tiempo, hasta que ella confiesa que mató a la esposa de él obligada por Kilgrave."]
+  ],
+  "curiosidades": [
+    "Está basada en el cómic Alias, de Brian Michael Bendis y Michael Gaydos.",
+    "Kilgrave viste casi siempre de morado, en homenaje al Hombre Púrpura de los cómics, cuya piel es de ese color.",
+    "Fue la primera serie de Marvel protagonizada por una mujer.",
+    "Ganó un premio Peabody por la forma en que trata el abuso y sus consecuencias."
+  ]
+}

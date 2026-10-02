@@ -1,0 +1,92 @@
+{
+  "titulo": "Ms. Marvel",
+  "anio": 2022,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Ms. Marvel"],
+    ["Estreno", "Del 8 de junio al 13 de julio de 2022 (Disney+)"],
+    ["Creadora", "Bisha K. Ali"],
+    ["Episodios", "6 (miniserie)"],
+    ["Reparto principal", "Iman Vellani (Kamala Khan), Matt Lintz (Bruno Carrelli), Yasmeen Fletcher (Nakia Bahadir), Zenobia Shroff (Muneeba Khan), Mohan Kapur (Yusuf Khan), Saagar Shaikh (Aamir Khan), Rish Shah (Kamran), Aramis Knight (Kareem), Nimra Bucha (Najma), Samina Ahmad (Sana)"],
+    ["Música", "Laura Karpman"],
+    ["Lugar en el universo", "Fase 4"],
+    ["Cronología interna", "Otoño de 2025, en Jersey City y Karachi"],
+    ["Tono", "Comedia juvenil de instituto y de familia, con dibujos animados que salen de la imaginación de Kamala"]
+  ],
+  "momentos": [
+    ["El brazalete", "Kamala recibe poderes"],
+    ["Los Clandestinos", "Kamran y su madre"],
+    ["Karachi", "Las Dagas Rojas"],
+    ["1947", "El tren de la Partición"],
+    ["El instituto", "Nace Ms. Marvel"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: La chica de Jersey City", [
+      "Kamala Khan tiene dieciséis años, vive en Jersey City con su familia, de origen pakistaní, y es la mayor admiradora de la Capitana Marvel. Dibuja, hace vídeos y suspende el examen de conducir. Sus padres, Muneeba y Yusuf, la quieren y la controlan.",
+      "Para ir a escondidas a una convención de fans de los Vengadores con su amigo Bruno, completa su disfraz con un brazalete viejo que llegó en una caja de su abuela. Al ponérselo, de su cuerpo sale una luz que se vuelve sólida: puede formar puños gigantes y plataformas en el aire. Salva a una compañera delante de todos.",
+      "Internet la llama Luz Nocturna. Dos agentes de Control de Daños empiezan a buscarla. En el instituto aparece un chico nuevo, Kamran, que le gusta, y cuya madre resulta saber mucho del brazalete."
+    ]],
+    ["Episodios 3 y 4: Los Clandestinos", [
+      "La madre de Kamran, Najma, dirige a los Clandestinos, un grupo de seres desterrados de otra dimensión, Noor. Llevan un siglo sin envejecer, tratando de volver. La bisabuela de Kamala, Aisha, era una de ellos, y el brazalete fue suyo.",
+      "Para abrir el camino a Noor necesitan el brazalete, y abrirlo podría destruir este mundo. Kamala se niega, y los Clandestinos atacan en plena boda de su hermano Aamir. Su amiga Nakia descubre su secreto y se enfada por no haberlo sabido.",
+      "Su abuela Sana la llama desde Pakistán: las dos han tenido la misma visión de un tren. Kamala viaja a Karachi con su madre. Allí conoce a las Dagas Rojas, una orden que protege al mundo de lo que no se ve, y a uno de sus jóvenes, Kareem."
+    ]],
+    ["Episodios 5 y 6: El rastro de estrellas", [
+      "Se cuenta la historia de Aisha. En los años cuarenta se escondió en un pueblo de la India, se enamoró de Hasan, un cultivador de rosas, y tuvieron a Sana. En 1947 llegó la Partición, que dividió el país en India y Pakistán y obligó a millones de personas a huir. En la estación, Najma apuñaló a Aisha por haberlos abandonado.",
+      "En la familia siempre se contó que la pequeña Sana, perdida entre la multitud, encontró a su padre siguiendo un rastro de estrellas. El brazalete lleva a Kamala hasta esa noche: es ella quien crea el rastro de luz. Su propia familia existe gracias a ella.",
+      "El velo de Noor se abre y empieza a matar a los Clandestinos. Najma se sacrifica para cerrarlo y, antes de morir, pasa su poder a su hijo. La madre de Kamala lo ha visto todo, y por fin entiende a su hija y a su propia madre.",
+      "En Jersey City, Control de Daños persigue a Kamran y cerca el instituto. Kamala, con el traje que le cose su madre, sus amigos y su hermano lo protegen. Los vecinos se ponen delante de los agentes. Su padre le explica que Kamal significa «maravilla»: ella es su pequeña Ms. Marvel.",
+      "Bruno, que se va a estudiar a California, le da una última noticia: ha comparado sus genes con los de su familia, y en los de ella hay algo distinto. Una mutación."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["K", "Kamala"], ["B", "Bruno"], ["M", "Muneeba"], ["R", "Kamran"], ["N", "Najma"], ["S", "Sana"]],
+    "enlaces": [["K", "B", "mejores amigos"], ["M", "K", "madre e hija"], ["K", "R", "se gustan"], ["N", "R", "madre e hijo"], ["S", "M", "madre e hija"], ["N", "K", "quiere el brazalete"]]
+  },
+  "personajes": [
+    ["Kamala Khan", "Ms. Marvel. Soñadora, entusiasta y torpe. Crea formas sólidas de luz."],
+    ["Bruno Carrelli", "Su mejor amigo, un genio de la tecnología, enamorado de ella en silencio."],
+    ["Nakia Bahadir", "Su mejor amiga. Se presenta a la junta de la mezquita para cambiar las cosas."],
+    ["Muneeba Khan", "Madre de Kamala. Estricta por miedo; fue más rebelde que su hija."],
+    ["Yusuf Khan", "Padre cariñoso y bromista."],
+    ["Aamir Khan", "El hermano mayor, muy religioso y muy buena persona."],
+    ["Kamran", "Hijo de Najma. Acaba con poderes que no controla y huye a Karachi."],
+    ["Najma", "Líder de los Clandestinos. Solo quiere volver a casa, cueste lo que cueste."],
+    ["Sana", "La abuela, artista. La niña del tren de 1947."],
+    ["Aisha", "La bisabuela, dueña original del brazalete."],
+    ["Kareem", "La Daga Roja joven, con pañuelo rojo y cuchillos."],
+    ["Agentes Cleary y Deever", "De Control de Daños. Ella no tiene reparos en entrar armada en una mezquita o un instituto."]
+  ],
+  "cosas": [
+    ["El brazalete", "Reliquia hallada junto a una mano azul cortada. Despierta el poder que Kamala ya llevaba dentro."],
+    ["Luz sólida", "El poder de Kamala. «Engrandecerse» es agrandar los puños o estirarse con esa luz."],
+    ["Noor", "La dimensión de luz de donde vienen los Clandestinos."],
+    ["Los Clandestinos", "Los desterrados de Noor. En las leyendas los llaman genios."],
+    ["Las Dagas Rojas", "Orden de protectores de Karachi."],
+    ["La Partición", "La división de la India británica en 1947, un hecho histórico real."],
+    ["Control de Daños", "La agencia que ahora persigue a personas con poderes."],
+    ["La mutación", "Lo que Bruno encuentra en los genes de Kamala."]
+  ],
+  "creditos": "A mitad de los créditos del último episodio, el brazalete empieza a brillar solo en el cuarto de Kamala. Hay un destello, y en su lugar aparece Carol Danvers, la Capitana Marvel, que mira asombrada las paredes cubiertas de carteles con su cara.",
+  "conexiones": [
+    "La escena final es el comienzo de The Marvels, donde Kamala, Carol y Monica Rambeau cambian de sitio entre sí.",
+    "Control de Daños y el agente Cleary vienen de Spider-Man: Sin camino a casa.",
+    "La palabra «mutación» y la música que la acompaña anuncian a los mutantes, los X-Men.",
+    "El segundo brazalete aparece en The Marvels.",
+    "La convención de fans se celebra en el campamento Lehigh, donde nació el Capitán América."
+  ],
+  "preguntas": [
+    ["¿Quién es Ms. Marvel?", "Kamala Khan, una adolescente de Jersey City, de familia pakistaní, admiradora de la Capitana Marvel."],
+    ["¿Qué poderes tiene?", "Crea formas de luz sólida: escudos, plataformas y puños gigantes."],
+    ["¿De dónde vienen sus poderes?", "De ella misma: tiene una mutación en los genes. El brazalete de su bisabuela solo los despertó."],
+    ["¿Quiénes son los Clandestinos?", "Seres de la dimensión Noor, desterrados en la Tierra, que quieren volver usando el brazalete."],
+    ["¿Qué es la Partición?", "La división de la India en dos países en 1947, que separó a millones de familias, entre ellas la de Kamala."],
+    ["¿Qué pasa al final?", "Kamala cambia de lugar con la Capitana Marvel, que aparece en su habitación."]
+  ],
+  "curiosidades": [
+    "Iman Vellani era admiradora de los cómics de Ms. Marvel antes de conseguir el papel, su primero como actriz.",
+    "En los cómics, Kamala es una Inhumana que estira el cuerpo; la serie cambió su origen y sus poderes.",
+    "Kamala Khan fue, en 2014, la primera superheroína musulmana con cómic propio de Marvel.",
+    "Es la serie de Marvel con mejor nota de la crítica en su estreno."
+  ]
+}

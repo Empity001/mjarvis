@@ -1,0 +1,91 @@
+{
+  "titulo": "The Marvels",
+  "anio": 2023,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "The Marvels"],
+    ["Estreno", "10 de noviembre de 2023 (Estados Unidos)"],
+    ["Dirección", "Nia DaCosta"],
+    ["Guion", "Nia DaCosta, Megan McDonnell y Elissa Karasik"],
+    ["Reparto principal", "Brie Larson (Carol Danvers), Teyonah Parris (Monica Rambeau), Iman Vellani (Kamala Khan), Zawe Ashton (Dar-Benn), Samuel L. Jackson (Nick Fury), Park Seo-joon (príncipe Yan), Zenobia Shroff, Mohan Kapur y Saagar Shaikh (la familia Khan)"],
+    ["Duración", "105 minutos, la película más corta del universo"],
+    ["Música", "Laura Karpman"],
+    ["Lugar en el universo", "Fase 5. Secuela de Capitana Marvel, WandaVision y Ms. Marvel"],
+    ["Cronología interna", "2026"],
+    ["Recaudación", "Cerca de 206 millones de dólares, la más baja de Marvel Studios"]
+  ],
+  "momentos": [
+    ["El brazalete", "Dar-Benn encuentra el suyo"],
+    ["El enredo", "Tres heroínas cambian de sitio"],
+    ["Aladna", "El planeta que canta"],
+    ["La estación", "Gatitos al rescate"],
+    ["La grieta", "Monica queda al otro lado"]
+  ],
+  "actos": [
+    ["Acto 1: Enredadas", [
+      "Hace treinta años, Carol Danvers destruyó la Inteligencia Suprema que gobernaba el imperio Kree. Creyó liberarlos. El resultado fue una guerra civil que dejó a su planeta, Hala, sin aire, sin agua y con el sol apagándose. Los Kree la llaman la Aniquiladora.",
+      "Su nueva líder, Dar-Benn, encuentra un brazalete antiguo, pareja del que tiene Kamala Khan. Con él abre desgarros en la red de puntos de salto que comunica el espacio, para robar lo que Hala necesita.",
+      "Carol toca uno de esos desgarros en el espacio. Monica Rambeau, astronauta de la estación de Nick Fury, toca otro. Kamala está en su cuarto, en Jersey City, con su brazalete. Los poderes de las tres, todos de luz, quedan enredados: cada vez que dos los usan al mismo tiempo, cambian de lugar.",
+      "Así, una pelea contra soldados Kree se reparte entre una nave, la estación espacial y el salón de los Khan, con las tres apareciendo y desapareciendo ante los padres de Kamala."
+    ]],
+    ["Acto 2: Lo que Carol no arregló", [
+      "Dar-Benn roba la atmósfera de Tarnax, donde vivía una colonia de refugiados Skrull. Las tres llegan tarde, y solo salvan a una parte. Kamala descubre que su ídolo no siempre gana.",
+      "Entre Carol y Monica hay una herida vieja. Carol le prometió a la pequeña Monica que volvería pronto, y no volvió: Monica creció, perdió a su madre y desapareció cinco años sin verla. Carol confiesa por qué: le daba vergüenza volver a casa sin haber arreglado lo que rompió.",
+      "Aprenden a aprovechar el enredo, entrenando los cambios con una cuerda de saltar. El siguiente objetivo es el agua de Aladna, un planeta donde la gente habla cantando y donde Carol es princesa, por un matrimonio de conveniencia con el príncipe Yan. Dar-Benn se lleva los océanos.",
+      "Mientras tanto, la estación de Fury se queda sin cápsulas de escape. La gata Goose, que es un Flerken, ha puesto huevos. Los gatitos se tragan a la tripulación con sus tentáculos para transportarla a salvo dentro de sus bolsillos dimensionales."
+    ]],
+    ["Acto 3: El sol", [
+      "El último robo es el Sol de la Tierra, para reencender el de Hala. Las tres se enfrentan a Dar-Benn en su nave. Dar-Benn consigue el segundo brazalete, se pone los dos y abre con ellos un agujero en el espacio y el tiempo. El poder la desintegra.",
+      "El agujero da a otro universo y hay que cerrarlo desde dentro. Kamala y Carol cargan de energía a Monica, que lo cruza y lo sella. Se queda al otro lado.",
+      "Carol hace lo que pudo hacer hace años: vuela hasta el sol de Hala y lo reaviva con su propio poder. Después se instala en la casa de los Rambeau, en Luisiana, con ayuda de la familia Khan.",
+      "Kamala, con una tableta y mucho entusiasmo, se presenta en el piso de Kate Bishop, la joven arquera: está formando un equipo, y ya ha pensado en la hija de Ant-Man."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["C", "Carol"], ["M", "Monica"], ["K", "Kamala"], ["D", "Dar-Benn"], ["F", "Fury"], ["G", "Goose"]],
+    "enlaces": [["C", "M", "tía y sobrina de corazón"], ["K", "C", "su mayor admiradora"], ["D", "C", "la culpa de todo"], ["F", "C", "viejos amigos"], ["M", "K", "compañeras"], ["G", "F", "su gata"]]
+  },
+  "personajes": [
+    ["Carol Danvers", "La Capitana Marvel. La más poderosa y la más sola. Aprende a pedir perdón."],
+    ["Monica Rambeau", "Astronauta. Ve y manipula toda clase de luz y atraviesa la materia. Aún no tiene nombre de heroína."],
+    ["Kamala Khan", "Ms. Marvel. Dieciséis años, emocionada de pelear junto a su heroína."],
+    ["Dar-Benn", "Líder Kree, con el martillo de los Acusadores. Quiere salvar a su pueblo y vengarse de Carol."],
+    ["Nick Fury", "Dirige la estación S.A.B.E.R. Más relajado que nunca."],
+    ["Muneeba, Yusuf y Aamir Khan", "La familia de Kamala, arrastrada al espacio."],
+    ["Príncipe Yan", "Marido de Carol solo en los papeles, y buen amigo."],
+    ["Goose", "Flerken con aspecto de gata. Ahora madre."],
+    ["Emperador Dro'ge", "Líder de los Skrulls de Tarnax."],
+    ["Valquiria", "Reina de Nuevo Asgard. Acoge a los Skrulls refugiados."]
+  ],
+  "cosas": [
+    ["Brazaletes cuánticos", "Dos reliquias que crearon la red de puntos de salto. Juntos pueden rasgar el universo."],
+    ["Puntos de salto", "Los portales hexagonales para viajar rápido por el espacio."],
+    ["El enredo", "El cambio de lugar entre las tres cuando usan sus poderes a la vez."],
+    ["Hala", "La capital del imperio Kree, moribunda."],
+    ["Aladna", "Planeta donde el idioma es la canción."],
+    ["S.A.B.E.R.", "La estación espacial de defensa de la Tierra."],
+    ["Flerkens", "Criaturas con forma de gato que guardan dimensiones enteras en la boca."]
+  ],
+  "creditos": "A mitad de los créditos, Monica despierta en una cama de hospital. A su lado está su madre, Maria, viva, que no la reconoce: lleva un traje rojo y blanco de heroína. Entra un doctor de piel azul y peluda, que le explica que viene de una realidad paralela. Es Bestia, de los X-Men. Al final de los créditos solo se oye a un Flerken toser.",
+  "conexiones": [
+    "Reúne a la protagonista de Capitana Marvel con Monica, de WandaVision, y Kamala, de Ms. Marvel.",
+    "Empieza en la escena final de Ms. Marvel.",
+    "La escena de los créditos lleva a Monica a un universo con X-Men, parecido al de las películas de Fox.",
+    "Kamala recluta a Kate Bishop, de Hawkeye, para un futuro equipo de héroes jóvenes.",
+    "Los Skrulls sin hogar vienen de Capitana Marvel e Invasión Secreta."
+  ],
+  "preguntas": [
+    ["¿Quiénes son las Marvels?", "Carol Danvers, Monica Rambeau y Kamala Khan, tres heroínas con poderes de luz que quedan unidas."],
+    ["¿Por qué cambian de lugar?", "Porque sus poderes se enredaron al tocar un punto de salto dañado. Si los usan a la vez, se intercambian."],
+    ["¿Quién es la villana?", "Dar-Benn, líder de los Kree, que roba recursos de otros planetas para salvar el suyo."],
+    ["¿Por qué los Kree odian a la Capitana Marvel?", "Porque al destruir su Inteligencia Suprema provocó una guerra que arruinó su planeta."],
+    ["¿Qué le pasa a Monica?", "Queda atrapada en otro universo, donde su madre vive y existen los X-Men."],
+    ["¿Qué son los gatos de la película?", "Flerkens, extraterrestres con tentáculos que pueden tragar y transportar personas."]
+  ],
+  "curiosidades": [
+    "Nia DaCosta fue la directora más joven de una película de Marvel Studios.",
+    "Kelsey Grammer vuelve como Bestia, papel que hizo en X-Men: La decisión final, en 2006.",
+    "La escena de los gatitos se acompaña con la canción «Memory», del musical Cats.",
+    "A pesar de su mala taquilla, Iman Vellani fue elogiada por casi toda la crítica."
+  ]
+}

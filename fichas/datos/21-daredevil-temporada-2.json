@@ -1,0 +1,96 @@
+{
+  "titulo": "Daredevil · Temporada 2",
+  "anio": 2016,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Daredevil (temporada 2)"],
+    ["Estreno", "18 de marzo de 2016 (Netflix; hoy en Disney+)"],
+    ["Responsables", "Doug Petrie y Marco Ramirez"],
+    ["Episodios", "13"],
+    ["Reparto principal", "Charlie Cox (Matt Murdock), Deborah Ann Woll (Karen Page), Elden Henson (Foggy Nelson), Jon Bernthal (Frank Castle), Élodie Yung (Elektra Natchios), Scott Glenn (Stick), Vincent D'Onofrio (Wilson Fisk), Rosario Dawson (Claire Temple), Stephen Rider (Blake Tower), Michelle Hurd (Samantha Reyes), Peter Shinkoda (Nobu)"],
+    ["Música", "John Paesano"],
+    ["Lugar en el universo", "Tercera entrega de las series de los Defensores. Presenta a Punisher y a Elektra"],
+    ["Cronología interna", "Nueva York, meses después de la caída de Wilson Fisk"],
+    ["Tono", "Dos historias cruzadas: un drama judicial con Punisher y una guerra de ninjas con Elektra"]
+  ],
+  "momentos": [
+    ["Punisher", "Un ejército de un solo hombre"],
+    ["La azotea", "Matar o no matar"],
+    ["Elektra", "Vuelve el pasado de Matt"],
+    ["El juicio", "El pueblo contra Frank Castle"],
+    ["La Mano", "Batalla final en la azotea"]
+  ],
+  "actos": [
+    ["Episodios 1 a 4: Punisher", [
+      "Con Fisk preso, las bandas se disputan Hell's Kitchen. Alguien las está exterminando: la mafia irlandesa, los motoristas, el cártel. La policía cree que es un ejército; es un solo hombre, Frank Castle, exmarine, a quien la prensa llama Punisher, el Castigador.",
+      "Matt lo enfrenta y recibe un tiro en el casco que casi lo mata. Después, Castle lo encadena en una azotea y discuten: Matt cree que toda persona puede redimirse; Frank, que Daredevil es «un hombre a un mal día» de ser como él, y que sus golpes no sirven porque los criminales vuelven a la calle. Para probarlo, le ata una pistola a la mano y lo obliga a elegir entre dispararle o dejar morir a un delincuente.",
+      "Los irlandeses capturan y torturan a Frank. Matt lo rescata y, en un cementerio, Frank cuenta por fin su historia: volvió de la guerra, llevó a su familia al parque y su esposa y sus dos hijos murieron en un tiroteo entre bandas. Matt deja que el sargento Brett Mahoney se lleve el mérito del arresto."
+    ]],
+    ["Episodios 5 a 8: Elektra y el juicio", [
+      "Elektra Natchios, la novia rica y peligrosa de la universidad de Matt, reaparece y le pide ayuda. Diez años atrás lo dejó cuando él se negó a matar al hombre que asesinó a su padre. Ahora pelea de noche contra unos ninjas que cree de la Yakuza.",
+      "Nelson y Murdock acepta defender a Frank Castle. Karen descubre que la fiscal Reyes ocultó que la matanza del parque fue una operación policial que salió mal. Matt llega tarde y agotado al juicio por pasar las noches con Elektra, y Foggy tiene que cargar con el caso. Cuando la defensa va ganando, Frank grita ante el jurado que volvería a hacerlo.",
+      "Fue cosa de Wilson Fisk: desde la cárcel le prometió a Frank dejarlo a solas con un preso que sabía quién ordenó la matanza. Después lo encierra con una galería entera de enemigos, y Frank los mata a todos. Fisk, ya dueño de la prisión, lo deja escapar para que limpie la ciudad de rivales. Cuando Matt lo visita y lo amenaza con Vanessa, Fisk le da una paliza y promete destruir su vida."
+    ]],
+    ["Episodios 9 a 11: La guerra antigua", [
+      "Los ninjas son la Mano, una organización que busca la inmortalidad. Stick le cuenta a Matt que él dirige a los Castos, sus enemigos de siempre, y que fue él quien envió a Elektra a acercarse a Matt en la universidad.",
+      "La Mano ha cavado un pozo inmenso bajo un solar de Manhattan y desangra a jóvenes para sus ritos. Nobu, a quien Matt vio arder, está vivo. Lo que buscan es el Cielo Negro, un arma viviente a la que adoran, y el Cielo Negro es Elektra. Stick lo supo siempre e intenta matarla.",
+      "Asesinan a la fiscal Reyes y culpan a Frank. Karen, que investiga con el periódico de Ben Urich, cree en su inocencia. El responsable es el Herrero, un traficante de heroína que provocó la matanza del parque."
+    ]],
+    ["Episodios 12 y 13: Lo que queda", [
+      "El Herrero resulta ser el coronel Schoonover, antiguo jefe de Frank en Afganistán. Frank lo mata y encuentra su arsenal, con un chaleco blindado al que le pinta una calavera blanca.",
+      "En una azotea, Matt y Elektra pelean contra Nobu y decenas de ninjas. Ella muere atravesada al ponerse delante de Matt. Frank, desde otro tejado, abate a varios con su rifle. Matt lanza a Nobu al vacío y Stick lo decapita para que no vuelva.",
+      "Nelson y Murdock cierra. Foggy acepta trabajo en un gran bufete y Karen se queda como periodista en el despacho de Ben. Matt la cita en la oficina vacía y le enseña la máscara: «Soy Daredevil». Mientras tanto, la Mano desentierra a Elektra y la coloca en un sarcófago de piedra."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["M", "Matt"], ["F", "Frank"], ["E", "Elektra"], ["K", "Karen"], ["S", "Stick"], ["G", "Foggy"]],
+    "enlaces": [["M", "F", "métodos opuestos"], ["M", "E", "amor antiguo"], ["S", "E", "la crió"], ["K", "F", "cree en él"], ["M", "G", "socios que rompen"], ["M", "K", "relación breve"]]
+  },
+  "personajes": [
+    ["Matt Murdock", "Daredevil. Se reparte entre el bufete, Karen, Elektra y la calle, y falla en todo a la vez."],
+    ["Frank Castle", "Punisher. Marine condecorado que mata a los criminales uno por uno desde que asesinaron a su familia."],
+    ["Elektra Natchios", "Heredera griega criada por Stick como asesina. Disfruta matando. Es el Cielo Negro."],
+    ["Karen Page", "Deja el bufete por el periodismo. La única que ve a Frank como una persona."],
+    ["Foggy Nelson", "Se revela como un gran abogado en el juicio y decide seguir sin Matt."],
+    ["Stick", "Jefe de los Castos. Para él la guerra justifica cualquier cosa."],
+    ["Wilson Fisk", "Preso, pero ya controla la cárcel. Ahora odia a Matt Murdock, no solo a Daredevil."],
+    ["Nobu", "Jefe de la Mano en Nueva York. Ha vuelto de la muerte."],
+    ["Samantha Reyes", "Fiscal del distrito que tapó sus errores. Muere asesinada."],
+    ["Blake Tower", "Ayudante de la fiscal, más honesto que ella."],
+    ["Ray Schoonover", "El Herrero. Coronel de Frank y traficante de heroína."],
+    ["Brett Mahoney", "Policía de confianza de Matt y Foggy. Asciende a detective."],
+    ["Mitchell Ellison", "Director del New York Bulletin. Da a Karen el despacho de Ben."]
+  ],
+  "cosas": [
+    ["La Mano", "Organización milenaria de ninjas que puede devolver la vida a sus muertos."],
+    ["Los Castos", "El grupo de guerreros de Stick, enemigos de la Mano."],
+    ["Cielo Negro", "El arma viviente que la Mano venera como a un líder. En esta generación es Elektra."],
+    ["La calavera", "El símbolo de Punisher, que Frank adopta al final de la temporada."],
+    ["Sai", "Las dagas de tres puntas con las que pelea Elektra."],
+    ["El pozo", "Un agujero sin fondo excavado por la Mano en Midland Circle. Su sentido se explica en The Defenders."],
+    ["Traje mejorado", "Melvin Potter refuerza el casco de Daredevil y le hace un bastón con cable."],
+    ["Operación Cerbero", "La misión de Afganistán que une a Frank con el Herrero."]
+  ],
+  "creditos": "No hay escenas después de los créditos, pero al final del último episodio Netflix incluyó un avance de Luke Cage. La temporada se cierra con dos imágenes: Matt confesándole a Karen quién es, y Elektra en el sarcófago de la Mano.",
+  "conexiones": [
+    "Frank Castle protagoniza su propia serie, The Punisher, donde se aclara la Operación Cerbero.",
+    "El pozo de Midland Circle y la resurrección de Elektra son el centro de The Defenders.",
+    "Foggy entra en el bufete de Jeri Hogarth, de Jessica Jones.",
+    "Fisk cumple su amenaza contra Matt en la temporada 3.",
+    "Jon Bernthal vuelve como Punisher en Daredevil: Born Again."
+  ],
+  "preguntas": [
+    ["¿Quién es Punisher?", "Frank Castle, un exmarine que mata criminales desde que su esposa y sus hijos murieron en un tiroteo entre bandas."],
+    ["¿Quién es Elektra?", "Elektra Natchios, antigua novia de Matt Murdock, entrenada por Stick como asesina. La Mano la considera su arma, el Cielo Negro."],
+    ["¿Por qué Daredevil y Punisher se enfrentan?", "Porque Punisher mata y Daredevil no. Los dos quieren proteger el barrio, con métodos contrarios."],
+    ["¿Qué es la Mano?", "Una organización secreta de ninjas que busca la vida eterna y puede resucitar a sus miembros."],
+    ["¿Cómo muere Elektra?", "Nobu la atraviesa con su arma cuando ella se interpone para salvar a Matt."],
+    ["¿Karen sabe que Matt es Daredevil?", "Sí. Él mismo se lo dice en la última escena de la temporada."]
+  ],
+  "curiosidades": [
+    "La pelea de la escalera del episodio 3, con una cadena y una pistola pegada a la mano, repite el reto del plano continuo de la primera temporada.",
+    "El éxito del personaje de Jon Bernthal hizo que Netflix encargara la serie The Punisher.",
+    "El discurso del cementerio se considera una de las mejores escenas de todas las series de Marvel.",
+    "La discusión de la azotea adapta un cómic de Garth Ennis en el que Punisher pone a prueba a Daredevil."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "titulo": "La maldición del hombre lobo",
+  "anio": 2022,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Werewolf by Night"],
+    ["Estreno", "7 de octubre de 2022 (Disney+)"],
+    ["Dirección", "Michael Giacchino"],
+    ["Guion", "Heather Quinn y Peter Cameron"],
+    ["Reparto principal", "Gael García Bernal (Jack Russell), Laura Donnelly (Elsa Bloodstone), Harriet Sansom Harris (Verussa), Kirk Thatcher (Jovan), Eugenie Bondurant (Azarel), Leonardo Nam (Liorn), Carey Jones (Ted)"],
+    ["Duración", "53 minutos. Es un especial, no una película ni una serie"],
+    ["Música", "Michael Giacchino"],
+    ["Lugar en el universo", "Fase 4. Primer «especial» de Marvel Studios"],
+    ["Cronología interna", "Una sola noche, sin fecha, en la mansión Bloodstone"],
+    ["Tono", "Homenaje en blanco y negro al cine de monstruos de los años treinta y cuarenta"]
+  ],
+  "momentos": [
+    ["El funeral", "Los cazadores se reúnen"],
+    ["La cacería", "Un monstruo en el laberinto"],
+    ["Ted", "Jack vino a salvarlo"],
+    ["La jaula", "Sale el lobo"],
+    ["El color", "Elsa hereda la piedra"]
+  ],
+  "actos": [
+    ["La reunión", [
+      "Ha muerto Ulysses Bloodstone, el mayor cazador de monstruos. Su viuda, Verussa, convoca en la mansión a los mejores cazadores del mundo. Esa noche habrá una cacería ritual en el laberinto del jardín: quien mate al monstruo que han soltado allí heredará la Piedra de Sangre, una gema roja que da fuerza y larga vida y que hace daño a los monstruos. La piedra irá clavada en el lomo de la bestia.",
+      "Entre los invitados hay dos que desentonan. Elsa Bloodstone, la hija del muerto, que se fue de casa hace años y ha vuelto a reclamar lo suyo. Y Jack Russell, un hombre tranquilo, con la cara pintada en honor a sus antepasados, del que dicen que ha matado a más de cien."
+    ]],
+    ["La cacería", [
+      "En el laberinto, Jack evita pelear. Encuentra al monstruo, una criatura enorme hecha de plantas y barro, y le habla en voz baja: se llama Ted, es su amigo, y Jack ha venido a sacarlo.",
+      "Jack y Elsa quedan encerrados juntos en una cripta de la familia. Hacen un trato: él la ayuda a conseguir la piedra y ella lo ayuda a liberar a Ted. Vuelan un muro para que la criatura escape.",
+      "Elsa le arranca la piedra. Cuando Jack intenta recogerla, la gema lo lanza por el aire. Verussa y los demás lo entienden al instante: Jack es un monstruo."
+    ]],
+    ["El lobo", [
+      "Verussa encierra a Jack y a Elsa en una jaula y usa la piedra para forzar la transformación, aunque no hay luna llena. Jack le pide a Elsa que le deje olerla, para recordarla cuando ya no sea él.",
+      "El hombre lobo rompe la jaula y despedaza a los guardias. Elsa, libre, se encarga de los cazadores. Cuando el lobo se le echa encima, se detiene, la reconoce y huye al bosque.",
+      "Verussa apunta a Elsa. Ted vuelve y le pone la mano en la cara: quien conoce el miedo arde con el toque de la criatura. Elsa recoge la Piedra de Sangre, y la película, hasta entonces en blanco y negro, se llena de color.",
+      "Al amanecer, Jack despierta en el bosque, envuelto en una manta, con Ted a su lado y un café. Ted quiere sushi."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["J", "Jack"], ["E", "Elsa"], ["T", "Ted"], ["V", "Verussa"], ["U", "Ulysses"]],
+    "enlaces": [["J", "T", "amigos"], ["J", "E", "aliados"], ["V", "E", "madrastra"], ["U", "E", "padre"], ["V", "J", "lo enjaula"], ["T", "V", "la quema"]]
+  },
+  "personajes": [
+    ["Jack Russell", "Hombre lobo. Amable y pacífico cuando es humano; se organiza la vida para no hacer daño cuando no lo es."],
+    ["Elsa Bloodstone", "Hija del gran cazador. Odia el oficio familiar, pero pelea mejor que nadie."],
+    ["Ted", "El Hombre Cosa (Man-Thing). Criatura del pantano, mansa, que quema a quien tiene miedo. Fue un científico llamado Ted Sallis."],
+    ["Verussa Bloodstone", "La viuda. Fanática de la cacería."],
+    ["Ulysses Bloodstone", "El patriarca. Su cadáver, convertido en muñeco parlante, preside la ceremonia."],
+    ["Los cazadores", "Jovan, Azarel, Liorn y Barasso, cada uno con sus armas y sus muertes a cuestas."]
+  ],
+  "cosas": [
+    ["Piedra de Sangre", "Gema roja que da fuerza, protección y larga vida a su dueño, y hiere a los monstruos."],
+    ["La cacería ritual", "La prueba para elegir al heredero de la piedra."],
+    ["Mansión Bloodstone", "La casa de la familia, llena de cabezas de monstruos disecadas."],
+    ["La maldición", "Jack se transforma con la luna llena. La piedra puede provocarlo en cualquier momento."],
+    ["El blanco y negro", "Toda la película imita el grano, los cortes y las marcas de las cintas antiguas."]
+  ],
+  "creditos": "No hay escena después de los créditos. La última imagen, ya en color, es la de Jack y Ted junto a una hoguera.",
+  "conexiones": [
+    "Presenta el lado sobrenatural del universo: monstruos, cazadores y maldiciones.",
+    "Los nombres de Jack Russell, Elsa Bloodstone y Man-Thing vienen de cómics de terror de los años setenta.",
+    "Los seguidores relacionan este rincón con Blade y con Moon Knight, aunque el especial no los nombra.",
+    "Disney+ publicó después una versión en color."
+  ],
+  "preguntas": [
+    ["¿Quién es el hombre lobo?", "Jack Russell, un hombre con una maldición de familia que lo convierte en lobo."],
+    ["¿Quién es Elsa Bloodstone?", "La hija del cazador de monstruos Ulysses Bloodstone. Termina siendo la dueña de la Piedra de Sangre."],
+    ["¿Quién es Man-Thing?", "Ted, una criatura de pantano amiga de Jack. Quema a quien siente miedo."],
+    ["¿Por qué es en blanco y negro?", "Porque imita las películas de monstruos clásicas, como El hombre lobo y Frankenstein."],
+    ["¿Qué es la Piedra de Sangre?", "Una gema que da poder a quien la lleva y hace daño a los monstruos."],
+    ["¿Es una película o una serie?", "Ninguna de las dos: es un especial de 53 minutos."]
+  ],
+  "curiosidades": [
+    "Lo dirige Michael Giacchino, el compositor de la música de Spider-Man y Doctor Strange.",
+    "El hombre lobo se hizo con maquillaje y un traje, casi sin efectos por ordenador.",
+    "El logotipo de Marvel aparece arañado por unas garras.",
+    "Su protagonista, Gael García Bernal, es un actor mexicano conocido por Coco y Diarios de motocicleta."
+  ]
+}

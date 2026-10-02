@@ -1,0 +1,89 @@
+{
+  "titulo": "Capitán América: Un nuevo mundo",
+  "anio": 2025,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Captain America: Brave New World"],
+    ["Estreno", "14 de febrero de 2025 (Estados Unidos)"],
+    ["Dirección", "Julius Onah"],
+    ["Guion", "Rob Edwards, Malcolm Spellman, Dalan Musson, Julius Onah y Peter Glanz"],
+    ["Reparto principal", "Anthony Mackie (Sam Wilson), Harrison Ford (Thaddeus Ross), Danny Ramirez (Joaquín Torres), Shira Haas (Ruth Bat-Seraph), Carl Lumbly (Isaiah Bradley), Tim Blake Nelson (Samuel Sterns), Giancarlo Esposito (Sidewinder), Liv Tyler (Betty Ross)"],
+    ["Duración", "118 minutos"],
+    ["Música", "Laura Karpman"],
+    ["Lugar en el universo", "Fase 5. Primera película de Sam Wilson como Capitán América"],
+    ["Cronología interna", "2027, tras Falcon y el Soldado de Invierno"],
+    ["Recaudación", "Cerca de 415 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["México", "El adamantium robado"],
+    ["La Casa Blanca", "Isaiah dispara al presidente"],
+    ["El Líder", "Sterns mueve los hilos"],
+    ["La isla", "Dos flotas a punto de chocar"],
+    ["Hulk Rojo", "El presidente se transforma"]
+  ],
+  "actos": [
+    ["Acto 1: Un presidente y un Capitán", [
+      "Thaddeus Ross, el general que persiguió a Hulk y promovió los Acuerdos de Sokovia, acaba de ser elegido presidente de Estados Unidos. Dice haber cambiado. Su gran proyecto es un tratado para repartir entre los países un metal recién descubierto, el adamantium, que ha aparecido en la isla formada por el cuerpo del Celestial que quedó petrificado en el océano Índico.",
+      "Sam Wilson, el Capitán América, y Joaquín Torres, el nuevo Falcon, recuperan en México una muestra robada a Japón por una banda de mercenarios, la Sociedad de la Serpiente, que dirige Sidewinder.",
+      "Ross los invita a la Casa Blanca y le propone a Sam reconstruir los Vengadores. Sam lleva a Isaiah Bradley, el supersoldado olvidado. Durante el acto suena una canción, y varios hombres, entre ellos Isaiah, sacan armas y disparan contra el presidente. Isaiah no recuerda nada, y lo encierran."
+    ]],
+    ["Acto 2: El Líder", [
+      "Ross prohíbe investigar a Sam, que investiga igual. La pista conduce a una base secreta, donde encuentra a quien está detrás: Samuel Sterns. Años atrás le cayó en la cabeza sangre de Bruce Banner, y su cerebro creció hasta hacerlo un genio capaz de calcular lo que va a ocurrir. Ross lo tuvo preso durante dieciséis años, usándolo para sus planes y prometiéndole una libertad que nunca le dio.",
+      "Sterns controla mentes con destellos de luz y una canción que sirve de disparador. Y tiene otro plan más lento. Ross está enfermo del corazón, y las pastillas que lo mantienen vivo las diseñó Sterns: contienen radiación gamma, y se van acumulando.",
+      "Sterns quiere destruir el legado de Ross. Provoca un incidente junto a la isla del Celestial: dos pilotos estadounidenses, controlados, atacan a la flota japonesa. Sam y Joaquín evitan en el aire que empiece una guerra; a Joaquín lo derriba un misil y queda grave."
+    ]],
+    ["Acto 3: Hulk Rojo", [
+      "Sterns se entrega y hace públicas las grabaciones de sus tratos con Ross. En plena rueda de prensa, ante las cámaras, el presidente pierde el control y se transforma en un Hulk de color rojo. Destroza parte de la Casa Blanca.",
+      "Sam, que no tiene suero ni superfuerza, solo el escudo y unas alas de vibranium hechas en Wakanda, se lo lleva lejos de la gente, hasta un parque de cerezos en flor. No puede vencerlo a golpes.",
+      "Le habla. Le recuerda los paseos bajo esos cerezos con su hija Betty, que no le dirige la palabra desde hace años, y que todo esto empezó porque quería recuperarla. Ross se calma y vuelve a ser humano.",
+      "Ross dimite y acepta quedar encerrado en la Balsa, la prisión que él mismo mandó construir. Betty lo visita. Isaiah queda libre. En el hospital, Sam le confiesa a Joaquín que a veces se pregunta si debió tomar el suero, y Joaquín le contesta que él da esperanza precisamente porque no lo tomó. Sam decide reunir de nuevo a los Vengadores."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Sam"], ["R", "Ross"], ["J", "Joaquín"], ["L", "Sterns"], ["I", "Isaiah"], ["B", "Ruth"]],
+    "enlaces": [["S", "R", "desconfianza"], ["S", "J", "compañeros"], ["L", "R", "venganza"], ["S", "I", "amigos"], ["B", "R", "lo protege"], ["L", "I", "lo controla"]]
+  },
+  "personajes": [
+    ["Sam Wilson", "El Capitán América. Sin poderes; su fuerza es escuchar. Carga con la duda de estar a la altura."],
+    ["Thaddeus Ross", "Presidente de Estados Unidos y Hulk Rojo. Quiere ser recordado por algo mejor que su pasado."],
+    ["Joaquín Torres", "El nuevo Falcon. Joven, entusiasta y experto en tecnología."],
+    ["Samuel Sterns", "El Líder. El científico de El increíble Hulk, con el cráneo deformado y una inteligencia enorme."],
+    ["Isaiah Bradley", "El supersoldado de los años cincuenta. Otra vez preso sin culpa."],
+    ["Ruth Bat-Seraph", "Jefa de seguridad del presidente, formada en la Sala Roja."],
+    ["Sidewinder", "Seth Voelker, jefe de la Sociedad de la Serpiente."],
+    ["Betty Ross", "Hija del presidente, antigua pareja de Bruce Banner."],
+    ["Primer ministro Ozaki", "El dirigente japonés con quien Ross negocia el tratado."],
+    ["Bucky Barnes", "Aparece un momento: se presenta al Congreso."]
+  ],
+  "cosas": [
+    ["Adamantium", "Metal casi indestructible, más versátil que el vibranium. Sale del cuerpo del Celestial."],
+    ["La isla del Celestial", "Los restos de Tiamut, el gigante de piedra de Eternals."],
+    ["El escudo", "El de Steve Rogers. Sam lo combina con sus alas."],
+    ["Alas de vibranium", "Regalo de Wakanda. Absorben los golpes y devuelven la energía."],
+    ["La canción", "«Mr. Blue», la señal que activa a las personas controladas."],
+    ["Las pastillas", "La medicina de Ross, cargada de radiación gamma."],
+    ["La Balsa", "La cárcel para personas con poderes."]
+  ],
+  "creditos": "Después de los créditos, Sam visita a Sterns en la Balsa. Sterns le dice que ha visto lo que viene: este mundo no es el único, y hay otros que se acercan. Le pregunta qué pasará cuando la gente de esos otros mundos venga, y si creía de verdad que sus héroes eran los únicos.",
+  "conexiones": [
+    "Continúa Falcon y el Soldado de Invierno y recupera a Isaiah Bradley y a Joaquín Torres.",
+    "Ross, Sterns y Betty vienen de El increíble Hulk, de 2008.",
+    "La isla es el Celestial petrificado al final de Eternals.",
+    "El adamantium es el metal de las garras de Wolverine.",
+    "La advertencia de Sterns anuncia Avengers: Doomsday."
+  ],
+  "preguntas": [
+    ["¿Quién es Hulk Rojo?", "El presidente Thaddeus Ross, transformado por la radiación gamma de unas pastillas que le daba Samuel Sterns."],
+    ["¿Quién es el Líder?", "Samuel Sterns, un científico cuyo cerebro creció por la sangre de Hulk. Es el villano de la película."],
+    ["¿Sam Wilson tiene poderes?", "No. Usa el escudo, unas alas de vibranium y su entrenamiento."],
+    ["¿Qué es el adamantium?", "Un metal muy resistente que aparece en el cuerpo del Celestial del océano Índico."],
+    ["¿Cómo vence Sam a Hulk Rojo?", "Hablándole de su hija Betty hasta que se calma."],
+    ["¿Qué pasa con Ross?", "Renuncia a la presidencia y va preso a la Balsa."]
+  ],
+  "curiosidades": [
+    "Harrison Ford sustituye a William Hurt, que interpretó a Ross desde 2008 y murió en 2022.",
+    "El título iba a ser «Nuevo orden mundial» y se cambió durante la producción.",
+    "Tim Blake Nelson retoma un personaje que quedó pendiente durante diecisiete años.",
+    "Se volvieron a rodar muchas escenas; el papel de Giancarlo Esposito se añadió entonces."
+  ]
+}

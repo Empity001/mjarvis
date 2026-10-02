@@ -1,0 +1,93 @@
+{
+  "titulo": "Thor: Amor y trueno",
+  "anio": 2022,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Thor: Love and Thunder"],
+    ["Estreno", "8 de julio de 2022 (Estados Unidos)"],
+    ["Dirección", "Taika Waititi"],
+    ["Guion", "Taika Waititi y Jennifer Kaytin Robinson"],
+    ["Reparto principal", "Chris Hemsworth (Thor), Natalie Portman (Jane Foster), Christian Bale (Gorr), Tessa Thompson (Valquiria), Taika Waititi (Korg), Russell Crowe (Zeus), Jaimie Alexander (Sif), Chris Pratt (Peter Quill)"],
+    ["Duración", "119 minutos"],
+    ["Música", "Michael Giacchino y Nami Melumad"],
+    ["Lugar en el universo", "Fase 4. Cuarta película de Thor"],
+    ["Cronología interna", "2025, después de Vengadores: Endgame"],
+    ["Recaudación", "Cerca de 760 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Gorr", "Un padre mata a su dios"],
+    ["La Poderosa Thor", "Jane levanta el Mjolnir"],
+    ["Zeus", "La ciudad de los dioses"],
+    ["El Reino de las Sombras", "Sin color"],
+    ["Eternidad", "Un solo deseo"]
+  ],
+  "actos": [
+    ["Acto 1: El Carnicero de Dioses", [
+      "En un desierto, un hombre llamado Gorr ve morir de sed a su hija, sin dejar de rezar. Poco después encuentra a su dios en un oasis, de fiesta. El dios se ríe de él: los fieles no importan, hay más. Una espada negra, la Necroespada, llama a Gorr. Con ella mata a su dios y jura que todos los dioses morirán.",
+      "Thor viaja con los Guardianes de la Galaxia, ha recuperado la forma y evita sentir nada. Una llamada de auxilio de Sif, que ha perdido un brazo, lo avisa: el Carnicero de Dioses va hacia Nuevo Asgard. Thor se despide de los Guardianes.",
+      "En la Tierra, la doctora Jane Foster tiene un cáncer avanzado y los tratamientos no funcionan. Algo la llama desde Nuevo Asgard: los fragmentos del Mjolnir. Años atrás, Thor le pidió al martillo que la protegiera siempre. Los pedazos se unen para ella.",
+      "Gorr ataca el pueblo con monstruos de sombra. Thor encuentra a su lado a alguien con su martillo, su casco y su capa: Jane, la Poderosa Thor. Gorr se lleva a todos los niños de Asgard."
+    ]],
+    ["Acto 2: Dioses", [
+      "Thor, Jane, Valquiria y Korg viajan en un barco tirado por dos cabras gigantes que gritan. Van a la Ciudad Omnipotente, donde se reúnen los dioses de todos los mundos, a pedir un ejército.",
+      "Zeus, el más venerado, resulta ser un cobarde vanidoso: no piensa hacer nada mientras el asesino no llegue hasta allí. Humilla a Thor dejándolo desnudo ante todos y destroza a Korg, de quien solo queda la cara. Thor le atraviesa el pecho con su propio rayo, y se llevan el arma.",
+      "En el viaje, Jane y Thor hablan por fin de por qué se separaron: los dos tuvieron miedo de perder al otro. Jane le cuenta que está enferma. Lo que no sabe aún es que el martillo le da fuerzas y a la vez le quita las que su cuerpo necesita para resistir.",
+      "En el Reino de las Sombras, un mundo sin color, Gorr les tiende una trampa. No quería a los niños: quería el hacha de Thor, Rompetormentas, porque invoca el Bifrost, la llave de la puerta de Eternidad. Hiere a Valquiria y se lleva el hacha."
+    ]],
+    ["Acto 3: Amor", [
+      "Eternidad es un ser en el centro del universo que concede un deseo al primero que llega hasta él. Gorr va a pedir la muerte de todos los dioses. Los médicos le dicen a Jane que otra transformación la matará, y Thor le pide que se quede y viva.",
+      "Thor va solo. Para pelear contra las sombras, reparte por un rato su poder entre los niños secuestrados, que luchan con sus juguetes llenos de rayos. Cuando Gorr está a punto de matarlo, Jane llega con el martillo y rompe la Necroespada.",
+      "La puerta ya está abierta. Thor deja de pelear y abraza a Jane, que se muere. Le dice a Gorr que lo que quiere no es venganza: es amor. Gorr, ya sin la espada que lo envenenaba, pide su deseo: que su hija vuelva. Jane muere en brazos de Thor, deshecha en polvo dorado. Gorr, moribundo, le pide a Thor que cuide de la niña.",
+      "Thor cría a la hija de Gorr, que nació de Eternidad y tiene poderes. Él, con el Mjolnir, y ella, con Rompetormentas, salen juntos a ayudar a quien lo necesite. Los llaman Amor y Trueno."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["T", "Thor"], ["J", "Jane"], ["G", "Gorr"], ["V", "Valquiria"], ["Z", "Zeus"], ["A", "Amor"]],
+    "enlaces": [["T", "J", "se aman"], ["G", "T", "enemigos"], ["G", "A", "padre e hija"], ["T", "V", "amigos"], ["Z", "T", "lo humilla"], ["T", "A", "la adopta"]]
+  },
+  "personajes": [
+    ["Thor", "Busca quién es ahora que no tiene familia ni misión. Lo encuentra siendo padre."],
+    ["Jane Foster", "Astrofísica, enferma de cáncer. Como la Poderosa Thor, elige morir peleando antes que vivir un poco más."],
+    ["Gorr", "El Carnicero de Dioses. Un creyente traicionado; la espada lo consume."],
+    ["Valquiria", "Reina de Nuevo Asgard, aburrida de reuniones y con ganas de batalla."],
+    ["Korg", "El amigo de roca de Thor y narrador de la historia."],
+    ["Zeus", "Rey de los dioses griegos. Presumido y cobarde."],
+    ["Amor", "La hija de Gorr, devuelta por Eternidad."],
+    ["Axl", "Hijo de Heimdall. Heredó la visión de su padre; se cambió el nombre por el de un cantante de rock."],
+    ["Sif", "Guerrera de Asgard. Sobrevive a Gorr."],
+    ["Los Guardianes de la Galaxia", "Acompañan a Thor al principio."],
+    ["Darcy y Erik Selvig", "Los amigos de Jane, que la acompañan en el hospital."]
+  ],
+  "cosas": [
+    ["Necroespada", "Arma capaz de matar dioses. Corrompe y enferma a quien la empuña."],
+    ["Mjolnir", "El martillo, recompuesto. Ahora puede separarse en trozos y volver a unirse."],
+    ["Rompetormentas", "El hacha de Thor, celosa del martillo."],
+    ["El rayo de Zeus", "Arma dorada que Thor roba, y que acaba usando Valquiria."],
+    ["Ciudad Omnipotente", "Donde viven los dioses de todas las mitologías."],
+    ["Eternidad", "Ser cósmico que concede un deseo."],
+    ["Las cabras", "Dos cabras gigantes, regalo de un pueblo agradecido. Tiran del barco por el arcoíris."],
+    ["Nuevo Asgard", "El pueblo de Noruega, convertido en atracción para turistas."]
+  ],
+  "creditos": "A mitad de los créditos, Zeus sigue vivo, y se queja de que la gente ya no teme a los dioses sino que admira a los superhéroes. Envía a su hijo a matar a Thor: Hércules. Al final, Jane Foster llega a las puertas del Valhalla, donde la recibe Heimdall y le da las gracias por cuidar de su hijo.",
+  "conexiones": [
+    "Thor se fue con los Guardianes al final de Vengadores: Endgame.",
+    "Jane Foster no aparecía desde Thor: El mundo oscuro.",
+    "Valquiria es reina desde Endgame.",
+    "Los Guardianes siguen su camino en Guardianes de la Galaxia Vol. 3.",
+    "Hércules queda pendiente como rival de Thor."
+  ],
+  "preguntas": [
+    ["¿Cómo se convierte Jane Foster en Thor?", "El Mjolnir, al que Thor pidió que la protegiera, se recompone para ella y le da el poder de Thor."],
+    ["¿Quién es Gorr?", "El Carnicero de Dioses: un hombre que perdió a su hija y decidió matar a todos los dioses con la Necroespada."],
+    ["¿Jane muere?", "Sí. El martillo le quita fuerzas contra el cáncer, y muere después de la batalla. Va al Valhalla."],
+    ["¿Qué pide Gorr a Eternidad?", "En lugar de la muerte de los dioses, pide que su hija vuelva a vivir."],
+    ["¿Quién es Amor?", "La hija de Gorr, a la que Thor cría como suya."],
+    ["¿Quién es el Zeus de la película?", "El dios griego, interpretado por Russell Crowe. Es un personaje cómico, y sobrevive."]
+  ],
+  "curiosidades": [
+    "Los hijos de Chris Hemsworth actúan en la película: su hija India es Amor.",
+    "Matt Damon, Sam Neill y Luke Hemsworth repiten como actores de teatro, ahora con Melissa McCarthy haciendo de Hela.",
+    "La banda sonora usa cuatro canciones de Guns N' Roses.",
+    "La historia de Jane adapta los cómics de Jason Aaron sobre la Poderosa Thor."
+  ]
+}

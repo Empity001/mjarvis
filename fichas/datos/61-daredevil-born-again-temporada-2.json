@@ -1,0 +1,95 @@
+{
+  "titulo": "Daredevil: Born Again · Temporada 2",
+  "anio": 2026,
+  "saga": "Saga del Multiverso · Fase 6",
+  "ficha": [
+    ["Título original", "Daredevil: Born Again (temporada 2)"],
+    ["Estreno", "Del 24 de marzo al 5 de mayo de 2026 (Disney+)"],
+    ["Responsable", "Dario Scardapane. Dirección principal de Justin Benson y Aaron Moorhead"],
+    ["Episodios", "8"],
+    ["Reparto principal", "Charlie Cox (Matt Murdock), Vincent D'Onofrio (Wilson Fisk), Deborah Ann Woll (Karen Page), Margarita Levieva (Heather Glenn), Wilson Bethel (Dex Poindexter), Krysten Ritter (Jessica Jones), Matthew Lillard (el señor Charles), Michael Gandolfini (Daniel Blake), Nikki M. James (Kirsten McDuffie), Lili Taylor (gobernadora McCaffrey), Tony Dalton (Jack Duquesne), Ayelet Zurer (Vanessa Fisk)"],
+    ["Música", "The Newton Brothers"],
+    ["Lugar en el universo", "Fase 6"],
+    ["Cronología interna", "Nueva York, seis meses después de la temporada 1"],
+    ["Tono", "Thriller de resistencia: una ciudad bajo un alcalde tirano"]
+  ],
+  "momentos": [
+    ["El barco", "Armas para Red Hook"],
+    ["La resistencia", "Matt, Karen y sus aliados"],
+    ["Vanessa", "Muere la esposa de Fisk"],
+    ["El juicio", "Matt revela quién es"],
+    ["El exilio", "Fisk deja Nueva York"]
+  ],
+  "actos": [
+    ["Episodios 1 a 3: La ciudad ocupada", [
+      "Nueva York vive bajo la ley marcial del alcalde Fisk. Su fuerza especial detiene a los justicieros y los encierra en Red Hook, sin juicio de verdad. Matt Murdock, escondido, actúa como Daredevil con un traje pintado de negro y dos letras rojas en el pecho. Vuelve a estar con Karen Page.",
+      "Daredevil aborda un barco cargado de armas militares con destino a Red Hook; la tripulación intenta hundirlo. Detrás de los envíos hay un agente de la CIA, el señor Charles, socio de los Fisk.",
+      "Bullseye anda suelto y mata policías de la fuerza especial por su cuenta. Fisk pide a los ciudadanos que le ayuden a encontrar al «abogado héroe». La periodista BB Urich se burla del alcalde en internet con vídeos anónimos, usando imágenes que alguien filtra desde dentro.",
+      "Un policía capturado se pasa a la resistencia y les entrega su tarjeta de acceso. Daredevil entra en Red Hook y libera a los presos, entre ellos el Espadachín. Karen hace llegar a la gobernadora del estado la prueba de lo que es ese puerto. Fisk manda demoler el barco con gente dentro."
+    ]],
+    ["Episodios 4 a 6: Lo que Fisk pierde", [
+      "Matt encuentra a Bullseye, que quiere matar a Fisk para compensar la muerte de Foggy. En un combate de boxeo benéfico en el viejo gimnasio del padre de Matt, donde Fisk pelea en persona, Bullseye ataca. Vanessa le dispara; él lanza un adorno de cristal, Fisk lo rompe en el aire, y una esquirla hiere a Vanessa en la cabeza.",
+      "Vanessa empeora en el hospital, confundida, pidiendo a su marido que le cuente otra vez cómo se conocieron. Muere. Fisk mata al cirujano.",
+      "Matt, que recuerda cómo Foggy defendía a todo el mundo, decide salvar incluso a Bullseye, y lo saca de una iglesia cercada. Karen está a punto de matarlo, y Matt se lo impide: no quiere que nadie mate, ni a Dex ni a Fisk.",
+      "El señor Charles, cansado de Fisk, intenta deshacerse de él y envía hombres contra Jessica Jones, que los tumba. Jessica y Daredevil destruyen el depósito de armas. Matt va a ver a Fisk y le propone que los dos se marchen de la ciudad. Fisk se niega, pelean, y Matt gana y lo deja vivo.",
+      "En una protesta ante el ayuntamiento, donde Karen proyecta sobre la fachada los testimonios de los presos, un agente de la fuerza especial mata a un compañero y culpa a los justicieros. Estalla el caos, y detienen a Karen."
+    ]],
+    ["Episodios 7 y 8: A cara descubierta", [
+      "Matt vuelve a presentarse en público, como abogado, para defender a Karen en un juicio televisado. Después de la vista, agentes de la fuerza especial lo tirotean; Jessica Jones lo saca de allí. Bullseye impide un atentado contra la gobernadora. El hombre de confianza de Fisk mata a Daniel Blake, el joven ayudante, por proteger a BB.",
+      "En el juicio, Matt llama a declarar a Fisk y muestra el testimonio grabado de un marinero del barco. Para que el tribunal le crea, dice ante las cámaras lo que ha callado siempre: que él es Daredevil. Los jueces retiran los cargos contra Karen.",
+      "La gente rodea el edificio. La gobernadora y el fiscal general ofrecen a Fisk el exilio a cambio de no juzgarlo. Fisk, furioso, sale y mata a manifestantes con sus manos. Matt, Jessica y Angela, que lleva el amuleto de su tío, se abren paso hasta él. Matt lo convence de aceptar.",
+      "Fisk se va de Nueva York. La fuerza especial se disuelve, y sus agentes son detenidos. Heather Glenn, trastornada, se pone la máscara de Muse. Jessica vuelve con Luke Cage y con su hija. Bullseye pasa a trabajar para el señor Charles. Y Matt, que ha confesado ante todo el país, es detenido y enviado a prisión por sus años de justiciero."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["M", "Matt"], ["F", "Fisk"], ["K", "Karen"], ["D", "Dex"], ["J", "Jessica"], ["C", "Sr. Charles"]],
+    "enlaces": [["M", "F", "enemigos"], ["M", "K", "pareja"], ["D", "F", "quiere matarlo"], ["J", "M", "aliados"], ["C", "F", "socios que rompen"], ["M", "D", "le perdona la vida"]]
+  },
+  "personajes": [
+    ["Matt Murdock", "Lidera la resistencia y renuncia a su secreto para ganar por la vía legal."],
+    ["Wilson Fisk", "Alcalde y tirano. Sin Vanessa pierde lo único que lo contenía."],
+    ["Karen Page", "Periodista y organizadora de la resistencia."],
+    ["Vanessa Fisk", "Muere por una herida en la cabeza."],
+    ["Benjamin Poindexter", "Bullseye, ahora con un traje azul y negro con una diana. Busca algo parecido al perdón."],
+    ["Jessica Jones", "La detective con superfuerza de la serie de Netflix. Ahora es madre."],
+    ["El señor Charles", "Agente de la CIA que trafica con armas."],
+    ["Heather Glenn", "La terapeuta. El trauma la lleva al lado de Muse."],
+    ["Daniel Blake", "Ayudante del alcalde, enamorado de BB. Lo matan por protegerla."],
+    ["BB Urich", "Periodista. Termina en el periódico de su tío."],
+    ["Buck Cashman", "El hombre para los trabajos sucios de Fisk."],
+    ["Angela del Toro", "Sobrina del Tigre Blanco. Hereda el amuleto."],
+    ["Gobernadora McCaffrey", "Quien puede quitarle a Fisk su puerto."],
+    ["Luke Cage", "Aparece al final, con Jessica y su hija Danielle."]
+  ],
+  "cosas": [
+    ["El traje negro", "El de Daredevil con las dos «D» rojas, como en los cómics. La pintura negra se va cayendo y deja ver el rojo."],
+    ["Red Hook", "Puerto franco, prisión y almacén de armas de Fisk."],
+    ["El barco Northern Star", "El carguero de armas que destapa el plan."],
+    ["Fuerza Especial contra Justicieros", "La policía de Fisk. Termina disuelta."],
+    ["El amuleto del Tigre Blanco", "Ahora lo usa Angela."],
+    ["La confesión", "Matt declara bajo juramento que es Daredevil."],
+    ["El exilio", "El acuerdo por el que Fisk deja la ciudad sin ser juzgado."]
+  ],
+  "creditos": "La temporada se cierra con Matt Murdock entrando en prisión. Está confirmada una tercera y última temporada para marzo de 2027.",
+  "conexiones": [
+    "Continúa la ley marcial del final de la temporada 1.",
+    "Jessica Jones y Luke Cage vuelven desde las series de Netflix.",
+    "El especial The Punisher: One Last Kill ocurre al mismo tiempo.",
+    "La temporada 3 recuperará a Iron Fist y a Elektra.",
+    "Fisk queda libre fuera de Nueva York."
+  ],
+  "preguntas": [
+    ["¿Cómo cae el alcalde Fisk?", "Matt prueba sus crímenes en un juicio televisado, la ciudad se levanta, y Fisk acepta el exilio."],
+    ["¿Matt revela que es Daredevil?", "Sí, ante el tribunal, para respaldar las pruebas. Por eso acaba en prisión."],
+    ["¿Quién muere en la temporada 2?", "Vanessa Fisk y Daniel Blake, entre otros."],
+    ["¿Sale Jessica Jones?", "Sí, pelea junto a Daredevil. Luke Cage aparece al final."],
+    ["¿Qué pasa con Bullseye?", "Matt le perdona la vida. Termina trabajando para un agente de la CIA."],
+    ["¿Habrá temporada 3?", "Sí, prevista para marzo de 2027, y será la última."]
+  ],
+  "curiosidades": [
+    "Es la primera vez que el traje con las dos «D» en el pecho aparece en imagen real.",
+    "Para las escenas del ayuntamiento se usaron más de trescientos extras.",
+    "Matthew Lillard, el señor Charles, es conocido por Scream y Scooby-Doo.",
+    "Esta temporada y la siguiente salen de los dieciocho episodios que tenía el plan original de la serie."
+  ]
+}

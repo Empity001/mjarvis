@@ -1,0 +1,94 @@
+{
+  "titulo": "She-Hulk: Defensora de héroes",
+  "anio": 2022,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "She-Hulk: Attorney at Law"],
+    ["Estreno", "Del 18 de agosto al 13 de octubre de 2022 (Disney+)"],
+    ["Creadora", "Jessica Gao. Dirección de Kat Coiro y Anu Valia"],
+    ["Episodios", "9, de unos 30 minutos"],
+    ["Reparto principal", "Tatiana Maslany (Jennifer Walters), Ginger Gonzaga (Nikki Ramos), Mark Ruffalo (Bruce Banner), Jameela Jamil (Titania), Tim Roth (Emil Blonsky), Benedict Wong (Wong), Josh Segarra (Pug), Renée Elise Goldsberry (Mallory Book), Jon Bass (Todd Phelps), Charlie Cox (Matt Murdock)"],
+    ["Música", "Amie Doherty"],
+    ["Lugar en el universo", "Fase 4"],
+    ["Cronología interna", "2025, en Los Ángeles"],
+    ["Tono", "Comedia de abogados. La protagonista habla a la cámara y sabe que está en una serie"]
+  ],
+  "momentos": [
+    ["El accidente", "La sangre de Bruce"],
+    ["El bufete", "Abogada de superhumanos"],
+    ["Titania", "Un juicio por un nombre"],
+    ["Daredevil", "Un abogado de Nueva York"],
+    ["K.E.V.I.N.", "Jen cambia su propio final"]
+  ],
+  "actos": [
+    ["Episodios 1 a 3: Una Hulk con título de abogada", [
+      "Jennifer Walters es ayudante de fiscal en Los Ángeles y prima de Bruce Banner. En un viaje en coche con él, una nave espacial los saca de la carretera. La sangre de Bruce cae en una herida de Jen, y ella se transforma.",
+      "Bruce la lleva a su laboratorio de la playa, en México, para enseñarle lo que a él le costó quince años. Jen lo aprende en días. No tiene otra personalidad dentro, y controlar la ira no le parece nuevo: lo hace a diario, como cualquier mujer a la que gritan por la calle o le explican su propio trabajo. No quiere ser una heroína. Quiere su vida.",
+      "En pleno juicio, una influencer con superfuerza, Titania, atraviesa la pared, y Jen se transforma para detenerla. La prensa la bautiza She-Hulk, y la despiden. La contrata un gran bufete para dirigir su nueva sección de derecho superhumano, con una condición: ir a trabajar verde.",
+      "Su primer cliente es Emil Blonsky, Abominación, que pide la libertad condicional. Dice estar reformado, escribe poemas y tiene siete compañeras de vida. Un vídeo lo muestra peleando fuera de la cárcel; Wong, el Hechicero Supremo, declara que fue él quien lo sacó para un combate de entrenamiento."
+    ]],
+    ["Episodios 4 a 7: Casos de la semana", [
+      "Wong la contrata contra un mago de espectáculos que usa hechizos de verdad y envía gente a otras dimensiones. De ese caso sale Madisynn, una chica de fiesta que se hace amiga inseparable de Wong.",
+      "Titania registra el nombre «She-Hulk» como marca y demanda a Jen por usarlo. Jen recupera el nombre en el juicio, y de paso consigue trajes a medida de un sastre de superhéroes, Luke Jacobson.",
+      "Jen descubre que los hombres quieren salir con She-Hulk y no con Jen. Uno que parecía distinto desaparece después de una noche. Va a buscar a Blonsky a su retiro espiritual, donde un grupo de villanos de poca monta hace terapia en círculo, y allí acepta que las dos son ella.",
+      "De fondo, un foro de internet llamado Intelligencia reúne a hombres que la odian. Intentan conseguir una muestra de su sangre."
+    ]],
+    ["Episodios 8 y 9: Quién escribe esto", [
+      "Un cliente con traje de rana demanda al sastre. El abogado de la otra parte viene de Nueva York, es ciego y la vence: Matt Murdock. Esa noche, Jen pelea junto a Daredevil, con su traje amarillo y rojo, y acaban juntos.",
+      "En la gala donde recibe un premio, Intelligencia proyecta en la pantalla datos y vídeos privados de Jen, robados por el hombre que desapareció. Jen pierde el control delante de todos. La detienen y le ponen un inhibidor que le impide transformarse.",
+      "El jefe del foro es Todd Phelps, un millonario que la perseguía. En el episodio final, todo se amontona: Todd se inyecta la sangre y se vuelve un Hulk, llega Bruce, llega Titania, aparece Abominación. Jen mira a la cámara y dice que esto no tiene sentido.",
+      "Sale por el menú de Disney+ y entra en las oficinas de Marvel Studios. Los guionistas la mandan con quien decide: K.E.V.I.N., una inteligencia artificial que fabrica todas las historias. Jen le reclama: los finales siempre son la misma pelea. Negocia otro: Todd no consigue poderes, responde ante un juez, Daredevil vuelve, y Bruce no viene a salvarla.",
+      "En la comida familiar, Matt conoce a los padres de Jen. Bruce llega del espacio y presenta a su hijo: Skaar."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["J", "Jen"], ["B", "Bruce"], ["N", "Nikki"], ["T", "Titania"], ["E", "Blonsky"], ["M", "Matt"]],
+    "enlaces": [["B", "J", "primos"], ["J", "N", "mejores amigas"], ["T", "J", "rivales"], ["J", "E", "su abogada"], ["J", "M", "pareja"], ["E", "B", "viejo enemigo"]]
+  },
+  "personajes": [
+    ["Jennifer Walters", "She-Hulk. Abogada brillante, de 2 metros cuando está verde. Conserva su mente y su carácter en las dos formas."],
+    ["Bruce Banner", "Hulk inteligente. Quiere que su prima no pase por lo que pasó él."],
+    ["Nikki Ramos", "Asistente y mejor amiga de Jen."],
+    ["Titania", "Influencer con superfuerza, obsesionada con ser más famosa que She-Hulk."],
+    ["Emil Blonsky", "Abominación, el villano de El increíble Hulk, ahora gurú de autoayuda."],
+    ["Wong", "Hechicero Supremo y aficionado a las series."],
+    ["Matt Murdock", "Daredevil. Más alegre que en su propia serie."],
+    ["Pug y Mallory Book", "Compañeros del bufete."],
+    ["Todd Phelps", "Millonario y líder secreto de Intelligencia, bajo el nombre HulkKing."],
+    ["Madisynn", "Con dos enes y una i griega. La mejor amiga de Wong."],
+    ["Luke Jacobson", "Sastre de trajes de superhéroes."],
+    ["Skaar", "Hijo de Hulk, nacido en el planeta Sakaar."],
+    ["K.E.V.I.N.", "La máquina que decide las historias del universo. Lleva gorra."]
+  ],
+  "cosas": [
+    ["La sangre de Jen", "Contiene radiación gamma que ella tolera por sus genes. Intelligencia quiere robarla."],
+    ["Derecho superhumano", "La especialidad del bufete: los problemas legales de la gente con poderes."],
+    ["La cuarta pared", "Jen habla al público, y al final sale de la serie para discutir el guion."],
+    ["Intelligencia", "Foro de hombres que odian a She-Hulk."],
+    ["Inhibidor", "Aparato que impide la transformación."],
+    ["El retiro de Blonsky", "Terapia en grupo para villanos como Hombre Toro, El Águila y Puercoespín."],
+    ["El traje amarillo", "El primer traje de Daredevil en los cómics, que aquí estrena en pantalla."]
+  ],
+  "creditos": "Cada episodio tiene una escena breve en los créditos, casi siempre un chiste. En la del último, Wong saca a Blonsky de la cárcel por un portal y se lo lleva a Kamar-Taj.",
+  "conexiones": [
+    "Blonsky es el villano de El increíble Hulk, de 2008, con el mismo actor.",
+    "Explica por qué Bruce apareció con forma humana en Shang-Chi, y la nave que lo busca viene de Sakaar, de Thor: Ragnarok.",
+    "Daredevil llega aquí antes de su serie Daredevil: Born Again.",
+    "Skaar reaparece en proyectos posteriores sobre Hulk.",
+    "La pelea de Wong y Abominación se vio en Shang-Chi."
+  ],
+  "preguntas": [
+    ["¿Cómo consiguió sus poderes She-Hulk?", "En un accidente, la sangre de su primo Bruce Banner entró en una herida suya."],
+    ["¿En qué se diferencia de Hulk?", "No pierde el control ni tiene otra personalidad. Puede transformarse cuando quiere."],
+    ["¿Quién es Titania?", "Una influencer con superfuerza que intenta quedarse con el nombre de She-Hulk."],
+    ["¿Sale Daredevil?", "Sí, en los dos últimos episodios, como abogado rival y luego como pareja de Jen."],
+    ["¿Qué es K.E.V.I.N.?", "Una inteligencia artificial que, dentro de la broma de la serie, escribe todas las historias de Marvel."],
+    ["¿Quién es Skaar?", "El hijo de Hulk, al que Bruce trae de Sakaar en la última escena."]
+  ],
+  "curiosidades": [
+    "She-Hulk ya rompía la cuarta pared en los cómics de John Byrne de los años ochenta, antes que Deadpool.",
+    "K.E.V.I.N. es una broma sobre Kevin Feige, presidente de Marvel Studios.",
+    "Tatiana Maslany actuó con un traje de captura de movimiento; She-Hulk es un personaje creado por ordenador.",
+    "La cantante Megan Thee Stallion aparece como ella misma."
+  ]
+}

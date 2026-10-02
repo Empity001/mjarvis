@@ -1,0 +1,88 @@
+{
+  "titulo": "Ironheart",
+  "anio": 2025,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Ironheart"],
+    ["Estreno", "24 de junio y 1 de julio de 2025, tres episodios cada día (Disney+)"],
+    ["Creadora", "Chinaka Hodge. Dirección de Sam Bailey y Angela Barnes"],
+    ["Episodios", "6 (miniserie)"],
+    ["Reparto principal", "Dominique Thorne (Riri Williams), Anthony Ramos (Parker Robbins), Lyric Ross (Natalie), Alden Ehrenreich (Joe McGillicuddy / Zeke Stane), Manny Montana (John), Anji White (Ronnie Williams), Matthew Elam (Xavier), Sacha Baron Cohen (Mephisto)"],
+    ["Música", "Dara Taylor"],
+    ["Lugar en el universo", "Cierre de la Fase 5. Producida por Ryan Coogler"],
+    ["Cronología interna", "Chicago, 2025, poco después de Pantera Negra: Wakanda por siempre"],
+    ["Tono", "Tecnología contra magia, y una joven brillante que toma malas decisiones"]
+  ],
+  "momentos": [
+    ["Expulsada", "Riri vuelve a Chicago"],
+    ["Natalie", "Una amiga dentro del traje"],
+    ["La Capucha", "Golpes con magia"],
+    ["Zeke Stane", "El hijo de un villano"],
+    ["Mephisto", "Un trato"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: Volver a casa", [
+      "Riri Williams, la joven que construyó una armadura capaz de volar, es expulsada del MIT por vender trabajos a otros alumnos para pagarse los materiales. Vuelve a Chicago con su traje a medio hacer y sin dinero.",
+      "En su barrio la espera lo que dejó atrás. Años antes, su padrastro, Gary, y su mejor amiga, Natalie, murieron en un tiroteo delante de ella. Riri no ha hablado de eso con nadie.",
+      "Una banda de ladrones muy particulares la recluta. La dirige Parker Robbins, un joven con una capucha roja que hace cosas imposibles: se vuelve invisible, desvía balas. Riri acepta ayudar en tres golpes contra empresas tecnológicas, a cambio de dinero para terminar su armadura.",
+      "Al escanear su propio cerebro para crear una inteligencia artificial para el traje, el resultado no es una voz cualquiera: aparece Natalie, con sus bromas y sus recuerdos, hecha de la memoria de Riri."
+    ]],
+    ["Episodios 3 y 4: Mala magia", [
+      "Riri consigue piezas chantajeando a un vecino tímido que trafica con tecnología, Joe. Es, en realidad, Zeke Stane, hijo de Obadiah Stane, el hombre que traicionó a Tony Stark. Vive escondido de ese apellido, y se hacen amigos.",
+      "Riri sospecha de la capucha y, durante un golpe, le corta un trozo para analizarlo. Todo sale mal: salta la alarma, y John, el primo y mano derecha de Parker, muere asfixiado en un encierro del que Riri sale y él no. Ella lo deja morir.",
+      "El trozo de tela no es de este mundo; viene de una dimensión oscura. Riri busca a quien entienda de magia, y encuentra a una joven hechicera, Zelma. Zeke, detenido por culpa de Riri, se siente traicionado. Parker lo saca de la cárcel, le pone implantes biónicos y lo envía contra ella."
+    ]],
+    ["Episodios 5 y 6: El precio", [
+      "Zeke desmonta la armadura de Riri pieza a pieza, y no la mata. Riri se reconcilia con su madre y construye un traje nuevo con ayuda de sus amigos, reforzado con magia. En el proceso, la inteligencia Natalie se borra. Riri la pierde por segunda vez.",
+      "Se cuenta el origen de Parker. Años atrás, un hombre elegante se le acercó en un restaurante y le ofreció la capucha y todo lo que su ambición pidiera. Desde entonces el poder lo va marcando con cicatrices, y él quiere cada vez más.",
+      "Riri lo vence y le arranca la capucha. Entonces el hombre elegante se sienta frente a ella. Es Mephisto, y lleva tiempo observándola. Le ofrece lo que quiera.",
+      "Riri sabe con quién habla, y aun así acepta: quiere que Natalie vuelva. Natalie aparece, viva, y la abraza. En el brazo de Riri empiezan a salir las mismas marcas que tenía Parker."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["R", "Riri"], ["P", "Parker"], ["N", "Natalie"], ["Z", "Zeke"], ["M", "Mephisto"], ["X", "Xavier"]],
+    "enlaces": [["R", "N", "mejores amigas"], ["P", "R", "la recluta"], ["R", "Z", "amigos y luego enemigos"], ["M", "P", "le dio la capucha"], ["M", "R", "le ofrece un trato"], ["X", "N", "hermanos"]]
+  },
+  "personajes": [
+    ["Riri Williams", "Ironheart. Genio de la ingeniería, orgullosa, con un duelo sin resolver. Hace cosas cuestionables para lograr algo grande."],
+    ["Parker Robbins", "La Capucha. Ladrón carismático con un manto mágico que lo corrompe."],
+    ["Natalie", "La mejor amiga de Riri, muerta, y la inteligencia artificial que lleva su nombre."],
+    ["Zeke Stane", "Hijo de Obadiah Stane. Quiere ser buena persona, y lo empujan a lo contrario."],
+    ["Mephisto", "El demonio de los tratos. Encantador y paciente."],
+    ["Ronnie Williams", "Madre de Riri."],
+    ["Xavier", "Hermano de Natalie y amigo de Riri."],
+    ["John", "Primo de Parker."],
+    ["Zelma Stanton", "Aprendiz de hechicera que ayuda a Riri."],
+    ["La banda", "Slug, Clown, Jeri, Roz y Rampage, especialistas en golpes."]
+  ],
+  "cosas": [
+    ["La armadura", "El traje de Riri, hecho con chatarra y talento. El último combina tecnología y magia."],
+    ["N.A.T.A.L.I.E.", "La inteligencia artificial del traje, nacida de los recuerdos de Riri."],
+    ["La capucha", "Manto de la Dimensión Oscura. Da poderes a cambio de quien lo lleva."],
+    ["El trato", "Lo que Mephisto ofrece: un deseo cumplido, con un precio que se sabrá después."],
+    ["Las marcas", "Cicatrices que aparecen en quien hace tratos con Mephisto."],
+    ["Los tres golpes", "Robos a empresas que explotan a la ciudad, según Parker."]
+  ],
+  "creditos": "Después del último episodio, Parker, sin capucha y sin poderes, entra en la tienda de magia de Zelma y le pide ayuda para volver a conseguirlos.",
+  "conexiones": [
+    "Riri Williams apareció en Pantera Negra: Wakanda por siempre.",
+    "Obadiah Stane es el villano de Iron Man, de 2008.",
+    "La capucha viene de la Dimensión Oscura, la de Dormammu en Doctor Strange.",
+    "Mephisto era esperado por los seguidores desde WandaVision, donde nunca apareció.",
+    "El trato de Riri queda abierto para historias futuras."
+  ],
+  "preguntas": [
+    ["¿Quién es Ironheart?", "Riri Williams, una joven de Chicago que construye armaduras como las de Iron Man."],
+    ["¿Quién es la Capucha?", "Parker Robbins, un ladrón que recibe poderes de un manto mágico."],
+    ["¿Sale Mephisto?", "Sí, en el último episodio, interpretado por Sacha Baron Cohen."],
+    ["¿Qué es N.A.T.A.L.I.E.?", "Una inteligencia artificial con la personalidad de la mejor amiga muerta de Riri."],
+    ["¿Qué trato hace Riri?", "Acepta de Mephisto que su amiga Natalie vuelva a la vida, sin saber aún el precio."],
+    ["¿Quién es Zeke Stane?", "El hijo del villano de la primera Iron Man. En los cómics es enemigo de Tony Stark."]
+  ],
+  "curiosidades": [
+    "La serie se rodó en 2022 y esperó casi tres años para estrenarse.",
+    "La produce Ryan Coogler, director de Pantera Negra.",
+    "Es la primera aparición de Mephisto en el universo, tras años de teorías.",
+    "Riri Williams fue creada en los cómics en 2016 por Brian Michael Bendis y Mike Deodato."
+  ]
+}

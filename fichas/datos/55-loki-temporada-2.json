@@ -1,0 +1,90 @@
+{
+  "titulo": "Loki · Temporada 2",
+  "anio": 2023,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Loki (temporada 2)"],
+    ["Estreno", "Del 5 de octubre al 9 de noviembre de 2023 (Disney+)"],
+    ["Guionista principal", "Eric Martin. Dirección de Justin Benson y Aaron Moorhead, entre otros"],
+    ["Episodios", "6"],
+    ["Reparto principal", "Tom Hiddleston (Loki), Owen Wilson (Mobius), Sophia Di Martino (Sylvie), Ke Huy Quan (Ouroboros), Jonathan Majors (Victor Timely / El Que Permanece), Gugu Mbatha-Raw (Ravonna Renslayer), Wunmi Mosaku (B-15), Eugene Cordero (Casey), Tara Strong (voz de Miss Minutos)"],
+    ["Música", "Natalie Holt"],
+    ["Lugar en el universo", "Fase 5. Final de la historia de Loki"],
+    ["Cronología interna", "Fuera del tiempo, con visitas a 1893, 1982 y otros años"],
+    ["Tono", "Ciencia ficción contra reloj que termina en tragedia serena"]
+  ],
+  "momentos": [
+    ["Los saltos", "Loki resbala en el tiempo"],
+    ["El Telar", "A punto de reventar"],
+    ["Victor Timely", "Chicago, 1893"],
+    ["Las vidas reales", "Quiénes eran en la línea"],
+    ["El trono", "El dios de las historias"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: El Telar", [
+      "Tras la muerte de El Que Permanece, Loki salta sin control entre el pasado y el presente de la AVT. Lo arregla un técnico del sótano que lleva siglos sin visitas, Ouroboros, al que llaman O.B.: escribió el manual de la AVT y repara cualquier cosa.",
+      "El problema es mayor. En el corazón de la AVT hay una máquina, el Telar Temporal, que teje el tiempo en bruto para formar la línea. Con tantas ramas nuevas no da abasto, y va a estallar. Si estalla, se pierden la AVT y todas las líneas.",
+      "Dentro de la AVT hay una guerra. Una general quiere seguir podando, y borra ramas enteras, con miles de millones de vidas. B-15 y Mobius quieren protegerlas. Encuentran a Sylvie en 1982, en un pueblo de Oklahoma, trabajando en una hamburguesería: solo quiere una vida normal."
+    ]],
+    ["Episodios 3 y 4: Victor Timely", [
+      "Para abrir las puertas del Telar hace falta el aura temporal de El Que Permanece. Ravonna Renslayer y Miss Minutos buscan a una variante suya: Victor Timely, un inventor tartamudo y tramposo de 1893, a quien alguien le dejó de niño el manual de la AVT. Loki y Mobius lo encuentran en la Feria Mundial de Chicago.",
+      "Sylvie quiere matarlo, por lo que podría llegar a ser, y al verlo tan asustado lo perdona. Miss Minutos, que estaba enamorada de su creador, y Renslayer acaban traicionándose entre ellas.",
+      "En la AVT, Timely acepta salir a la pasarela, bajo la radiación del tiempo, a colocar la pieza que ampliará el Telar. Da un paso y se deshace en hilos. El Telar revienta."
+    ]],
+    ["Episodios 5 y 6: Propósito glorioso", [
+      "Loki despierta solo, saltando otra vez. Sus amigos han vuelto a las vidas que tenían antes de ser secuestrados por la AVT. Mobius vende motos de agua y cría solo a dos hijos. B-15 es médica. Casey es un preso que escapa de Alcatraz. O.B. es un escritor de ciencia ficción sin éxito. Ninguno lo recuerda.",
+      "Loki aprende a controlar los saltos y vuelve al momento anterior a la explosión. Lo intenta de nuevo, y otra vez, y otra: pasa siglos estudiando y repitiendo los mismos minutos. Nunca funciona, porque no puede funcionar. El Telar no está hecho para salvar las ramas, sino para eliminarlas.",
+      "Regresa al fin del tiempo, a la conversación con El Que Permanece, que lo esperaba: o mata a Sylvie y todo sigue como antes, o mueren todos. Loki habla con Mobius y con Sylvie, y encuentra una tercera salida.",
+      "Baja a la pasarela, con su viejo traje y sus cuernos, y destruye el Telar. Agarra con las manos los hilos del tiempo que se apagan y les devuelve la vida con su magia. Cargando con todos ellos, sube hasta las ruinas de la ciudadela y se sienta en el trono. Las ramas se abren a su alrededor como un árbol: Yggdrasil, el árbol de los mundos.",
+      "Loki, que siempre quiso un trono, lo tiene: uno desde el que no puede moverse, solo, para que todos los demás sean libres. La AVT, renovada, vigila a las variantes de Kang. Mobius la deja y se queda mirando, desde la acera, la casa donde juegan sus hijos."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["L", "Loki"], ["M", "Mobius"], ["S", "Sylvie"], ["O", "O.B."], ["V", "Timely"], ["R", "Renslayer"]],
+    "enlaces": [["L", "M", "amigos"], ["L", "S", "se quieren y discuten"], ["O", "V", "se inspiraron uno al otro"], ["R", "V", "lo busca"], ["L", "V", "lo protege"], ["L", "O", "aprende de él"]]
+  },
+  "personajes": [
+    ["Loki", "De dios del engaño a guardián de todas las historias. Su sacrificio es por sus amigos."],
+    ["Mobius", "No quiere saber quién fue antes de la AVT, por miedo a lo que perdió."],
+    ["Sylvie", "Defiende el libre albedrío, aunque duela."],
+    ["Ouroboros", "O.B., el técnico alegre que lo arregla todo."],
+    ["Victor Timely", "Inventor del siglo XIX, variante de Kang. Tímido, y más valiente de lo que parece."],
+    ["Ravonna Renslayer", "Descubre que fue socia de El Que Permanece y que él le borró la memoria."],
+    ["Miss Minutos", "La inteligencia artificial de la AVT, celosa y peligrosa."],
+    ["B-15", "Lidera la nueva AVT."],
+    ["Casey", "El recepcionista, ascendido a ayudante de O.B."],
+    ["General Dox y Brad Wolfe", "Los que se niegan a dejar de podar. Brad se hizo actor en una rama."],
+    ["El Que Permanece", "Sigue ganando después de muerto: lo tenía todo previsto."]
+  ],
+  "cosas": [
+    ["Telar Temporal", "La máquina que convierte el tiempo en una sola línea y descarta lo que sobra."],
+    ["Saltos en el tiempo", "Loki resbala entre momentos; al final lo domina, y puede reescribir lo ocurrido."],
+    ["Multiplicador", "La pieza que O.B. y Timely diseñan para ampliar el Telar."],
+    ["El manual de la AVT", "Lo escribió O.B. inspirado por Timely, y Timely aprendió de él. Un círculo."],
+    ["Yggdrasil", "El árbol de los mundos de la mitología nórdica. La nueva forma del multiverso."],
+    ["La ciudadela", "El lugar del fin del tiempo donde ahora se sienta Loki."],
+    ["Aura temporal", "La huella que identifica a cada persona en la AVT."]
+  ],
+  "creditos": "No hay escenas después de los créditos en el último episodio. La imagen final es Loki, en el centro del árbol, sosteniendo todas las líneas, con una sonrisa cansada.",
+  "conexiones": [
+    "Victor Timely apareció en la escena final de Ant-Man y la Avispa: Quantumanía.",
+    "La frase «propósito glorioso» viene de Los Vengadores, de 2012; aquí cambia de sentido.",
+    "El multiverso sostenido por Loki es el escenario del resto de la saga.",
+    "La AVT reaparece en Deadpool y Wolverine.",
+    "Renslayer acaba en el Vacío, frente a Alioth."
+  ],
+  "preguntas": [
+    ["¿Cómo termina Loki?", "Destruye el Telar y sostiene él mismo todas las líneas de tiempo, sentado en un trono al final del tiempo, para siempre."],
+    ["¿Qué es el Telar Temporal?", "La máquina de la AVT que teje el tiempo en una sola línea. No puede con las ramas del multiverso."],
+    ["¿Quién es Victor Timely?", "Una variante de Kang, inventor en 1893, que podría convertirse en El Que Permanece."],
+    ["¿Quién es O.B.?", "Ouroboros, el técnico de la AVT, interpretado por Ke Huy Quan."],
+    ["¿Quién era Mobius antes de la AVT?", "Un vendedor de motos de agua llamado Don, padre de dos niños."],
+    ["¿Loki muere?", "No. Queda vivo y solo, como el dios de las historias que mantiene unido el multiverso."]
+  ],
+  "curiosidades": [
+    "Es la única serie de acción real de Marvel Studios en Disney+ que tuvo segunda temporada antes de 2025.",
+    "Ke Huy Quan acababa de ganar el Óscar por Todo a la vez en todas partes.",
+    "El primer y el último episodio de la serie se titulan igual: «Propósito glorioso».",
+    "Los decorados de la AVT se construyeron enteros, con techos y pasillos reales."
+  ]
+}

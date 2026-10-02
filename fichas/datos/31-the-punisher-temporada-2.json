@@ -1,0 +1,88 @@
+{
+  "titulo": "The Punisher · Temporada 2",
+  "anio": 2019,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's The Punisher (temporada 2)"],
+    ["Estreno", "18 de enero de 2019 (Netflix; hoy en Disney+)"],
+    ["Creador", "Steve Lightfoot"],
+    ["Episodios", "13"],
+    ["Reparto principal", "Jon Bernthal (Frank Castle), Ben Barnes (Billy Russo), Amber Rose Revah (Dinah Madani), Giorgia Whigham (Amy Bendix), Josh Stewart (John Pilgrim), Floriana Lima (Krista Dumont), Jason R. Moore (Curtis Hoyle), Corbin Bernsen y Annette O'Toole (Anderson y Eliza Schultz), Deborah Ann Woll (Karen Page)"],
+    ["Música", "Tyler Bates"],
+    ["Lugar en el universo", "Última temporada de la serie en Netflix"],
+    ["Cronología interna", "Un año después de la temporada 1"],
+    ["Tono", "Dos historias: una huida de carretera con una adolescente y el regreso de Billy Russo"]
+  ],
+  "momentos": [
+    ["El bar", "Frank defiende a una chica"],
+    ["La comisaría", "Asedio en Ohio"],
+    ["Billy", "Escapa sin memoria"],
+    ["Pilgrim", "El enviado de los Schultz"],
+    ["La calavera", "Frank acepta quién es"]
+  ],
+  "actos": [
+    ["Episodios 1 a 3: Carretera", [
+      "Frank Castle recorre el país en una furgoneta, con identidad nueva y sin rumbo. En un bar de Míchigan conoce a Beth, una camarera, y por una noche parece posible otra vida.",
+      "A la noche siguiente, unos mercenarios intentan matar a una adolescente en el mismo bar. Frank la defiende y deja el local lleno de cadáveres. La chica, que dice llamarse Rachel, es Amy Bendix, una estafadora de la calle. Su grupo hizo unas fotos comprometedoras por encargo de unos rusos, y todos sus amigos han muerto por ellas.",
+      "Los persigue John Pilgrim, un hombre callado, vestido de predicador, con un pasado de violencia. Tras un asedio a la comisaría de un pueblo de Ohio, la agente Madani aparece y se lleva a Frank y a Amy a Nueva York: Billy Russo ha escapado."
+    ]],
+    ["Episodios 4 a 9: Jigsaw", [
+      "Billy despertó del coma con la cara cruzada de cicatrices y sin recordar nada de lo que hizo: para él, Frank sigue siendo su hermano. Lo atormenta una pesadilla con una calavera. Su psicóloga, Krista Dumont, que también arrastra un trauma, se enamora de él y lo esconde en su casa.",
+      "Billy reúne a un grupo de veteranos sin futuro y empieza a atracar con una máscara rota. Cuando descubre que fue Frank quien le destrozó la cara, y por qué, no siente culpa sino rabia.",
+      "Billy le tiende una trampa: Frank cree haber matado a tres mujeres inocentes en un tiroteo y se derrumba. Acaba esposado en un hospital. Karen Page y Madani demuestran que ya estaban muertas antes de que él disparara, y lo ayudan a escapar."
+    ]],
+    ["Episodios 10 a 13: Cuentas", [
+      "Las fotos de Amy muestran al senador David Schultz besando a un hombre. Sus padres, Anderson y Eliza Schultz, millonarios muy religiosos que quieren llevarlo a la presidencia, enviaron a Pilgrim a recuperarlas. Pilgrim obedece porque le pagan el tratamiento de su esposa, que se muere, y tienen bajo su cuidado a sus dos hijos.",
+      "Madani pelea con Dumont, que cae por una ventana, y dispara tres veces a Billy. Él se arrastra, desangrándose, hasta el sótano de Curtis. Frank entra, lo mira y le pega dos tiros sin decir palabra.",
+      "Frank vence a Pilgrim en una pelea brutal y, al verlo pedir por sus hijos, lo deja vivir. Luego visita a los Schultz: mata a Eliza y deja una pistola frente a Anderson, que se suicida. El senador queda libre de sus padres.",
+      "Frank despide a Amy en un autobús hacia Florida, donde va a aprender a bucear. Madani le ofrece trabajar para la CIA, y él dice que no. Tres meses después, dos bandas se reúnen en un almacén. Frank aparece con gabardina, la calavera en el pecho y un fusil en cada mano."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["F", "Frank"], ["A", "Amy"], ["B", "Billy"], ["P", "Pilgrim"], ["M", "Madani"], ["K", "Krista"]],
+    "enlaces": [["F", "A", "la protege"], ["F", "B", "enemigos"], ["P", "A", "la persigue"], ["B", "K", "pareja"], ["M", "B", "obsesión"], ["F", "P", "rivales"]]
+  },
+  "personajes": [
+    ["Frank Castle", "Intenta dejar la guerra y descubre que no quiere. Acepta ser Punisher."],
+    ["Amy Bendix", "Adolescente huérfana, lista y desconfiada. Frank acaba tratándola como a una hija."],
+    ["Billy Russo", "Sin memoria y con la cara marcada. Su máscara pintada hace de Jigsaw."],
+    ["John Pilgrim", "Antiguo neonazi convertido en creyente severo. Mata por encargo de los Schultz."],
+    ["Dinah Madani", "No supera lo que Billy le hizo. Termina en la CIA."],
+    ["Krista Dumont", "Psicóloga de Billy. Cree que puede salvarlo."],
+    ["Curtis Hoyle", "El amigo veterano. Ayuda a Frank y sufre por ello."],
+    ["Anderson y Eliza Schultz", "Matrimonio millonario y fanático que maneja la carrera de su hijo."],
+    ["David Schultz", "Senador. No sabe lo que sus padres hacen en su nombre."],
+    ["Karen Page", "Se despide de Frank: él le dice que no puede quererla y ser lo que es."],
+    ["Brett Mahoney", "El detective de Daredevil, empeñado en detener a Frank."],
+    ["Beth Quinn", "Camarera de Míchigan."]
+  ],
+  "cosas": [
+    ["Las fotos", "Negativos que comprometen al senador Schultz. Los rusos querían chantajearlo."],
+    ["La máscara de Billy", "Una careta blanca rota y pintada, que representa su cara y su mente hechas pedazos."],
+    ["La calavera", "Frank vuelve a pintarla en su chaleco."],
+    ["Valhalla", "El gimnasio abandonado donde Billy junta a su banda de veteranos."],
+    ["La furgoneta", "La casa y el arsenal de Frank."]
+  ],
+  "creditos": "No hay escenas después de los créditos. La serie termina con Frank disparando contra dos bandas a la vez, convertido del todo en Punisher.",
+  "conexiones": [
+    "Cierra la historia de Billy Russo, empezada en la temporada 1.",
+    "Karen Page y Brett Mahoney vienen de Daredevil.",
+    "Netflix canceló la serie un mes después; fue, con Jessica Jones, la última de aquel grupo.",
+    "Frank Castle regresa en Daredevil: Born Again y en un especial propio.",
+    "No menciona el chasquido de Thanos: todas las series de Netflix ocurren antes."
+  ],
+  "preguntas": [
+    ["¿Quién es Jigsaw?", "Billy Russo, el antiguo amigo de Frank, con la cara llena de cicatrices y sin memoria de su traición."],
+    ["¿Quién es Amy Bendix?", "Una adolescente que tiene unas fotos comprometedoras de un senador. Frank la protege."],
+    ["¿Quién es John Pilgrim?", "Un asesino religioso al servicio de la familia Schultz. Frank le perdona la vida por sus hijos."],
+    ["¿Cómo muere Billy Russo?", "Malherido por los disparos de Madani, se refugia en el sótano de Curtis, y allí Frank lo remata."],
+    ["¿Qué había en las fotos?", "El senador David Schultz besando a un hombre, algo que sus padres querían ocultar."],
+    ["¿Cómo termina la serie?", "Con Frank aceptando su papel: aparece con la calavera y dos fusiles ante dos bandas criminales."]
+  ],
+  "curiosidades": [
+    "Muchos seguidores criticaron que las cicatrices de Billy fueran tan leves comparadas con el Jigsaw de los cómics.",
+    "John Pilgrim se basa libremente en el Mennonita, un personaje de los cómics de Punisher.",
+    "La imagen final, con gabardina, calavera y dos armas, copia las portadas clásicas de los cómics de Punisher.",
+    "Amy Bendix existe en los cómics, como la hija de un sheriff."
+  ]
+}

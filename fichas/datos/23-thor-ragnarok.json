@@ -1,0 +1,93 @@
+{
+  "titulo": "Thor: Ragnarok",
+  "anio": 2017,
+  "saga": "Saga del Infinito · Fase 3",
+  "ficha": [
+    ["Título original", "Thor: Ragnarok"],
+    ["Estreno", "3 de noviembre de 2017 (Estados Unidos)"],
+    ["Dirección", "Taika Waititi"],
+    ["Guion", "Eric Pearson, Craig Kyle y Christopher Yost"],
+    ["Reparto principal", "Chris Hemsworth (Thor), Tom Hiddleston (Loki), Cate Blanchett (Hela), Mark Ruffalo (Bruce Banner / Hulk), Tessa Thompson (Valquiria), Jeff Goldblum (el Gran Maestro), Idris Elba (Heimdall), Karl Urban (Skurge), Anthony Hopkins (Odín), Taika Waititi (Korg), Benedict Cumberbatch (Doctor Strange)"],
+    ["Duración", "130 minutos"],
+    ["Música", "Mark Mothersbaugh"],
+    ["Lugar en el universo", "Fase 3. Termina minutos antes de Vengadores: Infinity War"],
+    ["Cronología interna", "2017, dos años después de Vengadores: La era de Ultrón"],
+    ["Recaudación", "Cerca de 855 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["Surtur", "La profecía del Ragnarok"],
+    ["Hela", "Rompe el Mjolnir"],
+    ["Sakaar", "Thor contra Hulk"],
+    ["Los Revengadores", "La fuga"],
+    ["El puente", "Asgard es su gente"]
+  ],
+  "actos": [
+    ["Acto 1: La hija de Odín", [
+      "Thor lleva dos años buscando las Gemas del Infinito sin éxito. Preso del demonio de fuego Surtur, escucha la profecía del Ragnarok: Surtur destruirá Asgard cuando su corona se una a la Llama Eterna. Thor lo vence y se lleva la corona.",
+      "En Asgard encuentra a «Odín» comiendo uvas y viendo una obra de teatro en honor de Loki. Lo desenmascara: es Loki. En la Tierra, Doctor Strange les indica que el Odín verdadero está en Noruega.",
+      "Odín los espera frente al mar. Su vida se acaba, y con ella la prisión de su primogénita: Hela, diosa de la muerte, con quien conquistó los Nueve Reinos antes de encerrarla por su ambición. Odín se deshace en luz. Hela aparece al instante, detiene el Mjolnir con una mano y lo hace pedazos. Los hermanos huyen por el Bifrost; ella los alcanza y los arroja fuera."
+    ]],
+    ["Acto 2: Sakaar", [
+      "Thor cae en Sakaar, un planeta basurero rodeado de portales, gobernado por el Gran Maestro, que organiza combates de gladiadores. Una cazadora borracha, la Recolectora 142, lo captura y lo vende. Loki llegó semanas antes y ya es favorito de la corte.",
+      "A Thor le cortan el pelo y lo mandan a la arena contra el campeón, que resulta ser Hulk. Thor se alegra: «¡Es un amigo del trabajo!». Hulk no se alegra tanto. Cuando Thor empieza a ganar con rayos que le salen del cuerpo, el Gran Maestro lo tumba con una descarga.",
+      "Hulk lleva dos años sin volver a ser Banner, desde que se fue en el Quinjet, y en Sakaar lo adoran. Un vídeo de Natasha Romanoff hace volver a Banner, aterrado. La 142 es en realidad la última Valquiria: todas sus compañeras murieron peleando contra Hela.",
+      "Mientras tanto, Hela mata a los Tres Guerreros y al ejército de Asgard, nombra verdugo a Skurge y resucita a sus soldados muertos y a su lobo Fenris. Heimdall esconde al pueblo en las montañas."
+    ]],
+    ["Acto 3: Ragnarok", [
+      "Thor, Banner, Valquiria y Loki forman un equipo al que Thor llama los Revengadores. Korg, un gladiador de piedra, inicia una revolución. Loki intenta traicionarlos, pero Thor ya lo esperaba. Escapan por el portal más grande de Sakaar en una nave del Gran Maestro.",
+      "En el puente del arcoíris, Banner vuelve a ser Hulk para pelear con Fenris. En el palacio, Hela le saca un ojo a Thor. Él tiene una visión de Odín, que le pregunta si acaso es el dios de los martillos: el Mjolnir solo servía para encauzar su poder, y Asgard no es un lugar, es su gente. Thor descarga una tormenta de rayos.",
+      "Loki llega con una nave enorme y los gladiadores para evacuar al pueblo. Skurge se redime y muere defendiendo la nave. Hela saca su fuerza de Asgard y se hace más fuerte cada minuto, así que Thor comprende que no hay que impedir el Ragnarok, sino provocarlo. Loki pone la corona de Surtur en la Llama Eterna, y el gigante de fuego destruye Asgard con Hela dentro.",
+      "Thor, tuerto y sin martillo, es rey de un pueblo sin tierra. Pone rumbo al planeta Tierra."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["T", "Thor"], ["L", "Loki"], ["H", "Hela"], ["B", "Hulk"], ["V", "Valquiria"], ["G", "Gran Maestro"]],
+    "enlaces": [["T", "L", "hermanos"], ["H", "T", "hermana mayor"], ["T", "B", "amigos del trabajo"], ["V", "H", "viejo trauma"], ["G", "B", "su campeón"], ["T", "V", "aliados"]]
+  },
+  "personajes": [
+    ["Thor", "Pierde a su padre, su martillo, un ojo y su casa, y gana lo que le faltaba: sentido del humor y su verdadero poder."],
+    ["Loki", "El dios del engaño. Reinó en Asgard disfrazado de Odín. Traiciona por costumbre, pero vuelve."],
+    ["Hela", "Diosa de la muerte, primogénita de Odín y su antigua verduga. Lanza espadas sin fin."],
+    ["Hulk", "Dos años siendo solo Hulk lo han vuelto capaz de hablar como un niño enfadado."],
+    ["Bruce Banner", "Teme que la próxima transformación sea la definitiva."],
+    ["Valquiria", "La última de las guerreras de élite de Asgard. Bebe para olvidar."],
+    ["El Gran Maestro", "Gobernante excéntrico de Sakaar. Es uno de los Ancianos del Universo, hermano del Coleccionista."],
+    ["Heimdall", "El guardián. Salva al pueblo de Asgard."],
+    ["Skurge", "Cuidador del Bifrost que se vuelve verdugo de Hela por miedo."],
+    ["Korg", "Gladiador de roca, amable y revolucionario fracasado. Su amigo Miek es una larva con cuchillas."],
+    ["Odín", "Muere en paz, confesando el pasado que ocultó."],
+    ["Surtur", "Demonio de fuego de Muspelheim, destinado a destruir Asgard."]
+  ],
+  "cosas": [
+    ["Ragnarok", "La profecía del fin de Asgard. Aquí resulta ser la solución y no el problema."],
+    ["Mjolnir", "El martillo de Thor. Hela lo destruye."],
+    ["Llama Eterna", "Fuego guardado en la cámara de Odín. Resucita a los muertos de Hela y despierta a Surtur."],
+    ["Sakaar", "Planeta basurero adonde va a parar todo lo que se pierde en el universo."],
+    ["Torneo de Campeones", "Los combates de gladiadores del Gran Maestro."],
+    ["Disco de obediencia", "Aparato que se clava en el cuello de los presos y da descargas."],
+    ["El Teseracto", "Sigue en la cámara de Odín. Loki lo mira al pasar, y se lo lleva."],
+    ["La nave de Asgard", "El carguero en que viaja el pueblo al final."]
+  ],
+  "creditos": "A mitad de los créditos, Thor y Loki hablan de si es buena idea llevar a Loki a la Tierra, cuando una nave gigantesca aparece frente a la suya: la de Thanos. Al final, el Gran Maestro sale de entre la basura, rodeado de rebeldes, y declara que la revolución ha sido un empate.",
+  "conexiones": [
+    "La escena con Doctor Strange viene de los créditos de Doctor Strange.",
+    "La nave que aparece al final abre Vengadores: Infinity War, donde Thanos mata a Loki y a Heimdall.",
+    "Explica dónde estaban Thor y Hulk durante Capitán América: Civil War.",
+    "El pueblo de Asgard funda Nuevo Asgard en Noruega; Valquiria es su reina desde Endgame.",
+    "Korg y Miek acompañan a Thor en Endgame y en Thor: Amor y trueno."
+  ],
+  "preguntas": [
+    ["¿Qué es el Ragnarok?", "La destrucción profetizada de Asgard a manos del demonio Surtur. Thor la provoca para acabar con Hela."],
+    ["¿Quién es Hela?", "La diosa de la muerte, hija mayor de Odín, a quien él encerró. Es hermana de Thor."],
+    ["¿Cómo perdió Thor su martillo?", "Hela lo detuvo con una mano y lo rompió."],
+    ["¿Cómo perdió Thor el ojo?", "Hela se lo sacó en la pelea del palacio."],
+    ["¿Por qué Hulk estaba en Sakaar?", "El Quinjet en que huyó tras Ultrón cayó por un portal y llegó allí, donde se hizo campeón de gladiadores."],
+    ["¿Qué pasa con Asgard?", "El planeta es destruido. Su pueblo sobrevive en una nave, porque Asgard es su gente y no un lugar."]
+  ],
+  "curiosidades": [
+    "Stan Lee es el barbero que le corta el pelo a Thor.",
+    "Matt Damon, Luke Hemsworth y Sam Neill interpretan a los actores de la obra de teatro.",
+    "Gran parte del diálogo fue improvisado, por decisión del director.",
+    "La canción Immigrant Song, de Led Zeppelin, suena en las dos grandes batallas."
+  ]
+}

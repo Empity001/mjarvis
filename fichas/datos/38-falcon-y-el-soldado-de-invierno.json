@@ -1,0 +1,92 @@
+{
+  "titulo": "Falcon y el Soldado de Invierno",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "The Falcon and the Winter Soldier"],
+    ["Estreno", "Del 19 de marzo al 23 de abril de 2021 (Disney+)"],
+    ["Creador", "Malcolm Spellman. Dirección de Kari Skogland"],
+    ["Episodios", "6 (miniserie)"],
+    ["Reparto principal", "Anthony Mackie (Sam Wilson), Sebastian Stan (Bucky Barnes), Wyatt Russell (John Walker), Erin Kellyman (Karli Morgenthau), Daniel Brühl (Helmut Zemo), Emily VanCamp (Sharon Carter), Carl Lumbly (Isaiah Bradley), Adepero Oduye (Sarah Wilson), Danny Ramirez (Joaquín Torres), Clé Bennett (Lemar Hoskins), Julia Louis-Dreyfus (Valentina Allegra de Fontaine)"],
+    ["Música", "Henry Jackman"],
+    ["Lugar en el universo", "Fase 4"],
+    ["Cronología interna", "2024, seis meses después de Vengadores: Endgame"],
+    ["Tono", "Acción y espionaje con un tema de fondo: quién puede llevar el escudo y qué representa"]
+  ],
+  "momentos": [
+    ["El museo", "Sam entrega el escudo"],
+    ["Walker", "Un Capitán América nuevo"],
+    ["Madripoor", "La pista del suero"],
+    ["La plaza", "El escudo manchado de sangre"],
+    ["Nueva York", "Sam es el Capitán América"]
+  ],
+  "actos": [
+    ["Episodios 1 y 2: El escudo", [
+      "Steve Rogers le dejó el escudo a Sam Wilson, pero Sam no se siente con derecho a llevarlo y lo dona al museo Smithsonian. En Luisiana, su hermana Sarah lucha por salvar el barco pesquero de la familia; el banco le niega el préstamo incluso a un Vengador.",
+      "Bucky Barnes, indultado, va a terapia obligatoria y tiene una lista de personas a las que hizo daño como Soldado de Invierno. Se ha hecho amigo de un anciano sin atreverse a decirle que mató a su hijo.",
+      "El gobierno entrega el escudo a otro: John Walker, un soldado condecorado, presentado como el nuevo Capitán América junto a su compañero Lemar Hoskins. Mientras tanto surgen los Sin Banderas, un grupo de jóvenes con fuerza de supersoldado, dirigidos por Karli Morgenthau. Quieren el mundo sin fronteras de los años del Blip, y defienden a los refugiados que ahora son expulsados de sus casas.",
+      "Bucky le presenta a Sam a Isaiah Bradley, un supersoldado negro de la guerra de Corea. Fue un héroe; el gobierno lo encerró treinta años, experimentó con él y borró su nombre."
+    ]],
+    ["Episodios 3 y 4: El suero", [
+      "Para saber quién fabrica el suero, Bucky saca de la cárcel a Helmut Zemo. Los tres viajan a Madripoor, una isla de criminales gobernada por alguien llamado el Mercader de Poder. Allí vive escondida Sharon Carter, fugitiva desde que ayudó a Steve.",
+      "Un científico recreó el suero a partir de la sangre de Isaiah Bradley e hizo veinte dosis. Karli las robó. Zemo mata al científico y, más tarde, destruye casi todos los frascos: cree que nadie debería ser un supersoldado. Walker encuentra uno y se lo guarda.",
+      "Las Dora Milaje de Wakanda llegan a reclamar a Zemo y humillan a Walker en una pelea. En un enfrentamiento con los Sin Banderas, Karli mata a Lemar de un golpe. Walker, que ya ha tomado el suero, persigue a uno de ellos hasta una plaza y lo mata con el escudo, delante de la gente y de las cámaras. El escudo queda cubierto de sangre."
+    ]],
+    ["Episodios 5 y 6: El Capitán América", [
+      "Sam y Bucky le quitan el escudo a Walker en una pelea dura. Al gobierno no le queda más que expulsarlo del ejército. Una mujer, Valentina Allegra de Fontaine, se le acerca con una oferta.",
+      "Sam visita otra vez a Isaiah, que le dice que ningún hombre negro con dignidad querría ser el Capitán América. Sam vuelve a casa, arregla el barco con ayuda de los vecinos y de Bucky, y entrena con el escudo. Decide llevarlo precisamente por todo lo que le han dicho.",
+      "Los Sin Banderas atacan en Nueva York la reunión del consejo que va a deportar a los refugiados. Sam aparece con un traje nuevo, hecho en Wakanda, con alas y el escudo. Salva a los rehenes; Walker elige ayudar en vez de vengarse. Karli muere por un disparo de Sharon Carter.",
+      "Ante las cámaras, Sam les dice a los políticos que dejen de llamar terroristas a quienes ellos mismos empujaron, y que el poder exige hacerse preguntas. Luego lleva a Isaiah al museo, donde ahora hay una estatua con su historia. Bucky termina su lista. Walker recibe un traje negro y un nombre: U.S. Agent. Y Sharon, que era el Mercader de Poder, recupera su puesto en la CIA."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Sam"], ["B", "Bucky"], ["W", "Walker"], ["K", "Karli"], ["Z", "Zemo"], ["I", "Isaiah"]],
+    "enlaces": [["S", "B", "compañeros"], ["W", "S", "rivales por el escudo"], ["K", "W", "mata a su amigo"], ["Z", "B", "viejo enemigo"], ["I", "S", "le abre los ojos"], ["S", "K", "intenta salvarla"]]
+  },
+  "personajes": [
+    ["Sam Wilson", "Falcon. Sin suero ni poderes. Termina siendo el Capitán América."],
+    ["Bucky Barnes", "El Soldado de Invierno, libre de su programación y aprendiendo a vivir con la culpa."],
+    ["John Walker", "Soldado con tres medallas de honor y demasiada presión. Su caída es rápida. Acaba como U.S. Agent."],
+    ["Karli Morgenthau", "Líder de los Sin Banderas. Idealista que acaba aceptando matar."],
+    ["Helmut Zemo", "Barón de Sokovia, rico y elegante. Sigue convencido de que los superhumanos son un peligro."],
+    ["Sharon Carter", "Abandonada por su país. En secreto, es el Mercader de Poder."],
+    ["Isaiah Bradley", "El supersoldado olvidado. Su historia cambia la decisión de Sam."],
+    ["Lemar Hoskins", "Battlestar, el compañero y freno de Walker."],
+    ["Sarah Wilson", "Hermana de Sam, viuda con dos hijos."],
+    ["Joaquín Torres", "Teniente de la fuerza aérea que ayuda a Sam. Se queda con las alas viejas."],
+    ["Ayo", "Guerrera de las Dora Milaje. Ayudó a liberar la mente de Bucky."],
+    ["Valentina Allegra de Fontaine", "Recluta a Walker."]
+  ],
+  "cosas": [
+    ["El escudo", "El símbolo del Capitán América. Toda la serie trata de quién debe llevarlo."],
+    ["Suero del supersoldado", "Recreado a partir de la sangre de Isaiah Bradley. Veinte dosis."],
+    ["Los Sin Banderas", "Flag Smashers. Su lema: «Un mundo, un pueblo»."],
+    ["CRG", "El Consejo de Repatriación Global, que reubica a la gente tras el Blip."],
+    ["Madripoor", "Isla sin ley del sudeste de Asia."],
+    ["El traje nuevo", "Alas y uniforme hechos en Wakanda para Sam."],
+    ["Redwing", "El dron de Sam."],
+    ["La lista de Bucky", "Los nombres de aquellos a quienes debe una reparación."]
+  ],
+  "creditos": "A mitad de los créditos del último episodio, Sharon Carter recibe el indulto y su antiguo puesto. Al salir, llama por teléfono: ahora tendrá acceso a secretos del gobierno y a prototipos de armas, y hay que ir buscando compradores.",
+  "conexiones": [
+    "Sigue la escena final de Vengadores: Endgame, cuando Steve entrega el escudo.",
+    "Zemo viene de Capitán América: Civil War.",
+    "Sam ejerce de Capitán América en Capitán América: Un nuevo mundo, con Joaquín Torres como Falcon e Isaiah Bradley.",
+    "John Walker, Bucky y Valentina se reúnen en Thunderbolts*.",
+    "Valentina también recluta a Yelena Belova, al final de Black Widow."
+  ],
+  "preguntas": [
+    ["¿Quién es el nuevo Capitán América?", "Sam Wilson, el antiguo Falcon. Antes, el gobierno le dio el título a John Walker, que lo perdió."],
+    ["¿Quién es John Walker?", "Un soldado al que nombran Capitán América. Tras matar a un hombre en público pierde el título y pasa a ser U.S. Agent."],
+    ["¿Quiénes son los Sin Banderas?", "Un grupo de supersoldados jóvenes que quiere un mundo sin fronteras y defiende a los refugiados del Blip."],
+    ["¿Quién es Isaiah Bradley?", "Un supersoldado negro de los años cincuenta al que el gobierno encarceló y ocultó durante décadas."],
+    ["¿Quién es el Mercader de Poder?", "Sharon Carter."],
+    ["¿Bucky sigue siendo el Soldado de Invierno?", "Ya no obedece las palabras clave: en Wakanda lo liberaron de ellas. Allí lo llaman Lobo Blanco."]
+  ],
+  "curiosidades": [
+    "En el último episodio el título cambia a «Capitán América y el Soldado de Invierno».",
+    "Isaiah Bradley viene del cómic Truth: Red, White & Black, de 2003.",
+    "Zemo se pone por unos segundos su máscara morada de los cómics.",
+    "El baile de Zemo en la discoteca se hizo tan popular que Marvel publicó la escena completa."
+  ]
+}

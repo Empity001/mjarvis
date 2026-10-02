@@ -1,0 +1,92 @@
+{
+  "titulo": "Black Widow",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4 (ocurre en 2016)",
+  "ficha": [
+    ["Título original", "Black Widow (en español, Viuda Negra)"],
+    ["Estreno", "9 de julio de 2021 (cines y Disney+ a la vez)"],
+    ["Dirección", "Cate Shortland"],
+    ["Guion", "Eric Pearson, sobre una historia de Jac Schaeffer y Ned Benson"],
+    ["Reparto principal", "Scarlett Johansson (Natasha Romanoff), Florence Pugh (Yelena Belova), David Harbour (Alexei Shostakov), Rachel Weisz (Melina Vostokoff), Ray Winstone (Dreykov), O-T Fagbenle (Mason), Olga Kurylenko (Antonia Dreykov), William Hurt (Thaddeus Ross)"],
+    ["Duración", "134 minutos"],
+    ["Música", "Lorne Balfe"],
+    ["Lugar en el universo", "Primera película de la Fase 4, aunque su historia ocurre antes"],
+    ["Cronología interna", "2016, justo después de Capitán América: Civil War; prólogo en 1995"],
+    ["Recaudación", "Cerca de 380 millones de dólares en cines, en plena pandemia"]
+  ],
+  "momentos": [
+    ["Ohio, 1995", "Una familia falsa huye"],
+    ["Budapest", "Natasha y Yelena se reencuentran"],
+    ["La prisión", "Rescatan a Alexei"],
+    ["La granja", "La familia se reúne"],
+    ["La Sala Roja", "Cae la fortaleza"]
+  ],
+  "actos": [
+    ["Prólogo: Ohio, 1995", [
+      "Natasha y Yelena, de once y seis años, viven en Ohio con sus padres, Alexei y Melina. Parecen una familia normal de Estados Unidos, pero son espías rusos y ninguno es pariente de los otros. Cuando Alexei roba unos datos de S.H.I.E.L.D., huyen en avioneta a Cuba.",
+      "Allí los espera el general Dreykov. La familia se deshace en minutos: a las niñas las drogan y las envían a la Sala Roja, el programa que convierte a niñas en asesinas, las Viudas."
+    ]],
+    ["Acto 1: Fugitiva", [
+      "Veintiún años después, Natasha huye del secretario Ross por haber roto los Acuerdos de Sokovia. Se esconde en una caravana en Noruega, con la ayuda de su proveedor, Mason.",
+      "En Marruecos, Yelena, todavía una Viuda, persigue a una compañera desertora. Al morir, la mujer le rocía un gas rojo que la libera: Dreykov controla ahora a las Viudas con química, no con entrenamiento. Yelena envía los frascos del antídoto a Natasha.",
+      "Un soldado enmascarado que copia cualquier estilo de pelea, Supervisor, ataca a Natasha para llevarse los frascos. Ella sigue la pista hasta un piso de Budapest, donde se pelea y luego se reconcilia con Yelena. Natasha se entera de que la Sala Roja sigue activa: creía haberla destruido el día en que, para desertar a S.H.I.E.L.D., puso una bomba que mató a Dreykov y a su hija pequeña, Antonia."
+    ]],
+    ["Acto 2: La familia", [
+      "Para encontrar la Sala Roja necesitan a Alexei, que fue el Guardián Rojo, el único supersoldado de la Unión Soviética, y lleva años en una cárcel de Siberia presumiendo de haber peleado con el Capitán América. Lo sacan en helicóptero en medio de una avalancha.",
+      "Alexei las lleva a una granja cerca de San Petersburgo donde vive Melina, la científica que diseñó el control mental; lo demuestra ordenando a un cerdo que deje de respirar. En la cena salen los reproches: para Yelena, aquellos tres años en Ohio fueron la única familia real que tuvo.",
+      "Melina ya había avisado a Dreykov, pero se arrepiente. Con máscaras que copian caras, ella y Natasha se intercambian antes de que lleguen los soldados."
+    ]],
+    ["Acto 3: La Sala Roja", [
+      "La Sala Roja es una fortaleza que flota sobre las nubes. Natasha, con la cara de Melina, llega hasta Dreykov, pero no puede tocarlo: él lleva una feromona que impide a toda Viuda atacarlo. Dreykov presume de dirigir el mundo a través de sus Viudas y revela que Supervisor es su hija Antonia, que sobrevivió a la bomba desfigurada y con un chip en la nuca.",
+      "Natasha se rompe la nariz contra el escritorio para cortar el nervio del olfato y por fin lo golpea. Yelena libera a las Viudas haciendo estallar el antídoto, Melina sabotea un motor y la fortaleza empieza a caer.",
+      "Yelena destruye la nave en la que Dreykov escapa. Natasha salta al vacío para darle un paracaídas a su hermana y pelea con Antonia en plena caída; en tierra la libera con el último frasco. Llega Ross con sus tropas, y Natasha se queda para que los demás puedan irse. Yelena le regala su chaleco.",
+      "Dos semanas después, rubia y con el chaleco puesto, Natasha recibe de Mason un avión: va a sacar de la cárcel a sus compañeros Vengadores."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["N", "Natasha"], ["Y", "Yelena"], ["A", "Alexei"], ["M", "Melina"], ["D", "Dreykov"], ["S", "Supervisor"]],
+    "enlaces": [["N", "Y", "hermanas"], ["A", "M", "falso matrimonio"], ["A", "N", "padre adoptivo"], ["D", "S", "padre e hija"], ["D", "M", "trabaja para él"], ["N", "S", "culpa"]]
+  },
+  "personajes": [
+    ["Natasha Romanoff", "La Viuda Negra. Antigua asesina rusa y Vengadora. Carga la culpa por la hija de Dreykov."],
+    ["Yelena Belova", "Su hermana adoptiva, también Viuda. Directa, burlona, y más herida de lo que deja ver."],
+    ["Alexei Shostakov", "El Guardián Rojo. Supersoldado soviético, fanfarrón y nostálgico, que hizo de padre en Ohio."],
+    ["Melina Vostokoff", "Científica y Viuda veterana que hizo de madre. Creó el control mental de la Sala Roja."],
+    ["Dreykov", "El general que dirige la Sala Roja. Considera a las niñas un recurso que al mundo le sobra."],
+    ["Antonia Dreykov", "Supervisor (Taskmaster). Imita los movimientos de cualquier luchador que haya visto."],
+    ["Mason", "El proveedor de Natasha: consigue casas, vehículos y pasaportes."],
+    ["Thaddeus Ross", "Secretario de Estado que persigue a Natasha."],
+    ["Valentina Allegra de Fontaine", "Mujer misteriosa que recluta a Yelena en la escena final."]
+  ],
+  "cosas": [
+    ["Sala Roja", "Programa soviético que secuestra niñas y las entrena como asesinas. Su sede es una fortaleza voladora."],
+    ["Viudas", "Las agentes de la Sala Roja. A todas las esterilizan al graduarse."],
+    ["Antídoto rojo", "Gas que anula el control químico de la mente de las Viudas."],
+    ["Bloqueo de feromonas", "Las Viudas no pueden atacar a Dreykov mientras huelan su feromona."],
+    ["Guardián Rojo", "El equivalente soviético del Capitán América, con traje rojo y escudo."],
+    ["El chaleco", "El chaleco verde con muchos bolsillos de Yelena. Natasha lo lleva en Vengadores: Infinity War."],
+    ["Budapest", "La misión que Natasha y Clint Barton mencionan en Los Vengadores: el atentado contra Dreykov y los días que pasaron escondidos."]
+  ],
+  "creditos": "La escena final ocurre años más tarde, después de Vengadores: Endgame. Yelena visita la tumba de Natasha. Aparece Valentina Allegra de Fontaine, para quien trabaja, y le enseña la foto del hombre «responsable» de la muerte de su hermana: Clint Barton.",
+  "conexiones": [
+    "Explica qué pasó en Budapest y cómo Natasha entró en S.H.I.E.L.D.",
+    "Termina justo antes de Vengadores: Infinity War, donde Natasha aparece rubia y con el chaleco.",
+    "Yelena busca a Clint Barton en la serie Hawkeye.",
+    "Yelena, Alexei, Supervisor y Valentina regresan en Thunderbolts*.",
+    "Natasha muere en Vormir, en Vengadores: Endgame, para conseguir la Gema del Alma."
+  ],
+  "preguntas": [
+    ["¿Qué es la Sala Roja?", "El programa ruso que secuestra niñas y las convierte en asesinas llamadas Viudas. Natasha y Yelena crecieron en él."],
+    ["¿Quién es Yelena Belova?", "La hermana adoptiva de Natasha, otra Viuda Negra, que hereda su papel tras Endgame."],
+    ["¿Cuándo ocurre Black Widow?", "En 2016, entre Capitán América: Civil War y Vengadores: Infinity War."],
+    ["¿Quién es Supervisor?", "Antonia, la hija de Dreykov, controlada por un chip. Copia el estilo de pelea de cualquier persona."],
+    ["¿Qué pasó en Budapest?", "Natasha y Clint Barton pusieron una bomba para matar a Dreykov. Fue la prueba de ella para entrar en S.H.I.E.L.D."],
+    ["¿Quién es el Guardián Rojo?", "Alexei Shostakov, el supersoldado de la Unión Soviética, que hizo de padre de Natasha y Yelena."]
+  ],
+  "curiosidades": [
+    "Es la primera película del universo sin cameo de Stan Lee, que murió en 2018.",
+    "Su estreno se retrasó más de un año por la pandemia y salió a la vez en cines y en Disney+.",
+    "Scarlett Johansson llevaba once años interpretando a Natasha cuando por fin tuvo película propia.",
+    "Yelena se burla de la pose de aterrizaje de Natasha, y al final la hace ella misma."
+  ]
+}

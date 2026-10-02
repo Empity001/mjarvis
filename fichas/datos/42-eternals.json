@@ -1,0 +1,94 @@
+{
+  "titulo": "Eternals",
+  "anio": 2021,
+  "saga": "Saga del Multiverso · Fase 4",
+  "ficha": [
+    ["Título original", "Eternals"],
+    ["Estreno", "5 de noviembre de 2021 (Estados Unidos)"],
+    ["Dirección", "Chloé Zhao"],
+    ["Guion", "Chloé Zhao, Patrick Burleigh, Ryan Firpo y Kaz Firpo"],
+    ["Reparto principal", "Gemma Chan (Sersi), Richard Madden (Ikaris), Angelina Jolie (Thena), Salma Hayek (Ajak), Kumail Nanjiani (Kingo), Lia McHugh (Sprite), Brian Tyree Henry (Phastos), Lauren Ridloff (Makkari), Barry Keoghan (Druig), Don Lee (Gilgamesh), Kit Harington (Dane Whitman)"],
+    ["Duración", "156 minutos"],
+    ["Música", "Ramin Djawadi"],
+    ["Lugar en el universo", "Fase 4. Presenta a los Celestiales como creadores"],
+    ["Cronología interna", "2024, con recuerdos que abarcan siete mil años"],
+    ["Recaudación", "Cerca de 402 millones de dólares en todo el mundo"]
+  ],
+  "momentos": [
+    ["5000 a. C.", "Llegan a la Tierra"],
+    ["Londres", "Vuelven los Desviantes"],
+    ["Arishem", "La verdad de su misión"],
+    ["La reunión", "El equipo se junta"],
+    ["La Emergencia", "Nace un Celestial"]
+  ],
+  "actos": [
+    ["Acto 1: Los que no envejecen", [
+      "En el año 5000 antes de Cristo llegan a Mesopotamia diez seres inmortales, los Eternos, enviados por el Celestial Arishem. Su tarea es proteger a los humanos de unos depredadores llamados Desviantes. Tienen una norma: no intervenir en los asuntos humanos, salvo que haya Desviantes de por medio. Por eso no detuvieron a Thanos ni ninguna guerra.",
+      "Durante milenios viven entre la gente y la ayudan a avanzar. En 1521, entre las ruinas de Tenochtitlan, matan al último Desviante y se separan, cada uno por su lado.",
+      "Hoy, Sersi da clases en un museo de Londres y sale con un compañero, Dane Whitman. Un Desviante distinto, capaz de curarse, la ataca a ella y a Sprite. Las salva Ikaris, el más poderoso y antiguo amor de Sersi. Van a buscar a su líder, Ajak, y la encuentran muerta."
+    ]],
+    ["Acto 2: La verdad", [
+      "Ajak eligió a Sersi como sucesora, y con el mando viene la comunicación con Arishem. Él le cuenta la verdad. Los Eternos no vienen de un planeta: son seres fabricados. Dentro de la Tierra crece la semilla de un Celestial nuevo, Tiamut, que se alimenta de la energía de la vida inteligente. Los Eternos están ahí para que la población crezca.",
+      "Cuando haya gente suficiente, Tiamut nacerá, en la Emergencia, y la Tierra quedará destruida. Lo han hecho ya en muchos planetas; después de cada uno les borran la memoria. El regreso de media humanidad tras el Blip ha dado la energía que faltaba. Quedan siete días.",
+      "Sersi, Ikaris y Sprite reúnen a los demás: Kingo, estrella del cine de Bollywood; Thena, que sufre una enfermedad de la memoria, y Gilgamesh, que la cuida; Druig, que controla a todo un pueblo en la selva; Phastos, el inventor, que vive en Chicago con su marido y su hijo; y Makkari, que los espera en la nave.",
+      "El Desviante mata a Gilgamesh y absorbe su fuerza. Los Eternos deciden salvar la Tierra: Phastos construirá un enlace, la Uni-Mente, para sumar el poder de todos y que Druig duerma al Celestial."
+    ]],
+    ["Acto 3: La Emergencia", [
+      "Ikaris confiesa: él sabía la verdad desde hace siglos. Cuando Ajak decidió impedir la Emergencia, la llevó ante los Desviantes y la dejó morir. Es leal a Arishem. Sprite se va con él: lleva siete mil años con cuerpo de niña y enamorada de Ikaris. Kingo, que no quiere pelear contra los suyos ni contra un dios, se retira.",
+      "En una isla volcánica del océano Índico, la mano de Tiamut empieza a salir del mar. Thena mata al Desviante. Makkari y Phastos frenan a Ikaris. Cuando Ikaris tiene a Sersi a su merced, no puede matarla.",
+      "Sersi, que solo cambiaba la materia de cosas pequeñas, recibe el poder de todos por la Uni-Mente y convierte al Celestial en mármol. Queda como una estatua gigantesca que asoma del océano.",
+      "Ikaris, incapaz de vivir con lo que hizo, vuela hacia el Sol. Sersi usa la energía que queda para hacer humana a Sprite, que por fin podrá crecer. Thena, Druig y Makkari salen en la nave a buscar a otros Eternos. Y Arishem aparece en el cielo: se lleva a Sersi, Kingo y Phastos. Revisará sus recuerdos para decidir si la humanidad merece vivir."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["S", "Sersi"], ["I", "Ikaris"], ["A", "Ajak"], ["T", "Thena"], ["P", "Sprite"], ["R", "Arishem"]],
+    "enlaces": [["S", "I", "amor antiguo"], ["I", "A", "la traiciona"], ["A", "S", "la elige"], ["P", "I", "lo quiere"], ["R", "A", "le da órdenes"], ["T", "S", "aliadas"]]
+  },
+  "personajes": [
+    ["Sersi", "Transforma la materia con el tacto. Ama a los humanos. Líder a su pesar."],
+    ["Ikaris", "Vuela y dispara rayos por los ojos. Soldado fiel hasta lo peor."],
+    ["Ajak", "La líder, con poder de curar. Cambió de opinión al ver a los humanos vencer a Thanos."],
+    ["Thena", "Guerrera que crea armas de luz. Los recuerdos borrados la atormentan."],
+    ["Gilgamesh", "El más fuerte. Cuida de Thena durante siglos."],
+    ["Kingo", "Lanza proyectiles de energía con las manos. Se hizo actor, haciéndose pasar por su propia dinastía."],
+    ["Sprite", "Crea ilusiones. Atrapada en un cuerpo de doce años."],
+    ["Phastos", "Inventor. Ayudó a la humanidad a progresar y carga con la culpa de Hiroshima."],
+    ["Makkari", "La más veloz. Sorda; habla en lengua de signos."],
+    ["Druig", "Controla mentes. No soporta ver guerras que podría detener."],
+    ["Arishem", "El Celestial que juzga y crea mundos."],
+    ["Kro", "El Desviante que evoluciona absorbiendo Eternos."],
+    ["Dane Whitman", "Humano, novio de Sersi. Su familia guarda un secreto."]
+  ],
+  "cosas": [
+    ["Celestiales", "Seres inmensos que crean estrellas y vida. Sus semillas crecen dentro de los planetas."],
+    ["La Emergencia", "El nacimiento de un Celestial, que destruye el planeta que lo contiene."],
+    ["Desviantes", "Criaturas hechas por los Celestiales para limpiar los planetas de depredadores. Se salieron de control."],
+    ["Uni-Mente", "La unión de todos los Eternos, que concentra su energía en uno."],
+    ["Domo", "La nave triangular de los Eternos."],
+    ["Mahd Wy'ry", "La «enfermedad» de Thena: los recuerdos de mundos anteriores, que vuelven."],
+    ["Tiamut", "El Celestial dormido en la Tierra. Su cuerpo de mármol queda en el océano."],
+    ["Espada de Ébano", "La hoja maldita que hereda Dane Whitman."]
+  ],
+  "creditos": "A mitad de los créditos, en la nave aparecen dos visitantes: Pip el Trol, que presenta a Eros, hermano de Thanos y también Eterno, dispuesto a ayudarlos a encontrar a sus amigos. Al final, Dane Whitman abre un cofre antiguo con la Espada de Ébano. Cuando va a tocarla, una voz le pregunta si está seguro de estar listo: es la de Blade.",
+  "conexiones": [
+    "Explica por qué los Eternos no ayudaron contra Thanos.",
+    "El Blip de Vengadores: Endgame es lo que desencadena la Emergencia.",
+    "El Celestial de mármol reaparece en Capitán América: Un nuevo mundo, como fuente de adamantium.",
+    "Los Celestiales ya se vieron en Guardianes de la Galaxia: Knowhere es la cabeza de uno, y Ego decía serlo.",
+    "La voz final anuncia a Blade, interpretado por Mahershala Ali."
+  ],
+  "preguntas": [
+    ["¿Quiénes son los Eternos?", "Diez seres inmortales creados por los Celestiales y enviados a la Tierra hace siete mil años para protegerla de los Desviantes."],
+    ["¿Por qué no pelearon contra Thanos?", "Tenían prohibido intervenir en conflictos que no fueran de Desviantes."],
+    ["¿Qué es la Emergencia?", "El nacimiento del Celestial Tiamut desde el interior de la Tierra, que la destruiría."],
+    ["¿Quién mató a Ajak?", "Ikaris, que la entregó a los Desviantes cuando ella decidió salvar la Tierra."],
+    ["¿Cómo detienen al Celestial?", "Sersi, con el poder de todos unido, lo convierte en mármol."],
+    ["¿Quién es Eros?", "El hermano de Thanos, un Eterno conocido en los cómics como Starfox."]
+  ],
+  "curiosidades": [
+    "La directora, Chloé Zhao, acababa de ganar el Óscar por Nomadland, y rodó con luz natural en exteriores reales.",
+    "Makkari es la primera superheroína sorda del universo, interpretada por una actriz sorda.",
+    "Phastos es el primer superhéroe abiertamente gay de las películas de Marvel.",
+    "Los rodajes en las islas Canarias sirvieron para varios escenarios de la historia."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "titulo": "Iron Fist · Temporada 1",
+  "anio": 2017,
+  "saga": "Saga del Infinito · Series de los Defensores",
+  "ficha": [
+    ["Título original", "Marvel's Iron Fist (temporada 1)"],
+    ["Estreno", "17 de marzo de 2017 (Netflix; hoy en Disney+)"],
+    ["Responsable", "Scott Buck"],
+    ["Episodios", "13"],
+    ["Reparto principal", "Finn Jones (Danny Rand), Jessica Henwick (Colleen Wing), Tom Pelphrey (Ward Meachum), Jessica Stroup (Joy Meachum), David Wenham (Harold Meachum), Rosario Dawson (Claire Temple), Ramón Rodríguez (Bakuto), Sacha Dhawan (Davos), Wai Ching Ho (Madame Gao), Carrie-Anne Moss (Jeri Hogarth)"],
+    ["Música", "Trevor Morris"],
+    ["Lugar en el universo", "Cuarta y última serie antes de The Defenders"],
+    ["Cronología interna", "Nueva York, 2016-2017, después de Luke Cage"],
+    ["Tono", "Artes marciales y drama de empresa familiar. Fue la serie peor recibida del grupo"]
+  ],
+  "momentos": [
+    ["El regreso", "Danny vuelve descalzo"],
+    ["Harold", "Un muerto en el ático"],
+    ["La Mano", "Heroína con sello de Rand"],
+    ["Bakuto", "Colleen era de la Mano"],
+    ["La azotea", "Cae Harold Meachum"]
+  ],
+  "actos": [
+    ["Antes de la serie: K'un-Lun", [
+      "Danny Rand tenía diez años cuando el avión de su familia cayó en el Himalaya. Sus padres, dueños de la empresa Rand, murieron. A él lo recogieron los monjes de K'un-Lun, una ciudad mística que solo aparece en nuestro mundo cada quince años.",
+      "Allí lo criaron a golpes y lo entrenaron en artes marciales. Venció al dragón Shou-Lao el Inmortal y ganó el poder del Puño de Hierro: concentrar su energía, su chi, en el puño hasta volverlo indestructible. El Puño de Hierro debe custodiar la entrada de K'un-Lun y destruir a la Mano. Cuando el paso se abrió, Danny abandonó su puesto y volvió a casa."
+    ]],
+    ["Episodios 1 a 4: El heredero", [
+      "Danny llega a Nueva York descalzo y con aspecto de vagabundo, quince años después de que lo dieran por muerto. En la torre Rand, sus amigos de la infancia, Ward y Joy Meachum, que ahora dirigen la empresa, lo toman por un impostor. Ward llega a encerrarlo en un hospital psiquiátrico.",
+      "Lo ayuda Colleen Wing, que da clases en un pequeño dojo y pelea por dinero en jaulas clandestinas. La abogada Jeri Hogarth prueba su identidad y Danny recupera el 51 % de la empresa.",
+      "Harold Meachum, padre de Ward y Joy y socio del padre de Danny, murió de cáncer hace trece años. En realidad vive escondido en un ático: la Mano lo resucitó a cambio de su obediencia. Solo Ward lo sabe, y vive sometido a él."
+    ]],
+    ["Episodios 5 a 9: La Mano", [
+      "La Mano usa los almacenes y los barcos de Rand para distribuir una heroína sintética. La dirige Madame Gao. Danny, Colleen y la enfermera Claire Temple siguen la pista hasta una fábrica en China y capturan a Gao.",
+      "Danny acepta un torneo contra tres campeones de la Mano para liberar a una rehén. Ward, desesperado, mata a su padre a puñaladas; Harold vuelve a resucitar, cada vez más desequilibrado.",
+      "Aparece Bakuto, el maestro de Colleen, y los lleva a un recinto donde se entrena a jóvenes sin familia. Danny descubre que es otra rama de la Mano, y que Colleen pertenece a ella de buena fe. Se siente traicionado."
+    ]],
+    ["Episodios 10 a 13: La verdad del accidente", [
+      "Davos, el mejor amigo de Danny en K'un-Lun e hijo de su maestro, llega para llevárselo de vuelta. Colleen rompe con la Mano y vence a Bakuto en un duelo de espadas; el cuerpo desaparece. Davos, que quería el Puño de Hierro para sí, se marcha lleno de rencor.",
+      "Harold culpa a Danny del tráfico de heroína y pone tras él a la agencia antidroga. Madame Gao revela lo que faltaba: fue Harold quien envenenó a los pilotos del avión. Él mató a los padres de Danny.",
+      "Danny lo enfrenta en la azotea de la torre Rand. Ward, por fin libre, dispara a su padre, que cae atravesado por una barra; esta vez incineran el cuerpo.",
+      "Danny y Colleen viajan al Himalaya. El paso está lleno de soldados de la Mano muertos, y K'un-Lun ha desaparecido. En Nueva York, Joy se reúne con Davos para hablar de matar a Danny, mientras Madame Gao escucha desde la mesa de al lado."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["D", "Danny"], ["C", "Colleen"], ["W", "Ward"], ["J", "Joy"], ["H", "Harold"], ["G", "Gao"]],
+    "enlaces": [["D", "C", "aliados y pareja"], ["H", "W", "padre que lo somete"], ["W", "J", "hermanos"], ["H", "D", "mató a sus padres"], ["G", "H", "lo controla"], ["D", "J", "amigos de infancia"]]
+  },
+  "personajes": [
+    ["Danny Rand", "El Puño de Hierro. Heredero multimillonario criado por monjes. Ingenuo, impulsivo y con mucha rabia guardada."],
+    ["Colleen Wing", "Maestra de artes marciales y experta con la katana. Criada dentro de la Mano sin saber lo que era."],
+    ["Ward Meachum", "Director de Rand. Adicto y aplastado por su padre. Su camino hacia la decencia es lo mejor de la serie."],
+    ["Joy Meachum", "Hermana de Ward, hábil negociadora. Acaba resentida con Danny."],
+    ["Harold Meachum", "Socio de Wendell Rand. Asesino de los padres de Danny, resucitado por la Mano."],
+    ["Madame Gao", "Una de las jefas de la Mano. Conoció K'un-Lun."],
+    ["Bakuto", "Otro jefe de la Mano, que recluta jóvenes con apariencia de bondad."],
+    ["Davos", "Hermano de armas de Danny en K'un-Lun. Cree que el Puño le correspondía a él."],
+    ["Claire Temple", "La enfermera. Aprende a pelear en el dojo de Colleen."],
+    ["Jeri Hogarth", "Abogada que trabajó para el padre de Danny."],
+    ["Lei Kung, el Tronador", "Maestro de Danny y padre de Davos."]
+  ],
+  "cosas": [
+    ["Puño de Hierro", "Título y poder del guerrero de K'un-Lun. El puño brilla en amarillo y golpea con fuerza imparable. También sirve para curar."],
+    ["Chi", "La energía interior que Danny concentra. Si pierde la calma, el poder falla."],
+    ["K'un-Lun", "Una de las siete Ciudades Capitales del Cielo. Se conecta con la Tierra cada quince años."],
+    ["Shou-Lao el Inmortal", "El dragón cuyo corazón da el poder. Deja marcada su figura en el pecho de quien lo vence."],
+    ["La Mano", "La organización enemiga de K'un-Lun, dividida en ramas que no se llevan bien."],
+    ["Rand Enterprises", "La empresa de la familia de Danny."],
+    ["Dojo Chikara", "La escuela de Colleen Wing en Chinatown."]
+  ],
+  "creditos": "No hay escenas después de los créditos. La temporada termina con K'un-Lun desaparecida y con Joy, Davos y Madame Gao coincidiendo en un café.",
+  "conexiones": [
+    "La Mano y Madame Gao vienen de Daredevil.",
+    "Continúa directamente en The Defenders, que empieza con Danny y Colleen persiguiendo a la Mano.",
+    "Davos y Joy son los villanos de la temporada 2.",
+    "Claire Temple conoce ya a los cuatro Defensores y es quien los pone en contacto.",
+    "Los monjes de K'un-Lun desterraron a cinco de los suyos, que fundaron la Mano, como se cuenta en The Defenders."
+  ],
+  "preguntas": [
+    ["¿Quién es Iron Fist?", "Danny Rand, un heredero de Nueva York criado en la ciudad mística de K'un-Lun, donde ganó el poder del Puño de Hierro."],
+    ["¿Qué es el Puño de Hierro?", "El poder de concentrar el chi en el puño hasta hacerlo indestructible. Se obtiene venciendo al dragón Shou-Lao."],
+    ["¿Qué es K'un-Lun?", "Una ciudad mística del Himalaya que solo es accesible desde la Tierra cada quince años."],
+    ["¿Quién mató a los padres de Danny Rand?", "Harold Meachum, socio de su padre, que envenenó a los pilotos del avión."],
+    ["¿Quién es Colleen Wing?", "Una maestra de artes marciales de Chinatown, compañera de Danny, que fue alumna de la Mano."],
+    ["¿Cómo sigue vivo Harold Meachum?", "La Mano lo resucitó después de morir de cáncer, a cambio de servirles."]
+  ],
+  "curiosidades": [
+    "El episodio 6, el del torneo, fue dirigido por RZA, del grupo Wu-Tang Clan.",
+    "En un vídeo antiguo se ve a un Puño de Hierro anterior con la máscara amarilla de los cómics.",
+    "Finn Jones contó que tuvo muy poco tiempo para aprender las coreografías, y la crítica lo notó.",
+    "Jessica Henwick, que interpreta a Colleen, fue lo más elogiado de la serie."
+  ]
+}

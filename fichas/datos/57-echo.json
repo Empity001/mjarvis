@@ -1,0 +1,90 @@
+{
+  "titulo": "Echo",
+  "anio": 2024,
+  "saga": "Saga del Multiverso · Fase 5",
+  "ficha": [
+    ["Título original", "Echo"],
+    ["Estreno", "9 de enero de 2024, los cinco episodios a la vez (Disney+ y Hulu)"],
+    ["Creadora", "Marion Dayre. Dirección de Sydney Freeland y Catriona McKenzie"],
+    ["Episodios", "5 (miniserie)"],
+    ["Reparto principal", "Alaqua Cox (Maya Lopez), Vincent D'Onofrio (Wilson Fisk), Chaske Spencer (Henry Lopez), Tantoo Cardinal (Chula), Graham Greene (Skully), Devery Jacobs (Bonnie), Cody Lightning (Biscuits), Zahn McClarnon (William Lopez), Charlie Cox (Daredevil)"],
+    ["Música", "Dave Porter"],
+    ["Lugar en el universo", "Fase 5. Primer título del sello Marvel Spotlight, historias más pequeñas que no exigen haber visto lo demás"],
+    ["Cronología interna", "2025, cinco meses después de Hawkeye"],
+    ["Tono", "Drama criminal y familiar, violento, para público adulto"]
+  ],
+  "momentos": [
+    ["El accidente", "Maya pierde a su madre"],
+    ["Nueva York", "Criada por Kingpin"],
+    ["Oklahoma", "El regreso a casa"],
+    ["Fisk", "Vivo y con una oferta"],
+    ["El powwow", "El poder de las antepasadas"]
+  ],
+  "actos": [
+    ["Episodio 1: De Tamaha a Nueva York", [
+      "Maya Lopez nace sorda en Tamaha, Oklahoma, en la Nación Choctaw. De niña sufre un accidente de coche: alguien había cortado los frenos para matar a su padre. Su madre muere, y Maya pierde una pierna. La abuela, Chula, culpa al padre, William, por sus negocios, y él se lleva a la niña a Nueva York.",
+      "Allí William trabaja para Wilson Fisk, que trata a Maya como a una sobrina y la convierte en una de sus mejores luchadoras. En una misión llega a pelear con Daredevil. Cuando un justiciero con espada mata a su padre, Fisk la consuela.",
+      "Años después, Maya descubre que fue Fisk quien ordenó esa muerte, y le dispara en la cara. Herida y con todo el imperio de Kingpin detrás, vuelve en moto a Oklahoma, veinte años después de irse."
+    ]],
+    ["Episodios 2 y 3: En casa", [
+      "Maya no ha vuelto por nostalgia: quiere quitarle a Fisk su negocio. Con ayuda de su primo Biscuits coloca explosivos en un tren que lleva armas del sindicato.",
+      "Evita a su familia. Su tío Henry, que regenta una pista de patinaje, trabaja a disgusto para la gente de Fisk. Su prima Bonnie, su mejor amiga de niña, no entiende por qué no la llamó en todos esos años. Skully, dueño de la tienda de empeños, la recibe con cariño. Chula, la abuela, se niega a verla.",
+      "Los hombres de Fisk llegan al pueblo y toman rehenes en la pista de patinaje. Maya los saca de allí. Entonces aparece el propio Fisk: sobrevivió al disparo y perdió un ojo."
+    ]],
+    ["Episodios 4 y 5: Las que vinieron antes", [
+      "Fisk la quiere como heredera, no muerta. Le trae un aparato que le traduce al oído la lengua de signos, porque en veinte años nunca aprendió a hablar con ella. Le ofrece su imperio. Maya ve, además, cómo castiga a quien lo contraría. Lo rechaza.",
+      "A lo largo de la serie se cuenta la historia de sus antepasadas, mujeres choctaw de distintas épocas: Chafa, que sacó a su pueblo de una cueva que se hundía; Lowak, jugadora del juego de pelota tradicional; Tuklo, que quiso ser policía a caballo cuando no se lo permitían a las mujeres. Cuando Maya está en peligro, sus manos brillan, y por un instante tiene la habilidad de una de ellas.",
+      "Chula se reconcilia con ella, le cose un traje y le explica el don: las antepasadas resuenan en ella, como un eco. También su madre, que era curandera.",
+      "En la gran fiesta anual del pueblo, el powwow, Fisk secuestra a Chula y a Bonnie para obligarla a irse con él. Maya no pelea sola: reparte el eco entre las mujeres de su familia, que tumban a los matones. Luego pone las manos en la cabeza de Fisk y lo devuelve al recuerdo que lo marcó, el día en que de niño mató a su padre a martillazos, para quitarle ese dolor. Fisk, aterrado, huye.",
+      "Maya se queda en Tamaha, con los suyos."
+    ]]
+  ],
+  "relaciones": {
+    "nodos": [["M", "Maya"], ["F", "Fisk"], ["C", "Chula"], ["H", "Henry"], ["B", "Bonnie"], ["W", "William"]],
+    "enlaces": [["F", "M", "tío que la crió"], ["C", "M", "abuela y nieta"], ["W", "M", "padre e hija"], ["F", "W", "lo hizo matar"], ["H", "F", "trabaja para él"], ["B", "M", "primas"]]
+  },
+  "personajes": [
+    ["Maya Lopez", "Echo. Sorda, con una pierna ortopédica. Luchadora formidable que deja de ser un arma de otro."],
+    ["Wilson Fisk", "Kingpin. La quiere de verdad, a su modo posesivo y violento."],
+    ["Chula", "La abuela, partera. Le cuesta perdonar y perdonarse."],
+    ["Henry Lopez", "Tío de Maya. Atrapado entre la familia y el sindicato."],
+    ["Bonnie", "Prima de Maya, bombera y sanitaria."],
+    ["Biscuits", "Primo bonachón, dueño de una camioneta monstruosa que no es suya."],
+    ["Skully", "Abuelo postizo de Maya. Vende falsas antigüedades a los turistas."],
+    ["William Lopez", "Padre de Maya, jefe de la Mafia del Chándal."],
+    ["Taloa", "La madre de Maya, curandera."],
+    ["Las antepasadas", "Chafa, Lowak y Tuklo."],
+    ["Daredevil", "Aparece en una pelea del primer episodio."]
+  ],
+  "cosas": [
+    ["El eco", "El don de Maya: recibir la fuerza y la habilidad de las mujeres de su linaje."],
+    ["Nación Choctaw", "Pueblo indígena real de Oklahoma. La serie contó con su asesoramiento."],
+    ["La pierna ortopédica", "Maya la usa también como arma."],
+    ["El traje", "Hecho por su abuela con motivos choctaw."],
+    ["El traductor de Fisk", "Una lente y un auricular que convierten los signos en voz, y su voz en signos."],
+    ["El powwow", "Reunión anual de bailes y música de las naciones indígenas."],
+    ["El martillo", "El recuerdo de infancia de Fisk, contado en Daredevil."]
+  ],
+  "creditos": "Después del último episodio, Fisk viaja en su avión, con el ojo vendado y aún alterado. En la televisión se discute quién debería ser el próximo alcalde de Nueva York: alguien de fuera de la política, duro, que no pida permiso. Fisk se queda mirando.",
+  "conexiones": [
+    "Continúa el final de Hawkeye, donde Maya dispara a Fisk.",
+    "El pasado de Fisk con el martillo viene de la temporada 1 de Daredevil.",
+    "La escena final prepara Daredevil: Born Again, donde Fisk se presenta a alcalde.",
+    "En los cómics, Echo imita cualquier movimiento que ve; la serie cambia sus poderes por el don de sus antepasadas.",
+    "Es la primera serie de Marvel Studios para adultos."
+  ],
+  "preguntas": [
+    ["¿Quién es Echo?", "Maya Lopez, una luchadora choctaw, sorda, criada por Kingpin en Nueva York."],
+    ["¿Qué poderes tiene?", "Recibe por momentos las habilidades de sus antepasadas, y puede compartirlas y sanar."],
+    ["¿Fisk murió en Hawkeye?", "No. Sobrevivió al disparo de Maya y perdió un ojo."],
+    ["¿Qué quiere Fisk de Maya?", "Que vuelva con él y herede su imperio criminal."],
+    ["¿Cómo vence Maya a Kingpin?", "No lo mata: le hace revivir su trauma de infancia para sanarlo, y él huye."],
+    ["¿Sale Daredevil?", "Sí, en una pelea breve del primer episodio."]
+  ],
+  "curiosidades": [
+    "Buena parte de los diálogos son en lengua de signos, y todo el reparto y el equipo tomaron clases.",
+    "Se estrenó también doblada al idioma choctaw.",
+    "Algunas escenas no tienen sonido, para mostrar el mundo como lo percibe Maya.",
+    "La directora Sydney Freeland es navajo, y casi todo el reparto es indígena."
+  ]
+}
