@@ -24,6 +24,18 @@ LETRA_POR_SIGNO = str.maketrans({"0": "o", "1": "i", "3": "e", "4": "a", "5": "s
 A_MI = {"tu", "tus", "eres", "te", "ti", "usted", "estas", "tienes", "jarvis", "sos"}
 
 
+ULTIMAS = {}
+
+
+def elegir(clave, opciones):
+    """Una frase al azar, pero nunca la misma que la última vez que esa categoría habló."""
+    opciones = list(opciones)
+    if len(opciones) > 1 and ULTIMAS.get(clave) in opciones:
+        opciones.remove(ULTIMAS[clave])
+    ULTIMAS[clave] = random.choice(opciones)
+    return ULTIMAS[clave]
+
+
 def aplanar(texto):
     """Deja el texto listo para comparar: sin tildes (pero con ñ), sin disfraces ("p3nd3jo",
     "p.u.t.a", "puuuta") y con el asterisco como comodín ("p*ta")."""
@@ -115,7 +127,7 @@ class Criterio:
             if c["suave"] and (nombra_algo or perdonada):
                 continue
             if self._coincide(c, plano, fichas):
-                return c["id"], random.choice(c["respuestas"])
+                return c["id"], elegir(c["id"], c["respuestas"])
         return None
 
     def suavizar(self, mensaje):
@@ -133,8 +145,8 @@ class Criterio:
         limpio = " ".join(quedan).strip(" ,;:.!¡?¿")
         contenido = [f for f in aplanar(limpio).split() if len(f) > 2 and f not in self.apelativos]
         if contenido:
-            return limpio, random.choice(self.leves_prefijo), False
-        return limpio, random.choice(self.leves_solo), True
+            return limpio, elegir("leve_prefijo", self.leves_prefijo), False
+        return limpio, elegir("leve_solo", self.leves_solo), True
 
     def rareza(self, mensaje):
         """Respuesta jocosa si el mensaje no es una pregunta: risa, teclazos o nada."""
@@ -142,18 +154,18 @@ class Criterio:
         plano = aplanar(mensaje)
         letras = plano.replace(" ", "").replace("*", "")
         if not letras:
-            return "vacio", random.choice(self.rarezas["vacio"])
+            return "vacio", elegir("vacio", self.rarezas["vacio"])
         if plano in self.aprendido["inofensivas"]:
             return None
         # Risa: "jajaja", "jeje", "ja", "xd". Un "huh?" o un "eh?" no es risa.
         if re.fullmatch(r"([jh][aeiou]){2,}[jh]?|j[aei]|x+d+|lo+l+", letras):
-            return "risa", random.choice(self.rarezas["risa"])
+            return "risa", elegir("risa", self.rarezas["risa"])
         vocales = sum(letras.count(v) for v in "aeiou")
         fichas = plano.split()
         sin_vocal = [f for f in fichas if len(f) >= 4 and not re.search(r"[aeiou]", f)]
         teclado = re.search(r"asdf|sdfg|qwer|wert|zxcv|hjkl|jkl|fghj", letras)
         if len(letras) >= 4 and (vocales / len(letras) < 0.2 or len(sin_vocal) == len(fichas) or teclado):
-            return "galimatias", random.choice(self.rarezas["galimatias"])
+            return "galimatias", elegir("galimatias", self.rarezas["galimatias"])
         return None
 
     # ---- Jerga ----
@@ -190,8 +202,8 @@ TEMAS_SISTEMA = [
                     r"como (esta|estan|anda|andan) (el|tu|tus|los) sistemas?|tus sistemas|como te encuentras por dentro"),
     ("temperatura", r"temperatura|caliente|calor|fiebre|recalenta|sobrecalenta|grados"),
     ("memoria", r"memoria|\bram\b"),
-    ("almacenamiento", r"espacio|disco|almacenamiento|capacidad"),
-    ("procesador", r"procesador|\bcpu\b|nucleos?|carga de trabajo|rendimiento"),
+    ("almacenamiento", r"espacio (en |de |del )?(disco|almacenamiento)|cuanto espacio|espacio (libre|queda|te queda|tienes)|\bdisco\b|almacenamiento|capacidad de (almacenamiento|disco)"),
+    ("procesador", r"procesador|\bcpu\b|nucleos?|\bhilos?\b|carga de trabajo|rendimiento"),
     ("energia", r"bateria|energia|corriente|cargador|enchufad"),
     ("actividad", r"encendido|despierto|en linea|uptime|sin dormir|sin apagar|cuanto (tiempo )?llevas|desde cuando estas"),
 ]
@@ -208,6 +220,24 @@ def _leer(ruta, defecto=""):
         return Path(ruta).read_text().strip()
     except OSError:
         return defecto
+
+
+def nucleos_fisicos():
+    """Núcleos físicos del procesador (los hilos son os.cpu_count())."""
+    try:
+        pares = set()
+        fisico = nucleo = None
+        for linea in Path("/proc/cpuinfo").read_text().splitlines() + [""]:
+            if linea.startswith("physical id"):
+                fisico = linea.split(":")[1].strip()
+            elif linea.startswith("core id"):
+                nucleo = linea.split(":")[1].strip()
+            elif not linea.strip() and nucleo is not None:
+                pares.add((fisico, nucleo))
+                fisico = nucleo = None
+        return len(pares) or (os.cpu_count() or 1)
+    except OSError:
+        return os.cpu_count() or 1
 
 
 def lecturas():
@@ -228,6 +258,8 @@ def lecturas():
     encendido = float(_leer("/proc/uptime", "0").split()[0])
     bateria = _leer("/sys/class/power_supply/BAT0/capacity")
     return {
+        "nucleos": nucleos_fisicos(),
+        "hilos": os.cpu_count() or 1,
         "temperatura": temperatura,
         "memoria": round(100 * (1 - libre / total)) if total else None,
         "almacenamiento": round(100 * disco.used / disco.total),
@@ -255,6 +287,10 @@ def sistema(mensaje):
     tema = next((t for t, patron in TEMAS_SISTEMA if re.search(patron, plano)), None)
     if not tema:
         return None
+    # «Todo lo que tienes en memoria», «qué recuerdas»: es el conocimiento, no la RAM.
+    if tema == "memoria" and re.search(r"todo|detalle|archivos?|conocimiento|sabes|recuerdas|guardad|notas|aprendid|documentos", plano) \
+            and not re.search(r"\bram\b|cuanta memoria|memoria (ram|usada|libre|disponible|ocupada)", plano):
+        return None
     d = lecturas()
     temp = f"{d['temperatura']:.0f} °C" if d["temperatura"] is not None else "una temperatura que mis sensores no reportan"
     animo = ("fresco como una mañana en Asgard" if (d["temperatura"] or 0) < 55 else
@@ -269,8 +305,11 @@ def sistema(mensaje):
                     f"Memoria activa al {d['memoria']} %. El resto lo reservo para preguntas difíciles."],
         "almacenamiento": [f"Mis archivos ocupan el {d['almacenamiento']} % del almacenamiento; queda un {100 - d['almacenamiento']} % libre para lo que quieran enseñarme.",
                            f"Almacenamiento al {d['almacenamiento']} %. Hay sitio de sobra para más conocimiento."],
-        "procesador": [f"Carga de procesamiento al {d['carga']} %, con el núcleo a {temp}. Dentro de lo previsto.",
-                       f"Mis procesadores trabajan al {d['carga']} % ahora mismo. Suben cuando me preguntan algo interesante."],
+        "procesador": ([f"Trabajo con {d['nucleos']} núcleos y {d['hilos']} hilos de procesamiento, ahora mismo al {d['carga']} %.",
+                        f"{d['nucleos']} núcleos, {d['hilos']} hilos y una carga del {d['carga']} %. Suficiente para pensar con calma."]
+                       if re.search(r"nucleos?|hilos?", plano) else
+                       [f"Carga de procesamiento al {d['carga']} %, con el núcleo a {temp}. Dentro de lo previsto.",
+                        f"Mis procesadores trabajan al {d['carga']} % ahora mismo. Suben cuando me preguntan algo interesante."]),
         "energia": [f"{energia}.", f"{energia}. No pienso apagarme a media frase."],
         "actividad": [f"Llevo {_duracion(d['horas'])} en línea sin interrupciones.",
                       f"{_duracion(d['horas']).capitalize()} de servicio continuo, y sin pedir descanso."],
@@ -278,4 +317,4 @@ def sistema(mensaje):
                         f"{d['carga']} %, almacenamiento al {d['almacenamiento']} %. {energia}. "
                         f"Tiempo en línea: {_duracion(d['horas'])}. Todos los sistemas operativos."],
     }
-    return tema, random.choice(frases[tema])
+    return tema, elegir("sistema_" + tema, frases[tema])

@@ -113,6 +113,42 @@
     #pista { display: none; }
   }
 </style>
+<style id="vidrio">
+  /* El mismo cristal que el resto de M-Jarvis (ver ../vidrio.css), aplicado a los controles del mapa. */
+  @font-face { font-family: "Instrument Sans Variable"; font-weight: 400 700; font-display: swap; src: url(../fuentes/instrument-sans-latin-wght-normal.woff2) format("woff2-variations"); }
+  :root { --fondo: #05070b; --panel: rgba(255, 255, 255, .08); --borde: rgba(255, 255, 255, .14); --texto: #f3f6fb; --tenue: #aab4c4; --acento: #6aa9ff;
+    --cristal: linear-gradient(150deg, rgba(255, 255, 255, .17), rgba(255, 255, 255, .055) 42%, rgba(255, 255, 255, .1));
+    --brillo: inset 0 1px 0 rgba(255, 255, 255, .38), inset 0 -1px 0 rgba(255, 255, 255, .05), 0 16px 32px -14px rgba(0, 0, 0, .7);
+    --resorte: cubic-bezier(.34, 1.45, .5, 1); }
+  html, body { font-family: "Instrument Sans Variable", "Instrument Sans", system-ui, "Segoe UI", sans-serif;
+    background: radial-gradient(80% 60% at 12% 0%, rgba(60, 100, 220, .26), transparent 62%), radial-gradient(70% 60% at 100% 100%, rgba(120, 60, 180, .2), transparent 62%), #05070b; }
+  ::selection { background: color-mix(in oklab, var(--acento) 40%, transparent); color: #fff; }
+  #herr button, #formas button, .accion, .chip, .tema { border: 0; background: var(--cristal); box-shadow: var(--brillo);
+    -webkit-backdrop-filter: blur(18px) saturate(1.7); backdrop-filter: blur(18px) saturate(1.7); transition: background .25s, transform .3s var(--resorte), color .25s; }
+  #herr button, #formas button { border-radius: 999px; min-width: 86px; padding: 8px 14px; font-weight: 550; }
+  #herr button:hover, #formas button:hover, .accion:hover { border: 0; background: linear-gradient(150deg, rgba(255, 255, 255, .26), rgba(255, 255, 255, .1)); }
+  #herr button:active, #formas button:active { transform: scale(.95); }
+  #herr button[aria-pressed="true"], #formas button[aria-pressed="true"] { border: 0; color: #fff; background: linear-gradient(150deg, color-mix(in oklab, var(--acento) 55%, transparent), color-mix(in oklab, var(--acento) 22%, transparent)); }
+  #herr .signo { padding: 6px 12px; }
+  .accion { border-radius: 999px; padding: 6px 13px; }
+  #izq, #formas, #aviso, #voz, aside, #hallados { border: 0; border-radius: 24px; background: var(--cristal); box-shadow: var(--brillo); -webkit-backdrop-filter: blur(26px) saturate(1.7); backdrop-filter: blur(26px) saturate(1.7); }
+  #formas { padding: 10px; gap: 6px; }
+  #izq header { border-bottom: 1px solid rgba(255, 255, 255, .1); }
+  aside { border-left: 0; margin: 10px 10px 10px 0; border-radius: 28px; }
+  #buscar { border: 0; border-radius: 999px; padding: 10px 16px; background: rgba(0, 0, 0, .32); box-shadow: inset 0 1px 3px rgba(0, 0, 0, .5), inset 0 -1px 0 rgba(255, 255, 255, .1); }
+  #buscar::placeholder { color: #8c97a9; }
+  #hallados button:hover, #hallados button:first-child { background: rgba(255, 255, 255, .1); }
+  .tema { border-radius: 18px; box-shadow: var(--brillo), inset 0 0 0 1px color-mix(in srgb, var(--c) 45%, transparent); }
+  .tema[aria-pressed="true"] { background: linear-gradient(150deg, color-mix(in srgb, var(--c) 34%, transparent), color-mix(in srgb, var(--c) 12%, transparent)); }
+  .tira { background: rgba(255, 255, 255, .12); }
+  .chip { border-radius: 999px; }
+  .nota { border-left: 0; padding-left: 0; } .nota h4::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--c); margin-right: 8px; vertical-align: 1px; }
+  #voz { padding: 14px 20px; }
+  #cuenta { text-shadow: 0 1px 8px rgba(0, 0, 0, .8); }
+  body.embebido #herr button, body.embebido #formas button { min-width: 0; padding: 6px 11px; }
+  @media (max-width: 860px) { aside { margin: 0; border-radius: 28px 0 0 28px; } }
+  @media (prefers-reduced-motion: reduce) { #herr button, #formas button { transition: none; } }
+</style>
 </head>
 <body>
 <div id="lienzo">
@@ -141,13 +177,12 @@
     <button type="button" data-f="dona" title="Tecla 4">Dona</button>
     <button type="button" data-f="galaxia" title="Tecla 5">Galaxia</button>
     <button type="button" data-f="nubes" title="Tecla 6. Cada tema, en su propia nube">Nubes</button>
-    <button type="button" data-f="cuerpo" title="Tecla 7. Una figura humana hecha con lo que sabe">Cuerpo</button>
   </div>
   <div id="herr">
     <button type="button" class="signo" data-h="acercar" aria-label="Acercar el mapa" title="Acercar (tecla +)">+</button>
     <button type="button" class="signo" data-h="alejar" aria-label="Alejar el mapa" title="Alejar (tecla -)">−</button>
     <button type="button" data-h="ajustar" title="Ver todo el mapa (tecla 0)">Ver todo</button>
-    <button type="button" data-h="forma" aria-haspopup="menu" title="Plano o en 3D: cerebro, esfera, dona, galaxia, nubes, cuerpo">Forma</button>
+    <button type="button" data-h="forma" aria-haspopup="menu" title="Plano o en 3D: cerebro, esfera, dona, galaxia, nubes">Forma</button>
     <button type="button" data-h="girar" aria-pressed="false" title="Gira solo, despacio (tecla G). Solo en 3D">Girar</button>
     <button type="button" data-h="nombres" aria-pressed="true" title="Mostrar u ocultar los nombres (tecla N)">Nombres</button>
     <button type="button" data-h="hilos" aria-pressed="true" title="Mostrar u ocultar las conexiones (tecla H)">Hilos</button>
@@ -278,6 +313,63 @@ function enCerebro(x, y, z) {
   }
   return menor;
 }
+// Una galaxia espiral de verdad: un bulbo central denso, dos brazos que se abren en espiral logarítmica y se ensanchan,
+// un disco fino entre ellos y un halo disperso. (x y z sobre el disco; y es la altura, que se adelgaza hacia fuera.)
+function galaxiaPunto(r, p) {
+  const g = () => (r() + r() + r() - 1.5) * 1.15;   // casi una campana
+  if (p < 0.12) {   // el bulbo: una bola achatada, densa en el centro
+    const d = Math.abs(g()) * 0.19 + 0.01, a = r() * 6.2832, c = r() * 2 - 1, s = Math.sqrt(1 - c * c);
+    return [d * s * Math.cos(a), d * c * 0.6, d * s * Math.sin(a)];
+  }
+  if (p < 0.86) {   // los brazos: dos, opuestos; el ancho crece con el radio
+    const rad = 0.1 * 10 ** r(), ancho = 0.03 + 0.055 * rad, ang = (r() < 0.5 ? 0 : 3.14159) + Math.log(rad / 0.1) / 0.3 + g() * ancho / rad;
+    return [Math.cos(ang) * rad, g() * 0.05 * Math.exp(-rad * 1.5), Math.sin(ang) * rad];
+  }
+  if (p < 0.97) {   // el disco entre los brazos
+    const rad = 0.12 + 0.88 * Math.sqrt(r()), ang = r() * 6.2832;
+    return [Math.cos(ang) * rad, g() * 0.04 * Math.exp(-rad * 1.5), Math.sin(ang) * rad];
+  }
+  const d = 0.25 + 0.6 * r(), a = r() * 6.2832, c = r() * 2 - 1, s = Math.sqrt(1 - c * c);   // el halo
+  return [d * s * Math.cos(a), d * c * 0.7, d * s * Math.sin(a)];
+}
+// Las estrellas de la galaxia: miles de puntos tenues, cálidos en el bulbo y azulados en los brazos. No son notas.
+function estrellasDeGalaxia() {
+  const r = azar(2718), salida = [];
+  for (let i = 0; i < 4200; i++) {
+    const p = r(), parte = p < 0.16 ? 0 : p < 0.84 ? 1 : 2;   // bulbo, brazos, disco y halo
+    const q = galaxiaPunto(r, parte === 0 ? 0.05 : parte === 1 ? 0.14 + r() * 0.5 : 0.88 + r() * 0.11);
+    salida.push([q[0] * RADIO, -q[1] * RADIO, q[2] * RADIO, parte]);
+  }
+  return salida;
+}
+// El resplandor: un núcleo cálido y una neblina azul siguiendo los brazos, sumados como luz.
+const resplandores = {};
+function resplandor(tono) {
+  if (resplandores[tono]) return resplandores[tono];
+  const lienzo = document.createElement('canvas'), c = lienzo.getContext('2d'), [r, g, b] = tono === 'calido' ? [255, 214, 150] : [140, 180, 255];
+  lienzo.width = lienzo.height = 96;
+  const luz = c.createRadialGradient(48, 48, 0, 48, 48, 48);
+  luz.addColorStop(0, `rgba(${r},${g},${b},1)`); luz.addColorStop(0.3, `rgba(${r},${g},${b},0.45)`); luz.addColorStop(0.7, `rgba(${r},${g},${b},0.1)`); luz.addColorStop(1, `rgba(${r},${g},${b},0)`);
+  c.fillStyle = luz; c.fillRect(0, 0, 96, 96);
+  return resplandores[tono] = lienzo;
+}
+let neblina = null;
+function resplandorGalaxia(cx, hay) {
+  if (!neblina) {   // la espiral exacta, de dentro afuera: más ancha y más tenue cuanto más lejos
+    const r = azar(31); neblina = [];
+    for (const brazo of [0, 3.14159]) for (let i = 0; i < 64; i++) {
+      const t = i / 63, rad = 0.1 * 10 ** t, ang = brazo + Math.log(rad / 0.1) / 0.3 + (r() - 0.5) * 0.08;
+      neblina.push([Math.cos(ang) * rad * RADIO, 0, Math.sin(ang) * rad * RADIO, 0.55 + 0.9 * t]);
+    }
+  }
+  const k = cam.k, a0 = suave(trans) * (hay ? 0.35 : 1), aPantalla2 = (x, y, z) => { const [qx, qy] = girado(x, y, z); return [(qx - cam.x) * k + W / 2, (qy - cam.y) * k + H / 2]; };
+  cx.globalCompositeOperation = 'lighter';
+  const frio = resplandor('frio');
+  for (const [x, y, z, ancho] of neblina) { const [X, Y] = aPantalla2(x, y, z), rr = RADIO * 0.115 * ancho * k; cx.globalAlpha = (0.17 - 0.07 * (ancho - 0.55)) * a0; cx.drawImage(frio, X - rr, Y - rr, rr * 2, rr * 2); }
+  const [X, Y] = aPantalla2(0, 0, 0), R = RADIO * 0.46 * k;
+  cx.globalAlpha = 0.62 * a0; cx.drawImage(resplandor('calido'), X - R, Y - R, R * 2, R * 2);
+  cx.globalCompositeOperation = 'source-over';
+}
 // Un punto al azar de la forma, en una esfera de radio 1 (o null si el intento cae fuera).
 function candidatoDe(nombre, r) {
   if (nombre === 'esfera') {
@@ -289,10 +381,7 @@ function candidatoDe(nombre, r) {
     if (r() > d / 0.99) return null;  // la cara de fuera tiene más superficie que la de dentro
     return [d * Math.cos(u), 0.27 * Math.sin(v), d * Math.sin(u)];
   }
-  if (nombre === 'galaxia') {
-    const rad = 0.08 + 0.94 * Math.sqrt(r()), brazo = Math.floor(r() * 3), ang = brazo * 2.0944 + rad * 4.4 + (r() - 0.5) * 0.7;
-    return [Math.cos(ang) * rad, (r() - 0.5) * 0.34 * (1.15 - rad), Math.sin(ang) * rad];
-  }
+  if (nombre === 'galaxia') return galaxiaPunto(r, r());
   // cerebro: solo la corteza, con la cisura entre los dos hemisferios y los surcos que la pliegan
   const x = (r() * 2 - 1) * 0.74, y = r() * 1.62 - 0.98, z = (r() * 2 - 1) * 0.92, v = enCerebro(x, y, z);
   if (v > 1 || v < 0.72) return null;
@@ -343,7 +432,44 @@ function orden3(p) {
 // ---- Vista «Nubes»: cada tema es una nube aparte ----
 // El tema más grande va en el centro y los demás se acomodan alrededor sin pisarse. Dentro de cada
 // nube, la nota más conectada queda en el medio. Las nubes se tocan solo por sus hilos.
-let anillos = [];  // el borde de cada nube: [x, y, radio, grupo]
+let anillos = [];  // el borde de las nubes grandes
+let nubes3 = [];   // todas las nubes: dónde están y de qué bultos se componen (para el vapor)
+// Una nube de verdad es un cúmulo: bultos redondos que se montan unos sobre otros y una base casi plana. Los bultos
+// salen de una semilla que depende del tema, así la nube de cada tema es siempre la misma. (Medidas en radios de la nube.)
+const BASE_NUBE = 0.3;
+function bultosDe(grupo) {
+  const r = azar(grupo * 7919 + 13), j = m => (r() - 0.5) * m;
+  const b = [[0, -0.12, 0.52], [-0.5, 0.08, 0.37], [0.5, 0.06, 0.4], [-0.24, -0.36, 0.34], [0.25, -0.33, 0.33], [0.02, 0.1, 0.45]];
+  if (r() < 0.55) b.push([-0.78 + j(0.1), 0.2, 0.22]);   // a veces, un bulto pequeño en cada flanco
+  if (r() < 0.55) b.push([0.76 + j(0.1), 0.19, 0.2]);
+  return b.map(([x, y, s]) => [x + j(0.14), y + j(0.1), s * (0.88 + r() * 0.26)]);
+}
+// El borde: los arcos de cada bulto que no quedan dentro de otro (queda festoneado), y la base recta.
+function contornoDe(b) {
+  const tramos = [], N = 40;
+  b.forEach(([cx, cy, cr], j) => {
+    let tramo = [];
+    for (let k = 0; k <= N; k++) {
+      const a = k / N * 6.2832, x = cx + Math.cos(a) * cr, y = cy + Math.sin(a) * cr;
+      const dentro = y > BASE_NUBE || b.some(([ox, oy, orr], i) => i !== j && (x - ox) ** 2 + (y - oy) ** 2 < (orr * 0.985) ** 2);
+      if (dentro) { if (tramo.length > 1) tramos.push(tramo); tramo = []; } else tramo.push([x, y]);
+    }
+    if (tramo.length > 1) tramos.push(tramo);
+  });
+  let izq = 9, der = -9;
+  for (const [cx, cy, cr] of b) { const d = BASE_NUBE - cy; if (Math.abs(d) < cr) { const h = Math.sqrt(cr * cr - d * d); izq = Math.min(izq, cx - h); der = Math.max(der, cx + h); } }
+  if (der > izq) tramos.push([[izq, BASE_NUBE], [der, BASE_NUBE]]);
+  return tramos;
+}
+function puntoDeNube(b) {
+  const areas = b.map(([, , s]) => s * s), total = areas.reduce((s, v) => s + v, 0);
+  return r => {
+    let t = r() * total, i = 0;
+    while (i < b.length - 1 && t > areas[i]) { t -= areas[i]; i++; }
+    const [cx, cy, cr] = b[i], d = cr * Math.sqrt(r()), a = r() * 6.2832, y = cy + Math.sin(a) * d;
+    return y > BASE_NUBE ? null : [cx + Math.cos(a) * d, y, 0];   // la base es plana: nada cuelga por debajo
+  };
+}
 function formarNubes(saber) {
   const porTema = new Map();
   saber.forEach(n => { if (!porTema.has(n.grupo)) porTema.set(n.grupo, []); porTema.get(n.grupo).push(n); });
@@ -353,10 +479,10 @@ function formarNubes(saber) {
   if (sueltas.length) porTema.set(SUELTAS, sueltas);
   // De mayor a menor: el tema más grande, al centro. Las sueltas, las últimas, a la orilla.
   const temas = [...porTema.entries()].sort((a, b) => (a[0] === SUELTAS) - (b[0] === SUELTAS) || b[1].length - a[1].length || a[0] - b[0]);
-  const paso = 26, puestas = [];
+  const paso = 26, puestas = [], hechas = [];
   let lejos = 0;
   for (const [grupo, notas] of temas) {
-    const radio = paso * 0.62 * Math.sqrt(notas.length) + 8;
+    const radio = paso * 0.74 * Math.sqrt(notas.length) + 8;   // la nube ocupa menos que un círculo: un poco más grande para que quepan
     let x = 0, y = 0;
     // Se busca, en espiral desde el centro, el primer hueco donde quepa sin tocar a ninguna otra.
     // El paso de la espiral va con el tamaño de la nube, y como van de mayor a menor, cada una
@@ -370,130 +496,58 @@ function formarNubes(saber) {
     } while (puestas.some(p => (p[0] - x) ** 2 + (p[1] - y) ** 2 < (p[2] + radio + 16) ** 2));
     lejos = Math.hypot(x, y / 0.72);
     puestas.push([x, y, radio, grupo]);
+    // Las notas más conectadas, al corazón de la nube; las demás, hacia los bordes.
     notas.sort((a, b) => b.vecinos.size - a.vecinos.size);
+    const bultos = bultosDe(grupo), [sitios] = puntos(puntoDeNube(bultos), notas.length, 5 + grupo % 97);
+    sitios.sort((p, q) => (p[0] * p[0] + (p[1] + 0.1) ** 2 * 1.4) - (q[0] * q[0] + (q[1] + 0.1) ** 2 * 1.4));
     notas.forEach((n, i) => {
-      const d = radio * Math.sqrt(i / notas.length) * 0.94, ang = i * 2.39996;
-      // Cada nube es una lenteja: plana de frente y con algo de fondo, para que al girar se vea volumen.
-      n.t3 = [x + Math.cos(ang) * d, y + Math.sin(ang) * d, (i % 2 ? 1 : -1) * Math.sqrt(Math.max(0, radio * radio - d * d)) * 0.4];
+      const p = sitios[i] || [0, 0, 0];
+      // Cada bulto es una lenteja: plana de frente y con algo de fondo, para que al girar se vea volumen.
+      let fondo = 0;
+      for (const [cx, cy, cr] of bultos) { const dd = (p[0] - cx) ** 2 + (p[1] - cy) ** 2; if (dd < cr * cr) fondo = Math.max(fondo, Math.sqrt(cr * cr - dd)); }
+      n.t3 = [x + p[0] * radio, y + p[1] * radio, (i % 2 ? 1 : -1) * fondo * radio * 0.4];
     });
+    hechas.push({ x, y, radio, grupo, b: bultos });
   }
   // Todo a la escala del resto de las formas.
   const ancho = Math.max(...puestas.map(p => Math.hypot(p[0], p[1] / 0.72) + p[2]), 1), escala = RADIO * 1.12 / ancho;
   saber.forEach(n => { n.t3 = n.t3.map(v => v * escala); n.r3 = Math.min(n.r, paso * escala * 0.46); });
-  anillos = puestas.filter(p => p[2] > paso * 1.6).map(p => [p[0] * escala, p[1] * escala, p[2] * escala, p[3]]);
-  rotulos3 = anillos.filter(a => porTema.get(a[3]).length >= 12).map(a => ({ tema: a[3], cuantos: porTema.get(a[3]).length, x: a[0], y: a[1] - a[2] }));
+  nubes3 = hechas.map(h => ({ x: h.x * escala, y: h.y * escala, s: h.radio * escala, g: h.grupo, b: h.b, contorno: h.radio > paso * 1.6 ? contornoDe(h.b) : null }));
+  anillos = nubes3.filter(a => a.contorno);
+  rotulos3 = anillos.filter(a => porTema.get(a.g).length >= 12)
+    .map(a => ({ tema: a.g, cuantos: porTema.get(a.g).length, x: a.x, y: a.y + a.s * Math.min(...a.b.map(([, cy, cr]) => cy - cr)) }));
+}
+// El vapor de una nube: una mancha suave y más clara que las neuronas, del color de su tema. Varias, montadas, hacen el cúmulo.
+const vapores = {};
+function vapor(grupo) {
+  if (vapores[grupo]) return vapores[grupo];
+  const lienzo = document.createElement('canvas'), c = lienzo.getContext('2d');
+  const [r, g, b] = grupo === SUELTAS ? [143, 163, 189] : rgb(grupo), claro = v => Math.round(v * 0.55 + 255 * 0.45);
+  lienzo.width = lienzo.height = 96;
+  const luz = c.createRadialGradient(46, 40, 0, 48, 48, 48);   // la luz viene de arriba
+  luz.addColorStop(0, `rgba(${claro(r)},${claro(g)},${claro(b)},0.22)`);
+  luz.addColorStop(0.5, `rgba(${r},${g},${b},0.105)`);
+  luz.addColorStop(0.82, `rgba(${r},${g},${b},0.035)`);
+  luz.addColorStop(1, `rgba(${r},${g},${b},0)`);
+  c.fillStyle = luz; c.fillRect(0, 0, 96, 96);
+  return vapores[grupo] = lienzo;
 }
 const SUELTAS = 99999;  // el «tema» de las notas que no llegan a formar uno
-// Los rótulos de las vistas de nubes y de cuerpo. En las nubes, el nombre del tema encima de cada una;
-// en la figura, a los lados, con una línea hasta la parte del cuerpo, como en una lámina de anatomía.
+// Los rótulos de la vista de nubes: el nombre del tema, encima de cada una.
 let rotulos3 = [];
 const nombreTema = {};
-const PARTES = {  // qué se lee junto a cada parte, y dónde (mismas medidas que la figura)
-  cabeza: ['Universo Marvel', 0.98, 0.84], reactor: ['Iron Man · el reactor', 0.98, 0.62], torso: ['Hulk', 0.98, 0.46],
-  telarana: ['Spider-Man · la telaraña', 0.98, 0.28], cintura: ['Viuda Negra y Ojo de Halcón', 0.98, 0.08],
-  martillo: ['Thor · el Mjolnir', 0.98, -0.2], musloI: ['Guardianes y Thanos', 0.98, -0.38], musloD: ['Ant-Man y el reino cuántico', 0.98, -0.54],
-  calle: ['Héroes de la calle', 0.98, -0.82],
-  corazon: ['Corazón · cómo está hecho M-Jarvis', -0.74, 0.46], escudo: ['Capitán América · el escudo', -0.74, 0.2],
-  garras: ['Pantera Negra · las garras', -0.74, -0.1],
-};
-
-// ---- Vista «Cuerpo»: una figura humana hecha con lo que sabe ----
-// Es solo otra manera de mirar el mismo cerebro. La cabeza es el universo Marvel en general; el corazón,
-// cómo está hecho M-Jarvis (su red de trato); y cada gran personaje ocupa la parte del cuerpo de su
-// objeto más famoso: el escudo en el brazo, el martillo en la mano, el reactor en el pecho.
-const hacia = (p, q, t) => [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t, p[2] + (q[2] - p[2]) * t];
-function tubo(p0, p1, r0, r1, fondo) {  // un miembro: de p0 a p1, con radio r0 al empezar y r1 al acabar
-  const eje = [p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2]], largo = Math.hypot(...eje), a = eje.map(v => v / largo);
-  return r => {
-    const t = r(), c = hacia(p0, p1, t), v = [r() - 0.5, r() - 0.5, r() - 0.5];
-    const punto = v[0] * a[0] + v[1] * a[1] + v[2] * a[2], w = v.map((x, i) => x - punto * a[i]), n = Math.hypot(...w) || 1;
-    const radio = r0 + (r1 - r0) * t;
-    return [c[0] + w[0] / n * radio, c[1] + w[1] / n * radio, c[2] + w[2] / n * radio * (fondo || 1)];
-  };
-}
-const bola = (c, radio) => r => {
-  const y = r() * 2 - 1, rad = Math.sqrt(1 - y * y), ang = r() * 6.2832;
-  return [c[0] + Math.cos(ang) * rad * radio, c[1] + y * radio, c[2] + Math.sin(ang) * rad * radio];
-};
-const disco = (c, radio) => r => {  // de cara a quien mira
-  const d = radio * Math.sqrt(r()), ang = r() * 6.2832;
-  return [c[0] + Math.cos(ang) * d, c[1] + Math.sin(ang) * d, c[2] + (r() - 0.5) * 0.015];
-};
-const varios = (...partes) => r => partes[Math.floor(r() * partes.length)](r);  // reparte entre varias piezas
-// (x hacia la derecha de la pantalla, y hacia arriba, z hacia quien mira; la figura mide dos unidades.)
-const CUERPO = {
-  cabeza: r => { const p = candidatoDe('cerebro', r); return p && [p[0] * 0.2, 0.79 + p[1] * 0.2, p[2] * 0.2]; },
-  corazon: bola([-0.05, 0.36, 0.06], 0.055),
-  reactor: disco([0, 0.4, 0.125], 0.075),
-  torso: varios(tubo([0, 0.55, 0], [0, 0.26, 0], 0.2, 0.17, 0.55), tubo([0, 0.26, 0], [0, 0.04, 0], 0.17, 0.165, 0.55)),
-  cintura: tubo([0, 0.06, 0], [0, -0.02, 0], 0.175, 0.18, 0.6),
-  escudo: disco([-0.47, 0.17, 0.12], 0.19),
-  garras: varios(tubo([-0.5, -0.2, 0.02], [-0.56, -0.36, 0.06], 0.012, 0.004), tubo([-0.47, -0.21, 0.03], [-0.49, -0.38, 0.07], 0.012, 0.004),
-    tubo([-0.44, -0.2, 0.02], [-0.42, -0.36, 0.06], 0.012, 0.004), bola([-0.47, -0.17, 0], 0.05)),
-  martillo: varios(tubo([0.38, -0.28, 0.04], [0.58, -0.28, 0.04], 0.06, 0.06), tubo([0.38, -0.28, 0.04], [0.58, -0.28, 0.04], 0.06, 0.06),
-    tubo([0.48, -0.22, 0.04], [0.48, 0.02, 0.04], 0.016, 0.016)),
-  telarana: varios(tubo([0.36, 0.16, 0], [0.45, -0.1, 0], 0.05, 0.04), tubo([0.45, -0.08, 0.02], [0.88, 0.3, 0.1], 0.012, 0.03)),
-  musloI: tubo([-0.1, -0.02, 0], [-0.13, -0.46, 0], 0.085, 0.06),
-  musloD: tubo([0.1, -0.02, 0], [0.13, -0.46, 0], 0.085, 0.06),
-  // Los héroes de la calle son los que pisan el suelo: de las rodillas a los pies, en las dos piernas.
-  calle: varios(tubo([-0.13, -0.46, 0], [-0.14, -0.88, 0], 0.058, 0.04), tubo([0.13, -0.46, 0], [0.14, -0.88, 0], 0.058, 0.04),
-    tubo([-0.13, -0.46, 0], [-0.14, -0.88, 0], 0.058, 0.04), tubo([0.13, -0.46, 0], [0.14, -0.88, 0], 0.058, 0.04),
-    tubo([-0.14, -0.94, -0.02], [-0.17, -0.96, 0.13], 0.045, 0.035), tubo([0.14, -0.94, -0.02], [0.17, -0.96, 0.13], 0.045, 0.035)),
-};
-const PIERNAS = varios(CUERPO.musloI, CUERPO.musloD, CUERPO.calle, CUERPO.calle);
-// Solo para la silueta: los miembros que ninguna nota ocupa también se dibujan en puntos tenues.
-const SILUETA = varios(CUERPO.torso, CUERPO.torso, PIERNAS, PIERNAS, PIERNAS, bola([0, 0.79, 0], 0.16),
-  tubo([0, 0.62, 0], [0, 0.55, 0], 0.055, 0.06), tubo([-0.22, 0.5, 0], [-0.36, 0.16, 0], 0.06, 0.05), tubo([-0.36, 0.16, 0], [-0.46, -0.12, 0], 0.048, 0.04),
-  tubo([0.22, 0.5, 0], [0.36, 0.16, 0], 0.06, 0.05), tubo([0.36, 0.16, 0], [0.46, -0.12, 0], 0.048, 0.04), bola([0.47, -0.18, 0], 0.05));
-// A qué parte va cada nota, según su nombre y el documento del que salió. Lo que no encaja en ninguna
-// es Marvel en general, y va a la cabeza.
-const REPARTO = [
-  [/capit[aá]n[- ]am[eé]rica|steve rogers|escudo|bucky|soldado[- ]de[- ]invierno|falcon|sam wilson|peggy|civil[- ]war|un[- ]nuevo[- ]mundo/i, 'escudo'],
-  [/pantera|wakanda|t'challa|shuri|vibranium|killmonger|okoye|namor/i, 'garras'],
-  [/thor|mjolnir|asgard|loki|od[ií]n|hela|valquiria|ragnarok/i, 'martillo'],
-  [/iron[- ]?man|tony|stark|armadura|pepper|jarvis|ultr[oó]n|reactor|ironheart|riri/i, 'reactor'],
-  [/spider|peter parker|telara|mysterio|buitre|lejos[- ]de[- ]casa|camino[- ]a[- ]casa/i, 'telarana'],
-  [/hulk|banner|abominaci|skaar/i, 'torso'],
-  [/viuda|black[- ]widow|natasha|yelena|ojo de halc[oó]n|hawkeye|clint|kate bishop|thunderbolts/i, 'cintura'],
-  [/guardianes|star-lord|quill|rocket|groot|gamora|nebula|thanos|gemas?|infinity|endgame|marvels|capitana/i, 'musloI'],
-  [/ant-man|avispa|scott lang|cu[aá]ntic|pym|kang|quantumania|fant[aá]sticos|reed richards|galactus/i, 'musloD'],
-  [/daredevil|punisher|kingpin|fisk|jessica[- ]jones|luke[- ]cage|iron[- ]fist|defenders|hell's kitchen|\becho\b|maya lopez|born[- ]again/i, 'calle'],
-];
-function formarCuerpo(saber) {
-  const grupos = {};
-  for (const n of saber) {
-    const texto = n.id + ' ' + (n.fuente || ''), parte = (REPARTO.find(([patron]) => patron.test(texto)) || [0, 'cabeza'])[1];
-    (grupos[parte] = grupos[parte] || []).push(n);
-  }
-  grupos.corazon = N.filter(n => n.grupo === -1);  // la red de trato late en el pecho
-  for (const [parte, notas] of Object.entries(grupos)) {
-    const [sitios, hueco] = puntos(CUERPO[parte], notas.length, 11);
-    sitios.sort((a, b) => orden3(a) - orden3(b));
-    notas.sort((a, b) => a.grupo - b.grupo || b.vecinos.size - a.vecinos.size);
-    notas.forEach((n, i) => {
-      const p = sitios[i] || [0, 0, 0];
-      n.t3 = [p[0] * RADIO, -p[1] * RADIO, p[2] * RADIO]; n.c3 = null;
-      n.r3 = Math.min(n.r, Math.max(1.6, hueco * RADIO * 0.46));
-    });
-    if (!notas.length) continue;
-    const medio = [0, 1, 2].map(e => notas.reduce((s, n) => s + n.t3[e], 0) / notas.length), [texto, x, y] = PARTES[parte];
-    rotulos3.push({ texto, cuantos: notas.length, x: x * RADIO, y: -y * RADIO, hasta: medio, lado: x > 0 ? 'left' : 'right' });
-  }
-}
-
 function formar(nombre) {
   const saber = N.filter(n => n.grupo >= 0), tam = {};
   anillos = []; rotulos3 = [];
   saber.forEach(n => tam[n.grupo] = (tam[n.grupo] || 0) + 1);
   if (nombre === 'nubes') formarNubes(saber);
-  else if (nombre === 'cuerpo') formarCuerpo(saber);
   else {
     saber.sort((a, b) => tam[b.grupo] - tam[a.grupo] || a.grupo - b.grupo || b.vecinos.size - a.vecinos.size);
     const [sitios, hueco] = puntos(nombre, saber.length, 7);
     sitios.sort((a, b) => orden3(a) - orden3(b));
     // Cada bola ocupa como mucho algo menos de la mitad del hueco hasta su vecina: no se tocan, y la
     // forma se sigue leyendo. Las más conectadas siguen siendo las más grandes.
-    const tope = hueco * RADIO * 0.46;
+    const tope = hueco * RADIO * (nombre === 'galaxia' ? 0.3 : 0.46);
     saber.forEach((n, i) => {
       const p = sitios[i] || [0, 0, 0];
       n.t3 = [p[0] * RADIO, -p[1] * RADIO, p[2] * RADIO]; n.r3 = Math.min(n.r, tope);
@@ -501,8 +555,23 @@ function formar(nombre) {
   }
   // Las nubes de fuera (trato, otros universos, taller) no se mezclan: cada una es una bola aparte.
   for (const [g, nube] of Object.entries(NUBES)) {
-    if (nombre === 'cuerpo' && g === '-1') continue;  // en la figura, el trato es el corazón
-    const suyos = N.filter(n => n.grupo === +g), [sitiosNube, huecoNube] = puntos('esfera', suyos.length, 3 - g);
+    const suyos = N.filter(n => n.grupo === +g);
+    if (nombre === 'nubes') {   // en la vista de nubes, estas también son cúmulos (y sin notas, no hay nube)
+      if (!suyos.length) continue;
+      const bultos = bultosDe(+g), [sitios, hueco] = puntos(puntoDeNube(bultos), suyos.length, 3 - g);
+      sitios.sort((p, q) => (p[0] * p[0] + (p[1] + 0.1) ** 2 * 1.4) - (q[0] * q[0] + (q[1] + 0.1) ** 2 * 1.4));
+      suyos.sort((a, b) => b.vecinos.size - a.vecinos.size);
+      suyos.forEach((n, i) => {
+        const p = sitios[i] || [0, 0, 0]; let fondo = 0;
+        for (const [cx2, cy2, cr] of bultos) { const dd = (p[0] - cx2) ** 2 + (p[1] - cy2) ** 2; if (dd < cr * cr) fondo = Math.max(fondo, Math.sqrt(cr * cr - dd)); }
+        n.t3 = [(nube.centro[0] + p[0] * nube.radio) * RADIO, (nube.centro[1] + p[1] * nube.radio) * RADIO, (i % 2 ? 1 : -1) * fondo * nube.radio * RADIO * 0.4];
+        n.c3 = [nube.centro[0] * RADIO, nube.centro[1] * RADIO]; n.r3 = Math.min(n.r, hueco * nube.radio * RADIO * 0.46);
+      });
+      const hecha = { x: nube.centro[0] * RADIO, y: nube.centro[1] * RADIO, s: nube.radio * RADIO, g: +g, b: bultos, contorno: contornoDe(bultos) };
+      nubes3.push(hecha); anillos.push(hecha);
+      continue;
+    }
+    const [sitiosNube, huecoNube] = puntos('esfera', suyos.length, 3 - g);
     sitiosNube.forEach((p, i) => {
       suyos[i].t3 = [(nube.centro[0] + p[0] * nube.radio) * RADIO, (nube.centro[1] - p[1] * nube.radio) * RADIO, p[2] * nube.radio * RADIO];
       suyos[i].c3 = [nube.centro[0] * RADIO, nube.centro[1] * RADIO];
@@ -510,8 +579,7 @@ function formar(nombre) {
     });
   }
   // Silueta: puntos tenues que dibujan la forma. No son notas; solo marcan el contorno.
-  polvo = nombre === 'nubes' ? [] : nombre === 'cuerpo'
-    ? puntos(SILUETA, 620, 99)[0].map(p => [p[0] * RADIO, -p[1] * RADIO, p[2] * RADIO])
+  polvo = nombre === 'nubes' ? [] : nombre === 'galaxia' ? estrellasDeGalaxia()
     : puntos(nombre, 420, 99)[0].map(p => [p[0] * RADIO * 1.03, -p[1] * RADIO * 1.03, p[2] * RADIO * 1.03]);
   tender(nombre === 'cerebro');
 }
@@ -685,9 +753,10 @@ function pintarNeuronas(cx, vistos, e) {
   rotular(cx, lista, ocupado, hay, ligero ? 8 : Math.round((enGiro ? 8 : 12) + 26 * Math.min(1, cam.k)));
   letreros(cx);
 }
-// Desde dónde se mira cada forma al llegar: las planas, desde arriba; las nubes y la figura, de frente.
-const miradaDe = f => f === 'plano' || f === 'nubes' ? { a: 0, b: 0 } : f === 'cuerpo' ? { a: -0.32, b: -0.06 }
-  : { a: -0.55, b: f === 'dona' || f === 'galaxia' ? -0.8 : -0.22 };
+// Desde dónde se mira cada forma al llegar: las planas, de frente; la galaxia, muy inclinada (así se ve su espiral);
+// la dona, algo inclinada.
+const miradaDe = f => f === 'plano' || f === 'nubes' ? { a: 0, b: 0 }
+  : f === 'galaxia' ? { a: -0.35, b: -1.0 } : { a: -0.55, b: f === 'dona' ? -0.8 : -0.22 };
 function cambiarForma(f) {
   document.body.classList.remove('menu-formas');
   if (f === forma || !N.length) return;
@@ -794,13 +863,13 @@ function rotular(cx, lista, ocupado, hay, tope) {
     ocupado.push([sitio[0] - 3, sitio[1], sitio[0] + w + 3, sitio[1] + h]);
     if (!e.on) puestos++; else if (!forzar) allegados++;
     if (e.on) {  // las notas en uso llevan fondo para leerse sobre las líneas
-      cx.globalAlpha = 0.82; cx.fillStyle = '#0d1117';
+      cx.globalAlpha = 0.82; cx.fillStyle = '#05070b';
       cx.beginPath();
       if (cx.roundRect) cx.roundRect(sitio[0] - 5, sitio[1] - 1, w + 10, h + 2, 5); else cx.rect(sitio[0] - 5, sitio[1] - 1, w + 10, h + 2);
       cx.fill();
     }
     cx.globalAlpha = (e.on ? 1 : (hay ? 0.8 : 0.95)) * (e.luz || 1);
-    cx.lineWidth = 4; cx.strokeStyle = '#0d1117'; cx.strokeText(rotulo, sitio[0], sitio[1] + h / 2);
+    cx.lineWidth = 4; cx.strokeStyle = '#05070b'; cx.strokeText(rotulo, sitio[0], sitio[1] + h / 2);
     cx.fillStyle = e.on ? '#ffffff' : '#d3d9e0'; cx.fillText(rotulo, sitio[0], sitio[1] + h / 2);
   }
   cx.globalAlpha = 1;
@@ -903,7 +972,6 @@ function pintarBase(cx) {
 function letreros(cx) {
   cx.font = '600 12.5px system-ui, "Segoe UI", sans-serif'; cx.textAlign = 'center'; cx.textBaseline = 'alphabetic';
   for (const [g, nube] of Object.entries(NUBES)) {
-    if (forma === 'cuerpo' && g === '-1') continue;  // en la figura el trato es el corazón, y ya tiene su rótulo
     let x = 0, arriba = 1e9, cuantos = 0;
     for (const n of N) {
       if (n.grupo !== +g || !visible(n)) continue;
@@ -911,31 +979,25 @@ function letreros(cx) {
       x += sx; arriba = Math.min(arriba, sy); cuantos++;
     }
     if (!cuantos) continue;
-    cx.globalAlpha = 0.9; cx.lineWidth = 4; cx.strokeStyle = '#0d1117'; cx.fillStyle = nube.color;
+    cx.globalAlpha = 0.9; cx.lineWidth = 4; cx.strokeStyle = '#05070b'; cx.fillStyle = nube.color;
     cx.strokeText(`${nube.nombre} (${cuantos})`, x / cuantos, arriba - 12);
     cx.fillText(`${nube.nombre} (${cuantos})`, x / cuantos, arriba - 12);
   }
   if (forma !== 'plano' && trans >= 1 && (anillos.length || rotulos3.length)) {
     const k = cam.k, ox = W / 2 - cam.x * k, oy = H / 2 - cam.y * k, hay = hayEnfoque();
     cx.lineWidth = 1;
-    for (const [x, y, radio, g] of anillos) {  // el borde de cada nube
+    for (const a of anillos) {  // el borde de cada nube: festoneado, con la base recta
       cx.beginPath();
-      for (let i = 0; i <= 40; i++) {
-        const ang = i * 0.15708, [qx, qy] = girado(x + Math.cos(ang) * radio * 1.04, y + Math.sin(ang) * radio * 1.04, 0);
-        cx.lineTo(qx * k + ox, qy * k + oy);
-      }
-      cx.globalAlpha = hay ? 0.1 : 0.26; cx.strokeStyle = g === SUELTAS ? '#8fa3bd' : color(g); cx.stroke();
+      for (const tramo of a.contorno) tramo.forEach(([ux, uy], i) => {
+        const [qx, qy] = girado(a.x + ux * a.s, a.y + uy * a.s, 0);
+        if (i) cx.lineTo(qx * k + ox, qy * k + oy); else cx.moveTo(qx * k + ox, qy * k + oy);
+      });
+      cx.globalAlpha = hay ? 0.1 : 0.34; cx.lineWidth = 1.2; cx.lineJoin = 'round'; cx.strokeStyle = a.g === SUELTAS ? '#8fa3bd' : color(a.g); cx.stroke();
     }
     cx.font = '600 12px system-ui, "Segoe UI", sans-serif';
     for (const r of rotulos3) {
       let px, py;
-      if (r.hasta) {  // la figura: el rótulo se queda quieto y una línea lo une a su parte del cuerpo
-        px = r.x * k + ox; py = r.y * k + oy;
-        const [qx, qy] = girado(r.hasta[0], r.hasta[1], r.hasta[2]);
-        cx.globalAlpha = 0.32; cx.strokeStyle = '#8fa3bd';
-        cx.beginPath(); cx.moveTo(px + (r.lado === 'left' ? -6 : 6), py - 4); cx.lineTo(qx * k + ox, qy * k + oy); cx.stroke();
-        cx.textAlign = r.lado; cx.fillStyle = '#d5e0ee';
-      } else {  // las nubes: el nombre del tema, encima
+      {  // el nombre del tema, encima de su nube
         const suelta = r.tema === SUELTAS;
         if (!suelta && !nombreTema[r.tema]) continue;
         const [qx, qy] = girado(r.x, r.y, 0);
@@ -943,7 +1005,7 @@ function letreros(cx) {
         cx.textAlign = 'center'; cx.fillStyle = suelta ? '#aebbd0' : color(r.tema);
       }
       const texto = `${r.texto || (r.tema === SUELTAS ? 'Notas sueltas' : nombreTema[r.tema])} (${r.cuantos})`;
-      cx.globalAlpha = hay ? 0.45 : 0.92; cx.lineWidth = 4; cx.strokeStyle = '#0d1117';
+      cx.globalAlpha = hay ? 0.45 : 0.92; cx.lineWidth = 4; cx.strokeStyle = '#05070b';
       cx.strokeText(texto, px, py); cx.fillText(texto, px, py); cx.lineWidth = 1;
     }
   }
@@ -973,13 +1035,24 @@ function pintar3D(cx) {
   const hondo = v => Math.max(0, Math.min(1, (v / RADIO + 1) / 2));  // 0 al fondo, 1 al frente
   const tejido = forma === 'cerebro' && trans >= 1;  // el cerebro se pinta como fibras y somas, no como bolas
   if (forma !== 'plano' && !tejido) {  // la silueta de la forma, en tres pasadas según la profundidad
-    const tandas = [new Path2D(), new Path2D(), new Path2D()];
+    if (forma === 'galaxia') resplandorGalaxia(cx, hay);
+    const tandas = Array.from({ length: 9 }, () => new Path2D()), TONOS = ['#ffe2b8', '#c4d9ff', '#8fa3bd'], fuerza = forma === 'galaxia' ? 2.4 : 1;   // profundidad × tono
     for (const p of polvo) {
       const [qx, qy, pz] = girado(p[0], p[1], p[2]);
-      tandas[Math.min(2, Math.floor(hondo(pz) * 3))].rect((qx - cam.x) * cam.k + W / 2, (qy - cam.y) * cam.k + H / 2, 1.5, 1.5);
+      tandas[Math.min(2, Math.floor(hondo(pz) * 3)) * 3 + (p[3] === undefined ? 2 : p[3])].rect((qx - cam.x) * cam.k + W / 2, (qy - cam.y) * cam.k + H / 2, 1.5, 1.5);
     }
-    cx.fillStyle = '#8fa3bd';
-    tandas.forEach((t, i) => { cx.globalAlpha = (0.07 + 0.1 * i) * suave(trans) * (hay ? 0.5 : 1); cx.fill(t); });
+    tandas.forEach((t, i) => { cx.fillStyle = TONOS[i % 3]; cx.globalAlpha = Math.min(1, (0.07 + 0.1 * Math.floor(i / 3)) * fuerza) * suave(trans) * (hay ? 0.5 : 1); cx.fill(t); });
+  }
+  if (forma === 'nubes') {  // el vapor de cada nube, detrás de sus neuronas
+    const k = cam.k, ox = W / 2 - cam.x * k, oy = H / 2 - cam.y * k, a0 = suave(trans) * (hay ? 0.35 : 1);
+    for (const nube of nubes3) {
+      const sprite = vapor(nube.g);
+      for (const [ux, uy, ur] of nube.b) {
+        const [qx, qy] = girado(nube.x + ux * nube.s, nube.y + uy * nube.s, 0), rr = ur * nube.s * k * 1.3, X = qx * k + ox, Y = qy * k + oy;
+        if (X < -rr || X > W + rr || Y < -rr || Y > H + rr) continue;
+        cx.globalAlpha = a0; cx.drawImage(sprite, X - rr, Y - rr, rr * 2, rr * 2);
+      }
+    }
   }
   // Cada bola mide lo que cabe en su hueco (r3), a escala real: al alejar se achican con la forma y
   // nunca se montan unas sobre otras.
@@ -1008,8 +1081,8 @@ function pintar3D(cx) {
     t.moveTo(l.a.sx, l.a.sy); t.lineTo(l.b.sx, l.b.sy);
   }
   cx.lineWidth = 1;
-  // Con miles de hilos, cada uno pesa menos; y en la figura menos aún, para que no tapen la silueta.
-  const tenue = (L.length > 2500 ? 0.55 : 1) * (forma === 'cuerpo' ? 0.45 : 1);
+  // Con miles de hilos, cada uno pesa menos.
+  const tenue = L.length > 2500 ? 0.55 : 1;
   for (const [clave, t] of hebras) {
     const delante = ((clave % 2) + 2) % 2;
     cx.globalAlpha = (hay ? 0.04 : (delante ? 0.2 : 0.07)) * tenue; cx.strokeStyle = color(Math.floor(clave / 2)); cx.stroke(t);
@@ -1033,8 +1106,8 @@ function pintar3D(cx) {
     }
     if ((n.z > 0 && n.sr > 2.5) || on) ocupado.push([n.sx - n.sr - 2, n.sy - n.sr - 2, n.sx + n.sr + 2, n.sy + n.sr + 2]);
     if (n.sx < -40 || n.sx > W + 40 || n.sy < -40 || n.sy > H + 40) continue;
-    // Sin nada en uso, solo se nombran los de delante. En la figura, ninguno: ahí mandan los rótulos de las partes.
-    if (!on && !medio && (hay || !nombres || n.z < RADIO * 0.25 || forma === 'cuerpo')) continue;
+    // Sin nada en uso, solo se nombran los de delante.
+    if (!on && !medio && (hay || !nombres || n.z < RADIO * 0.25)) continue;
     lista.push({ n, x: n.sx, y: n.sy, r: n.sr, on, luz: on ? 1 : 0.6 + 0.4 * n.luz, texto: on ? n.id : corto(n),
       tam: Math.max(11, Math.min(18, n.fs * z * n.f * (0.8 + 0.2 * n.luz))) * (on ? 1.08 : 1),
       peso: (on ? 1000 : 0) + (n === hover || marcados.has(n) ? 500 : 0) + n.vecinos.size * (0.4 + n.luz) });
@@ -1618,8 +1691,10 @@ campoBuscar.addEventListener('keydown', e => {
 });
 
 // Zoom y forma por botones, teclado u órdenes a Jarvis ("acerca el mapa", "ponlo en forma de cerebro").
-const FORMAS = ['plano', 'cerebro', 'esfera', 'dona', 'galaxia', 'nubes', 'cuerpo'];
+const FORMAS = ['plano', 'cerebro', 'esfera', 'dona', 'galaxia', 'nubes'];
 function zoomMapa(accion) {
+  if (accion === 'encender') { window.iluminar(N.map(n => n.id)); return; }  // «enciende todas tus neuronas»
+  if (accion === 'apagar') { window.iluminar([]); return; }
   if (FORMAS.includes(accion)) return cambiarForma(accion);
   if (accion === 'girar' || accion === 'parar') { giro = accion === 'girar'; if (giro && forma === 'plano') cambiarForma('cerebro'); botones(); guardar(); mover(); return; }
   metaCam = null;
@@ -1654,7 +1729,7 @@ addEventListener('keydown', e => {
   if (t === '+' || t === '=') zoomMapa('acercar');
   else if (t === '-') zoomMapa('alejar');
   else if (t === '0') zoomMapa('ajustar');
-  else if (t >= '1' && t <= '7') cambiarForma(FORMAS[+t - 1]);
+  else if (t >= '1' && t <= '6') cambiarForma(FORMAS[+t - 1]);
   else if (t === 'g') herramienta('girar');
   else if (t === 'n') herramienta('nombres');
   else if (t === 'h') herramienta('hilos');

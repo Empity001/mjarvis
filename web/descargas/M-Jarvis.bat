@@ -77,7 +77,7 @@ if errorlevel 5 goto segundo
 if errorlevel 4 call :abrir "/" & goto menu
 if errorlevel 3 call :abrir "/grafo/" --start-fullscreen & goto menu
 if errorlevel 2 call :abrir "/?vista=chat" & goto menu
-call :abrir "/panel.html" & goto menu
+call :abrir "/#control/archivos" & goto menu
 
 :rebuscar
 set "HOST="

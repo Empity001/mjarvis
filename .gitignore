@@ -1,0 +1,34 @@
+# Se regenera o no se respalda (ORDEN.md, punto 4)
+node_modules/
+dist/
+bin/
+obj/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Caché de herramientas y copias de seguridad automáticas
+.impeccable/hook.cache.json
+comportamiento/_respaldos/
+
+# Lo que la Latitude genera al funcionar vive allá, no en el repo
+bitacora.jsonl
+aprendido.json
+desactivadas.json
+autoentreno.json
+exhibicion.json
+rutas.json
+red.json
+salud.log
+comportamiento/aprendido.json
+comportamiento/recetas.json
+comportamiento/propuestas.json
+web/medios/
+
+# Secretos: nunca en el repo
+clave.txt
+nube.json
+.env
+*.pem
+id_*

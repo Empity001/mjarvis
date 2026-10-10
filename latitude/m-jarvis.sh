@@ -35,8 +35,11 @@ estado, clave = leer("/api/estado"), leer("/api/clave").get("clave", "")
 lineas = ["Para conectar otro equipo (protocolo compartido):", "",
           "1. Póngalo en la misma red Wi-Fi que este, o únalos con un cable de red.",
           "2. En ese equipo abra el navegador en una de estas direcciones:", ""]
-lineas += ["      http://%s:8080/panel.html" % d for d in estado["direcciones"]]
-lineas += ["      http://%s.local:8080/panel.html" % estado["nombre"].lower(), "",
+lineas += ["      http://%s:8080/#control/archivos" % d for d in estado["direcciones"]]
+lineas += ["      http://%s.local:8080/#control/archivos" % estado["nombre"].lower(), "",
+           "Para manejar M-Jarvis a escondidas desde otro equipo (el «Manager»), abra en ese equipo:", ""]
+lineas += ["      http://%s:8080/#control" % d for d in estado["direcciones"]]
+lineas += ["", "o descargue el acceso directo para su sistema desde la pestaña «Red» del Manager.", "",
            "En Windows también puede usar el lanzador M-Jarvis.bat (se descarga desde el panel).", ""]
 lineas += ["Clave para subir o borrar archivos desde otro equipo:  " + clave] if clave else ["No se pide clave para gestionar archivos."]
 print("\n".join(lineas))
@@ -73,12 +76,13 @@ wifi_propia() {
 
 abrir() {
   case "$1" in
-    "Conectar") ventana "/conectar.html" ;;
+    "Conectar") ventana "/#conectar" ;;
     "Wi-Fi propia") wifi_propia ;;
-    todo|"Todo junto") pantalla "/" ;;
+    todo|"Todo junto") pantalla "/?vista=todo" ;;
     chat|"Solo chat") pantalla "/?vista=chat" ;;
     mapa|"Solo red neuronal") pantalla "/grafo/" ;;
-    panel|"Panel") ventana "/panel.html" ;;
+    panel|"Panel") ventana "/#control/archivos" ;;
+    "Manager") ventana "/#control/red" ;;
     "Compartir") compartir ;;
     "Cerrar pantalla") cerrar_pantalla ;;
   esac
@@ -94,6 +98,7 @@ while true; do
     "Todo junto" "Chat y red neuronal en esta pantalla" \
     "Solo chat" "La conversación con Jarvis" \
     "Solo red neuronal" "El mapa a pantalla completa, con subtítulos" \
+    "Manager" "La consola: ver lo que pasa, la red, lo aprendido y mandar órdenes (también desde otro equipo)" \
     "Panel" "Archivos, estado del sistema y últimas preguntas" \
     "Conectar" "Códigos QR y direcciones para celulares y otros equipos" \
     "Wi-Fi propia" "Crea la red «M-Jarvis» para usarlo donde no hay red (encender o apagar)" \

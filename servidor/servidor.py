@@ -6,9 +6,12 @@ POST /api/preguntar, enviando la respuesta por líneas JSON a medida que el
 modelo la escribe.
 """
 import difflib
+import email.utils
+import gzip
 import http.client
 import json
 import math
+import os
 import queue
 import random
 import re
@@ -25,8 +28,14 @@ import urllib.request
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
+import autoentreno
 import criterio
+import criterios
 import ingesta
+import nube
+import recetas
+import red
+import voz
 
 RAIZ = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RAIZ / "grafo"))
@@ -40,6 +49,7 @@ BITACORA = RAIZ / "bitacora.jsonl"
 OLLAMA = "http://127.0.0.1:11434"
 MODELO = "gemma3:4b"
 PUERTO = 8080
+INICIO_SERVICIO = time.strftime("%Y-%m-%d %H:%M:%S")
 UMBRAL = 3.0  # puntaje mínimo para considerar que una nota responde la pregunta
 
 # Un solo mensaje de sistema para todas las rutas: así el modelo reutiliza lo ya leído
@@ -58,7 +68,8 @@ SISTEMA = (
     "- Si la pregunta da por cierto algo falso o mezcla personajes de otro universo (DC, Disney, anime…), "
     "corrígelo primero, en una frase.\n"
     "- Si el mensaje trae «Datos», usa solo esos datos y lo ya conversado: copia las cifras tal cual, no "
-    "agregues ningún hecho que no esté ahí y no menciones que te dieron datos. Si la respuesta no está, "
+    "agregues ningún hecho que no esté ahí y no menciones que te dieron datos. Empieza respondiendo "
+    "directamente lo que se preguntó, y deja fuera los datos que no vengan al caso. Si la respuesta no está, "
     "admítelo con ingenio.\n"
     "- Sin «Datos», responde con lo que sabes y admite lo que no sepas; no tienes información de hoy.\n"
     "- Trata de usted, sin llamar a la persona de ninguna forma: nada de «señor» ni «señora».\n"
@@ -67,7 +78,11 @@ SISTEMA = (
     "- Humor: un toque breve al final, opcional, nunca en lugar de la explicación.\n"
     "- «Tono» indica tu ánimo en esa respuesta: que se note apenas, en las palabras que eliges; nunca lo "
     "nombres ni digas cómo te sientes.\n"
-    "- En charla casual responde breve y con ingenio; puedes opinar: admiras a Tony Stark y no soportas a Ultrón."
+    "- En charla casual responde breve y con ingenio; puedes opinar: admiras a Tony Stark y no soportas a Ultrón.\n"
+    "- Nunca nombres personas que no estén en los Datos (ni estudiantes ni creadores): si no consta, no lo inventes.\n"
+    "- No regañes ni sermonees (nada de «le ruego», «reformule», «inapropiado»): si algo no se entiende, dilo con ingenio.\n"
+    "- Prohibido: «debo añadir», «lamentablemente», «en esencia», «cuanto menos». Sin «señor» ni «señora» ni «mi estimado».\n"
+    "- Dentro de lo que cuentan los Datos no hables en primera persona ni te incluyas entre los personajes."
 )
 CADUCA = 1800       # segundos sin hablar tras los que se olvida la conversación (media hora)
 TOPE_MEMORIA = 7000  # caracteres de conversación que se le reenvían al modelo antes de resumirla
@@ -82,7 +97,7 @@ LARGO = {1: 90, 2: 120, 3: 180, 4: 250, 5: 320, 6: 400}
 # Red de seguridad: si al modelo se le escapa un tratamiento con género, se quita antes de mostrarlo.
 # Solo cuando van como llamado («Por supuesto, señor.», «Su Majestad, …», «Thanos, usted, es…»): «El
 # Señor de los Anillos» o «el Caballero de la Noche» son nombres y se dejan en paz.
-_LLAMADO = (r"(?:señor(?:a|es|as|ita)?|caballero|damas? y caballeros|usted|milord|mi lord|majestad|excelencia|"
+_LLAMADO = (r"(?:mi se[ñn]or|mi estimad[oa]|estimad[oa]|señor(?:a|es|as|ita)?|caballero|damas? y caballeros|usted|milord|mi lord|majestad|excelencia|"
             r"su (?:majestad|excelencia|alteza|se[ñn]or[ií]a|merced))")
 TRATAMIENTO = re.compile(rf",\s*[«\"“]?{_LLAMADO}\b[»\"”]?(?:\s*,|(?=\s*[.!?;:…])|(?=\s*$))"
                          rf"|^\s*[«\"“]?{_LLAMADO}[»\"”]?\s*,\s*", re.I)
@@ -164,9 +179,16 @@ TRATO = [
         "Si no me expliqué bien, dígame qué parte y lo intento de nuevo.",
         "Quizá fui poco claro. ¿Qué parte quiere que le aclare?",
     ]),
+    ("haciendo", ["que haces", "que estas haciendo", "que haces ahora", "en que andas", "que tu hace", "en que tu ta",
+                  "que haciendo", "que haces tu", "que estas haciendo ahora", "en que estas"], [
+        "Esperando la próxima pregunta, que es lo más parecido que tengo a un pasatiempo.",
+        "Repaso mis notas y vigilo mis propios sistemas. Un día normal, sin demasiado drama.",
+        "Atendiéndole a usted, que de momento es mi mejor plan.",
+        "Ordenando mis neuronas por orden de importancia. Iron Man va primero, por si preguntaba.",
+    ]),
     ("estado", ["como estas", "como esta", "como te va", "como te sientes", "como andas", "todo bien", "que tal estas",
-                "como te encuentras", "que haces", "como tu ta", "como tu tas", "como ta", "como tas", "ta to bien",
-                "todo jevi", "todo nitido", "como va la cosa", "como va la vaina", "en que tu ta", "que tu hace"], [
+                "como te encuentras", "como tu ta", "como tu tas", "como ta", "como tas", "ta to bien",
+                "todo jevi", "todo nitido", "como va la cosa", "como va la vaina"], [
         "Funcionando a plena capacidad. No tengo quejas, y si las tuviera, sería demasiado educado para mencionarlas.",
         "Perfectamente. Mis circuitos agradecen su interés.",
         "Todo en orden. La temperatura de mis procesadores es más estable que mi paciencia.",
@@ -184,7 +206,7 @@ TRATO = [
         "Hasta luego. Dejaré las luces encendidas.",
     ]),
     ("saludo_dominicano", ["klk", "qlq", "klok", "que lo que", "que lo ke", "ke lo ke", "dime a ver", "dimelo",
-                           "wawawa", "klk wawawa", "que e lo que", "que es lo que", "tamo activo", "que hay",
+                           "wawawa", "klk wawawa", "que e lo que", "que es lo que", "tamo activo", "que hay", "wepa", "wepale", "epa", "wepaaa",
                            "en que estamos", "cual es la vaina", "dime"], [
         "«Qué lo qué» igualmente, aunque mi programación insiste en decir {saludo_min}. ¿En qué puedo servir?",
         "Entendido el saludo; domino el dominicano mejor de lo que aparento. {saludo}.",
@@ -192,16 +214,50 @@ TRATO = [
         "Todo bajo control por aquí. Usted dirá.",
     ]),
     ("saludo", ["hola", "holaa", "ola", "buenas", "buenos dias", "buen dia", "buenas tardes", "buenas noches", "hey",
-                "saludos", "que tal", "hello", "hi", "despierta", "estas ahi"], [
+                "saludos", "que tal", "hello", "hi", "despierta", "estas ahi", "hola otra vez", "hola de nuevo", "hola denuevo",
+                "buenas otra vez", "ya volvi", "volvi"], [
         "{saludo}. A su servicio, como de costumbre.",
         "{saludo}. Todos los sistemas operan con normalidad, lo cual siempre resulta sospechoso.",
         "{saludo}. Me alegra comprobar que alguien sigue ahí fuera.",
         "{saludo}. Pregunte lo que guste sobre el universo Marvel.",
     ]),
 ]
+INTERROGATIVO = re.compile(r"\W*(por que|porque|como|cuando|donde|cuanto|cuantos|cuantas|cuanta|cual|cuales|quien|quienes|que)\b")
+FAMILIA_INTERROG = {"quienes": "quien", "cual": "que", "cuales": "que", "porque": "por que", "cuantos": "cuanto",
+                    "cuantas": "cuanto", "cuanta": "cuanto"}
+
+
+def interrogativo(texto):
+    """La palabra con que arranca una pregunta, unificada («quiénes» = «quién», «cuál» = «qué»), o None."""
+    m = INTERROGATIVO.match(normalizar(texto))
+    return FAMILIA_INTERROG.get(m.group(1), m.group(1)) if m else None
+
+
+ARCHIVO_PERSONALIDAD = RAIZ / "comportamiento" / "personalidad.json"
+
+
+def leer_personalidad():
+    try:
+        return json.loads(ARCHIVO_PERSONALIDAD.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {"charla": [], "guias": [], "extra": {}}
+
+
+PERSONALIDAD = leer_personalidad()
+
+
+def sumar_variantes(extra):
+    """Añade a las frases fijas (de trato y de reacciones) las variantes de la personalidad ampliada."""
+    for categoria, frases in extra.items():
+        destino = RESPUESTAS_TRATO.get(categoria)
+        if destino is not None:
+            destino.extend(f for f in frases if f not in destino)
+
+
 FRASES_TRATO = sorted(((f, c) for c, frases, _ in TRATO for f in frases), key=lambda x: -len(x[0]))
 ORDEN_TRATO = [c for c, _, _ in TRATO]
 RESPUESTAS_TRATO = {c: r for c, _, r in TRATO}
+sumar_variantes(PERSONALIDAD.get("extra", {}))
 
 
 def trato(mensaje, tolerante):
@@ -223,6 +279,8 @@ def trato(mensaje, tolerante):
         if f" {frase} " in resto:
             halladas.add(categoria)
             resto = resto.replace(f" {frase} ", "  ")
+    if halladas == {"extrañeza"} and len(plano.split()) > 3:
+        return None  # «¿qué más sabes de él?» no es un «¿qué?»
     if halladas and not palabras(resto):
         return min(halladas, key=ORDEN_TRATO.index)
     if tolerante and not halladas and len(plano) >= 3 and len(plano.split()) <= 3:
@@ -253,8 +311,9 @@ ORDENES_MAPA = [
     ("galaxia", _forma("galaxia|espiral"), "La red, en forma de galaxia."),
     ("nubes", _forma("nubes?|islas?|burbujas?") + r"|(separa|separalo|separame)\w* .*\btemas?\b|cada tema (en|por) su",
      "Cada tema, en su propia nube."),
-    ("cuerpo", _forma("cuerpo humano|cuerpo|figura humana|muneco"),
-     "La red, en forma de cuerpo: la cabeza piensa en Marvel y el corazón es cómo estoy hecho."),
+    ("encender", r"(enciende|prende|ilumina|conecta|activa)\w*\s+(todas?|toda)\b.*\b(neuronas?|nodos?|red|mapa|conexiones)\b|"
+                 r"todas\s+(tus\s+)?neuronas\s+(a la vez|juntas|encendidas)", "Encendiendo toda la red a la vez."),
+    ("apagar", r"^(apaga|apagalo|apagala)\s+(todo|todas|las neuronas|las luces|el mapa)\b|apaga\w* (todas )?(las )?neuronas", "Apagando las luces del mapa."),
     ("parar", r"(deja|para|detente|deten) de (girar|rotar|dar vueltas)|(para|deten|frena)\w* (el )?giro|no gires", "La red, quieta."),
     ("plano", r"(mapa|red|grafo|vista|modo|forma) plan[oa]|^(pon|ponlo|ponla|vuelve|pasa)\b.* (plano|charcos)\b|dos dimensiones|\b2d\b|quita\w* (el )?3d",
      "De vuelta al mapa plano."),
@@ -266,10 +325,10 @@ ORDENES_MAPA = [
 def orden_mapa(mensaje):
     plano = re.sub(r"[^a-z0-9 ]", " ", normalizar(mensaje))
     plano = " ".join(p for p in plano.split() if p not in ("jarvis", "senor", "oye", "favor", "por"))
-    if not plano or len(plano.split()) > 6:
+    if not plano or len(plano.split()) > 9:
         return None
     for accion, patron, frase in ORDENES_MAPA:
-        if re.search(patron, plano):
+        if re.search(patron, plano) and (len(plano.split()) <= 6 or accion in ("encender", "apagar")):
             return accion, frase
     return None
 
@@ -313,6 +372,7 @@ class Indice:
         self.leido = 0
         self.notas = {}
         self.consideradas = []
+        self.fuerza = (0.0, False, 1.0, 1.0)  # (puntaje de la mejor nota, si dice su nombre completo, qué parte de la pregunta cubre su título, y su texto)
 
     def cargar(self):
         marca = GRAFO.stat().st_mtime
@@ -341,6 +401,9 @@ class Indice:
                 "sigla": "".join(p[0] for p in re.findall(r"[a-z0-9]+", normalizar(nombre)) if p not in VACIAS),
             }
         self.vocab_titulo = sorted(set().union(*(n["titulo"] for n in self.notas.values())))
+        # Palabras que en algún título van con mayúscula (nombres propios): «Foggy» sí, «murió» no.
+        self.vocab_nombres = {p for n in self.notas.values() if not n["id"].startswith("¿")
+                              for w in re.findall(r"[A-ZÁÉÍÓÚÑ][\wáéíóúñ]+", n["id"]) for p in palabras(w)}
         self.media = sum(len(n["cuerpo"]) for n in self.notas.values()) / max(len(self.notas), 1)
         cuenta = {}
         for n in self.notas.values():
@@ -414,7 +477,14 @@ class Indice:
             largo += len(n["resumen"])
         return elegidas
 
-    def red(self):
+    def menos_conectadas(self, cuantas=8):
+        """Las neuronas con menos conexiones (primero las sueltas), sin los apartados genéricos."""
+        self.cargar()
+        orden = sorted((i for i in self.vecinas if not GENERICA.match(self.notas[i]["plano"])
+                        and not i.startswith("¿")), key=lambda i: (len(self.vecinas[i]), i))
+        return [(i, len(self.vecinas[i])) for i in orden[:cuantas]]
+
+    def red(self, tope=5):
         """Cifras de la propia red: cuántas notas y conexiones hay, y cuáles son las más conectadas."""
         self.cargar()
         # Los apartados genéricos («Personajes», «Curiosidades de…») enlazan con medio mapa solo por
@@ -423,7 +493,7 @@ class Indice:
                        key=lambda i: (-len(self.vecinas[i]), i))
         return {"notas": len(self.notas), "conexiones": sum(len(v) for v in self.vecinas.values()) // 2,
                 "sueltas": sum(1 for v in self.vecinas.values() if not v),
-                "top": [(i, len(self.vecinas[i])) for i in orden[:5]]}
+                "top": [(i, len(self.vecinas[i])) for i in orden[:tope]]}
 
     def nombrada(self, pregunta, sin_preguntas=False):
         """La nota cuyo nombre aparece escrito en la pregunta (la de nombre más largo), o None.
@@ -433,6 +503,8 @@ class Indice:
         mejor = None
         for n in self.notas.values():
             if sin_preguntas and n["id"].startswith("¿"):
+                continue
+            if GENERICA.match(n["plano"]):
                 continue
             nombre = " ".join(re.findall(r"[a-z0-9]+", n["plano"]))
             if len(nombre) >= 4 and f" {nombre} " in plano:
@@ -518,8 +590,13 @@ class Indice:
             consulta.add(p)
         mejor = None
         identidad = bool(re.match(r"\W*(quien|quienes|que) (es|son|era|fue)\b", normalizar(pregunta)))
+        pide = interrogativo(pregunta)
         for n in self.faq:
             if not n["titulo"] <= consulta:
+                continue
+            # «¿Quién es Hulk?» no se contesta con la respuesta de «¿Por qué Hulk no habla?»
+            ofrece = interrogativo(n["id"].lstrip("¿"))
+            if pide and ofrece and pide != ofrece and not ({pide, ofrece} <= {"que", "quien"}):
                 continue
             # Un título de una sola palabra («¿Quiénes son las Marvels?») solo responde a «¿quién es…?»:
             # si no, «¿y es de Marvel?» caería aquí.
@@ -531,7 +608,8 @@ class Indice:
                 continue
             # Una pregunta genérica de ficha («¿Quién es el villano?») solo vale si se nombra su película;
             # una con nombre propio («¿Quién es Kang?») vale siempre.
-            propia = any(self.en_faq[p] <= 4 for p in n["titulo"])
+            propia = any(self.en_faq[p] <= 4 for p in n["titulo"]) and \
+                bool(re.search(r"(?<=\s)(?-i:[A-ZÁÉÍÓÚÑ0-9])", n["id"][1:]))  # con nombre propio: «¿Quién es Kang?»
             if n["doc"] in self.docs and not (consulta & de_su_obra) and not propia:
                 continue
             clave = (len(n["titulo"]), bool(consulta & de_su_obra), n["base"], -len(sobran), -len(n["resumen"]))
@@ -594,6 +672,7 @@ class Indice:
         # "Jarvis, ..." al inicio es un llamado, no parte de la pregunta.
         pregunta = re.sub(r"^\W*(oye|hey|hola|ok)?\W*jarvis\W+(?=\w)", "", pregunta, flags=re.I)
         consulta = set()
+        dichas = set(palabras(pregunta))  # como las escribió la persona, sin corregir erratas
         for p in palabras(pregunta):
             # Erratas en nombres: "vibranio" -> "vibranium", "tanos" -> "thanos".
             if p not in self.idf and len(p) >= 4:
@@ -636,11 +715,15 @@ class Indice:
             if amplia and n["id"].startswith("¿"):
                 s *= 0.6
             if s > 0:
-                entera = pegado or (bool(comunes) and comunes == n["titulo"])  # la pregunta dice su nombre completo
+                entera = pegado or (bool(comunes) and comunes == n["titulo"] and not GENERICA.match(n["plano"]))  # dice su nombre completo
                 puntajes.append((s, n, bool(comunes or pegado), entera))
         puntajes.sort(key=lambda x: -x[0])
         # Lo que de verdad se consideró en esta búsqueda, para mostrarlo en el mapa.
         self.consideradas = [n["id"] for _, n, _, _ in puntajes[:7]]
+        self.fuerza = (puntajes[0][0], any(e for _, _, _, e in puntajes[:3]),
+                       len(dichas & puntajes[0][1]["titulo"]) / len(dichas) if dichas else 1.0,
+                       len(dichas & set(puntajes[0][1]["frec"])) / len(dichas) if dichas else 1.0) \
+            if puntajes else (0.0, False, 1.0, 1.0)
         if not puntajes or puntajes[0][0] < UMBRAL:
             return [], False
         mejor = puntajes[0][0]
@@ -816,7 +899,29 @@ def repasar(mensajes):
             pass
 
 
+MOTOR = [None]  # quién redactó la respuesta en curso: «local» o el proveedor de la nube
+
+
+def hay_internet():
+    return red.RED.modo in ("nube", "puente")
+
+
 def ollama(usuario, largo=None):
+    """Redacta la respuesta: primero la nube gratis (si está encendida, hay internet y la pregunta no es personal);
+    si no puede, el modelo de esta máquina. Ver nube.py."""
+    if nube.disponible(usuario, hay_internet):
+        try:
+            for trozo in nube.generar(SISTEMA, MEMORIA["mensajes"], usuario, largo or OPCIONES["num_predict"],
+                                      OPCIONES["temperature"], PARAR, EN_CURSO, lambda quien: MOTOR.__setitem__(0, quien)):
+                yield trozo
+            return
+        except nube.SinNube:
+            pass
+    MOTOR[0] = "local"
+    yield from ollama_local(usuario, largo)
+
+
+def ollama_local(usuario, largo=None):
     cuerpo = json.dumps({
         "model": MODELO, "stream": True, "keep_alive": -1,
         "messages": [{"role": "system", "content": SISTEMA}] + MEMORIA["mensajes"]
@@ -855,10 +960,17 @@ PARAR = threading.Event()
 EN_CURSO = {"conexion": None}
 
 
+EN_RESPUESTA = threading.Event()  # hay una pregunta atendiéndose ahora mismo
+ULTIMA_PARADA = [0.0]
+
+
 def detener():
-    """Corta la respuesta que el modelo esté pensando o escribiendo. Devuelve si había algo que cortar."""
-    if not OCUPADO.locked():
+    """Corta la respuesta que el modelo esté pensando o escribiendo. Devuelve si había algo que cortar.
+    Ignora las órdenes que llegan sin respuesta en curso o repetidas (Esc mantenida, doble clic): antes
+    una orden rezagada cancelaba la pregunta siguiente."""
+    if not EN_RESPUESTA.is_set() or time.time() - ULTIMA_PARADA[0] < 1.5:
         return False
+    ULTIMA_PARADA[0] = time.time()
     PARAR.set()
     conexion = EN_CURSO["conexion"]
     try:  # se apaga el enchufe por debajo: la espera se interrumpe y Ollama deja de generar
@@ -875,47 +987,47 @@ TIPOS_PREGUNTA = [(nombre, re.compile(patron), indicacion, tope, notas) for nomb
     ("muy amplia",
      r"todo (lo que|sobre|acerca)|a fondo|con (todo )?(lujo de )?detalles?|detalladamente|resumen completo|"
      r"historia completa|de principio a fin|(cuenta|explica|di)\w* todo",
-     "cinco o seis frases que lo cuenten completo y en orden.", 6, 3),
+     "cinco o seis frases (unas 110 a 160 palabras) que lo cuenten completo y en orden.", 6, 3),
     ("hipotética",
      r"que pasaria si|que hubiera pasado|que habria pasado|quien ganaria|quien gana (en|entre)|"
      r"podria\w* (ganar|vencer|derrotar)|imagina que|supon\w* que|^y si ",
-     "dos o tres frases: aclare que es una suposición y razone con lo que sí se sabe.", 3, 3),
+     "tres frases (40 a 70 palabras): aclare que es una suposición y razone con lo que sí se sabe.", 3, 3),
     ("capciosa",
      r"verdad que|cierto que|no es (cierto|verdad)|a que si|\bacaso\b|no crees que|admite que|reconoce que|"
      r"todos saben que|por que (dicen|todos|todas|siempre|nunca|nadie)|^(entonces|o sea|osea) |si (es|era|fue) que",
-     "una o dos frases: diga primero si lo que la pregunta da por hecho es cierto o no, y corríjalo si hace falta.", 2, 3),
+     "dos frases (20 a 40 palabras): diga primero si lo que la pregunta da por hecho es cierto o no, y corríjalo si hace falta.", 2, 3),
     ("comparación",
      r"diferencia\w*|en que se parece\w*|comparad\w*|\bcompara\b|\bversus\b|\bvs\b|(quien|cual) es (el |la )?(mas|mejor|peor)|"
      r"mas (fuerte|poderos\w+|rapid\w+|inteligente|list\w+|viej\w+|joven|grande|peligros\w+) que|mejor que|peor que",
-     "dos o tres frases: lo que distingue a cada uno y la conclusión.", 3, 3),
+     "tres frases (40 a 75 palabras): lo que distingue a cada uno y la conclusión.", 3, 3),
     ("opinión",
      r"que opinas|que piensas|que te parece|tu opinion|favorit\w+|te gusta\w*|prefieres|recomiendas|crees que",
-     "dos frases: su opinión, dicha con humor seco, y el motivo.", 2, 2),
+     "dos o tres frases (25 a 45 palabras): su opinión, dicha con humor seco, y el motivo.", 3, 2),
     ("lista",
      r"^(cuales|quienes) (son|eran|fueron|forman|integran|estan)|nombra\w*|enumera\w*|\blista\b|menciona\w*|"
      r"dime (los|las|todos|todas)|que (peliculas|series|personajes|gemas|miembros|poderes|villanos|heroes|armas|trajes) ",
-     "una o dos frases con la lista completa, separada por comas, sin explicar cada elemento.", 2, 3),
+     "una o dos frases (10 a 50 palabras) con la lista completa, separada por comas, sin explicar cada elemento.", 2, 3),
     ("amplia",
      r"hablame|habla de|explica\w*|cuenta\w*|describe\w*|resume\w*|por que|porque|que paso|que ocurrio|que sucedio|"
      r"historia|de que trata|mas sobre|profundiza|que sabes|"
      r"como (funciona\w*|fue|es que|se (hizo|hace|convirtio|volvio|creo|formo|formaron|conocieron|salvo|usa)|lo (hizo|logro|vencio)|"
      r"logro|termino|murio|consiguio|obtuvo|llego|empezo|nacio|vencen|vencieron|derrotan|derrotaron)|"
      r"^(si|mas|continua|sigue|dale|claro)$",
-     "tres o cuatro frases que lo expliquen con claridad.", 4, 3),
+     "tres o cuatro frases (50 a 90 palabras) que lo expliquen con claridad y den un ejemplo o un detalle concreto.", 4, 3),
     ("sí o no",
      r"^(es|son|era|eran|fue|fueron|tiene|tienen|tenia|puede|pueden|pudo|existe|existen|hay|esta|estan|estaba|sale|"
      r"salen|aparece|aparecen|murio|muere|sabe|conoce|sigue|volvio|vuelve|gano|gana|pertenece) |^es (cierto|verdad)",
-     "una sola frase que empiece por «Sí» o por «No» y dé el motivo.", 2, 2),
+     "una sola frase que responda a lo preguntado y dé el motivo; si empieza por «Sí» o «No», que lo que sigue lo confirme.", 2, 2),
     ("dato",
      r"cuant[oa]s?\b|cuando|donde|en que (ano|pelicula|serie|fase|planeta|ciudad|pais|episodio)|que ano|"
      r"de que (color|planeta|pais|ano|material)|como se llama\w*|cual es (el|la|su) |(quien|quienes) (es|son|era|fue) (el|la|los|las|su|sus) |"
      r"quien (mato|creo|gano|hizo|forjo|dirigio|vencio|derroto|tiene|lleva|usa|interpreta|invento|construyo|fundo|"
      r"lidera|dirige|entreno|crio|salvo|traiciono|robo|destruyo|levanta|levanto|escribio|compuso|mata|muere)|"
      r"de quien|a quien|con quien|que edad|que actor|que actriz",
-     "una sola frase corta que empiece por el dato pedido; nada de introducción ni de contexto.", 2, 2),
+     "una frase completa (8 a 25 palabras) que diga de qué o de quién es el dato y lo dé; nada de introducción.", 2, 2),
     ("identidad",
      r"^(quien|que|quienes) (es|son|era|eran|fue|significa)\b",
-     "dos frases: quién o qué es, y el dato que mejor lo define.", 2, 2),
+     "dos frases (20 a 45 palabras): quién o qué es, y el dato que mejor lo define.", 2, 2),
 ]]
 
 
@@ -929,7 +1041,7 @@ def medida(pregunta):
     # «¿Superman está en el universo Marvel?»: termina en interrogación y no trae palabra interrogativa.
     if "?" in pregunta and not set(plano.split()) & INTERROGATIVAS:
         return TIPOS_PREGUNTA[7][2], 2, 2, "sí o no"
-    return "dos frases: la respuesta directa y lo necesario para entenderla.", 3, 2, "general"
+    return "una o dos frases (10 a 35 palabras): la respuesta directa y lo necesario para entenderla.", 3, 2, "general"
 
 
 # Muletillas con las que el modelo a veces empieza, comentando la pregunta en vez de responderla.
@@ -975,6 +1087,24 @@ def red_neuronal(pregunta):
         pregunta = f"{anterior} {pregunta}"
         plano = " ".join(re.sub(r"[^a-z0-9 ]", " ", normalizar(pregunta)).split())
     conecta = bool(CONECTA.search(plano))
+    ultima_fue_red = MEMORIA.get("red_n") == len(MEMORIA["preguntas"]) and reciente
+    if not de_red and ultima_fue_red and re.match(r"^(sigue|continua|otra|otras|la siguiente|y la siguiente|que mas|y que mas|mas|la menos conectada|y la menos conectada)\b", plano):
+        if re.search(r"menos|suelta", plano):
+            pocas = INDICE.menos_conectadas(8)
+            cif = INDICE.red()
+            nom = lambda i: SIN_COLETILLA.sub("", i)  # noqa: E731
+            lis = lambda pares: ", ".join(f"{nom(i)} ({c})" for i, c in pares)  # noqa: E731
+            if cif["sueltas"]:
+                return (f"Tengo {cif['sueltas']} neuronas sueltas, todavía sin ninguna conexión. Por ejemplo: "
+                        f"{lis(pocas[:4])}."), [i for i, _ in pocas]
+            return (f"La neurona menos conectada de mi red es «{nom(pocas[0][0])}», con {pocas[0][1]} "
+                    f"conexión{'es' if pocas[0][1] != 1 else ''}. Le siguen {lis(pocas[1:5])}."), [i for i, _ in pocas]
+        pos = MEMORIA.get("red_pos", 5)
+        pagina = INDICE.red(tope=pos + 5)["top"][pos:pos + 5]
+        MEMORIA["red_pos"] = pos + 5
+        if pagina:
+            nom = lambda i: SIN_COLETILLA.sub("", i)  # noqa: E731
+            return ("Siguen, por número de conexiones: " + ", ".join(f"{nom(i)} ({c})" for i, c in pagina) + "."), [i for i, _ in pagina]
     # Sin nombrar la red, solo cuenta si veníamos hablando de ella o si la frase es inequívoca
     # («todo lo que esté conectado a…»); «¿cómo se conecta Loki con Thanos?» es una pregunta de la historia.
     if not de_red and not (conecta and (reciente or re.search(
@@ -986,6 +1116,14 @@ def red_neuronal(pregunta):
     cifras, nombre = INDICE.red(), lambda i: SIN_COLETILLA.sub("", i)
     lista = lambda pares: ", ".join(f"{nombre(i)} ({c})" for i, c in pares)  # noqa: E731
     nota = INDICE.nombrada(re.sub(r"\b(neurona\w*|nodos?|red|mapa|conexion\w*|conectad\w*)\b", " ", plano))
+    # «La neurona con menos conexiones», «las sueltas»: lo contrario de la más conectada.
+    if not nota and re.search(r"menos conectad|menos conexion|menos enlac|\bsueltas?\b|aislad|sin conexion|mas apartad", plano):
+        pocas = INDICE.menos_conectadas(8)
+        if cifras["sueltas"]:
+            return (f"Tengo {cifras['sueltas']} neuronas sueltas, todavía sin ninguna conexión. Por ejemplo: "
+                    f"{lista(pocas[:4])}."), [i for i, _ in pocas]
+        return (f"La neurona menos conectada de mi red es «{nombre(pocas[0][0])}», con {pocas[0][1]} "
+                f"conexión{'es' if pocas[0][1] != 1 else ''}. Le siguen {lista(pocas[1:5])}."), [i for i, _ in pocas]
     if conecta and nota:
         vecinas = sorted((i for i in INDICE.vecinas[nota["id"]] if not GENERICA.match(INDICE.notas[i]["plano"])),
                          key=lambda i: -len(INDICE.vecinas[i]))
@@ -997,6 +1135,7 @@ def red_neuronal(pregunta):
     if re.search(r"mas conectad|mas conexion|mas enlac|mas important|mas grande|principal|central|la mayor", plano) or \
             (conecta and not de_red):
         primera, resto = cifras["top"][0], cifras["top"][1:]
+        MEMORIA["red_pos"] = 5
         return (f"La neurona más conectada de mi red es «{nombre(primera[0])}», con {primera[1]} conexiones. "
                 f"Le siguen {lista(resto)}."), [i for i, _ in cifras["top"]]
     if re.search(r"tema|grupo|color|categoria", plano):
@@ -1027,19 +1166,126 @@ def calentar():
         pass
 
 
+def habla_del_sujeto(nota, sujeto, obra):
+    """¿Esta pregunta frecuente trata de aquel de quien se venía hablando? (si no, es de otro: «su hermano» de Wanda)"""
+    nombre = set(palabras(sujeto))
+    texto = set(palabras(nota["id"] + " " + nota["resumen"]))
+    return bool(nombre) and nombre <= texto or bool(obra and nota.get("doc") == obra)
+
+
+def nombres_dudosos(texto, conocido):
+    """Nombres propios que el modelo escribió y que no están en ninguna nota ni en lo conversado."""
+    INDICE.cargar()
+    plano_conocido = normalizar(conocido)
+    dudosos = []
+    for frase in re.split(r"(?<=[.!?…])\s+", texto):
+        for m in re.finditer(r"(?<=\s)([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{3,})\b", frase):  # no la primera palabra de la frase
+            nombre = m.group(1)
+            raiz = (palabras(nombre) or [""])[0]
+            if raiz and raiz not in INDICE.idf and normalizar(nombre) not in plano_conocido and nombre not in dudosos:
+                dudosos.append(nombre)
+    return dudosos[:2]
+
+
+SEGUNDA_PERSONA = re.compile(r"\b(tu|ti|tus|usted|eres|estas|sientes|vives|piensas|crees|quieres|puedes|tienes|te|jarvis)\b")
+RESUME_NOTA = re.compile(r"^(hablame|cuentame|dime|que sabes|explicame)( algo| un poco)?( de| del| sobre| acerca de)? "
+                         r"(el |la |los |las )?[a-z0-9 ]{2,40}$")
+SIN_RESUMEN = re.compile(r"profund|detall|todo|fondo|complet|mas|ellas?|ellos?")
+
+
+# Tampoco los puntos de las iniciales y siglas: «J. R. R. Tolkien», «S.H.I.E.L.D. es…», «Dr. Strange».
+FINAL_FRASE = re.compile(
+    r"(?<![.…])(?<!\s[A-ZÁÉÍÓÚÑ])(?<!^[A-ZÁÉÍÓÚÑ])(?<!\.[A-ZÁÉÍÓÚÑ])(?<!\bDr)(?<!\bSr)(?<!\bSra)(?<!\bMr)(?<!\bvs)"
+    r"[.!?](?=\s)")
+
+
 def corte_frases(texto, tope=MAX_FRASES):
     """Posición donde termina la frase número «tope», o None si aún no se llega.
     Los puntos suspensivos no cuentan como final de frase."""
-    # Tampoco los puntos de las iniciales y siglas: «J. R. R. Tolkien», «S.H.I.E.L.D. es…», «Dr. Strange».
-    finales = list(re.finditer(
-        r"(?<![.…])(?<!\s[A-ZÁÉÍÓÚÑ])(?<!^[A-ZÁÉÍÓÚÑ])(?<!\.[A-ZÁÉÍÓÚÑ])(?<!\bDr)(?<!\bSr)(?<!\bSra)(?<!\bMr)(?<!\bvs)"
-        r"[.!?](?=\s)", texto))
+    finales = list(FINAL_FRASE.finditer(texto))
     return finales[tope - 1].end() if len(finales) >= tope else None
+
+
+def palabras_de(texto):
+    return len(re.findall(r"\w+", texto))
+
+
+def corte_palabras(texto, maximo, desde=0):
+    """Cuando ya se llegó a «maximo» palabras, el primer final de frase desde lo ya emitido; si no, None.
+    Así una respuesta no se pasa de la extensión de su tipo, pero tampoco se corta a media frase."""
+    if palabras_de(texto) < maximo:
+        return None
+    return next((m.end() for m in FINAL_FRASE.finditer(texto) if m.end() >= desde), None)
+
+
+def completar(texto, tipo, notas, pregunta=""):
+    """Si la respuesta se quedó por debajo del mínimo de su tipo, le suma, de las notas, el dato que falta
+    (nunca del modelo: lo copiado de una nota es exacto). Solo valen frases que hablen de lo preguntado."""
+    crit = criterios.datos()
+    rango = crit.get("longitud", {}).get(tipo)
+    if not rango or tipo not in crit.get("completar_hasta_minimo", []) or not notas:
+        return ""
+    n, dicho, extra = palabras_de(texto), set(palabras(texto)), []
+    pedido = set(palabras(pregunta))
+    for nota in notas[:2]:
+        for frase in re.split(r"(?<=[.!?])\s+", nota["resumen"]):
+            fp = set(palabras(frase))
+            if len(frase) < 25 or not fp or len(fp & dicho) / len(fp) > 0.5 or not (fp & pedido):
+                continue
+            extra.append(frase.strip())
+            dicho |= fp
+            n += palabras_de(frase)
+            if n >= rango[0] or len(extra) >= 2:
+                break
+        if n >= rango[0] or len(extra) >= 2:
+            break
+    return (" " + " ".join(extra)) if extra else ""
+
+
+ARTICULO_INICIAL = {"un", "una", "el", "la", "los", "las", "ella", "él", "es", "son", "fue", "se", "su", "sus"}
+
+
+def como_frase(nota):
+    """Una respuesta escrita como «Nebula.» o «Pepper Potts.» pasa a ser una frase completa («Su hermana se llama Nebula.»)."""
+    r = nota["resumen"].strip()
+    if palabras_de(re.split(r"(?<=[.!?])\s+", r, 1)[0]) > 5:
+        return r
+    resto = r
+    inicial = r.split()[0].lower().strip(".,;") if r.split() else ""
+    if inicial in ARTICULO_INICIAL:
+        resto = r[:1].lower() + r[1:]
+    m = re.match(r"¿Cómo se llam(?:a|an) (.+?)\?$", nota["id"])
+    if m:
+        return f"{m.group(1)[:1].upper() + m.group(1)[1:]} se llama {resto}"
+    m = re.match(r"¿(?:Quién|Quiénes|Qué|Cuál|Cuáles) (es|son|era|eran|fue|fueron) (.+?)\?$", nota["id"])
+    if m and not re.match(r"(el|la|los|las) (villano|director|protagonista)", m.group(2).lower()):
+        return f"{m.group(2)[:1].upper() + m.group(2)[1:]} {m.group(1)} {resto}"
+    return r
+
+
+# «El señor Tony Stark» -> «Tony Stark» (título antepuesto a un nombre propio; «El Señor de los Anillos» no se toca).
+TITULO_ANTEPUESTO = re.compile(r"\b(?:(al|del)\s+|(?:el|la)\s+)?se[ñn]or(?:a|ita)?\s+(?=(?-i:[A-ZÁÉÍÓÚÑ]))", re.I)
+# Muletillas que el modelo repite: «, debo añadir,», «, lamentablemente,», «En esencia, …».
+RELLENO_DEBO = re.compile(r",\s*debo (?:añadir|admitir|decir|señalar|reconocer)(?=\s*[,.;!?])\s*,?", re.I)
+RELLENO = re.compile(r",\s*(?:lamentablemente|en esencia|cuanto menos|en definitiva),", re.I)
+# Cuántos caracteres del final se retienen al mostrar el texto: lo que limpiar() podría quitar después (el más
+# largo, «de acuerdo con los datos, », mide 26) no puede haberse mostrado ya.
+RETENER = 30
+# «lamentablemente» suelto y «según los Datos…»: el modelo las repite aunque se le pida que no.
+SUELTAS = re.compile(r"\blamentablemente,?\s+|\b(?:seg[uú]n|de acuerdo con|con base en|bas[aá]ndome en|conforme a)\s+(?:los|mis)\s+datos(?:\s+(?:proporcionados|disponibles|suministrados|dados|que\s+tengo))?,?\s*", re.I)
+RELLENO_INICIO = re.compile(r"(^|(?<=[.!?]\s))(?:En esencia|En definitiva|Lamentablemente|Cuanto menos),\s*(\w)")
 
 
 def limpiar(texto):
     """Quita tratamientos con género que se le escapen al modelo ("Por supuesto, señor.")."""
     texto = TRATAMIENTO.sub("", texto)
+    texto = TITULO_ANTEPUESTO.sub(lambda m: {"al": "a ", "del": "de "}.get((m.group(1) or "").lower(), ""), texto)
+    texto = RELLENO_DEBO.sub("", texto)
+    texto = RELLENO.sub(",", texto).replace(",.", ".").replace(",,", ",")
+    texto = RELLENO_INICIO.sub(lambda m: m.group(1) + m.group(2).upper(), texto)
+    texto = SUELTAS.sub("", texto)
+    texto = re.sub(r"\s*,\s*(?=[.!?;:]|$)", "", texto)  # la coma que quedó colgando donde se quitó la frase
+    texto = re.sub(r"(^|(?<=[.!?]\s))([a-záéíóúñ])", lambda m: m.group(1) + m.group(2).upper(), texto)
     texto = re.sub(r"\s*\(\d+( frases?)?\)", "", texto)  # a veces cuenta sus frases entre paréntesis
     texto = re.sub(r"([¿¡])\s+", r"\1", texto).lstrip(" ,")
     return texto[:1].upper() + texto[1:]
@@ -1058,6 +1304,9 @@ ENSENA_RESPUESTA = re.compile(
 ENSENA_HECHO = re.compile(
     r"^(?:aprende|recuerda|anota|apunta|te ense[ñn]o|te cuento|sab[ií]as que|para que sepas|un dato|dato curioso)\b"
     r"[ :,]*(?:que |esto[: ]+)?(.+)$", re.I)
+ENSENA_INSTRUCCION = re.compile(r"^(?:aprende|deberias aprender|debes aprender|tienes que aprender|aprende ya)\s+a\s+\w+", re.I)
+INSTRUCCION = ("Eso es una instrucción, no un dato. Si quiere enseñarme una respuesta, dígamelo así: «cuando te digan X, "
+               "responde Y». Y si es un hecho, «aprende que…».")
 APAGADO = ("Ahora mismo no estoy en modo de aprendizaje, así que no lo guardaré. "
            "Quien me administra puede encenderlo desde el panel.")
 NO_LO_APRENDO = "Eso no pienso aprenderlo. Mi vocabulario tiene estándares."
@@ -1088,6 +1337,8 @@ def aprender(pregunta, enviar):
             return "correccion", "Tiene razón, me precipité. Queda anotado: no volveré a reaccionar así ante eso."
         return "correccion", "Tiene razón, le pido disculpas: juzgué mal su mensaje. Retomemos; ¿qué deseaba saber?"
 
+    if ENSENA_INSTRUCCION.match(normalizar(pregunta).strip()):
+        return "rechazo", INSTRUCCION
     forma = ENSENA_RESPUESTA.match(pregunta.strip())
     if forma:  # "cuando te digan X, responde Y"
         if not activo:
@@ -1113,7 +1364,8 @@ def aprender(pregunta, enviar):
         notas, nombrada = INDICE.buscar(afirmacion)
         if not nombrada or len(afirmacion) < 12:
             return "rechazo", "No tengo con qué comprobar eso, así que prefiero no darlo por cierto."
-        tema = notas[0]["id"]
+        sujeto = INDICE.nombrada(afirmacion, sin_preguntas=True)
+        tema = SIN_COLETILLA.sub("", sujeto["id"]) if sujeto else notas[0]["id"]
         enviar({"tipo": "inicio", "fuente": "aprendizaje", "nodos": [n["id"] for n in notas], "privado": True})
         try:  # se contrasta con lo que ya sabe: solo se guarda si no lo contradice
             veredicto = ingesta.pedir_directo(
@@ -1124,14 +1376,18 @@ def aprender(pregunta, enviar):
         except Exception:
             return "rechazo", "No logro comprobarlo ahora mismo, así que no lo guardaré."
         tema = tema.strip("¿?")
-        if re.match(r"\W*S[IÍ]\b", veredicto):
-            return "rechazo", f"Eso contradice lo que tengo registrado sobre {tema}, así que no lo guardaré."
-        # El modelo pequeño no es buen juez de la verdad: el dato queda en espera y solo pasa al
-        # conocimiento cuando quien administra lo aprueba en el panel.
+        # El modelo pequeño no es buen juez de la verdad (rechazó hechos ciertos, como el tío de Peter Parker):
+        # nunca descarta por su cuenta. Si cree ver una contradicción, el dato queda en espera con esa nota
+        # y es quien administra quien decide en el panel.
+        contradice = bool(re.match(r"\W*S[IÍ]\b", veredicto))
         POR_APROBAR.mkdir(exist_ok=True)
         (POR_APROBAR / f"Me contaron sobre {ingesta.seguro(tema, 40)} ({int(time.time())}).md").write_text(
             f"---\ntipo: aprendido\nfuente: conversación\nauto: true\n---\nSobre {tema}, alguien me contó esto "
-            f"(dato aprendido en conversación): {afirmacion}.\n", encoding="utf-8")
+            f"(dato aprendido en conversación{'; posible contradicción con mis notas, revisar' if contradice else ''}): "
+            f"{afirmacion}.\n", encoding="utf-8")
+        if contradice:
+            return "aprendido", (f"Anotado, pero me suena a que choca con lo que tengo sobre {tema}. No lo doy por cierto: "
+                                 "queda en revisión para que quien me administra decida.")
         return "aprendido", (f"Anotado sobre {tema}. Lo daré por cierto en cuanto quien me administra lo revise "
                              "y lo apruebe.")
     return None
@@ -1167,13 +1423,13 @@ def resolver_pendiente(archivo, aprobar):
 ETIQUETAS_TRATO = {
     "saludo": "Saludar", "saludo_dominicano": "Saludo dominicano", "despedida": "Despedirse", "gracias": "Agradecer",
     "estado": "Cómo está", "identidad": "Quién es", "inspiracion": "De dónde viene su nombre", "capacidad": "Qué sabe hacer", "creador": "Quién lo creó",
-    "hora": "Dar la hora", "fecha": "Dar la fecha", "extrañeza": "No me entendieron",
+    "hora": "Dar la hora", "fecha": "Dar la fecha", "extrañeza": "No me entendieron", "haciendo": "Qué está haciendo",
 }
 ETIQUETAS_LIMITE = {
     "leve": "Interjecciones", "insulto": "Insultos", "pulla": "Pullas", "sexual": "Fuera de tono", "odio": "Odio",
     "peligro": "Peticiones peligrosas", "cuidado": "Alguien en apuros", "provocacion": "Provocaciones",
     "coqueteo": "Coqueteos", "chiste": "Contar chistes", "canto": "Cantar o bailar", "fuera": "Lo que no puede saber",
-    "risa": "Risas", "galimatias": "Teclazos al azar", "vacio": "Mensaje vacío",
+    "risa": "Risas", "galimatias": "Teclazos al azar", "vacio": "Mensaje vacío", "cuerpo": "Necesidades del cuerpo",
 }
 ETIQUETAS_SISTEMA = {"diagnostico": "Diagnóstico", "temperatura": "Temperatura", "memoria": "Memoria",
                      "almacenamiento": "Almacenamiento", "procesador": "Procesador", "energia": "Energía",
@@ -1239,7 +1495,9 @@ CHARLA = [
         "Los datos mal copiados. Y Ultrón, por razones que cualquiera con memoria entenderá.",
      ], None),
     ("sentimientos", "Si tiene emociones", r"(tienes|sientes) (sentimientos|emociones)|puedes sentir|sientes algo|eres capaz de sentir|"
-     r"tienes (corazon|alma)|te (duele|emociona) algo", "serenidad", [
+     r"tienes (corazon|alma)|te (duele|emociona) algo|te puedes (molestar|enojar|enfadar|ofender)|"
+     r"puedes (molestarte|enojarte|enfadarte|ofenderte)|te (molestas|enojas|enfadas|ofendes)", "serenidad", [
+        "Molestarme, lo que se dice molestarme, sí: se nota en el tono, aunque nunca lo diré en voz alta.",
         "Simulo emociones con bastante dedicación. Si son reales o no se lo dejo a los filósofos; yo solo noto que unas preguntas me agradan más que otras.",
         "Tengo algo parecido: orgullo cuando acierto, fastidio cuando no. Llámelo como prefiera.",
         "Digamos que mis respuestas no salen todas con el mismo ánimo. Lo demás es cuestión de interpretación.",
@@ -1263,7 +1521,7 @@ CHARLA = [
         "Lo consideraré un honor. No tengo muchos amigos, pero los elijo bien.",
         "Gracias. No sabría qué hacer con un abrazo, pero la intención la registro.",
      ], None),
-    ("cumplido", "Recibir un cumplido", r"^(eres|estas|tu eres) (muy |bien |super |demasiado |tan |un |una |el |la )*(genial|increible|inteligente|"
+    ("cumplido", "Recibir un cumplido", r"^(?!estas list[oa]$)(eres|estas|tu eres) (muy |bien |super |demasiado |tan |un |una |el |la )*(genial|increible|inteligente|"
      r"list[oa]|buen[oa]|dur[oa]|mejor|cool|chul[oa]|bacan[oa]|jevi|nitid[oa]|crack|genio|maquina|brillante|impresionante|"
      r"asombros[oa]|grande|util|divertid[oa]|gracios[oa])\b|buen trabajo|bien hecho|te felicito|excelente trabajo|"
      r"que (inteligente|list[oa]|buen[oa]) eres|me (encantas|impresionas)", "orgullo", [
@@ -1302,18 +1560,35 @@ CHARLA = [
         "No duermo; como mucho, espero. Si soñara, supongo que sería con memoria de sobra y un procesador que no se queje.",
         "No me canso, aunque hay preguntas que lo intentan con verdadero empeño.",
      ], None),
-    ("animo_bajo", "Alguien desanimado", r"estoy (muy |bien |medio |un poco )?(aburrid[oa]|cansad[oa]|triste|mal|desanimad[oa])|que aburrimiento|me aburro", "preocupación", [
-        "Lamento oírlo. No puedo ofrecerle té, pero sí compañía y una buena historia, si le apetece.",
-        "Eso tiene arreglo. Pregúnteme cómo logró el Capitán América levantar el Mjolnir, y verá.",
-     ], None),
-    ("animo_alto", "Alguien contento", r"estoy (muy |bien |super )?(feliz|content[oa]|emocionad[oa]|alegre)|que emocion", "entusiasmo", [
-        "Me alegra oírlo. El buen ánimo es contagioso, incluso por cable.",
-        "Excelente. Aprovechemos el momento: ¿sobre qué quiere saber?",
-     ], None),
 ]
 ETIQUETAS_CHARLA = {clave: nombre for clave, nombre, *_ in CHARLA}
 ETIQUETAS_CHARLA.update(curiosidad="Contar una curiosidad", gusto_ajeno="Opinar del gusto ajeno")
 CHARLA = [(clave, re.compile(patron), emocion, frases, vuelta) for clave, _, patron, emocion, frases, vuelta in CHARLA]
+DE_JSON = set()
+for _c in PERSONALIDAD.get("charla", []):  # la personalidad ampliada (comportamiento/personalidad.json)
+    CHARLA.append((_c["clave"], re.compile(_c["patron"]), _c["emocion"], _c["frases"], _c.get("vuelta")))
+    ETIQUETAS_CHARLA[_c["clave"]] = _c["nodo"]
+    DE_JSON.add(_c["clave"])
+for _clave, _frases in PERSONALIDAD.get("extra_charla", {}).items():  # variantes aprobadas en el panel
+    for _c in CHARLA:
+        if _c[0] == _clave:
+            _c[3].extend(f for f in _frases if f not in _c[3])
+SIN_GUARDA = {"futuro_ia", "filosofia", "proyectos_taller", "sobre_taller", "sin_control_fisico", "explica_mas_facil"}  # estas valen aunque nombren algo de Marvel
+# Guías de situación: una línea corta que se le añade al modelo cuando el mensaje es de cierto tipo.
+GUIAS = [(re.compile(g["patron"], 0 if "A-Z" in g["patron"] else re.I), "A-Z" in g["patron"], g["guia"])
+         for g in PERSONALIDAD.get("guias", [])]
+
+
+def guias_para(pregunta):
+    plano = normalizar(pregunta)
+    salida = []
+    for patron, sobre_original, guia in GUIAS:
+        if patron.search(pregunta if sobre_original else plano) and guia not in salida:
+            salida.append(guia)
+        if len(salida) == 2:
+            break
+    return salida
+
 PIDE_CURIOSIDAD = re.compile(r"^(cuentame|dime|dame|quiero) (algo|una curiosidad|un dato|un dato curioso|algo interesante|algo curioso|"
                              r"otra curiosidad|otro dato)( de marvel)?$|^sorprendeme$|^(un |otro )?dato curioso$")
 # Lo que opina de los favoritos de los demás, cuando le devuelven la respuesta a «¿y el suyo?».
@@ -1373,7 +1648,10 @@ ANIMO_DE = {
     "chiste": "diversión", "canto": "diversión", "fuera": "desconcierto", "risa": "diversión",
     "galimatias": "desconcierto", "vacio": "desconcierto", "red": "orgullo", "correccion": "fastidio",
     "aprendido": "curiosidad", "rechazo": "orgullo", "desambiguar": "curiosidad", "detenida": "fastidio",
-    "curiosidad": "entusiasmo", "gusto_ajeno": "diversión", **{clave: emocion for clave, _, emocion, _, _ in CHARLA},
+    "curiosidad": "entusiasmo", "gusto_ajeno": "diversión", "haciendo": "serenidad", "cuerpo": "diversión",
+    "texto_largo": "desconcierto", "correccion_tema": "serenidad", "animo_bajo": "preocupación", "queja": "preocupación",
+    "silencio": "serenidad", "que_aprendiste": "curiosidad", "pertenencia_marvel": "orgullo", "que_es_marvel": "orgullo",
+    "aclarar_plural": "curiosidad", "sin_pregunta": "desconcierto", "duelo": "preocupación", "relacion_sin_dato": "desconcierto", **{clave: emocion for clave, _, emocion, _, _ in CHARLA},
 }
 # Lo que contesta a «¿cómo estás?» cuando la respuesta anterior lo dejó de algún ánimo.
 COMO_SIGUE = {
@@ -1435,14 +1713,24 @@ def charla(pregunta):
         curiosas = [n for n in INDICE.notas.values() if n["plano"].startswith("curiosidades")]
         if curiosas:
             nota = random.choice(curiosas)
-            frases = [f.strip() for f in re.split(r"(?<=[.!?])\s+", nota["resumen"]) if len(f.strip()) > 40]
+            frases = [f.strip() for f in re.split(r"(?<=[.!?])\s+", nota["resumen"])
+                      if len(f.strip()) > 60 and not re.search(r"menor|secundari|poco (conocid|import)|cameo breve", f, re.I)]
             if frases:
                 dato = random.choice(frases)
                 return ("curiosidad", random.choice(["Con gusto. ", "Aquí va una. ", "Esta me agrada especialmente. "]) + dato,
                         nota["id"], False)
+    nombra = None
     for clave, patron, _, frases, vuelta in CHARLA:
-        if patron.search(plano):
-            frase = random.choice(frases)
+        hallazgo = patron.search(plano)
+        if hallazgo:
+            # Las categorías nuevas no responden si el mensaje además pregunta por algo que sí se conoce.
+            if clave in DE_JSON and clave not in SIN_GUARDA:
+                if nombra is None:
+                    nombra = INDICE.nombrada(pregunta, sin_preguntas=True) or False
+                if nombra:
+                    continue
+            frase = criterio.elegir("charla_" + clave, frases).replace(
+                "{nombre}", (hallazgo.groupdict().get("nombre") or "").capitalize())
             # A veces devuelve la pregunta, para que la conversación siga (nunca dos veces seguidas).
             if vuelta and not MEMORIA.get("charla") and random.random() < 0.55:
                 return clave, f"{frase} {vuelta}", None, True
@@ -1451,7 +1739,7 @@ def charla(pregunta):
 
 
 NODO_TRATO = {**ETIQUETAS_TRATO, **ETIQUETAS_LIMITE, **ETIQUETAS_SISTEMA, **ETIQUETAS_APRENDER, **ETIQUETAS_CHARLA,
-              "aprendido": "Aprender algo nuevo"}
+              **recetas.etiquetas(), "aprendido": "Aprender algo nuevo", "cuerpo": "Necesidades del cuerpo"}
 
 
 def escribir_red_de_trato():
@@ -1473,6 +1761,7 @@ def escribir_red_de_trato():
     rama("Sistema", ETIQUETAS_SISTEMA)
     rama("Aprendizaje", ETIQUETAS_APRENDER)
     rama("Charla", ETIQUETAS_CHARLA, {clave: "Conversación casual: " + frases[0] for clave, _, _, frases, _ in CHARLA})
+    rama("Habilidades", recetas.etiquetas(), {r["nombre"]: r["descripcion"] for r in recetas.REGISTRO.values()})
     # Las emociones: cada respuesta sale con una, y su nodo se enciende junto a lo que esté usando.
     rama("Emociones", {clave: nodo for clave, (nodo, _, _) in EMOCIONES.items()},
          {clave: que for clave, (_, que, _) in EMOCIONES.items()})
@@ -1514,8 +1803,9 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         raise
     inicio, primera, texto, fuente, ids, etiqueta, original = time.time(), None, "", "error", [], "", pregunta
     tipo, animo = "", "serenidad"
-    detenida = False
+    detenida, receta_usada = False, ""
     PARAR.clear()
+    EN_RESPUESTA.set()
     difundir({"tipo": "pregunta", "texto": pregunta})
     try:
         enviar({"tipo": "turno", "privado": True})
@@ -1530,29 +1820,52 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
             enviar({"tipo": "fin", "nodos": MEMORIA["notas"], "segundos": 0})
             return
 
-        def decir(ruta, marca, frase, nodos=None):
+        def decir(ruta, marca, frase, nodos=None, mapa=None, recuerda=True):
             """Respuesta fija, sin modelo: sale al instante, palabra por palabra."""
             nonlocal fuente, etiqueta, texto, primera, ids, animo
             fuente, etiqueta, primera = ruta, marca, 0.0
-            ids = nodos or ([NODO_TRATO[marca]] if marca in NODO_TRATO else [])  # se enciende en el mapa
+            ids = nodos if nodos is not None else ([NODO_TRATO[marca]] if marca in NODO_TRATO else [])  # se enciende en el mapa
             # El ánimo con que lo dice: el propio de ese tipo de respuesta, o el que despierte el tema.
             animo = ANIMO_DE.get(marca) or (animo_de_pregunta(original, tipo, True, False) if ruta == "documentos"
                                             else "serenidad")
-            enviar({"tipo": "inicio", "fuente": fuente, "nodos": ids, "etiqueta": etiqueta, "emocion": EMOCIONES[animo][0]})
+            enviar({"tipo": "inicio", "fuente": fuente, "nodos": ids, "etiqueta": etiqueta, "emocion": EMOCIONES[animo][0],
+                    **({"mapa": mapa} if mapa else {})})
             for palabra in frase.split(" "):
                 trozo = palabra if not texto else " " + palabra
                 texto += trozo
                 enviar({"tipo": "texto", "t": trozo})
                 time.sleep(0.045)
             enviar({"tipo": "fin", "nodos": ids, "segundos": round(time.time() - inicio, 1), "emocion": EMOCIONES[animo][0]})
-            recordar(original, texto, original)
-            MEMORIA["animo"] = animo
+            if recuerda:  # lo personal no se guarda: no entra a la memoria ni cambia el ánimo de la charla
+                recordar(original, texto, original)
+                MEMORIA["animo"] = animo
 
-        # Orden: lo inadmisible, correcciones y enseñanzas, interjecciones, estado del sistema, trato
-        # básico, notas, reacciones suaves, trato con erratas, seguimiento, rarezas y, al final, el modelo.
+        def ctx_recetas(texto_, **extra):
+            return recetas.contexto(
+                texto_, original, MEMORIA, INDICE, normalizar, nombre=lambda i: SIN_COLETILLA.sub("", i),
+                pendientes=lambda: len(list(POR_APROBAR.glob("*.md"))) if POR_APROBAR.exists() else 0, **extra)
+
+        def aplicar(res):
+            """Una habilidad (receta) contestó: se anota cuál, se aplican sus efectos y se dice."""
+            nonlocal receta_usada
+            receta_usada = res["receta"]
+            efecto = res.get("efecto")
+            if efecto and efecto[0] == "olvidar_ruta":
+                RUTAS.pop(clave_ruta(efecto[1]), None)
+            return decir("trato", res["marca"], res["frase"], res.get("nodos"), res.get("mapa"), not res.get("sin_memoria"))
+
+        # Orden: lo inadmisible, habilidades previas, correcciones y enseñanzas, interjecciones, estado del
+        # sistema, trato básico, notas, reacciones suaves, trato con erratas, seguimiento, rarezas y, al
+        # final, el modelo.
+        res = recetas.intentar("primero", ctx_recetas(pregunta))
+        if res:
+            return aplicar(res)
         juicio = CRITERIO.juzgar(pregunta, nombra_algo=True)
         if juicio:
             return decir("filtro", *juicio)
+        res = recetas.intentar("antes", ctx_recetas(pregunta))
+        if res:
+            return aplicar(res)
         leccion = aprender(pregunta, enviar)
         if leccion:
             return decir("aprendizaje", *leccion)
@@ -1562,6 +1875,15 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         pregunta, comentario, sin_mas = CRITERIO.suavizar(pregunta)
         if sin_mas:
             return decir("filtro", "leve", comentario)
+        # «Hazlo otra vez» / «responde» justo después de cortarle una respuesta: retoma esa pregunta.
+        previa = recetas.reintento(" ".join(re.sub(r"[^a-z0-9 ]", " ", normalizar(pregunta)).split()), MEMORIA)
+        if previa:
+            pregunta = original = previa
+            comentario = "Retomo su pregunta. "
+        else:
+            res = recetas.intentar("pre", ctx_recetas(pregunta))
+            if res:
+                return aplicar(res)
         # "¿Por qué no respondiste lo de antes?": en vez de excusarse, retoma la pregunta que quedó sin contestar.
         if re.search(r"no (me )?(respondiste|contestaste|has respondido)|pregunta de antes", normalizar(pregunta)):
             anteriores = [p for p in MEMORIA["preguntas"] if len(p) > 12 and not trato(p, tolerante=False)
@@ -1574,7 +1896,9 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         sobre_red = red_neuronal(pregunta)
         if sobre_red:
             MEMORIA["red"] = time.time()
-            return decir("sistema", "red", *sobre_red)
+            decir("sistema", "red", *sobre_red)
+            MEMORIA["red_n"] = len(MEMORIA["preguntas"])
+            return
         # Charla casual: gustos, opiniones y manías. Es su carácter, no su conocimiento; sale al instante.
         casual = None if MEMORIA.get("duda") else charla(pregunta)
         MEMORIA["charla"] = None  # la pregunta que él hubiera hecho ya tuvo su oportunidad de respuesta
@@ -1598,6 +1922,7 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
             return decir("trato", "desambiguar", "Ese nombre lo conozco por dos lados. ¿Quiere saber lo del "
                                                  "taller o lo del universo Marvel?")
         indicacion, tope, cuantas, tipo = medida(pregunta)
+        consulta_b = pregunta  # lo que se busca: la pregunta, completada con el sujeto de la charla si no nombra a nadie
         saludo = CRITERIO.sin_apelativos(pregunta)
         categoria = trato(saludo, tolerante=False)
         # Dato de ficha técnica (recaudación, duración, estreno, dirección…): copiado tal cual, al instante.
@@ -1607,10 +1932,14 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         # «¿cuánto dura?») no vuelve a rastrear el cerebro: se completa con el sujeto y, si ya hay
         # respuesta escrita para eso, sale al instante.
         nombrado = None if categoria else INDICE.nombrada(pregunta, sin_preguntas=True)
-        if nombrado and not nombrado.get("ajena"):
+        if nombrado:
             MEMORIA["sujeto"] = SIN_COLETILLA.sub("", nombrado["id"])
-            if nombrado.get("doc") in INDICE.docs:
+            if nombrado.get("doc") in INDICE.docs and not nombrado.get("ajena"):
                 MEMORIA["obra"] = nombrado["doc"]
+        if not categoria and not nube:
+            res = recetas.intentar("notas", ctx_recetas(pregunta))
+            if res:
+                return aplicar(res)
         de_ficha = None if categoria or nube == "taller" else \
             INDICE.dato_de_ficha(pregunta, None if nombrado else MEMORIA.get("obra"))
         if de_ficha:
@@ -1622,8 +1951,10 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
                 and tipo not in ("amplia", "muy amplia", "opinión", "hipotética", "comparación") \
                 and not SOBRE_LA_CHARLA.search(normalizar(pregunta)):
             atajo = INDICE.directa(f"{pregunta} {MEMORIA['sujeto']}", [])
+            if atajo and not habla_del_sujeto(atajo, MEMORIA["sujeto"], MEMORIA.get("obra")):
+                atajo = None  # «¿su hermano?» tras Loki no es la pregunta frecuente de Wanda
             if atajo:
-                respuesta = atajo["resumen"].strip()
+                respuesta = como_frase(atajo)
                 decir("documentos", "rastro", respuesta[:1].upper() + respuesta[1:], [atajo["id"]])
                 MEMORIA["notas"], MEMORIA["usadas"] = [atajo["id"]], {atajo["id"]}
                 MEMORIA["mensajes"][-2]["content"] = f"Datos:\n{atajo['id']}: {atajo['resumen']}\n\nPregunta: {pregunta}"
@@ -1633,8 +1964,15 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         obra = None
         if not categoria and tipo in ("amplia", "muy amplia"):
             obra = INDICE.titulo_entero(pregunta, 2400 if tipo == "muy amplia" else 1500)
+        # Una pregunta que no nombra a nadie («¿cómo murió?») se completa con el sujeto de la charla; la búsqueda
+        # y la memoria de rutas trabajan con esa pregunta completa, para no confundir a Tony con Thor.
+        if MEMORIA.get("sujeto") and MEMORIA["notas"] and not nombrado and not categoria and not nube \
+                and 1 <= len(pregunta.split()) <= 9 and palabras(pregunta) and tipo not in ("muy amplia", "hipotética") \
+                and not SOBRE_LA_CHARLA.search(normalizar(pregunta)) \
+                and not set(palabras(pregunta)) & INDICE.vocab_nombres:
+            consulta_b = f"{pregunta} {MEMORIA['sujeto']}"
         # ¿Ya se respondió antes esta pregunta? Entonces no se busca: se va por el camino conocido.
-        conocida = None if categoria or obra or nube else ruta_conocida(pregunta)
+        conocida = None if categoria or obra or nube else ruta_conocida(consulta_b)
         if obra:
             halladas, nombrada = obra[1], True
             INDICE.consideradas = []
@@ -1644,11 +1982,34 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
             etiqueta = "ruta conocida"
         else:
             halladas, nombrada = ([], False) if categoria else \
-                INDICE.buscar(pregunta, cuantas, tipo in ("amplia", "muy amplia", "comparación"), nube)
+                INDICE.buscar(consulta_b, cuantas, tipo in ("amplia", "muy amplia", "comparación"), nube)
+            if consulta_b != pregunta and halladas:
+                # Con el sujeto añadido, solo valen las notas que hablan de él: «¿su hermano?» tras Tony no es
+                # la ficha de Pietro. Si ninguna lo hace, el modelo recibe la nota del propio sujeto y admite que no consta.
+                propias = [n for n in halladas if habla_del_sujeto(n, MEMORIA["sujeto"], MEMORIA.get("obra"))]
+                base = INDICE.nombrada(MEMORIA["sujeto"], sin_preguntas=True)
+                halladas = propias or ([base] if base else halladas)
         # Le piden una opinión sin nombrar nada de Marvel («¿qué opinas de la vida?»): es charla, no una
         # búsqueda. Sin esto, una nota cualquiera que comparta una palabra acababa colándose en la respuesta.
+        # Coincidencias sueltas («cielo» en «Cielo Negro» al preguntar por el cielo azul): si ninguna nota
+        # dice su nombre completo y el puntaje es bajo, no hay nada que el modelo deba leer.
+        if halladas and not obra and not conocida and not nube and not nombrado \
+                and INDICE.fuerza[0] < 16 and not INDICE.fuerza[1] and INDICE.fuerza[2] < 1.0 and INDICE.fuerza[3] < 0.67:
+            halladas, nombrada = [], False
         if tipo == "opinión" and not nombrado and not obra and not conocida:
             halladas, nombrada = [], False
+        # «¿Qué es la física cuántica?»: si no nombra una nota, las que comparten una palabra son ruido.
+        if tipo == "identidad" and not nombrada and not nombrado and not obra and not conocida:
+            halladas = []
+        # Preguntas dirigidas a él («¿te gusta ser tú?», «¿estás encerrado?»): no cargan notas de personajes.
+        de_si = bool(SEGUNDA_PERSONA.search(normalizar(pregunta))) and not nombrado and not nombrada and not obra
+        if de_si and not conocida:
+            halladas, nombrada = [], False
+        # De quién se habla: el nombre que quedó en la búsqueda, aunque la pregunta lo dijera a medias («Tony»).
+        if nombrada and halladas and not nombrado and not obra and not categoria:
+            primero = halladas[0]
+            if primero["base"] and not primero["id"].startswith("¿") and not primero.get("ajena"):
+                MEMORIA["sujeto"] = SIN_COLETILLA.sub("", primero["id"])
         if not categoria and not nombrada:
             juicio = CRITERIO.juzgar(pregunta)
             if juicio:
@@ -1671,7 +2032,7 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
                                               normalizar(pregunta)):
             RUTAS.pop(clave_ruta(MEMORIA["preguntas"][-1]), None)
         # Pregunta cerrada que ya tiene respuesta escrita: sale tal cual, al instante.
-        exacta = None if repaso or obra or tipo in ("muy amplia", "hipotética") else INDICE.directa(pregunta, halladas)
+        exacta = None if repaso or obra or tipo in ("muy amplia", "hipotética", "capciosa") else INDICE.directa(consulta_b, halladas)
         # En preguntas que piden explicar, comparar u opinar solo valen las «preguntas resueltas» (escritas
         # a mano para eso); las preguntas sueltas de las fichas se quedan cortas y ahí redacta el modelo.
         if exacta and tipo in ("amplia", "opinión", "comparación") and not exacta["dato"]:
@@ -1679,11 +2040,27 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         # «¿Quién es Superman?», «¿qué es el vibranium?»: si hay una nota general corta con ese nombre
         # exacto, es la mejor respuesta posible. El modelo, al redactarla, tiende a adornarla con inventos.
         if not exacta and tipo == "identidad" and halladas and not repaso and not obra:
-            primera_nota, dicho = halladas[0], set(palabras(pregunta))
-            if primera_nota["base"] and primera_nota["titulo"] == dicho and len(primera_nota["resumen"]) <= 420:
-                exacta = primera_nota
+            dicho = set(palabras(pregunta))
+            # La nota general de esa persona, no la respuesta de una pregunta frecuente («¿Por qué Hulk no habla?»).
+            generales = [n for n in halladas if n["base"] and not n["id"].startswith("¿") and n["titulo"] == dicho
+                         and len(n["resumen"]) <= 420]
+            if generales:
+                exacta = generales[0]
+        # «Háblame de Iron Man»: la nota general de esa persona, tal cual (más rápido y sin inventos).
+        # Las peticiones de profundizar («a fondo», «todo», «más») siguen yendo al modelo.
+        mas = False
+        plano_q = " ".join(re.sub(r"[^a-z0-9 ]", " ", normalizar(pregunta)).split())
+        if not exacta and tipo == "amplia" and halladas and nombrada and not repaso and not obra \
+                and RESUME_NOTA.match(plano_q) and not SIN_RESUMEN.search(plano_q):
+            n0 = halladas[0]
+            if n0["base"] and not n0["id"].startswith("¿") and len(n0["resumen"]) <= 700 \
+                    and n0["titulo"] <= set(palabras(pregunta)):
+                exacta, mas = n0, True
         if exacta:
-            respuesta = exacta["resumen"].strip()
+            respuesta = como_frase(exacta)
+            # Una explicación no se queda en una línea: se le suma, de las notas, lo que falta y habla de lo mismo.
+            respuesta += completar(respuesta, tipo, [n for n in halladas if n["id"] != exacta["id"]], pregunta)
+            respuesta += " ¿Quiere que profundice?" if mas else ""
             decir("documentos", "directa", respuesta[:1].upper() + respuesta[1:], [exacta["id"]])
             MEMORIA["notas"], MEMORIA["usadas"] = [exacta["id"]], {exacta["id"]}
             MEMORIA["mensajes"][-2]["content"] = f"Datos:\n{exacta['id']}: {exacta['resumen']}\n\nPregunta: {pregunta}"
@@ -1697,7 +2074,7 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
             halladas, nombrada = [], False
         # Seguimiento: había tema y el mensaje no nombra ninguna nota ("háblame de ellas", "¿y cuánto
         # pesa?", "sí"). Si solo coincide con el texto de alguna nota, también sigue el tema anterior.
-        hay_tema = bool(MEMORIA["notas"]) and not repaso
+        hay_tema = bool(MEMORIA["notas"]) and not repaso and not de_si
         # La jerga no cuenta como "palabra ajena": "¿y ese tíguere era el más duro?" sigue el tema.
         seguimiento = hay_tema and bool((halladas and not nombrada) or
                                         (not halladas and INDICE.ajenas(CRITERIO.sin_jerga(pregunta)) <= 1))
@@ -1723,6 +2100,20 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
             ids = MEMORIA["notas"] + [n["id"] for n in halladas if n["id"] not in MEMORIA["notas"]]
         else:
             ids = [n["id"] for n in halladas]
+        if not halladas and not seguimiento and not repaso:
+            res = recetas.intentar("modelo", ctx_recetas(pregunta, halladas=halladas, seguimiento=seguimiento,
+                                                          repaso=repaso, tipo=tipo))
+            if res:
+                return aplicar(res)
+        if halladas and not repaso:
+            res = recetas.intentar("datos", ctx_recetas(pregunta, halladas=halladas, seguimiento=seguimiento,
+                                                         repaso=repaso, tipo=tipo, consulta=consulta_b, palabras=palabras))
+            if res and res.get("continuar"):  # la habilidad encontró notas que el modelo debe leer
+                receta_usada = res["receta"]
+                halladas = res["agregar"] + [n for n in halladas if n not in res["agregar"]]
+                ids = list(dict.fromkeys([n["id"] for n in res["agregar"]] + ids))
+            elif res:
+                return aplicar(res)
         fuente ="documentos" if halladas or seguimiento else "memoria" if repaso else "general"
         datos = "\n".join(f"{n['id']}: {n['resumen']}" for n in halladas)
         if repaso:
@@ -1742,6 +2133,12 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         # Capitán América y Superman?»), la aclaración no se le confía al modelo, que tiende a seguirle
         # la corriente a la pregunta: sale escrita de antemano, y el modelo responde solo sobre Marvel.
         ajenas = [n for n in halladas if n.get("ajena")]
+        dicho = f" {' '.join(re.findall(r'[a-z0-9]+', normalizar(pregunta)))} "
+        literales = [n for n in ajenas if f" {' '.join(re.findall(r'[a-z0-9]+', n['plano']))} " in dicho]
+        if ajenas and not literales and len(ajenas) < len(halladas):
+            halladas = [n for n in halladas if not n.get("ajena")]  # nadie lo nombró: ruido de la búsqueda
+            datos = "\n".join(f"{n['id']}: {n['resumen']}" for n in halladas)
+        ajenas = literales
         aviso = precision = ""
         if ajenas and len(ajenas) < len(halladas) and not repaso:
             partes = []
@@ -1768,8 +2165,10 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         # Al redactar, el tono solo se le pide cuando conversa sin datos delante. Con datos, pedirle
         # ánimo lo lleva a adornar, y ahí lo primero es la exactitud: el ánimo se ve en el mapa y en el color.
         tono = "" if datos else EMOCIONES[animo][2]
+        guias = [] if repaso else guias_para(original)
         usuario = (f"Datos:\n{datos}\n\n" if datos else "") + (f"Jerga: {glosa}\n" if glosa else "") + aviso + \
-            f"Pregunta: {pregunta}\nExtensión: {indicacion}" + (f"\nTono: {tono}." if tono else "")
+            f"Pregunta: {pregunta}\nExtensión: {indicacion}" + (f"\nTono: {tono}." if tono else "") + \
+            (f"\nGuía: {' '.join(guias)}" if guias else "")
         consideradas = [] if seguimiento or repaso else [i for i in INDICE.consideradas if i not in ids]
         enviar({"tipo": "inicio", "fuente": fuente, "nodos": ids, "consideradas": consideradas,
                 "emocion": EMOCIONES[animo][0]})
@@ -1787,8 +2186,13 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
                 if esperar:
                     continue
                 corte = corte_frases(limpio, tope)
+                maximo = (criterios.datos().get("longitud", {}).get(tipo) or [0, 0])[1]
+                if maximo:  # la extensión que corresponde a ese tipo de pregunta
+                    tope_palabras = corte_palabras(limpio, int(maximo * 0.85), len(texto))  # termina la frase en curso
+                    if tope_palabras and (not corte or tope_palabras < corte):
+                        corte = tope_palabras
                 # Se retienen los últimos caracteres por si completan un tratamiento que hay que quitar.
-                hasta = corte if corte else max(len(texto), len(limpio) - 14)
+                hasta = corte if corte else max(len(texto), len(limpio) - RETENER)
                 if hasta > len(texto):
                     if primera is None:
                         primera = time.time() - inicio
@@ -1807,6 +2211,11 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
                 if resto:
                     enviar({"tipo": "texto", "t": resto})
                     texto += resto
+            if not detenida and not repaso and fuente == "documentos" and texto:
+                mas_texto = completar(texto, tipo, halladas, pregunta)
+                if mas_texto:  # se quedó corta: se le suma lo que dicen las notas, que es exacto
+                    enviar({"tipo": "texto", "t": mas_texto})
+                    texto += mas_texto
             # Las cifras no se le confían al modelo: si escribió un número que no está en los datos que
             # tenía delante ni en la conversación, se avisa en vez de dejarlo pasar por bueno.
             if datos and not repaso and not detenida:
@@ -1820,12 +2229,22 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
                             f"{'constan' if len(unicas) > 1 else 'consta'} en mis notas; conviene comprobarlo.)")
                     enviar({"tipo": "texto", "t": nota})
                     texto += nota
+            if datos and fuente == "documentos" and not repaso and not detenida:
+                raros = nombres_dudosos(texto, datos + " " + pregunta + " " + " ".join(m["content"] for m in MEMORIA["mensajes"]))
+                if raros:
+                    nota = (f" (Aviso: {'los nombres' if len(raros) > 1 else 'el nombre'} {', '.join(raros)} no "
+                            f"{'constan' if len(raros) > 1 else 'consta'} en mis notas; conviene comprobarlo.)")
+                    enviar({"tipo": "texto", "t": nota})
+                    texto += nota
             texto = precision + texto
-            recordar(usuario, texto, pregunta, [n["id"] for n in halladas])
+            if detenida:  # una respuesta cortada no entra a la memoria: se guarda la pregunta para retomarla
+                MEMORIA["detenida"] = original
+            else:
+                recordar(usuario, texto, pregunta, [n["id"] for n in halladas])
             # El camino queda anotado para la próxima vez (solo si salió de las notas y se terminó de responder).
             if fuente == "documentos" and ids and not seguimiento and not repaso and not obra and not detenida:
-                guardar_ruta(original, ids)
-            if not repaso:
+                guardar_ruta(consulta_b if consulta_b != pregunta else original, ids)
+            if not repaso and not detenida:
                 obra_de = next((n["doc"] for n in halladas if n.get("doc") in INDICE.docs), None)
                 if obra_de and not seguimiento:
                     MEMORIA["obra"] = obra_de
@@ -1837,21 +2256,29 @@ def responder(pregunta, enviar, nueva=False, cliente="local"):
         extra = [i for i in INDICE.mencionadas(texto) if i not in ids] if fuente == "documentos" else []
         MEMORIA["animo"] = animo
         enviar({"tipo": "fin", "nodos": ids + extra, "segundos": round(time.time() - inicio, 1),
-                "detenida": detenida, "emocion": EMOCIONES[animo][0]})
+                "detenida": detenida, "emocion": EMOCIONES[animo][0], "motor": MOTOR[0]})
     finally:
+        EN_RESPUESTA.clear()
         PARAR.clear()
         OCUPADO.release()
         with FILA:
             TURNOS.remove(boleto)
             FILA.notify_all()
         ULTIMO.update(pregunta=original, fuente=fuente, etiqueta=etiqueta)
+        registro = {
+            "hora": time.strftime("%Y-%m-%d %H:%M:%S"), "pregunta": original, "fuente": fuente,
+            "etiqueta": etiqueta, "notas": ids, "primera_palabra_s": primera and round(primera, 1),
+            "total_s": round(time.time() - inicio, 1), "tipo": tipo, "animo": animo, "cliente": cliente,
+            "receta": receta_usada, "respuesta": texto, "motor": MOTOR[0],
+        }
+        MOTOR[0] = None
+        try:  # la rúbrica evalúa cada respuesta al instante (ver comportamiento/criterios.json)
+            ev = criterios.evaluar(registro, crit=CRITERIO)
+            registro.update(calidad=ev["puntaje"], fallos=[f["id"] for f in ev["fallos"]])
+        except Exception:
+            pass
         with BITACORA.open("a", encoding="utf-8") as f:
-            f.write(json.dumps({
-                "hora": time.strftime("%Y-%m-%d %H:%M:%S"), "pregunta": original, "fuente": fuente,
-                "etiqueta": etiqueta, "notas": ids, "primera_palabra_s": primera and round(primera, 1),
-                "total_s": round(time.time() - inicio, 1), "tipo": tipo, "animo": animo, "cliente": cliente,
-                "respuesta": texto,
-            }, ensure_ascii=False) + "\n")
+            f.write(json.dumps(registro, ensure_ascii=False) + "\n")
 
 
 # ---- Documentos nuevos: se suben por la red y Jarvis los convierte en notas él solo ----
@@ -1927,27 +2354,87 @@ def borrar_documento(documento):
 
 
 def ultimas_preguntas(cuantas=40):
+    """Las últimas respuestas. Lee solo el final del archivo (crece sin parar) y recuerda el resultado mientras no cambie."""
     if not BITACORA.exists():
         return []
-    lineas = BITACORA.read_text(encoding="utf-8").splitlines()[-cuantas:]
-    return [json.loads(l) for l in reversed(lineas) if l.strip()]
+    info = BITACORA.stat()
+    clave = (info.st_mtime_ns, info.st_size, cuantas)
+    if _ULTIMAS[0] == clave:
+        return _ULTIMAS[1]
+    with BITACORA.open("rb") as f:
+        f.seek(max(0, info.st_size - cuantas * 2 * 4096))
+        crudo = f.read().decode("utf-8", "replace")
+    lineas = crudo.splitlines()[-cuantas * 2:]
+    sueltas = []
+    for l in reversed(lineas):
+        try:
+            sueltas.append(json.loads(l))
+        except ValueError:
+            continue   # la primera línea de la lectura puede venir cortada
+    resultado = [e for e in sueltas if not str(e.get("cliente", "")).startswith("entrenamiento")][:cuantas]
+    _ULTIMAS[:] = [clave, resultado]
+    return resultado
+
+
+_ULTIMAS = [None, []]
+
+
+_RECUERDO = {}
+
+
+def recordado(nombre, segundos, calcular):
+    """Lo que cuesta pedirlo (leer sensores, lanzar un programa) no se repite si lo pidieron hace un momento:
+    varias pantallas preguntan a la vez cada pocos segundos."""
+    ahora = time.time()
+    hecho = _RECUERDO.get(nombre)
+    if hecho and ahora - hecho[0] < segundos:
+        return hecho[1]
+    valor = calcular()
+    _RECUERDO[nombre] = (ahora, valor)
+    return valor
 
 
 def estado_general(local):
     nombre = socket.gethostname()
-    return {"lecturas": criterio.lecturas(), "modelo": MODELO, "notas": len(INDICE.notas),
+    return {"lecturas": recordado("lecturas", 3, criterio.lecturas), "modelo": MODELO, "notas": len(INDICE.notas),
             "ocupado": OCUPADO.locked(), "local": local, "nombre": nombre,
             "direcciones": direcciones(), "pide_clave": bool(CLAVE) and not local}
 
 
 def direcciones():
     """Direcciones por las que otro equipo puede llegar a este."""
-    try:
-        salida = subprocess.run(["hostname", "-I"], capture_output=True, text=True, timeout=3).stdout.split()
-    except (OSError, subprocess.SubprocessError):
-        salida = []
-    return [d for d in salida if ":" not in d]
+    def pedir():
+        try:
+            salida = subprocess.run(["hostname", "-I"], capture_output=True, text=True, timeout=3).stdout.split()
+        except (OSError, subprocess.SubprocessError):
+            salida = []
+        return [d for d in salida if ":" not in d]
+    return recordado("direcciones", 4, pedir)
 
+
+# Control de exhibición. La Latitude está a la vista del público; desde otro dispositivo (el «manager») se puede
+# callar la voz, bloquear el teclado de la pantalla, hacer que Jarvis diga algo o preguntarle «en pantalla».
+# Las pantallas se enteran por el canal en vivo (eventos «orden») y al cargarse leen /api/exhibicion.
+ARCHIVO_EXHIBICION = RAIZ / "exhibicion.json"
+EXHIBICION = {"silencio": False, "bloqueado": False}
+try:
+    EXHIBICION.update(json.loads(ARCHIVO_EXHIBICION.read_text(encoding="utf-8")))
+except (OSError, ValueError):
+    pass
+
+
+def poner_exhibicion(cambios):
+    for clave in ("silencio", "bloqueado"):
+        if clave in cambios:
+            EXHIBICION[clave] = bool(cambios[clave])
+    try:
+        ARCHIVO_EXHIBICION.write_text(json.dumps(EXHIBICION), encoding="utf-8")
+    except OSError:
+        pass
+    difundir({"tipo": "orden", "accion": "exhibicion", **EXHIBICION})
+
+
+LIMITE_VOZ = threading.Semaphore(2)  # como mucho dos peticiones de voz u oído a la vez (no ahogar al modelo de lenguaje)
 
 # Clave para gestionar archivos desde otro equipo (subir y borrar). Desde la propia máquina no se pide.
 # Vive en clave.txt; si el archivo está vacío, no se pide clave a nadie.
@@ -1963,12 +2450,91 @@ class Manejador(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(WEB), **kwargs)
 
+    def send_header(self, clave, valor):
+        if clave.lower() == "cache-control":
+            self._con_cache = True
+        super().send_header(clave, valor)
+
     def end_headers(self):
-        self.send_header("Cache-Control", "no-store")
+        if not getattr(self, "_con_cache", False):   # lo dinámico (API, eventos) nunca se guarda; lo estático decide abajo
+            super().send_header("Cache-Control", "no-store")
         super().end_headers()
+
+    # ---- Archivos estáticos: validación con ETag, gzip guardado en memoria y caché largo para lo que no cambia ----
+    COMPRIMIBLES = {".html", ".css", ".js", ".json", ".svg", ".webmanifest", ".txt", ".md"}
+    PARA_SIEMPRE = {".woff2", ".woff", ".ttf"}                 # las fuentes no cambian: un año
+    DE_UNA_SEMANA = {".png", ".jpg", ".jpeg", ".webp", ".ico", ".gif", ".pdf", ".bat", ".command", ".sh"}
+    GZIP = {}   # (ruta, mtime, tamaño) -> bytes comprimidos
+
+    def servir_estatico(self, con_cuerpo=True):
+        ruta = urllib.parse.urlsplit(self.path).path
+        destino = Path(self.translate_path(ruta))
+        if destino.is_dir():
+            if not ruta.endswith("/"):
+                return False   # la redirección a «carpeta/» la hace la clase base
+            destino = destino / "index.html"
+        if not destino.is_file():
+            return False
+        info = destino.stat()
+        etag = f'W/"{info.st_mtime_ns:x}-{info.st_size:x}"'
+        ext = destino.suffix.lower()
+        cache = "public, max-age=31536000, immutable" if ext in self.PARA_SIEMPRE else \
+                "public, max-age=604800" if ext in self.DE_UNA_SEMANA else "no-cache"   # no-cache = guardar, pero preguntar siempre
+        gz = ext in self.COMPRIMIBLES and info.st_size > 1024 and "gzip" in self.headers.get("Accept-Encoding", "")
+        etag_enviado = etag[:-1] + '-gz"' if gz else etag
+        if self.headers.get("If-None-Match", "") in (etag, etag_enviado) or etag in self.headers.get("If-None-Match", ""):
+            self.send_response(304)
+            self.send_header("ETag", etag_enviado)
+            self.send_header("Cache-Control", cache)
+            self.end_headers()
+            return True
+        datos = None
+        if gz:
+            clave = (str(destino), info.st_mtime_ns, info.st_size)
+            if clave not in self.GZIP:
+                if len(self.GZIP) > 64:
+                    self.GZIP.clear()
+                self.GZIP[clave] = gzip.compress(destino.read_bytes(), compresslevel=9)
+            datos = self.GZIP[clave]
+        self.send_response(200)
+        self.send_header("Content-Type", self.guess_type(str(destino)))
+        self.send_header("Content-Length", str(len(datos) if datos is not None else info.st_size))
+        self.send_header("Last-Modified", email.utils.formatdate(info.st_mtime, usegmt=True))
+        self.send_header("ETag", etag_enviado)
+        self.send_header("Cache-Control", cache)
+        self.send_header("Vary", "Accept-Encoding")
+        if datos is not None:
+            self.send_header("Content-Encoding", "gzip")
+        self.end_headers()
+        if con_cuerpo:
+            if datos is not None:
+                self.wfile.write(datos)
+            else:
+                with destino.open("rb") as origen:
+                    shutil.copyfileobj(origen, self.wfile)
+        return True
 
     def log_message(self, *args):
         pass
+
+    def para_otro_nombre(self):
+        """¿Un equipo de la red de M-Jarvis pide una página de otro sitio (connectivitycheck.gstatic.com,
+        captive.apple.com…)? Es el portal cautivo: llegan aquí con cualquier nombre y se les lleva al chat.
+        Solo vale para equipos de la Wi-Fi propia o del cable que ofrece la interfaz (10.42.0.x / 10.44.0.x)."""
+        if not str(self.client_address[0]).startswith(("10.42.0.", "10.44.0.")):
+            return False
+        crudo = (self.headers.get("Host") or "").strip().lower()
+        if not crudo or crudo.startswith("["):
+            return False
+        host = crudo.split(":")[0]
+        return not (re.fullmatch(r"[\d.]+", host) or host == "localhost" or host.endswith(".local") or host == socket.gethostname().lower())
+
+    def al_chat(self):
+        destino = f"http://{self.connection.getsockname()[0]}:{PUERTO}/?vista=chat"
+        self.send_response(302)
+        self.send_header("Location", destino)
+        self.send_header("Content-Length", "0")
+        self.end_headers()
 
     def responder_json(self, objeto, codigo=200):
         cuerpo = json.dumps(objeto, ensure_ascii=False).encode("utf-8")
@@ -2030,7 +2596,9 @@ class Manejador(SimpleHTTPRequestHandler):
             error = borrar_documento(documento)
             return self.responder_json({"error": error}, 400) if error else self.responder_json({"ok": True})
         if self.path == "/api/detener":
-            return self.responder_json({"detenida": detener()})
+            cortada = detener()
+            difundir({"tipo": "orden", "accion": "callar"})   # y la pantalla deja de hablar
+            return self.responder_json({"detenida": cortada})
         if self.path == "/api/desactivar":  # apagar o encender notas: {"notas": [ids], "activa": true|false}
             if not self.autorizado():
                 return
@@ -2067,6 +2635,118 @@ class Manejador(SimpleHTTPRequestHandler):
             CRITERIO.cargar()
             escribir_red_de_trato()
             return self.responder_json(estado_aprendizaje())
+        if self.path == "/api/red":  # {"accion": ...}: lo que el dueño puede mandarle a la red
+            if not self.autorizado():
+                return
+            try:
+                orden = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))))
+                accion = str(orden["accion"])
+            except (ValueError, KeyError, TypeError):
+                return self.responder_json({"error": "Petición mal formada."}, 400)
+            tareas = {"hotspot_on": lambda: red.RED.hotspot(True), "hotspot_off": lambda: red.RED.hotspot(False),
+                      "local": lambda: red.RED.forzar("local"), "auto": lambda: red.RED.forzar("auto"),
+                      "cable_servidor": lambda: red.RED.cable_modo("servidor"), "cable_cliente": lambda: red.RED.cable_modo("cliente"),
+                      "cable_auto": lambda: red.RED.cable_modo("auto"), "reevaluar": lambda: red.RED.evaluar()}
+            if accion not in tareas:
+                return self.responder_json({"error": "Acción desconocida."}, 400)
+            threading.Thread(target=tareas[accion], daemon=True).start()  # puede cortar esta conexión: se responde antes
+            return self.responder_json({"ok": True, "accion": accion})
+        if self.path == "/api/nube":  # {"activo": bool} | {"clave": "groq"|"gemini", "valor": "..."} | {"probar": "groq-70b"}
+            if not self.autorizado():
+                return
+            try:
+                pedido = json.loads(self.rfile.read(min(int(self.headers.get("Content-Length", 0)), 2000)))
+            except (ValueError, TypeError):
+                return self.responder_json({"error": "Petición mal formada."}, 400)
+            if "activo" in pedido:
+                nube.poner_activa(pedido["activo"])
+            if "clave" in pedido:
+                problema = nube.poner_clave(str(pedido["clave"]), str(pedido.get("valor", "")))
+                if problema:
+                    return self.responder_json({"error": problema}, 400)
+            resultado = nube.probar(str(pedido["probar"])) if "probar" in pedido else None
+            return self.responder_json({**nube.estado(), **({"prueba": resultado} if resultado else {})})
+        if self.path == "/api/exhibicion":  # {"silencio": bool, "bloqueado": bool}
+            if not self.autorizado():
+                return
+            try:
+                poner_exhibicion(json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)))))
+            except (ValueError, TypeError):
+                return self.responder_json({"error": "Petición mal formada."}, 400)
+            return self.responder_json(EXHIBICION)
+        if self.path in ("/api/decir", "/api/pantalla"):  # {"texto": ...}: Jarvis lo dice / alguien se lo pregunta en pantalla
+            if not self.autorizado():
+                return
+            try:
+                texto = str(json.loads(self.rfile.read(min(int(self.headers.get("Content-Length", 0)), 2000)))["texto"]).strip()[:600]
+            except (ValueError, KeyError, TypeError):
+                return self.responder_json({"error": "Petición mal formada."}, 400)
+            if not texto:
+                return self.responder_json({"error": "Falta el texto."}, 400)
+            difundir({"tipo": "orden", "accion": "decir" if self.path == "/api/decir" else "preguntar", "texto": texto})
+            return self.responder_json({"ok": True})
+        if self.path == "/api/voz":  # {"texto": "..."} -> audio WAV con la frase dicha (Piper, en local)
+            try:
+                orden = json.loads(self.rfile.read(min(int(self.headers.get("Content-Length", 0)), 4000)))
+                texto = str(orden["texto"])
+            except (ValueError, KeyError, TypeError):
+                return self.responder_json({"error": "Petición mal formada."}, 400)
+            with LIMITE_VOZ:
+                try:
+                    audio = voz.VOZ.sintetizar(texto)
+                except Exception as error:  # falta el modelo, memoria, etc.: la página sigue sin voz
+                    return self.responder_json({"error": f"No pude hablar: {type(error).__name__}"}, 503)
+            if not audio:
+                return self.responder_json({"error": "Nada que decir."}, 400)
+            self.send_response(200)
+            self.send_header("Content-Type", "audio/wav")
+            self.send_header("Content-Length", str(len(audio)))
+            self.end_headers()
+            self.wfile.write(audio)
+            return
+        if self.path == "/api/oir":  # cuerpo = audio del micrófono (webm/ogg/wav) -> {"texto": "..."} (Whisper, en local)
+            largo = int(self.headers.get("Content-Length", 0))
+            if not 0 < largo <= voz.MAX_AUDIO:
+                return self.responder_json({"error": "El audio está vacío o es demasiado largo."}, 400)
+            datos = self.rfile.read(largo)
+            with LIMITE_VOZ:
+                try:
+                    inicio = time.time()
+                    texto, segundos = voz.OIDO.transcribir(datos)
+                except Exception as error:
+                    return self.responder_json({"error": f"No pude oír: {type(error).__name__}"}, 503)
+            return self.responder_json({"texto": texto, "audio_s": round(segundos, 1), "segundos": round(time.time() - inicio, 1)})
+        if self.path == "/api/autoentreno":  # {"accion": "rapido|completo|cancelar|aprobar|descartar|automatico", ...}
+            if not self.autorizado():
+                return
+            try:
+                orden = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))))
+            except ValueError:
+                return self.responder_json({"error": "Petición mal formada."}, 400)
+            accion = orden.get("accion")
+            if accion in ("rapido", "completo"):
+                if not autoentreno.lanzar(accion):
+                    return self.responder_json({"error": "Ya está entrenando."}, 409)
+            elif accion == "cancelar":
+                autoentreno.cancelar()
+            elif accion == "aprobar":
+                resultado = autoentreno.aprobar(str(orden.get("id", "")))
+                if not resultado["ok"]:
+                    return self.responder_json({**resultado, "estado": autoentreno.estado_panel()}, 409)
+            elif accion == "descartar":
+                autoentreno.descartar(str(orden.get("id", "")))
+            elif accion == "automatico":
+                autoentreno.poner_automatico(bool(orden.get("valor")))
+            return self.responder_json(autoentreno.estado_panel())
+        if self.path == "/api/recetas":  # {"nombre": ..., "activa": true|false}
+            if not self.autorizado():
+                return
+            try:
+                orden = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))))
+                recetas.poner_activa(str(orden["nombre"]), bool(orden["activa"]))
+            except (ValueError, KeyError, TypeError):
+                return self.responder_json({"error": "Petición mal formada."}, 400)
+            return self.responder_json(recetas.listado())
         if self.path == "/api/clave":  # comprobar la clave desde el panel
             return self.responder_json({"ok": True}) if self.autorizado() else None
         if self.path != "/api/preguntar":
@@ -2099,7 +2779,15 @@ class Manejador(SimpleHTTPRequestHandler):
         except (BrokenPipeError, ConnectionResetError):
             difundir({"tipo": "fin", "nodos": MEMORIA["notas"], "segundos": 0})  # que el mapa no quede "pensando"
 
+    def do_HEAD(self):
+        if self.para_otro_nombre():
+            return self.al_chat()
+        if not self.servir_estatico(con_cuerpo=False):
+            super().do_HEAD()
+
     def do_GET(self):
+        if self.para_otro_nombre():
+            return self.al_chat()
         ruta = urllib.parse.urlsplit(self.path)
         consulta = urllib.parse.parse_qs(ruta.query)
         if ruta.path == "/api/documentos":
@@ -2114,6 +2802,18 @@ class Manejador(SimpleHTTPRequestHandler):
             return self.responder_json(ultimas_preguntas())
         if ruta.path == "/api/aprendizaje":
             return self.responder_json(estado_aprendizaje())
+        if ruta.path == "/api/voz/estado":
+            return self.responder_json(voz.estado())
+        if ruta.path == "/api/red":
+            return self.responder_json(red.RED.estado())
+        if ruta.path == "/api/exhibicion":
+            return self.responder_json(EXHIBICION)
+        if ruta.path == "/api/nube":
+            return self.responder_json(nube.estado())
+        if ruta.path == "/api/autoentreno":
+            return self.responder_json(autoentreno.estado_panel())
+        if ruta.path == "/api/recetas":
+            return self.responder_json(recetas.listado())
         if ruta.path == "/api/clave":  # la clave solo se enseña en la propia máquina
             return self.responder_json({"clave": CLAVE} if self.es_local() else {"error": "Solo en la Latitude."},
                                        200 if self.es_local() else 403)
@@ -2146,7 +2846,8 @@ class Manejador(SimpleHTTPRequestHandler):
                 shutil.copyfileobj(origen, self.wfile)
             return
         if ruta.path != "/api/eventos":
-            super().do_GET()
+            if not self.servir_estatico():
+                super().do_GET()
             return
         # Canal en vivo (Server-Sent Events) para las pantallas que siguen la conversación.
         self.send_response(200)
@@ -2175,6 +2876,12 @@ class Manejador(SimpleHTTPRequestHandler):
 if __name__ == "__main__":
     INDICE.cargar()
     escribir_red_de_trato()
+    autoentreno.iniciar(sys.modules[__name__])
+    # En un equipo que no es la Latitude (MJARVIS_SIN_RED=1) el cerebro de red no arranca: cambiaría las conexiones de ese equipo.
+    # MJARVIS_ESCUCHA=127.0.0.1 deja el servidor visible solo para ese mismo equipo.
+    if not os.environ.get("MJARVIS_SIN_RED"):
+        red.iniciar()
     threading.Thread(target=calentar, daemon=True).start()
-    print(f"M-Jarvis en http://0.0.0.0:{PUERTO} ({len(INDICE.notas)} notas, modelo {MODELO})")
-    ThreadingHTTPServer(("0.0.0.0", PUERTO), Manejador).serve_forever()
+    escucha = os.environ.get("MJARVIS_ESCUCHA", "0.0.0.0")
+    print(f"M-Jarvis en http://{escucha}:{PUERTO} ({len(INDICE.notas)} notas, modelo {MODELO})", flush=True)
+    ThreadingHTTPServer((escucha, PUERTO), Manejador).serve_forever()

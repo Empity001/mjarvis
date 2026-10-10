@@ -25,8 +25,12 @@ case "$1" in
   encender)
     nmcli con up "$PERFIL" >/dev/null ;;
   apagar)
+    # Se nombra la Wi-Fi de casa: `nmcli device connect` elegía otra vez la propia, porque mientras hace de
+    # punto de acceso la lista de redes visibles está vieja.
     nmcli con down "$PERFIL" >/dev/null 2>&1
-    nmcli device connect "$(tarjeta)" >/dev/null 2>&1 ;;
+    nmcli device wifi rescan ifname "$(tarjeta)" >/dev/null 2>&1; sleep 4
+    nmcli -t -f NAME,TYPE,TIMESTAMP con show | awk -F: -v p="$PERFIL" '$2 == "802-11-wireless" && $1 != p { print $3 " " $1 }' | sort -rn | cut -d" " -f2- |
+      while IFS= read -r red; do nmcli con up "$red" >/dev/null 2>&1 && break; done ;;
   *)
     echo "Uso: $0 estado|crear|encender|apagar" >&2; exit 1 ;;
 esac
