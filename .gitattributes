@@ -1,0 +1,14 @@
+# El código se queda con saltos de línea LF en todos los sistemas: la Latitude es Linux y un .sh con CRLF no arranca.
+* text=auto eol=lf
+
+# Lo propio de Windows sí lleva CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binarios: git no los toca
+*.pdf binary
+*.png binary
+*.jpg binary
+*.woff2 binary
+*.ico binary
