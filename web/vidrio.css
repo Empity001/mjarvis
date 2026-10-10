@@ -1,0 +1,270 @@
+/* Vidrio: el lenguaje visual único de M-Jarvis. Todo flota sobre la bola, que nunca desaparece: la escena es lo vivo
+   y cada sección es una lámina de cristal encima. Un solo acento (el ánimo de Jarvis); verde, ámbar y rojo solo significan
+   «bien», «ojo» y «parar». */
+:root {
+  --tinta: #05070b; --texto: #f3f6fb; --tenue: #aab4c4; --apagado: #8c97a9;
+  --animo: #6aa9ff; --ok: #5fd38d; --aviso: #f5a623; --mal: #ff7a6b;
+  --sans: "Instrument Sans Variable", "Instrument Sans", system-ui, "Segoe UI", sans-serif;
+  --serif: "Newsreader Variable", "Newsreader", Georgia, serif;
+  --salida: cubic-bezier(.16, 1, .3, 1);          /* exponencial: arranca rápido y se asienta */
+  --resorte: cubic-bezier(.34, 1.25, .5, 1);       /* un asomo de rebote, solo para lo que se desliza como líquido */
+  --salida-rapida: cubic-bezier(.23, 1, .32, 1);   /* salidas y respuestas inmediatas */
+  --alto-dock: 0px; --aire-dock: 0px;
+}
+
+/* ---------- El material ---------- */
+.vidrio {
+  position: relative;
+  background: linear-gradient(150deg, rgba(255, 255, 255, .17) 0%, rgba(255, 255, 255, .055) 42%, rgba(255, 255, 255, .1) 100%);
+  -webkit-backdrop-filter: blur(30px) saturate(1.8) brightness(1.06); backdrop-filter: blur(30px) saturate(1.8) brightness(1.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .38), inset 0 -1px 0 rgba(255, 255, 255, .05), inset 0 0 26px rgba(255, 255, 255, .035),
+              0 22px 44px -16px rgba(0, 0, 0, .65), 0 2px 6px rgba(0, 0, 0, .25);
+}
+/* El borde brillante: más luz en la esquina de arriba a la izquierda y un reflejo tenue en la de abajo a la derecha. */
+.vidrio::before, .pieza::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: linear-gradient(155deg, rgba(255, 255, 255, .6), rgba(255, 255, 255, 0) 28%, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, .26));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+/* Dentro de una lámina no se anida otro cristal (no desenfocaría nada): las piezas son un relleno translúcido. */
+.pieza { position: relative; background: rgba(255, 255, 255, .065); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12); }
+.pieza::before { opacity: .45; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .vidrio { background: rgba(26, 32, 46, .92); }
+}
+
+/* ---------- Ambiente: manchas de color lentas detrás de todo, para que el cristal tenga algo que refractar ---------- */
+#ambiente { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+#ambiente i { position: absolute; width: 62vmax; height: 62vmax; border-radius: 50%; opacity: .5; will-change: transform; }   /* el degradado ya es suave: sin filter, que pesa mucho en celulares */
+#ambiente i:nth-child(1) { left: -22vmax; top: -26vmax; background: radial-gradient(closest-side, color-mix(in oklab, var(--animo) 55%, #1a2a6a), transparent); animation: deriva-a 38s ease-in-out infinite alternate; }
+#ambiente i:nth-child(2) { right: -26vmax; bottom: -30vmax; background: radial-gradient(closest-side, color-mix(in oklab, var(--animo) 25%, #6a2a8a), transparent); animation: deriva-b 46s ease-in-out infinite alternate; opacity: .42; }
+@keyframes deriva-a { to { transform: translate(14vmax, 10vmax) scale(1.12); } }
+@keyframes deriva-b { to { transform: translate(-12vmax, -9vmax) scale(1.1); } }
+
+/* ---------- La barra de abajo ---------- */
+body.con-dock { --alto-dock: 68px; --aire-dock: 22px; }
+#dock { position: fixed; z-index: 30; left: 50%; bottom: max(14px, env(safe-area-inset-bottom)); transform: translateX(-50%); height: var(--alto-dock);
+  display: flex; padding: 6px; border-radius: 999px; gap: 2px; touch-action: manipulation; }
+#dock[hidden], body:not(.con-dock) #dock { display: none; }
+#dock a { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 76px; padding: 0 14px;
+  border-radius: 999px; color: var(--tenue); text-decoration: none; font: 500 .71rem/1 var(--sans); letter-spacing: .01em; transition: color .2s; -webkit-tap-highlight-color: transparent; }
+#dock a:hover { color: var(--texto); } #dock a[aria-current="page"] { color: #fff; }
+#dock a:active .icono { transform: scale(.88); }
+#dock .icono { width: 24px; height: 24px; transition: transform .35s var(--resorte); }
+#dock a[hidden] { display: none; }
+/* El cristal que se desliza bajo la sección activa. */
+#lente { position: absolute; z-index: 0; top: 6px; bottom: 6px; left: 0; width: 0; border-radius: 999px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .24), rgba(255, 255, 255, .1));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55), inset 0 -1px 0 rgba(255, 255, 255, .08), 0 6px 16px -6px rgba(0, 0, 0, .5);
+  transition: transform .45s var(--resorte), width .4s var(--salida); }
+#lente.estira { animation: estira .45s var(--salida); }
+#lente.quieta, .segmentos .lente.quieta { transition: none; }   /* la primera colocación no se desliza desde la izquierda */
+@keyframes estira { 35% { scale: 1.14 .93; } }
+.icono { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- La lámina ---------- */
+#hoja { position: fixed; z-index: 20; top: max(10px, env(safe-area-inset-top)); bottom: calc(var(--alto-dock) + var(--aire-dock) + max(14px, env(safe-area-inset-bottom)));
+  left: 10px; right: 10px; border-radius: 34px; display: flex; flex-direction: column; overflow: hidden; transform-origin: 50% 100%; }
+#hoja[hidden] { display: none; }
+#hoja.entra { animation: hoja-entra .45s var(--salida) both; }
+#hoja.sale { animation: hoja-sale .2s var(--salida-rapida) both; pointer-events: none; }
+/* Solo transform y opacity: la lámina ya tiene su propio desenfoque de fondo, y animar otro encima, en el elemento más grande, es lo más caro que se puede pedir. */
+@keyframes hoja-entra { from { opacity: 0; transform: translateY(30px) scale(.965); } }
+@keyframes hoja-sale { to { opacity: 0; transform: translateY(24px) scale(.975); } }   /* sale por donde entró */
+#hoja-cabeza { flex: none; display: flex; align-items: center; gap: 14px; padding: 22px 26px 8px; flex-wrap: wrap; }
+#hoja-cabeza h1 { margin: 0; font: 650 1.75rem/1.1 var(--sans); letter-spacing: -.02em; }
+#hoja-cabeza .derecha { margin-left: auto; }
+#hoja-cuerpo { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 10px 26px 30px; scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .22) transparent; }
+html:not(.con-vt) #hoja-cuerpo > * { animation: asoma .32s var(--salida) both; }   /* sin transiciones de vista, cada sección asoma; con ellas, el cuerpo se desliza entero */
+@keyframes asoma { from { opacity: 0; transform: translateY(10px); } }
+@media (min-width: 900px) { #hoja { left: 50%; right: auto; width: min(1080px, calc(100vw - 56px)); translate: -50% 0; } }
+@media (max-width: 560px) { #hoja-cabeza { padding: 18px 18px 6px; } #hoja-cabeza h1 { font-size: 1.5rem; } #hoja-cuerpo { padding: 8px 16px 24px; } #hoja { border-radius: 30px; } }
+
+/* Tras una lámina, el ambiente se queda quieto (el cristal lo desenfoca igual) y el cristal no se vuelve a calcular a 60 cuadros por segundo. */
+body.hoja-abierta #ambiente i { animation-play-state: paused; }
+body.ahorro #ambiente i { animation: none; }   /* equipo lento (la bola ya bajó su resolución): el ambiente queda fijo */
+.turno { content-visibility: auto; contain-intrinsic-size: auto 140px; }
+
+/* La bola y el chat se apartan cuando hay una lámina abierta, sin irse: la bola sigue ahí, detrás del cristal. */
+#cuerpo { transition: transform .6s var(--salida), opacity .45s; }
+body.hoja-abierta #cuerpo { transform: translate(-50%, -50%) scale(.72); opacity: .9; }
+#mensajes, #formulario, #barra { transition: opacity .3s var(--salida), filter .3s var(--salida); }
+body.hoja-abierta #mensajes, body.hoja-abierta #formulario { opacity: 0; filter: blur(10px); pointer-events: none; }
+body.hoja-abierta #barra #acciones { opacity: 0; pointer-events: none; }
+
+/* ---------- Piezas comunes ---------- */
+.titulo-2 { margin: 26px 0 10px; font: 650 1.1rem/1.25 var(--sans); letter-spacing: -.01em; }
+.titulo-2:first-child { margin-top: 6px; }
+.ayuda { margin: 0 0 14px; color: var(--tenue); font-size: .95rem; line-height: 1.5; max-width: 62ch; text-wrap: pretty; }
+.vacio { margin: 0; padding: 14px 2px; color: var(--apagado); }
+.pie-nota { color: var(--apagado); font-size: .82rem; line-height: 1.45; }
+.boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 0 20px; border-radius: 999px; border: 0; cursor: pointer; text-decoration: none;
+  background: rgba(255, 255, 255, .11); color: var(--texto); font: 550 .93rem var(--sans); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22);
+  transition: background .25s, transform .2s var(--resorte), opacity .2s; -webkit-tap-highlight-color: transparent; }
+.boton:hover { background: rgba(255, 255, 255, .18); } .boton:active { transform: scale(.95); }
+.boton.principal { background: color-mix(in oklab, var(--animo) 88%, #fff 8%); color: #06101f; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5); }
+.boton.principal:hover { background: color-mix(in oklab, var(--animo) 80%, #fff 18%); }
+.boton.peligro { color: var(--mal); background: color-mix(in oklab, var(--mal) 14%, transparent); }
+.boton.chico { min-height: 34px; padding: 0 14px; font-size: .84rem; }
+.boton[disabled] { opacity: .4; cursor: default; pointer-events: none; }
+.boton .icono { width: 18px; height: 18px; }
+.redondo { width: 40px; min-height: 40px; padding: 0; }
+:focus-visible { outline: 2px solid color-mix(in oklab, var(--animo) 70%, #fff); outline-offset: 3px; border-radius: 12px; }
+.fila-botones { display: flex; flex-wrap: wrap; gap: 10px; }
+.lista > * { display: flex; align-items: center; gap: 14px; padding: 14px 4px; border-top: 1px solid rgba(255, 255, 255, .09); }
+.lista > *:first-child { border-top: 0; }
+.lista .cuerpo { flex: 1; min-width: 0; } .lista b { font-weight: 600; } .lista small { display: block; color: var(--apagado); margin-top: 2px; line-height: 1.4; }
+.dato { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-top: 1px solid rgba(255, 255, 255, .09); color: var(--tenue); }
+.dato:first-child { border-top: 0; } .dato b { color: var(--texto); font-weight: 520; text-align: right; font-variant-numeric: tabular-nums; }
+.dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 8px 44px; align-items: start; }
+
+/* Segmentos: el mismo cristal deslizante que la barra, más pequeño. */
+.segmentos { position: relative; display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(0, 0, 0, .28); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4), inset 0 -1px 0 rgba(255, 255, 255, .08); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.segmentos::-webkit-scrollbar { display: none; }
+.segmentos button { position: relative; z-index: 1; flex: none; min-height: 36px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent; color: var(--tenue); font: 550 .9rem var(--sans); cursor: pointer; transition: color .3s; display: inline-flex; align-items: center; gap: 8px; }
+.segmentos button[aria-pressed="true"] { color: #fff; }
+.segmentos .lente { position: absolute; z-index: 0; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 999px; background: linear-gradient(180deg, rgba(255, 255, 255, .26), rgba(255, 255, 255, .12));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), 0 4px 12px -4px rgba(0, 0, 0, .5); transition: transform .4s var(--resorte), width .35s var(--salida); }
+.punto { display: inline-block; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--aviso); color: #1a1100; font: 700 .7rem/18px var(--sans); text-align: center; }
+
+/* Interruptor, como el de iOS. */
+.interruptor { position: relative; flex: none; width: 52px; height: 32px; border-radius: 16px; border: 0; padding: 0; cursor: pointer; background: rgba(120, 130, 150, .45); transition: background .3s; -webkit-tap-highlight-color: transparent; }
+.interruptor::after { content: ""; position: absolute; left: 3px; top: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .4); transition: transform .32s var(--resorte), width .2s; }
+.interruptor:active::after { width: 31px; }
+.interruptor[aria-checked="true"] { background: var(--ok); } .interruptor[aria-checked="true"]::after { transform: translateX(20px); }
+.interruptor[aria-checked="true"]:active::after { transform: translateX(15px); }
+
+/* ---------- Control: los cuatro mandos ---------- */
+.mandos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.mando { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; min-height: 142px; padding: 16px; border: 0; border-radius: 28px; text-align: left; cursor: pointer; color: var(--texto);
+  background: rgba(255, 255, 255, .07); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14); font-family: var(--sans); transition: background .3s, transform .25s var(--resorte); -webkit-tap-highlight-color: transparent; }
+.mando:hover { background: rgba(255, 255, 255, .11); } .mando:active { transform: scale(.96); }
+.mando .moneda { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .1); color: var(--tenue); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22); transition: background .25s, color .25s, box-shadow .25s; }
+.mando .moneda .icono { width: 24px; height: 24px; }
+.mando b { font-weight: 620; font-size: 1.02rem; } .mando small { display: block; margin-top: 2px; color: var(--tenue); font-size: .84rem; line-height: 1.3; }
+.mando[aria-pressed="true"] { background: color-mix(in oklab, var(--tono, var(--animo)) 20%, rgba(255, 255, 255, .06)); }
+.mando[aria-pressed="true"] .moneda { background: var(--tono, var(--animo)); color: #06101f; box-shadow: 0 0 22px -2px color-mix(in oklab, var(--tono, var(--animo)) 70%, transparent), inset 0 1px 0 rgba(255, 255, 255, .5); }
+.mando[aria-pressed="true"] small { color: color-mix(in oklab, var(--tono, var(--animo)) 55%, #fff); }
+.mando.parar .moneda { background: color-mix(in oklab, var(--mal) 26%, transparent); color: var(--mal); }
+.mando.parar:hover .moneda { background: var(--mal); color: #1a0502; }
+
+/* ---------- Control: lo que pasa ahora ---------- */
+.ahora { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 34px; margin-top: 8px; align-items: start; }
+.avisos { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
+.ficha { display: inline-flex; align-items: center; gap: 8px; min-height: 30px; padding: 0 13px; border-radius: 999px; background: rgba(255, 255, 255, .08); color: var(--tenue); font-size: .82rem; text-decoration: none; white-space: nowrap; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12); }
+.ficha .icono { width: 15px; height: 15px; } .ficha i { width: 7px; height: 7px; border-radius: 50%; background: var(--apagado); }
+.ficha.bien i { background: var(--ok); } .ficha.aviso i { background: var(--aviso); } .ficha.mal i { background: var(--mal); } .ficha.vivo i { background: var(--animo); animation: latido 1.2s ease-in-out infinite; }
+.ficha.nube { color: color-mix(in oklab, var(--animo) 60%, #fff); }
+@keyframes latido { 50% { opacity: .3; transform: scale(.7); } }
+.turno { padding: 18px 0 20px; border-top: 1px solid rgba(255, 255, 255, .09); animation: asoma .38s var(--salida) both; } .turno:first-child { border-top: 0; padding-top: 4px; }
+.turno .q { margin: 0 0 6px; color: var(--tenue); font-size: .93rem; }
+.turno .r { margin: 0; font: 400 1.2rem/1.45 var(--serif); max-width: 60ch; text-wrap: pretty; white-space: pre-wrap; } .turno.espera .r { color: var(--apagado); font-style: italic; }
+.turno .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+.mapa-vivo iframe { width: 100%; height: min(60vh, 560px); border: 0; border-radius: 24px; background: var(--tinta); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.escenario { display: grid; gap: 12px; margin-top: 22px; padding: 18px; }
+.escenario .entrada { display: flex; gap: 10px; align-items: center; }
+
+/* Formularios */
+input[type="text"], input[type="password"], input[type="search"], textarea { width: 100%; min-height: 46px; padding: 0 18px; border-radius: 999px; border: 0; background: rgba(0, 0, 0, .3); color: var(--texto);
+  font: 400 1rem var(--sans); box-shadow: inset 0 1px 3px rgba(0, 0, 0, .45), inset 0 -1px 0 rgba(255, 255, 255, .08); }
+textarea { padding: 14px 18px; border-radius: 22px; min-height: 92px; resize: vertical; font: 400 1.1rem/1.45 var(--serif); }
+input::placeholder, textarea::placeholder { color: var(--apagado); }
+input:focus-visible, textarea:focus-visible { outline: 2px solid color-mix(in oklab, var(--animo) 70%, #fff); outline-offset: 0; }
+
+/* ---------- Control: red ---------- */
+.estado-red { display: flex; align-items: center; gap: 18px; padding: 20px 22px; }
+.estado-red .moneda { width: 56px; height: 56px; flex: none; display: grid; place-items: center; border-radius: 50%; background: color-mix(in oklab, var(--tono, var(--animo)) 30%, transparent); color: var(--tono, var(--animo)); box-shadow: 0 0 28px -6px var(--tono, var(--animo)); }
+.estado-red .moneda .icono { width: 28px; height: 28px; }
+.estado-red h2 { margin: 0; font: 650 1.35rem/1.2 var(--sans); letter-spacing: -.01em; } .estado-red p { margin: 3px 0 0; color: var(--tenue); max-width: 56ch; }
+.escalera { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; }
+.escalera .ficha { min-height: 34px; } .escalera .ficha[aria-current="step"] { background: color-mix(in oklab, var(--tono, var(--animo)) 26%, rgba(255, 255, 255, .06)); color: #fff; }
+.escalera .num { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(255, 255, 255, .14); font: 700 .7rem var(--sans); }
+details.plegable { margin-top: 14px; } details.plegable summary { cursor: pointer; color: var(--tenue); padding: 8px 0; list-style: none; display: flex; align-items: center; gap: 8px; }
+details.plegable summary::-webkit-details-marker { display: none; } details.plegable summary::after { content: "›"; transition: transform .3s var(--salida); } details.plegable[open] summary::after { transform: rotate(90deg); }
+.registro > * { display: flex; gap: 14px; padding: 8px 0; border-top: 1px solid rgba(255, 255, 255, .07); font-size: .9rem; } .registro .hora { color: var(--apagado); font-variant-numeric: tabular-nums; flex: none; }
+
+/* ---------- Control: sistema ---------- */
+.anillos { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 14px; margin-bottom: 8px; }
+.anillo { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 8px 14px; text-align: center; }
+.anillo svg { width: 92px; height: 92px; transform: rotate(-90deg); } .anillo circle { fill: none; stroke-width: 9; stroke-linecap: round; }
+.anillo .fondo { stroke: rgba(255, 255, 255, .1); } .anillo .valor { stroke: var(--tono, var(--animo)); transition: stroke-dashoffset .7s var(--salida), stroke .35s; }
+.anillo .cifra { margin-top: -78px; height: 62px; display: grid; place-items: center; font: 650 1.2rem var(--sans); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.anillo small { color: var(--tenue); font-size: .84rem; }
+.barra { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .1); overflow: hidden; margin-top: 8px; } .barra i { display: block; width: 100%; height: 100%; border-radius: 3px; background: var(--animo); transform-origin: left; transition: transform .6s var(--salida); }
+.barra.aviso i { background: var(--aviso); } .barra.mal i { background: var(--mal); }
+
+/* ---------- Conectar ---------- */
+.conectar { max-width: 600px; margin: 0 auto; display: grid; gap: 18px; justify-items: center; text-align: center; }
+.conectar h2 { margin: 0; font: 650 1.55rem/1.2 var(--sans); letter-spacing: -.015em; text-wrap: balance; }
+.qr-tarjeta { display: grid; grid-template-columns: auto 1fr; gap: 26px; align-items: center; padding: 22px; width: 100%; text-align: left; }
+.qr { width: 176px; height: 176px; padding: 10px; border-radius: 20px; background: #fff; display: block; }
+.pasos { counter-reset: p; list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.pasos li { counter-increment: p; position: relative; padding-left: 44px; line-height: 1.4; font-size: 1.04rem; }
+.pasos li::before { content: counter(p); position: absolute; left: 0; top: -2px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .12); font: 650 .9rem var(--sans); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.pasos small { display: block; color: var(--tenue); margin-top: 3px; font-size: .88rem; }
+.direccion { display: inline-flex; align-items: center; gap: 8px; padding: 4px 4px 4px 14px; border-radius: 999px; background: rgba(0, 0, 0, .3); }
+.direccion code { font: 500 .92rem ui-monospace, Consolas, monospace; user-select: all; }
+@media (max-width: 600px) { .qr-tarjeta { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 18px; padding: 20px 16px; } .pasos { text-align: left; width: 100%; } .qr { width: 156px; height: 156px; } }
+
+/* ---------- Archivos, historial ---------- */
+.zona-subida { position: relative; display: grid; gap: 4px; justify-items: center; text-align: center; padding: 28px 16px; margin-bottom: 10px; border-radius: 26px; cursor: pointer; background: rgba(255, 255, 255, .05);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .16); transition: background .3s, box-shadow .3s, transform .35s var(--resorte); }
+.zona-subida:hover, .zona-subida:focus-visible, .zona-subida.encima { background: color-mix(in oklab, var(--animo) 14%, rgba(255, 255, 255, .05)); box-shadow: inset 0 0 0 1.5px color-mix(in oklab, var(--animo) 70%, transparent); outline: none; }
+.zona-subida.encima { transform: scale(1.01); } .zona-subida b { font-weight: 620; } .zona-subida span { color: var(--tenue); font-size: .9rem; }
+.zona-subida input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.notas { display: none; flex-basis: 100%; margin-top: 6px; } .notas.abierto { display: block; max-height: 320px; overflow-y: auto; scrollbar-width: thin; }
+.notas > div { border-top: 1px solid rgba(255, 255, 255, .09); padding: 10px 0; } .notas p { margin: 3px 0 0; color: var(--tenue); font-size: .92rem; line-height: 1.45; }
+.notas img { max-width: 160px; max-height: 110px; margin: 6px 6px 0 0; border-radius: 12px; }
+.hist .resp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: var(--tenue); margin-top: 6px; } .hist .abierta .resp { display: block; color: var(--texto); }
+.lista.docs > div { flex-wrap: wrap; }
+
+/* ---------- Mapa ---------- */
+.marco-mapa { position: absolute; inset: 4px 10px 10px; border-radius: 26px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); }
+.marco-mapa iframe { width: 100%; height: 100%; border: 0; background: var(--tinta); display: block; }
+#hoja.mapa #hoja-cuerpo { padding: 0; position: relative; overflow: hidden; } #hoja.mapa #hoja-cuerpo > * { animation: none; }
+
+/* ---------- Puerta de Control ---------- */
+.puerta { max-width: 380px; margin: 4vh auto 0; display: grid; gap: 16px; justify-items: center; text-align: center; }
+.puerta .moneda { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .1); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3); }
+.puerta .moneda .icono { width: 30px; height: 30px; } .puerta h2 { margin: 0; font: 650 1.4rem var(--sans); } .puerta p { margin: 0; color: var(--tenue); line-height: 1.45; }
+.puerta input { text-align: center; letter-spacing: .4em; font-size: 1.3rem; } .puerta form { display: grid; gap: 12px; width: 100%; }
+.puerta .mal { color: var(--mal); min-height: 1.3em; }
+.puerta.sacude { animation: sacude .4s; } @keyframes sacude { 25% { translate: -8px; } 50% { translate: 7px; } 75% { translate: -4px; } }
+
+#aviso { position: fixed; z-index: 60; left: 50%; bottom: calc(var(--alto-dock) + var(--aire-dock) + max(14px, env(safe-area-inset-bottom)) + 14px); transform: translate(-50%, 16px); max-width: min(92vw, 520px); padding: 12px 20px; border-radius: 999px;
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .35s var(--salida); font-size: .93rem; text-align: center; }
+#aviso.visible { opacity: 1; transform: translate(-50%, 0); } #aviso.mal { color: var(--mal); }
+
+/* ---------- Pantallas estrechas ---------- */
+@media (max-width: 560px) {
+  /* Con icono y todo apretado, solo la opción elegida lleva nombre: como la barra de pestañas del iPhone. */
+  .segmentos.compactos button:not([aria-pressed="true"]) > span:not(.punto) { display: none; } .segmentos.compactos button { padding: 0 13px; }
+  #hoja-derecha { margin-left: 0; width: 100%; } #hoja-derecha .segmentos { max-width: 100%; }
+}
+@media (max-width: 860px) {
+  #dock a { min-width: 0; flex: 1; padding: 0 8px; } #dock { width: min(calc(100vw - 20px), 440px); }
+  .mandos { grid-template-columns: 1fr 1fr; gap: 10px; } .mando { min-height: 118px; padding: 14px; gap: 10px; border-radius: 24px; }
+  .ahora { grid-template-columns: 1fr; gap: 6px; } .mapa-vivo { display: none; }
+  .estado-red { padding: 16px; gap: 14px; }
+}
+/* Escalonado: cuando algo aparece como lista, cada elemento entra 40 ms después del anterior (tope: 6). Solo en el primer dibujo. */
+.esc > * { animation: asoma .38s var(--salida) both; animation-delay: calc(var(--i, 0) * 40ms); }
+
+/* Transiciones de vista: al cambiar de sección el cuerpo de la lámina se desliza hacia el lado en que está la sección nueva (ver shell.js). */
+@keyframes vt-entra { from { opacity: 0; translate: calc(var(--vt-x, 0) * 22px) 0; filter: blur(6px); } }
+@keyframes vt-sale { to { opacity: 0; translate: calc(var(--vt-x, 0) * -14px) 0; filter: blur(4px); } }
+@media (prefers-reduced-motion: no-preference) {
+  html.con-vt #hoja-cuerpo { view-transition-name: cuerpo; }
+  ::view-transition-old(root) { display: none; } ::view-transition-new(root) { animation: none; }   /* solo se anima el cuerpo */
+  ::view-transition-group(cuerpo) { animation-duration: .01s; }
+  ::view-transition-old(cuerpo) { animation: vt-sale .15s var(--salida-rapida) both; }
+  ::view-transition-new(cuerpo) { animation: vt-entra .3s var(--salida) both; }
+}
+
+/* Con «reducir movimiento»: sin desplazamientos, sin rebote y sin desenfoque, pero la lámina y los cambios siguen apareciendo con un fundido corto. */
+@keyframes fundido { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  #ambiente i, .ficha.vivo i { animation: none; }
+  #hoja.entra, html:not(.con-vt) #hoja-cuerpo > *, .turno, .esc > * { animation: fundido .2s ease both; animation-delay: 0s; }
+  #hoja.sale { animation: fundido .15s ease reverse both; }
+  #lente, .segmentos .lente, .interruptor::after, .mando, .boton, #cuerpo { transition-duration: .01s; } #lente.estira { animation: none; }
+  .puerta.sacude { animation: none; } .anillo .valor { transition-duration: .2s; }
+}

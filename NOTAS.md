@@ -328,3 +328,132 @@ Orden de pendientes acordado con el dueño: voz, de lo último; datos reales del
 - **Preguntas resueltas.** `datos_rapidos.py` genera 156 (parentescos, nombres reales, 48 generales: actores, gemas, villanos, taquilla, muertes…). Tienen su propia bola en el mapa, unida al cerebro. Se contestan desde ahí al instante, incluso si la pregunta pide explicar o comparar; si no está ahí, se busca en el cerebro como siempre.
 - **Desactivar notas.** Botón «Desactivar/Activar» en el panel de cada nota del mapa (y para toda la selección). No borra: la lista está en `~/mjarvis/desactivadas.json`; el índice no las carga, y en el mapa salen del cerebro a la bola gris «Desactivadas». Desde otro equipo pide la clave de gestión. API: `GET /api/desactivadas`, `POST /api/desactivar`.
 - Corregido de paso: «¿quiénes son tus creadores?» llegaba al modelo y se inventaba nombres; ahora es trato fijo.
+
+## Tanda del 2026-10-04: migración a Linux y reconexión
+
+- El proyecto pasó de Windows a la Fedora/Linux nueva. Carpeta: `~/Documents/Organizado/Proyectos/M-Jarvis`. La copia fuente coincide con lo desplegado en la Latitude (solo difieren archivos generados: `graph.json`, `trato.json`, `medios/`, `aprendido.json`).
+- Latitude viva: 3.168 notas (el usuario subió más desde el 2026-10-02), `mjarvis-web`, `x11vnc` y `novnc` activos, 39 °C, enchufada.
+- Acceso: `ssh mjarvis` (llave en `~/.ssh/mjarvis_ed25519`, copiada del respaldo) → `ferr-latitude-5590.local` (hoy `10.0.0.22` por Wi-Fi).
+- **Cable directo probado y funcionando** (0,6 ms, web 200 en `169.254.229.12:8080`). En la PC nueva el perfil de red `mjarvis-cable` en `eno1` usa IPv4 link-local (con DHCP se quedaba en «getting IP configuration»).
+- **Lanzador Linux** (reemplaza a `M-Jarvis.bat`): `linux/m-jarvis-linux.sh`, instalado como `~/.local/bin/m-jarvis` y acceso «M-Jarvis» en el menú de aplicaciones. Menú zenity: panel, chat, mapa, todo junto, escritorio remoto, terminal SSH, estado. Abre en Zen (Flatpak).
+- **Control remoto**: túnel SSH con socket de control (`-M -S`) a `localhost:6080` (noVNC). Se cierra desde el menú. No se usan `pkill -f` para cerrarlo.
+- **Flujo de trabajo**: se edita aquí y, cuando funciona, se envía a la Latitude con `linux/desplegar.sh` (simulación por defecto; `-y` aplica). Sin `--delete`; no toca `conocimiento/`, `documentos/`, `web/medios/`, `aprendido.json` ni los grafos generados. Reinicia `mjarvis-web` solo si cambió el servidor o `comportamiento/`.
+
+## Tanda del 2026-10-04 (2): refuerzo desde la bitácora, extensión, personalidad y auto-entrenado
+
+Diagnóstico completo en [ANALISIS_BITACORA.md](ANALISIS_BITACORA.md). Lo hecho:
+
+**Habilidades (recetas)** — `servidor/recetas.py`. Destrezas sin modelo, con contador de usos y botón de apagar en el panel: `texto_largo`, `correccion_tema`, `animo_bajo` (acompañar sin soltar datos), `queja`, `silencio`, `que_aprendiste`, `pertenencia_marvel`, `que_es_marvel`, `aclarar_plural`, `sin_pregunta`. Se dibujan en la red de trato (rama «Habilidades»).
+
+**Extensión** — `comportamiento/criterios.json` fija palabras mínimas/máximas por tipo de pregunta. El servidor corta al final de una frase al pasarse del máximo (`corte_palabras`) y, si se queda corto, suma de las notas el dato que falta (`completar`, nunca del modelo). Las respuestas copiadas de una nota se convierten en frase completa (`como_frase`: «Nebula.» → «Su hermana se llama Nebula.»). «Háblame de X» sale de la nota general de X.
+
+**Rúbrica** — `servidor/criterios.py` + `criterios.json`: 14 reglas con peso (grosería sin filtrar, falta de empatía, regaño, respuesta cortada, tratamiento con género, extensión, «Sí/No» incoherente, primera persona, muletillas, nombres/cifras sin respaldo, lentitud, repetida, corregida por la persona). Cada respuesta queda en la bitácora con `calidad` y `fallos`.
+
+**Personalidad** — `comportamiento/personalidad.json`: 59 categorías de charla nuevas (cómo funciona, privacidad, internet, proyecto, juegos, consejos, motivación, miedo/enojo/soledad/alegría del usuario, favoritos, filosofía, política/religión/salud, spoilers, recomendaciones…), 12 «guías de situación» que se le añaden al modelo en una línea (explicar más fácil, debate, capciosa, enojo, opinión…) y variantes extra de las frases fijas. Las frases fijas ya no repiten la última usada (`criterio.elegir`).
+
+**Búsqueda sin ruido** — la nota solo cuenta como hallada si dice su nombre completo, o puntúa ≥16, o cubre la pregunta (`Indice.fuerza`). Ya no se mete «Cielo Negro» al preguntar por el cielo azul. «Quién es su hermano» tras Loki ya no trae a Pietro (`habla_del_sujeto`). Una pregunta capciosa nunca sale como dato suelto.
+
+**Pruebas** — `servidor/pruebas_rutas.py` corre `comportamiento/escenarios.json` (294 escenarios) con un modelo simulado en ~3 s: `python3 pruebas_rutas.py -v` en la Latitude (`~/mjarvis/venv/bin/python`). Estado: 294/294. Cualquier cambio debe dejarlo en verde antes de desplegar.
+
+**Auto-entrenado** — `servidor/autoentreno.py` + sección del panel. No reentrena el modelo: analiza la bitácora con la rúbrica, corre las pruebas, practica una muestra de escenarios con el modelo real (botón «Práctica completa») y propone cambios (palabras del filtro, variantes de frases escritas por el propio modelo y filtradas por la rúbrica). Cada propuesta la aprueba el dueño; al aplicarla se repiten las pruebas y, si empeoran, se deshace sola (respaldos en `comportamiento/_respaldos/`). Análisis rápido automático cada 6 h si hay calma. Estado en `~/mjarvis/autoentreno.json`.
+
+**Despliegue** — `linux/desplegar.sh` ahora trae primero `reacciones.json` y `personalidad.json` de la Latitude si allá son más nuevos (lo aprobado en el panel) y no envía `recetas.json`, `propuestas.json` ni `_respaldos`.
+
+Otros: lanzador Linux usa la IP (Zen en Flatpak no resuelve `.local`); «Detener» ya no cancela la pregunta siguiente; respuestas cortadas no entran a la memoria y se pueden retomar con «hazlo otra vez»; «enciende/apaga todas tus neuronas», «la menos conectada», «sigue» (paginación) funcionan.
+
+**Flujo recomendado ahora:** editar aquí → `linux/probar.sh -v` (copia a `~/mjarvis-prueba` en la Latitude y corre los 315 escenarios; no toca el servicio) → `linux/desplegar.sh` (simulación) → `linux/desplegar.sh -y`.
+**Lección:** al mostrar el texto del modelo se retienen los últimos `RETENER` (30) caracteres, porque `limpiar()` puede quitar fragmentos ya escritos («, debo admitir,», «según los Datos,»). Con 14 se mostraba «ln genio» y «De acuerd la armadura»; la prueba `streaming-*` lo vigila. Si se añade una limpieza más larga que 30 caracteres, subir `RETENER`.
+**Pendiente / límites conocidos:** el modelo de 4B sigue inventando a veces (p. ej. «Hércules» al comparar fuerzas) y tarda 15–45 s en redactar; «debo admitir que…» (con «que») no se filtra; falta cargar los datos reales del taller (hasta abril de 2027), la voz y el modo feria.
+
+## Tanda del 2026-10-04 (3): cuerpo, voz y oído
+
+**Cuerpo (`web/index.html`).** Rediseño del chat: la bola de plasma (shader WebGL propio, `Orbe`) en primer plano arriba y la conversación abajo; los mensajes suben por detrás de la bola y se desenfocan al pasar (cinco capas de `backdrop-filter` en `#velo` + máscara de desvanecido). La bola tiene cuatro estados (espera, escucha, piensa, habla), cambia de color con el ánimo de cada respuesta (los 12 colores de `ANIMOS`) y reacciona al nivel de la voz y del micrófono. A 15 cuadros/s en reposo y hasta 30 activa (consume ~25–35 % de un núcleo en la Latitude); si la gráfica no da abasto baja la resolución sola; sin WebGL cae a una bola de CSS. Tipografías propias en `web/fuentes/` (Newsreader para la voz de Jarvis, Instrument Sans para la interfaz). Antes de la primera pregunta muestra cuatro invitaciones. Funciona igual en `?vista=chat`, en la pantalla dividida y en el celular.
+
+**Voz (`servidor/voz.py`).** Piper, en local. Voz por defecto `es_MX-claude-high` (instaladas también `es_MX-ald-medium` y `es_ES-davefx-medium`; se cambia en `comportamiento/voz.json`). `POST /api/voz {texto}` → WAV (~0,3–2 s por frase; caché de 48 frases). El navegador pide cada frase en cuanto Jarvis la termina de escribir y las encadena; la bola late con el nivel real del audio. Encendida por defecto solo en el kiosco (`localhost`); en los celulares empieza apagada (botón del altavoz). Si la espera es larga, dice una vez su frase de relleno.
+
+**Oído (`servidor/voz.py`).** faster-whisper `small` int8, en local. `POST /api/oir` (audio del navegador) → texto, ~3 s por frase de 8 s. Se guía con un texto de vocabulario (Marvel, Jarvis…) para acertar nombres. Se descarga de memoria tras 10 min sin uso. El botón de micrófono solo aparece donde el navegador lo permite (`localhost` o https): en el kiosco sí; en celulares por http no. Graba hasta que quien habla se calla (umbral adaptado al ruido de la sala), corta a los 6,5 s si nadie habló y manda el texto como pregunta.
+
+**Instalación (la Latitude no tiene internet en modo Wi-Fi propia).** Ruedas de Python 3.14 descargadas en la PC y copiadas a `~/rueda-voz` en la Latitude; modelos en `~/mjarvis/modelos/` (Piper y Whisper). `faster-whisper` 1.2.1 no abre archivos con PyAV 19: el audio se decodifica con `Oido.decodificar`. Permisos de sonido y micrófono para el kiosco en `user.js` del perfil de Firefox (surten efecto al reabrir el kiosco).
+
+**Pendiente de esta línea:** escucha continua con palabra de activación («Jarvis»), voz de Jarvis más acorde (probar `ald` y `claude` por oído), el mapa en la bola de la vista dividida.
+
+## Puente de internet por el cable (2026-10-04)
+
+Esta PC le comparte su internet a la Latitude por el cable Ethernet, para cuando la Latitude no tenga Wi-Fi (taller, feria).
+- **PC:** perfil `puente-internet` en `eno1` (NetworkManager, modo «compartida»): `10.43.0.1/24`, DHCP + NAT hacia el Wi-Fi de la PC. Se activa solo al enchufar el cable. El perfil antiguo `mjarvis-cable` (dirección de enlace local 169.254, sin internet) queda como respaldo de menor prioridad.
+- **Latitude:** perfil `puente-internet` en `enp0s31f6` (DHCP, métrica 700, tiempo de espera 15 s) con prioridad 20; `mjarvis-cable` con prioridad 5. Con Wi-Fi y cable a la vez, el Wi-Fi (métrica 600) sigue siendo la ruta por defecto: el cable solo se usa si el Wi-Fi falta.
+- **Probado:** con el Wi-Fi de la Latitude apagado, `example.com` y `huggingface.co` responden por el cable (0,18 s) y el panel se alcanza en `http://10.43.0.218:8080/` (la dirección la asigna el DHCP; el nombre `ferr-latitude-5590.local` también sirve).
+- **Deshacer:** `nmcli con down puente-internet` en la PC (la Latitude vuelve sola a enlace local tras 15 s).
+- **Requisito:** la PC debe tener internet por su Wi-Fi; si la PC está apagada o sin red, la Latitude queda como hoy (todo local).
+
+## 2026-10-04 (4) · Cerebro de red, portal cautivo y Manager
+
+**Cerebro de red** (`servidor/red.py`): decide solo, en este orden, nube (Wi‑Fi con internet) → puente (internet por cable) → lan (red sin internet) → local (crea su Wi‑Fi «M-Jarvis»). Tiene tiempos de gracia, un reintento periódico para volver a una red mejor y un registro de decisiones. Si el dueño enciende la Wi‑Fi propia a propósito, no se apaga sola durante una hora. Para volver a la Wi‑Fi de casa se nombra el perfil conocido (`volver_a_wifi`): `nmcli device connect` volvía a elegir la propia. `latitude/wifi-propia.sh` tenía el mismo defecto y está corregido.
+
+**Portal cautivo**: toda red de M-Jarvis (10.42/10.44) manda cualquier nombre de dominio a 10.99.99.1 (`/etc/NetworkManager/dnsmasq-shared.d/mjarvis-portal.conf`), el puerto 80 se redirige al 8080 (`/etc/mjarvis/portal.nft`, servicio `mjarvis-portal`) y el servidor responde a las pruebas de Android, iOS y Windows con una redirección al chat. Probado con cable y con la Wi‑Fi propia.
+
+**Manager** (`web/manager.html`, instalable como app): consola para otro equipo (Windows, Mac, Linux o celular).
+- Ahora: respuestas en vivo con su ruta, habilidad, calidad y fallos; mapa de conexiones; Detener, Silenciar la voz y Bloquear el teclado.
+- Red: modo actual, equipos conectados, registro de decisiones, acciones y guía por dispositivo con QR.
+- Aprender: datos por aprobar, respuestas aprendidas y respuestas por revisar.
+- Decir: hace que Jarvis diga algo o que la pantalla pregunte algo (teatro).
+- Sistema: temperatura, memoria, procesador, disco y batería.
+
+Las órdenes piden la clave de gestión (`X-Clave`) desde otros equipos. Solo la pantalla de la propia Latitude (localhost) obedece las órdenes `orden` (exhibicion, callar, decir, preguntar) que llegan por `/api/eventos`.
+
+Accesos directos para abrir el Manager como app, buscando a la Latitude (`descargas/M-Jarvis-Manager.{bat,command,sh}`). Menú de la Latitude: entrada «Manager». Pruebas: 349/349.
+
+Pendiente: la nube como cerebro (decidir privacidad), copias a Drive, túnel remoto y escucha continua por palabra clave.
+
+## 2026-10-04 (5) · Nube gratis como apoyo (`servidor/nube.py`)
+
+Cuando está encendida y hay internet, un modelo más grande en la nube escribe la respuesta; el resto (recetas, filtros, notas, límites de longitud, avisos de cifras) sigue local. Si falla, se agota la cuota o no hay internet, responde `gemma3:4b` como siempre. Esta PC no interviene: solo sirve para probar y desplegar.
+
+- **Cadena:** Groq GPT-OSS 120B → Qwen 3.8 27B → GPT-OSS 20B (~1000/día cada uno; los Llama de Groq ya no existen) → Gemini Flash-Lite (~1000/día, y Google puede usar lo enviado en el plan gratis: por eso va último y es opcional) → modelo local. Límites tomados de búsquedas del 2026-10-04; cambian, y los nombres de modelo se editan en `PROVEEDORES`.
+- **Claves:** `~/.config/mjarvis/nube.json` en la Latitude (permisos 600, fuera del proyecto: no se despliegan). Se ponen en Manager → Sistema → Nube gratis. Nunca se devuelven enteras.
+- **Privacidad:** las preguntas con datos personales (`PRIVADO` en nube.py) no salen nunca; en lo que sale, correos, teléfonos y enlaces se tachan. Las notas no se tocan.
+- **Fallos:** 429 → pausa (Retry-After, o 1 h si es el límite diario); clave rechazada → pausa 1 h con el motivo visible; sin red → pausa 60 s. «Detener» corta también la espera de la nube.
+- **Control:** mando «Nube gratis» en Manager → Ahora (apagado = todo local, para enseñar «100 % local»). Cada respuesta dice su motor (`motor` en la bitácora y en la etiqueta del Manager).
+- Pruebas: 14 nuevas con un servidor falso del protocolo de OpenAI (363/363). Alcance real comprobado: la Latitude llega a Groq (rechazó una clave falsa con 401).
+
+- **Wi-Fi propia + cable a la vez (2026-10-04):** con el cable dando internet (modo puente) la Wi-Fi «M-Jarvis» y el internet conviven: la Latitude reparte el internet del cable a los celulares (NAT de NetworkManager) y sigue usando la nube. Ya no se apaga sola para buscar otra Wi-Fi mientras el modo sea puente (`_volver_arriba` en red.py). Pendiente de probar con un celular real. Las pruebas de `probar.sh` corren EN la Latitude: nada que toque `red._nm` sin parchear.
+
+## 2026-10-04 (6) · Interfaz única con «vidrio»
+
+Una sola interfaz en `index.html`: la bola y el chat son la escena y nunca desaparecen; **Mapa**, **Conectar** y **Control** se abren como láminas de cristal encima (sin cambiar de página), con una barra flotante abajo (icono + nombre, con un cristal que se desliza bajo la sección activa).
+- `web/vidrio.css`: el sistema visual (material de cristal con borde brillante, ambiente de color detrás, mandos tipo Centro de control de iPhone, interruptores, segmentos, anillos).
+- `web/shell.js`: navegación por hash (`#mapa`, `#conectar`, `#control/ahora|escenario|aprender|red|sistema`), la barra, la lámina, Mapa, Conectar (por dispositivo: iPhone, Android, Windows, Mac, Linux) y la puerta de Control.
+- `web/control.js`: Control (antes Manager): mandos Voz / Teclado / Nube / Parar, lo que pasa en vivo, Escenario, Aprender, Red, Sistema (incluye las claves de la nube).
+- **Control está oculto para los visitantes**: no aparece en la barra y, si se entra por `/#control`, pide la clave (menú M-Jarvis → Compartir). Desde la propia Latitude (localhost) no la pide.
+- Las pantallas del público no cambian: `/?vista=chat` (solo la escena) y `/?vista=todo` (mapa a un lado), sin barra ni láminas. «Todo junto» del menú de la Latitude usa `?vista=todo`.
+- `manager.html` y `conectar.html` ahora solo redirigen a `/#control` y `/#conectar`; los accesos directos descargables abren `/#control`. Se eliminó `manager.webmanifest`.
+- Pendiente: `panel.html` (archivos y registros) conserva su estilo anterior; la guía PDF menciona `manager.html` (sigue funcionando por la redirección).
+
+## 2026-10-04 (7) · Fase de optimización
+
+Medido en la Latitude (pantalla del público, `?vista=chat`, sin conversación): Firefox pasó de **33 % a 11–12 % de un procesador en reposo** (ese procesador lo necesita el modelo). Carga repetida de la interfaz: de ~430 KB en 6+ descargas a **30 KB en 119 ms**.
+- **Servidor** (`servidor.py`, `Manejador.servir_estatico`): ETag + `no-cache` (revalidar siempre, así cada despliegue llega al instante), gzip guardado en memoria (mapa 1,8 MB → 349 KB, página 48 → 17 KB, CSS 23,5 → 6,3 KB), fuentes e imágenes con caché largo. `ultimas_preguntas` lee solo el final de la bitácora y recuerda el resultado; `estado_general` recuerda lecturas y direcciones 3–4 s (`recordado`). El cerebro de red ya no lee los clientes DHCP (un `sudo`) si la máquina no reparte red.
+- **Pantalla**: el bucle `latido` solo escribe en la página si algo cambió y mira 3 veces por segundo en reposo (20 si hay algo vivo); la bola dibuja a 8 cuadros por segundo en reposo (4 con una lámina encima); el velo de desenfoque solo funciona cuando hay texto cerca de la bola; `control.js` se descarga solo si alguien abre Control; el mapa de Control espera un rato libre; las consultas de Control se detienen con la pestaña oculta; los turnos del feed usan `content-visibility`.
+- **Lecciones**: (1) las manchas de fondo (`#ambiente`) cuestan ~35 % de CPU en la Latitude (Firefox sin GPU): por eso la pantalla del público no las lleva, y el resto de equipos las pausan con una lámina abierta o si la bola baja su resolución (`body.ahorro`). (2) Una optimización rompió el chat (usaba `Voz` antes de declararla) y `probar.sh` no lo vio: ahora hay `bench/humo.js`, una prueba de humo con navegador que recorre todas las pantallas y hace una pregunta. Correrla tras tocar la interfaz. (3) Con una sesión de escritorio remoto abierta, x11vnc + Xorg suman ~17 % más.
+
+## 2026-10-04 (8) · Panel y mapa en el mismo cristal
+- `panel.html` ya no existe como página: sus funciones viven en **Control** (`#control/archivos`, `#control/aprender`). Nueva sección **Archivos** (subir con arrastrar y soltar, elegir Marvel/taller, buscar, ver notas, descargar el original, borrar) y **Aprender** con cuatro pestañas (Lo que aprende, Auto-entrenado con sus propuestas, Habilidades con interruptores, Historial). Sistema muestra además las direcciones y, solo en la Latitude, la clave de gestión. `panel.html` y `subir.html` redirigen; los lanzadores (menú de la Latitude, `M-Jarvis.bat`, `m-jarvis-linux.sh`) apuntan a `/#control/archivos`.
+- `grafo/index.html` (el mapa suelto y el que va dentro de Mapa/Control): bloque `<style id="vidrio">` con el cristal de `vidrio.css` para sus botones, buscador, paneles y temas. No enlaza `vidrio.css` porque comparten ids (`#aviso`).
+- Pendiente: la guía PDF `Conectar M-Jarvis` y `docs/EMPEZAR.md` aún dicen «Manager», `manager.html` y los nombres antiguos de las pestañas (funciona por la redirección).
+
+## 2026-10-05 · Pulido de animaciones
+Criterio: la interfaz es de operación, así que el movimiento explica estado y continuidad y no hace esperar. Todo en `transform`, `opacity` y desenfoque acotado; el cristal de la lámina ya desenfoca el fondo, por eso la lámina **no** anima desenfoque propio (era lo más caro y colgaba las capturas en software).
+- **Duraciones**: lámina 0,45 s (antes 0,7) y sale en 0,2 s por donde entró, sin `ease-in`; cristal de barra y selectores 0,4–0,45 s; mandos 0,25 s; interruptor 0,32 s; turnos y mensajes 0,38–0,4 s. Curva `--salida` (exponencial) y `--salida-rapida`; el rebote del cristal bajó de 1,45 a 1,25.
+- **Continuidad**: al cambiar de sección (y entre las de Control) el cuerpo de la lámina se desliza hacia el lado donde está la sección nueva, con View Transitions (`html.con-vt`; sin ellas, un fundido). No se usa si hay que descargar `control.js` primero.
+- **Detalles**: el cristal de la barra y de los selectores ya no nace deslizándose desde la izquierda (`.quieta`); el selector de Control se conserva entre sus secciones (el cristal se desliza); los anillos del sistema se dibujan una vez y luego se mueven; las listas entran escalonadas (40 ms, tope 6) solo la primera vez (`escalonar`); las sugerencias del chat entran una tras otra.
+- **Movimiento reducido**: sin desplazamientos, rebote ni desenfoque, pero la lámina, los cambios y los mandos siguen con un fundido corto.
+- Sin comprobar a ojo: cómo se **siente** (el navegador de pruebas no tiene GPU y no capta el movimiento). Revisar en un teléfono y a cámara lenta.
+
+## 2026-10-05 (2) · Formas del mapa: fuera «Cuerpo», nubes y galaxia nuevas
+- **Cuerpo eliminado** (botón, tecla 7, código de la figura, rótulos con línea y la orden de voz «forma de cuerpo»). Las frases de Jarvis que la ofrecían ahora ofrecen la galaxia. Las teclas 1–6 son: plano, cerebro, esfera, dona, galaxia, nubes.
+- **Nubes** (`formarNubes`, `bultosDe`, `contornoDe`, `vapor`): cada tema es un cúmulo —bultos que se montan, base casi plana— con las notas repartidas dentro (las más conectadas, al corazón), vapor suave del color del tema detrás y un borde festoneado. La forma de cada nube sale de una semilla del tema: siempre es la misma. Las tres de fuera (M-Jarvis, Otros universos, Preguntas resueltas) también son cúmulos en esta vista; las que no tienen notas no se dibujan.
+- **Galaxia** (`galaxiaPunto`, `estrellasDeGalaxia`, `resplandorGalaxia`): bulbo central denso, dos brazos en espiral logarítmica que se abren y se ensanchan, disco fino y halo; ~4 200 estrellas tenues (cálidas en el bulbo, azuladas en los brazos), núcleo cálido y neblina siguiendo la espiral. Se mira muy inclinada al llegar y las neuronas son más pequeñas para que no tapen los brazos.
+- Sin cambios: plano, cerebro, esfera y dona.
+
+## 2026-10-10 · Flujo de trabajo en Windows
+Se cambió de sistema operativo (Linux a Windows). La copia buena del proyecto es la de OneDrive (Documents\Organizado\Proyectos\M-Jarvis); C:\Users\srelm\mjarvis-pc es la copia temporal que se usó para ejecutar Jarvis en la PC (obsoleta) y _Duplicados-verificados es la copia del 1 de octubre. Se recreó el flujo de linux/*.sh en windows/ (ver windows/LEEME.md): probar, desplegar, tunel, humo. Comprobado de punta a punta: 365/365 escenarios, despliegue real con reinicio, prueba de humo con Edge y chmod +x de los .sh. Se desplegaron de paso las opciones MJARVIS_SIN_RED y MJARVIS_ESCUCHA del servidor y la corrección de wifi-propia.sh.

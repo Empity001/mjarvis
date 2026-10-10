@@ -2,229 +2,919 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Conectar M-Jarvis a otros dispositivos</title>
+<title>Conectar M-Jarvis</title>
 <style>
-  @page { size: A4; margin: 16mm 15mm 17mm; }
-  :root { --tinta: #18212d; --tenue: #5a6675; --raya: #d5dbe3; --azul: #1f5fbf; --fondo: #f3f6fa; --verde: #1d7a4a; --ambar: #9a6200; }
+  @font-face { font-family: "Newsreader"; font-weight: 200 800; src: url(../web/fuentes/newsreader-latin-opsz-normal.woff2) format("woff2-variations"); }
+  @font-face { font-family: "Newsreader"; font-weight: 200 800; font-style: italic; src: url(../web/fuentes/newsreader-latin-opsz-italic.woff2) format("woff2-variations"); }
+  @font-face { font-family: "Instrument Sans"; font-weight: 400 700; src: url(../web/fuentes/instrument-sans-latin-wght-normal.woff2) format("woff2-variations"); }
+  @page { size: A4; margin: 17mm 16mm 19mm; }
+  @page :first { margin: 0; }
+  :root { --tinta: #05070b; --texto: #16202d; --tenue: #566274; --raya: #d9dee6; --suave: #f4f6f9; --acento: #2563c9; --claro: #6aa9ff; --bien: #17703f; --aviso: #8f5a00; }
   * { box-sizing: border-box; }
-  body { margin: 0; color: var(--tinta); font: 10.4pt/1.5 "Segoe UI", system-ui, sans-serif; }
-  h1 { margin: 0; font-size: 23pt; letter-spacing: -.01em; line-height: 1.15; }
-  h2 { margin: 0 0 7pt; font-size: 14pt; color: var(--azul); break-after: avoid; }
-  h3 { margin: 12pt 0 4pt; font-size: 11pt; break-after: avoid; }
-  p { margin: 0 0 7pt; }
-  section { margin-top: 18pt; }
-  section > h2 + p, section > h2 + table { break-before: avoid; }
-  .portada { background: #0d1117; color: #e6e8eb; padding: 20pt 20pt 18pt; border-radius: 6pt; }
-  .portada p { margin: 8pt 0 0; color: #a9b4c2; max-width: 150mm; }
-  .portada small { display: block; margin-top: 12pt; color: #6aa9ff; letter-spacing: .12em; font-size: 8pt; }
-  .clave { margin: 14pt 0 0; padding: 11pt 14pt; background: var(--fondo); border-left: 3pt solid var(--azul); border-radius: 0 5pt 5pt 0; }
-  .clave b { font-size: 11pt; }
-  code { font: 9.6pt Consolas, "Cascadia Mono", monospace; background: #e9eef5; padding: 1pt 4pt; border-radius: 3pt; white-space: nowrap; }
-  table { width: 100%; border-collapse: collapse; margin: 6pt 0 4pt; font-size: 9.6pt; break-inside: avoid; }
-  th { text-align: left; font-weight: 600; color: var(--tenue); border-bottom: 1.2pt solid var(--tinta); padding: 4pt 8pt 4pt 0; }
-  td { vertical-align: top; border-bottom: .6pt solid var(--raya); padding: 5pt 8pt 5pt 0; }
-  ol, ul { margin: 0 0 7pt; padding-left: 16pt; }
-  li { margin-bottom: 3pt; }
-  .forma { break-inside: avoid; border: .8pt solid var(--raya); border-radius: 6pt; padding: 12pt 14pt 8pt; margin-top: 10pt; }
-  .forma h3 { margin-top: 0; font-size: 12pt; }
-  .letra { display: inline-block; width: 17pt; height: 17pt; line-height: 17pt; text-align: center; border-radius: 50%;
-    background: var(--azul); color: #fff; font-weight: 700; font-size: 9.5pt; margin-right: 6pt; }
-  .nota { color: var(--tenue); font-size: 9.4pt; }
-  .si { color: var(--verde); font-weight: 600; }
-  .ojo { color: var(--ambar); font-weight: 600; }
-  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
-  .dos .forma { margin-top: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; color: var(--texto); font: 9.8pt/1.5 "Instrument Sans", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+  h1, h2, h3 { font-family: "Newsreader", Georgia, serif; font-weight: 600; margin: 0; text-wrap: balance; }
+  h2 { font-size: 18pt; line-height: 1.15; letter-spacing: -.005em; margin: 0 0 8pt; break-after: avoid; }
+  h3 { font: 600 10.4pt/1.3 "Instrument Sans", sans-serif; margin: 0 0 5pt; break-after: avoid; }
+  p { margin: 0 0 7pt; } ul, ol { margin: 0 0 7pt; padding-left: 15pt; } li { margin-bottom: 2.5pt; }
+  b { font-weight: 600; }
+  code { font: 500 9pt ui-monospace, Consolas, "Cascadia Mono", monospace; background: var(--suave); border: .6pt solid var(--raya); padding: .5pt 4pt; border-radius: 3pt; white-space: nowrap; }
+  .nota { color: var(--tenue); font-size: 9pt; }
+  .si { color: var(--bien); font-weight: 600; } .ojo { color: var(--aviso); font-weight: 600; }
+
+  /* Portada: el mismo mundo que la pantalla de Jarvis */
+  .portada { height: 297mm; padding: 22mm 20mm 18mm; background: var(--tinta); color: #eaeef5; position: relative; overflow: hidden; break-after: page; display: flex; flex-direction: column; }
+  .portada::before { content: ""; position: absolute; right: -50mm; top: 24mm; width: 150mm; height: 150mm; border-radius: 50%;
+    background: radial-gradient(circle at 42% 40%, rgba(120, 190, 255, .55), rgba(60, 120, 255, .22) 34%, rgba(90, 60, 200, .12) 56%, transparent 70%); filter: blur(2mm); }
+  .portada > * { position: relative; }
+  .marca { font: 600 8.5pt "Instrument Sans"; letter-spacing: .3em; color: var(--claro); }
+  .portada h1 { margin-top: 62mm; font-size: 46pt; line-height: 1.02; font-weight: 500; letter-spacing: -.015em; max-width: 135mm; }
+  .portada .sub { margin-top: 9mm; max-width: 115mm; font: italic 400 15pt/1.4 "Newsreader", serif; color: #b7c2d3; }
+  .portada .pie { margin-top: auto; display: flex; gap: 12mm; align-items: flex-end; }
+  .qr { width: 38mm; height: 38mm; background: #fff; padding: 2.4mm; border-radius: 3mm; flex: none; } .qr svg { width: 100%; height: 100%; display: block; }
+  .portada .pie p { margin: 0; color: #b7c2d3; max-width: 90mm; font-size: 10pt; } .portada .pie b { color: #fff; display: block; font: 500 14pt "Newsreader"; margin-bottom: 2mm; }
+  .portada .fecha { position: absolute; right: 20mm; top: 22mm; font-size: 8pt; letter-spacing: .14em; color: #7c8798; }
+
+  section { margin-top: 20pt; } section:first-of-type { margin-top: 0; }
+  .idea { padding: 11pt 14pt; margin-bottom: 18pt; background: var(--suave); border-left: 2.5pt solid var(--acento); border-radius: 0 6pt 6pt 0; break-inside: avoid; }
+  table { width: 100%; border-collapse: collapse; margin: 6pt 0 5pt; font-size: 9.4pt; break-inside: avoid; }
+  th { text-align: left; font-weight: 600; font-size: 8.4pt; letter-spacing: .06em; text-transform: uppercase; color: var(--tenue); border-bottom: 1.1pt solid var(--texto); padding: 4pt 10pt 4pt 0; }
+  td { vertical-align: top; border-bottom: .6pt solid var(--raya); padding: 6pt 10pt 6pt 0; }
+  tr:last-child td { border-bottom: 0; }
+
+  .escalera { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; margin: 10pt 0 12pt; counter-reset: e; break-inside: avoid; }
+  .escalon { counter-increment: e; padding: 10pt 11pt; border: .8pt solid var(--raya); border-top: 2.5pt solid var(--acento); border-radius: 0 0 6pt 6pt; }
+  .escalon::before { content: counter(e); display: block; font: 500 20pt/1 "Newsreader"; color: var(--acento); margin-bottom: 4pt; }
+  .escalon b { display: block; font-size: 9.6pt; margin-bottom: 2pt; } .escalon span { font-size: 8.6pt; color: var(--tenue); line-height: 1.38; display: block; }
+
+  .forma { break-inside: avoid; border: .8pt solid var(--raya); border-radius: 7pt; padding: 12pt 14pt 7pt; margin-top: 10pt; }
+  .letra { display: inline-grid; place-items: center; width: 17pt; height: 17pt; border-radius: 50%; background: var(--acento); color: #fff; font: 700 9pt "Instrument Sans"; margin-right: 7pt; vertical-align: 1pt; }
+  .forma h3 { font-size: 11.2pt; }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; } .dos .forma { margin-top: 0; }
+  .con-qr { display: flex; gap: 14pt; align-items: center; margin: 8pt 0; break-inside: avoid; }
+  .con-qr .qr { width: 30mm; height: 30mm; border: .8pt solid var(--raya); padding: 1.6mm; }
 </style>
 </head>
 <body>
 
 <div class="portada">
-  <h1>Conectar M-Jarvis<br>a otros dispositivos</h1>
-  <p>Cómo usar a Jarvis desde otra laptop, un celular o una tableta: por Wi-Fi, por cable o sin ninguna red alrededor.</p>
-  <small>GUÍA DE CONEXIÓN · 1 DE OCTUBRE DE 2026</small>
+  <div class="marca">M-JARVIS</div>
+  <h1>Conectar a Jarvis desde cualquier dispositivo</h1>
+  <p class="sub">Por Wi-Fi, por cable o sin ninguna red alrededor. Y, si hace falta, a escondidas.</p>
+  <div class="pie">
+    <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" shape-rendering="crispEdges">
+	<g id="QRcode">
+		<rect x="0" y="0" width="27" height="27" fill="#ffffff"/>
+		<g id="Pattern" transform="translate(1,1)">
+			<rect x="0" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="24" width="1" height="1" fill="#000000"/>
+		</g>
+	</g>
+</svg></div>
+    <p><b>Con la Wi-Fi «M-Jarvis» conectada,</b>apunte la cámara aquí y el chat se abre. Si no hay Wi-Fi propia, siga leyendo: la guía explica cómo se arma cada caso.</p>
+  </div>
+  <div class="fecha">GUÍA DE CONEXIÓN · 4 DE OCTUBRE DE 2026</div>
 </div>
 
-<div class="clave">
-  <b>La idea en una línea:</b> M-Jarvis vive entero en la Latitude. Los demás equipos no instalan nada: solo abren una
-  página en su navegador. Lo único que hace falta es que <b>la Latitude esté encendida</b> y que el otro equipo esté
-  <b>en la misma red que ella</b>. Todo lo demás de esta guía son maneras de lograr eso.
+<div class="idea">
+  <b>La idea en una línea.</b> M-Jarvis vive entero en la Latitude. Los demás equipos no instalan nada: abren una página en su
+  navegador. Solo hace falta que <b>la Latitude esté encendida</b> y que el otro equipo esté <b>en su misma red</b>. Y desde esta
+  versión, la Latitude <b>se acomoda sola</b> para lograrlo.
 </div>
 
 <section>
-  <h2>1. La dirección de M-Jarvis</h2>
-  <p>En el navegador del otro equipo se escribe una de estas dos:</p>
-  <table>
-    <tr><th style="width:44%">Dirección</th><th>Cuándo usarla</th></tr>
-    <tr><td><code>http://ferr-latitude-5590.local:8080</code></td><td>Por nombre. Sirve en cualquier red y no cambia nunca. Es la primera que hay que probar.</td></tr>
-    <tr><td><code>http://<i>números</i>:8080</code></td><td>Por números (por ejemplo <code>10.0.0.22</code>). Cambian con cada red. Úsela si el nombre no abre.</td></tr>
-    <tr><td><code>http://10.42.0.1:8080</code></td><td>Siempre esta cuando el equipo está conectado a la Wi-Fi propia «M-Jarvis» (forma B).</td></tr>
-  </table>
-  <p>Para no escribir nada: en la Latitude, <b>menú M-Jarvis → Conectar</b>. Sale una pantalla con las direcciones de ese
-    momento y un <b>código QR</b> de cada una; se apunta con la cámara del celular y abre solo. Esa misma pantalla está en
-    <code>/conectar.html</code> desde cualquier equipo ya conectado.</p>
-  <p class="nota">Siempre <code>http://</code> (no <code>https://</code>) y siempre con <code>:8080</code> al final. Si el navegador
-    cambia solo a https, la página no abre.</p>
+  <h2>1. La Latitude busca sola cómo conectarse</h2>
+  <p>Al encenderla (y cada vez que cambia algo), revisa en este orden y se queda con la primera que sirva:</p>
+  <div class="escalera">
+    <div class="escalon"><b>Wi-Fi con internet</b><span>La mejor: todo disponible. Solo entra a Wi-Fi que ya conoce.</span></div>
+    <div class="escalon"><b>Puente por cable</b><span>Otra laptop le presta internet por un cable de red.</span></div>
+    <div class="escalon"><b>Red sin internet</b><span>Hay red pero sin salida: Jarvis sirve a esa red igual.</span></div>
+    <div class="escalon"><b>Su propia red</b><span>Si no hay nada, crea la Wi-Fi «M-Jarvis» y ofrece su interfaz.</span></div>
+  </div>
+  <p><b>Cualquier equipo que se conecte a la red de M-Jarvis llega solo al chat.</b> Al unirse a la Wi-Fi «M-Jarvis» (o al cable
+    directo), el celular o la laptop muestra el aviso de «iniciar sesión en la red» y lo que abre es la conversación con Jarvis.
+    Escribir la dirección a mano sirve cuando eso no ocurre.</p>
+  <p class="nota">Jarvis funciona igual sin internet. El internet solo sirve para actualizarlo y, a veces, para llevarlo a otra red. En el
+    <b>Manager → Red</b> se ve qué modo eligió y por qué, y desde ahí se puede forzar uno.</p>
 </section>
 
 <section>
-  <h2>2. Qué forma usar según dónde esté</h2>
+  <h2>2. La dirección de M-Jarvis</h2>
   <table>
-    <tr><th style="width:42%">Situación</th><th style="width:20%">Forma</th><th>Por qué</th></tr>
+    <tr><th style="width:42%">Dirección</th><th>Cuándo usarla</th></tr>
+    <tr><td><code>http://ferr-latitude-5590.local:8080</code></td><td>Por nombre: sirve en casi cualquier red. Es la primera que hay que probar.</td></tr>
+    <tr><td><code>http://10.42.0.1:8080</code></td><td>Siempre esta, con la Wi-Fi propia «M-Jarvis».</td></tr>
+    <tr><td><code>http://10.44.0.1:8080</code></td><td>Por cable directo, cuando la Latitude ofrece su interfaz.</td></tr>
+    <tr><td><code>http://<i>números</i>:8080</code></td><td>Por números (como <code>10.0.0.22</code>) en la red del lugar. Cambian: úsela si el nombre no abre.</td></tr>
+  </table>
+  <p>Para no escribir nada: en la Latitude, <b>menú M-Jarvis → Conectar</b> muestra las direcciones de ese momento con su <b>código QR</b>.
+    Siempre <code>http://</code> (no https) y con <code>:8080</code> al final.</p>
+</section>
+
+<section>
+  <h2>3. Qué forma usar según dónde esté</h2>
+  <table>
+    <tr><th style="width:40%">Situación</th><th style="width:22%">Forma</th><th>Por qué</th></tr>
     <tr><td>En casa, todos en la misma Wi-Fi</td><td><b>A</b> · Misma red</td><td>No hay que tocar nada.</td></tr>
-    <tr><td>Colegio, feria o casa de un amigo, con celulares y varias laptops</td><td><b>B</b> · Wi-Fi propia</td><td>No depende de la red del lugar, que suele bloquear que los equipos se vean.</td></tr>
-    <tr><td>Una sola laptop al lado de la Latitude</td><td><b>C</b> · Cable directo</td><td>Lo más estable. No hace falta Wi-Fi ni contraseña.</td></tr>
-    <tr><td>No hay Wi-Fi y no quiere usar la forma B</td><td><b>D</b> · Zona del celular</td><td>El celular hace de router para todos.</td></tr>
+    <tr><td>Colegio, feria o casa ajena, con celulares y laptops</td><td><b>B</b> · Wi-Fi propia</td><td>No depende de la red del lugar, que suele impedir que los equipos se vean.</td></tr>
+    <tr><td>Una sola laptop junto a la Latitude</td><td><b>C</b> · Cable</td><td>Lo más estable y con menos retraso.</td></tr>
+    <tr><td>No hay Wi-Fi y se quiere internet para la Latitude</td><td><b>D</b> · Zona del celular</td><td>El celular hace de router.</td></tr>
   </table>
-  <p><b>Para llevarlo al colegio, la recomendada es la B.</b> Es la única que no depende de nadie más y sirve igual para
-    iPhone, iPad, Android y laptops.</p>
-</section>
-
-<section class="nueva">
-  <h2>3. Las cuatro formas, paso a paso</h2>
+  <p><b>Para llevarlo a una exhibición, la recomendada es la B:</b> no depende de nadie y sirve igual para iPhone, iPad, Android y laptops. Si
+    no hay ninguna Wi-Fi conocida, la Latitude la crea sola.</p>
 
   <div class="forma">
     <h3><span class="letra">A</span>Misma Wi-Fi o mismo router</h3>
     <ol>
-      <li>La Latitude y el otro equipo, conectados a la misma Wi-Fi (o al mismo router, por cable).</li>
-      <li>En el otro equipo, abrir el navegador en <code>http://ferr-latitude-5590.local:8080</code> o escanear el QR de «Conectar».</li>
+      <li>La Latitude y el otro equipo, en la misma Wi-Fi (o al mismo router por cable).</li>
+      <li>En el otro equipo, abrir <code>http://ferr-latitude-5590.local:8080</code> o escanear el QR de «Conectar».</li>
     </ol>
-    <p class="nota"><span class="ojo">Ojo:</span> la Latitude solo entra sola a las Wi-Fi que ya conoce. En un lugar nuevo hay que
-      conectarla una vez a esa Wi-Fi desde su propio escritorio. Y las redes de colegios, hoteles y las de «invitados» suelen aislar
-      a los equipos entre sí: si está todo bien conectado y aun así no abre, es eso. Pase a la forma B.</p>
+    <p class="nota"><span class="ojo">Ojo:</span> en un lugar nuevo hay que unir la Latitude a esa Wi-Fi una vez desde su escritorio. Las redes de colegios, hoteles y «invitados» suelen aislar a los equipos: si todo está bien conectado y aun así no abre, es eso; pase a la forma B.</p>
   </div>
 
   <div class="forma">
-    <h3><span class="letra">B</span>Wi-Fi propia «M-Jarvis» (la Latitude crea su red)</h3>
+    <h3><span class="letra">B</span>Wi-Fi propia «M-Jarvis»</h3>
     <ol>
-      <li>En la Latitude: <b>menú M-Jarvis → Wi-Fi propia</b>.</li>
-      <li>La primera vez pide elegir una contraseña (8 caracteres o más). Queda guardada; no la vuelve a pedir.</li>
-      <li>En el celular, tableta o laptop: conectarse a la Wi-Fi <b>M-Jarvis</b> con esa contraseña.</li>
-      <li>Abrir <code>http://10.42.0.1:8080</code> (o el QR de «Conectar»).</li>
+      <li>Automático: si la Latitude no encuentra ninguna red, la enciende sola. A mano: <b>menú M-Jarvis → Wi-Fi propia</b> o <b>Manager → Red</b>.</li>
+      <li>La primera vez pide elegir una contraseña de 8 caracteres o más. Queda guardada.</li>
+      <li>En el celular, tableta o laptop: unirse a la Wi-Fi <b>M-Jarvis</b> con esa contraseña. El chat se abre solo.</li>
+      <li>Si no se abre: <code>http://10.42.0.1:8080</code>.</li>
     </ol>
     <ul class="nota">
-      <li>Esa red <b>no tiene internet</b>, y no lo necesita: Jarvis es local. El celular avisará «sin conexión a internet»: hay que
-        elegir <b>seguir conectado / usar esta red de todas formas</b>. Si un Android se cambia solo a los datos móviles, apague los
-        datos un momento.</li>
-      <li>Mientras está encendida, la Latitude deja la Wi-Fi normal. Para volver: el mismo menú (pregunta si apagarla). Al
-        reiniciar el equipo también vuelve sola a la normal.</li>
-      <li>Alcance: una sala o un aula. Pueden conectarse varios equipos a la vez.</li>
+      <li>Esa red <b>no tiene internet</b> y no la necesita. El celular avisará «sin conexión»: elegir <b>seguir conectado</b>. Si un Android salta a datos móviles, apáguelos un momento.</li>
+      <li>Mientras está encendida, la Latitude deja la Wi-Fi normal. Al apagarla (mismo menú), se une sola a la última Wi-Fi conocida.</li>
+      <li>Alcance: una sala o un aula, con varios equipos a la vez.</li>
     </ul>
   </div>
 
   <div class="forma">
-    <h3><span class="letra">C</span>Cable de red, de laptop a laptop</h3>
+    <h3><span class="letra">C</span>Cable de red</h3>
     <ol>
-      <li>Un cable de red (Ethernet) común, de la Latitude a la otra laptop. No hace falta cable especial ni router.</li>
-      <li>Esperar <b>cerca de un minuto</b>: los dos equipos se ponen de acuerdo solos.</li>
-      <li>Abrir <code>http://ferr-latitude-5590.local:8080</code>. Si no abre por nombre, en «Conectar» sale la dirección de
-        «Cable directo» (empieza por <code>169.254</code>).</li>
+      <li>Un cable Ethernet común, de la Latitude a la otra laptop. No hace falta cable especial ni router.</li>
+      <li>Esperar <b>cerca de un minuto</b>: la Latitude primero intenta recibir internet de la laptop y, si nadie le contesta, ofrece su interfaz.</li>
+      <li>Abrir <code>http://ferr-latitude-5590.local:8080</code> o <code>http://10.44.0.1:8080</code>.</li>
     </ol>
-    <p class="nota">Si la otra laptop no tiene puerto de red, sirve un adaptador USB a Ethernet. El mismo puerto de la Latitude
-      también sirve para enchufarla a un router o a un switch: en ese caso recibe su dirección del router, como en la forma A.</p>
+    <p class="nota"><b>Si quiere que la Latitude tenga internet por ese cable</b> (para actualizarla): en la laptop, compartir su internet con el adaptador de cable. Windows: Propiedades de la Wi-Fi → Uso compartido. Mac: Ajustes → Compartir → Compartir Internet. Linux: en la conexión del cable, IPv4 → «Compartida con otros equipos». La Latitude lo detecta sola y pasa a modo puente. Si la laptop no tiene puerto de red, sirve un adaptador USB a Ethernet.</p>
   </div>
 
   <div class="forma">
     <h3><span class="letra">D</span>Zona Wi-Fi del celular</h3>
     <ol>
       <li>En el celular: activar <b>Zona Wi-Fi / Punto de acceso personal</b>.</li>
-      <li>Conectar la Latitude a esa Wi-Fi (la primera vez, desde su escritorio; después entra sola).</li>
-      <li>Conectar los demás equipos a la misma zona y abrir la dirección por nombre o el QR de «Conectar».</li>
+      <li>Unir la Latitude a esa Wi-Fi (la primera vez desde su escritorio; después entra sola).</li>
+      <li>Unir los demás equipos a la misma zona y abrir la dirección por nombre o el QR.</li>
     </ol>
-    <p class="nota">No gasta datos: todo va entre los equipos. El propio celular que crea la zona normalmente también puede
-      abrir a Jarvis; si el suyo no lo permite, use la forma B.</p>
+    <p class="nota">No gasta datos: todo va entre los equipos. Si el celular que crea la zona no puede abrir a Jarvis, use la forma B.</p>
   </div>
 </section>
 
-<section class="nueva">
+<section>
   <h2>4. Celular y tableta</h2>
-  <p>En pantallas pequeñas M-Jarvis abre primero la conversación a pantalla completa. El botón <b>Red neuronal</b>, arriba a la
-    derecha, muestra u oculta el mapa (se gira con un dedo y se acerca pellizcando con dos).</p>
-
+  <p>En pantallas pequeñas se abre primero la conversación a pantalla completa. El botón de red, arriba a la derecha, muestra u oculta el mapa de la red neuronal. El <b>micrófono</b> solo está en la pantalla de la propia Latitude (los navegadores lo ocultan en páginas sin https); en el celular se escribe.</p>
   <div class="dos">
     <div class="forma">
       <h3>iPhone y iPad</h3>
       <ol>
-        <li>Conectarse a la misma Wi-Fi que la Latitude (o a «M-Jarvis»).</li>
-        <li>Abrir la <b>Cámara</b>, apuntar al QR y tocar el enlace. Abre en Safari.</li>
-        <li>Para dejarlo como aplicación: <b>Compartir → Añadir a pantalla de inicio</b>. Desde ese icono abre a pantalla completa, sin barras.</li>
+        <li>Unirse a la Wi-Fi «M-Jarvis» o a la misma que la Latitude.</li>
+        <li>Con la <b>Cámara</b>, apuntar al QR y tocar el enlace (abre en Safari).</li>
+        <li>Para tenerlo como aplicación: <b>Compartir → Añadir a pantalla de inicio</b>.</li>
       </ol>
-      <p class="nota">El nombre <code>.local</code> funciona siempre. Si usa Chrome en vez de Safari, el iPhone pedirá permiso de
-        «Red local» para Chrome: hay que aceptarlo.</p>
+      <p class="nota">El nombre <code>.local</code> funciona siempre. Si usa Chrome, aceptar el permiso de «Red local».</p>
     </div>
     <div class="forma">
       <h3>Android</h3>
       <ol>
-        <li>Conectarse a la misma Wi-Fi que la Latitude (o a «M-Jarvis»).</li>
-        <li>Escanear el QR con la cámara o con Google Lens. Abre en Chrome.</li>
-        <li>Para dejarlo a mano: <b>menú ⋮ → Añadir a pantalla de inicio</b>.</li>
+        <li>Unirse a la Wi-Fi «M-Jarvis» o a la misma que la Latitude.</li>
+        <li>Escanear el QR con la cámara o Google Lens (abre en Chrome).</li>
+        <li>Para tenerlo a mano: <b>menú ⋮ → Instalar aplicación</b>.</li>
       </ol>
-      <p class="nota">Dos diferencias con iPhone: el nombre <code>.local</code> solo funciona en Android recientes (12 o más), así que
-        en Android es mejor el QR o la dirección con números; y el icono abre dentro de Chrome, con su barra, no a pantalla completa.</p>
+      <p class="nota">El nombre <code>.local</code> solo sirve en Android 12 o más: mejor el QR o los números.</p>
     </div>
   </div>
-
-  <h3>¿Y por cable, con un dock o un adaptador?</h3>
-  <table>
-    <tr><th style="width:40%">Montaje</th><th style="width:16%">¿Sirve?</th><th>Detalle</th></tr>
-    <tr><td>Dock o adaptador con puerto de red, enchufado <b>al mismo router o switch</b> que la Latitude</td><td class="si">Sí</td>
-      <td>iPad, iPhone con USB-C y casi todos los Android aceptan red por cable. Para Jarvis es igual que estar en la Wi-Fi.</td></tr>
-    <tr><td>Dock enchufado <b>directo a la Latitude</b> con un cable, sin router</td><td class="ojo">Depende</td>
-      <td>iPhone y iPad deberían enlazar solos, como una laptop. Android normalmente no, porque espera que un router le dé dirección. No está probado.</td></tr>
-    <tr><td>Celular enchufado por <b>USB</b> a la Latitude</td><td class="ojo">No vale la pena</td>
-      <td>Solo carga. Para que haya red habría que activar el «anclaje USB» del celular, y es más enredo que la Wi-Fi.</td></tr>
-  </table>
-  <p><b>En resumen:</b> para celulares y tabletas, lo que funciona siempre es la Wi-Fi (formas A, B o D). El cable solo aporta algo
-    si ya hay un router o switch en medio.</p>
+  <p class="nota" style="margin-top:8pt">Con cable y dock: sirve si está enchufado al mismo router o switch que la Latitude. Directo a la Latitude, iPhone y iPad deberían enlazar solos; Android normalmente no. Para celulares y tabletas, lo que siempre funciona es la Wi-Fi.</p>
 </section>
 
 <section>
   <h2>5. Otra computadora</h2>
   <table>
-    <tr><th style="width:22%">Equipo</th><th>Cómo</th></tr>
-    <tr><td><b>Windows</b></td><td>El navegador y la dirección bastan. Más cómodo: el lanzador <b>M-Jarvis.bat</b> (se descarga en «Conectar» o en el panel).
-      Se copia a cualquier PC, busca a la Latitude solo —por nombre, por la Wi-Fi propia o por la última dirección que funcionó— y da un menú con chat, red neuronal y panel. No instala nada.</td></tr>
-    <tr><td><b>Mac</b></td><td>Safari o Chrome, con la dirección por nombre <code>.local</code>, que en Mac funciona siempre.</td></tr>
-    <tr><td><b>Chromebook o Linux</b></td><td>El navegador, con la dirección de números o el QR.</td></tr>
+    <tr><th style="width:20%">Equipo</th><th>Cómo</th></tr>
+    <tr><td><b>Windows</b></td><td>El navegador y la dirección bastan. Más cómodo: el lanzador <b>M-Jarvis.bat</b> (en «Conectar» o en el panel). Busca a la Latitude solo y da un menú con chat, red neuronal y panel. No instala nada.</td></tr>
+    <tr><td><b>Mac</b></td><td>Safari o Chrome con el nombre <code>.local</code>, que en Mac funciona siempre.</td></tr>
+    <tr><td><b>Linux, Chromebook</b></td><td>El navegador, con los números o el QR.</td></tr>
   </table>
-  <h3>Qué puede hacer cada equipo conectado</h3>
+  <h3 style="margin-top:10pt">Qué puede hacer cada equipo conectado</h3>
   <ul>
     <li><b>Libre para todos:</b> conversar con Jarvis, ver la red neuronal, ver el panel.</li>
-    <li><b>Con la clave de gestión:</b> subir o borrar documentos. La clave se ve solo en la Latitude: menú M-Jarvis → Compartir.</li>
-    <li><b>Solo desde la PC principal:</b> el control remoto del escritorio de la Latitude y su administración. Dependen de una llave que está guardada en esa PC; así nadie más puede tomar el equipo.</li>
+    <li><b>Con la clave de gestión:</b> subir o borrar documentos y mandar órdenes desde el Manager. La clave se ve solo en la Latitude: menú M-Jarvis → Compartir.</li>
+    <li><b>Solo desde la PC principal:</b> el control remoto del escritorio de la Latitude (por túnel SSH).</li>
   </ul>
-  <p class="nota">Jarvis lleva <b>una sola conversación</b>. Si preguntan dos equipos a la vez, las preguntas hacen cola y se responden por
-    turno, y todos comparten el mismo hilo de charla.</p>
+  <p class="nota">Jarvis lleva una sola conversación. Si preguntan dos equipos a la vez, las preguntas hacen cola y comparten el mismo hilo.</p>
 </section>
 
-<section class="nueva">
-  <h2>6. Si no conecta</h2>
+<section>
+  <h2>6. El Manager: manejarlo a escondidas</h2>
+  <p>Si la Latitude está en una pantalla frente al público, <b>otro equipo (el «manager»)</b> puede vigilar y mandar sin que nadie lo note: Windows, Mac, Linux o un celular.</p>
+  <div class="con-qr">
+    <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27" shape-rendering="crispEdges">
+	<g id="QRcode">
+		<rect x="0" y="0" width="27" height="27" fill="#ffffff"/>
+		<g id="Pattern" transform="translate(1,1)">
+			<rect x="0" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="0" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="1" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="2" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="3" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="4" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="5" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="6" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="7" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="8" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="9" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="10" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="11" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="12" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="13" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="14" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="15" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="7" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="16" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="17" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="18" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="19" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="18" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="20" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="21" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="10" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="21" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="22" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="11" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="12" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="13" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="15" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="17" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="22" y="23" width="1" height="1" fill="#000000"/>
+			<rect x="0" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="1" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="2" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="3" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="4" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="5" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="6" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="8" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="9" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="14" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="16" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="19" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="20" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="23" y="24" width="1" height="1" fill="#000000"/>
+			<rect x="24" y="24" width="1" height="1" fill="#000000"/>
+		</g>
+	</g>
+</svg></div>
+    <div>
+      <p style="margin:0 0 5pt"><b>Entrar:</b> con la Wi-Fi «M-Jarvis» conectada, apunte la cámara al código, o abra <code>http://10.42.0.1:8080/manager.html</code> (o la dirección que muestre «Conectar»).</p>
+      <p style="margin:0" class="nota">Para tener un acceso directo en una computadora: <b>Manager → Red → Conectar un dispositivo</b> descarga uno que busca a la Latitude donde esté. La primera orden pide la clave de gestión.</p>
+    </div>
+  </div>
   <table>
-    <tr><th style="width:38%">Qué pasa</th><th>Qué revisar</th></tr>
-    <tr><td>La página no abre en ningún equipo</td><td>Que la Latitude esté encendida y haya pasado un minuto desde que arrancó. En su pantalla debe verse el menú o el chat de M-Jarvis.</td></tr>
-    <tr><td>Abre por números pero no por nombre</td><td>Normal en Android antiguos y en algunas redes. Use los números o el QR.</td></tr>
-    <tr><td>Todo está en la misma Wi-Fi y aun así no abre</td><td>La red aísla los equipos (colegios, hoteles, redes de invitados). Use la Wi-Fi propia (forma B).</td></tr>
-    <tr><td>El celular estaba conectado y dejó de abrir</td><td>Se cambió solo a datos móviles porque la Wi-Fi no tiene internet. Vuelva a la Wi-Fi y elija «seguir conectado».</td></tr>
-    <tr><td>Sale un error de «sitio no seguro» o no carga</td><td>El navegador puso <code>https://</code>. Escríbalo de nuevo con <code>http://</code> y <code>:8080</code>.</td></tr>
-    <tr><td>Por cable no enlaza</td><td>Esperar el minuto completo. Mirar que las luces del puerto de red parpadeen en los dos equipos. Probar la dirección <code>169.254…</code> de «Conectar».</td></tr>
-    <tr><td>El celular tiene una VPN o «relay privado»</td><td>Apáguelos mientras usa a Jarvis: desvían el tráfico fuera de la red local.</td></tr>
-    <tr><td>Jarvis tarda mucho en contestar</td><td>No es la conexión: es que hay otra pregunta delante en la cola, o la respuesta es larga.</td></tr>
+    <tr><th style="width:20%">Pestaña</th><th>Para qué sirve</th></tr>
+    <tr><td><b>Ahora</b></td><td>Preguntas y respuestas en vivo con su calidad y fallos, el mapa de conexiones, y los botones <b>Detener</b>, <b>Silenciar la voz</b> y <b>Bloquear el teclado</b> de la pantalla.</td></tr>
+    <tr><td><b>Red</b></td><td>Qué modo eligió la Latitude y por qué, quién está conectado, y cómo conectar cada tipo de dispositivo.</td></tr>
+    <tr><td><b>Aprender</b></td><td>Datos que alguien le contó (por aprobar) y respuestas por revisar. Nada se vuelve cierto sin aprobarlo.</td></tr>
+    <tr><td><b>Decir</b></td><td>Hace que Jarvis diga algo, o que la pantalla pregunte algo y Jarvis responda: para el teatro.</td></tr>
+    <tr><td><b>Sistema</b></td><td>Temperatura, memoria, procesador, disco y batería de la Latitude.</td></tr>
   </table>
 </section>
 
 <section>
-  <h2>7. Qué está probado y qué no</h2>
+  <h2>7. Si no conecta</h2>
   <table>
-    <tr><th style="width:52%">Montaje</th><th>Estado al 1 de octubre de 2026</th></tr>
-    <tr><td>PC con Windows en la misma Wi-Fi que la Latitude</td><td class="si">Probado, funciona</td></tr>
-    <tr><td>PC con Windows unida a la Latitude por cable directo</td><td class="si">Probado, funciona</td></tr>
-    <tr><td>Wi-Fi propia: la Latitude crea la red y atiende en <code>10.42.0.1</code></td><td class="si">Probado en la Latitude con una red de prueba</td></tr>
-    <tr><td>Pantalla de celular (chat, botón de red, códigos QR)</td><td class="si">Probado en simulador de pantalla de teléfono</td></tr>
-    <tr><td>Un iPhone, iPad o Android de verdad conectado a la Wi-Fi propia</td><td class="ojo">Falta probarlo con un aparato real</td></tr>
-    <tr><td>Latitude enchufada por cable a un router</td><td class="ojo">Configurado; falta probarlo</td></tr>
+    <tr><th style="width:38%">Qué pasa</th><th>Qué revisar</th></tr>
+    <tr><td>La página no abre en ningún equipo</td><td>Que la Latitude esté encendida y haya pasado un minuto. En su pantalla debe verse el menú o el chat.</td></tr>
+    <tr><td>No aparece la Wi-Fi «M-Jarvis»</td><td>Menú de la Latitude → Wi-Fi propia (la primera vez pide contraseña), o <b>Manager → Red → Encender</b>.</td></tr>
+    <tr><td>Al unirse no se abre el chat solo</td><td>Algunos celulares no muestran el aviso de red. Abrir <code>http://10.42.0.1:8080</code> a mano.</td></tr>
+    <tr><td>Abre por números pero no por nombre</td><td>Normal en Android antiguos y algunas redes. Usar los números o el QR.</td></tr>
+    <tr><td>Todo está en la misma Wi-Fi y no abre</td><td>La red aísla los equipos (colegios, hoteles). Usar la Wi-Fi propia (forma B).</td></tr>
+    <tr><td>El celular dejó de abrir</td><td>Se pasó a datos móviles por falta de internet. Volver a la Wi-Fi y elegir «seguir conectado».</td></tr>
+    <tr><td>Error de «sitio no seguro»</td><td>El navegador puso <code>https://</code>. Escribirlo con <code>http://</code> y <code>:8080</code>.</td></tr>
+    <tr><td>Por cable no enlaza</td><td>Esperar el minuto completo; ver que parpadeen las luces del puerto; probar <code>10.44.0.1</code>.</td></tr>
+    <tr><td>VPN o «relay privado» en el celular</td><td>Apagarlos: desvían el tráfico fuera de la red local.</td></tr>
+    <tr><td>La pantalla no deja escribir</td><td>Está bloqueada desde el Manager: desactivar «Bloquear el teclado».</td></tr>
+    <tr><td>Tarda mucho en contestar</td><td>No es la conexión: hay otra pregunta delante, o la respuesta es larga.</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>8. Qué está probado y qué no</h2>
+  <table>
+    <tr><th style="width:56%">Montaje</th><th>Estado al 4 de octubre de 2026</th></tr>
+    <tr><td>Búsqueda automática: Wi-Fi con internet → puente → red → Wi-Fi propia</td><td class="si">Probado en la Latitude</td></tr>
+    <tr><td>Wi-Fi propia: encender, atender en <code>10.42.0.1</code>, apagar y volver a la Wi-Fi de casa</td><td class="si">Probado</td></tr>
+    <tr><td>Redirección de cualquier equipo al chat (portal) por cable, con la PC de prueba</td><td class="si">Probado</td></tr>
+    <tr><td>Puente: la PC le presta internet a la Latitude por cable</td><td class="si">Probado</td></tr>
+    <tr><td>Manager en PC y en pantalla de celular simulada; órdenes de silencio, bloqueo, «Decir» y «Preguntar»</td><td class="si">Probado</td></tr>
+    <tr><td>Accesos directos del Manager para Windows y Mac</td><td class="ojo">Sin probar en esos sistemas</td></tr>
+    <tr><td>Un iPhone, iPad o Android real unido a la Wi-Fi propia, con el chat abriéndose solo</td><td class="ojo">Falta probarlo con un aparato real</td></tr>
     <tr><td>Celular o tableta por cable con dock</td><td class="ojo">Sin probar</td></tr>
   </table>
-  <p class="nota">Antes de llevarlo al colegio conviene hacer en casa el ensayo completo de la forma B con un celular: encender la Wi-Fi
-    propia, conectarse, escanear el QR y hacer una pregunta.</p>
+  <p class="nota">Antes de la exhibición, ensaye en casa la forma B con un celular y la pestaña Ahora del Manager en otro equipo: unirse a «M-Jarvis», ver que el chat se abre, hacer una pregunta y comprobar que el Manager la ve.</p>
 </section>
 
 </body>

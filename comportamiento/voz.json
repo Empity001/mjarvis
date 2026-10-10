@@ -1,0 +1,5 @@
+{
+ "_ayuda": "Voz de M-Jarvis. 'voz': ruta dentro de ~/mjarvis/modelos (sin extensión); alternativas instaladas: es/es_MX/ald/medium/es_MX-ald-medium, es/es_ES/davefx/medium/es_ES-davefx-medium. 'velocidad': mayor = más despacio.",
+ "voz": "es/es_MX/claude/high/es_MX-claude-high",
+ "velocidad": 1.05
+}

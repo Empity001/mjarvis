@@ -1,0 +1,47 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(.34, 1.45, .5, 1)",
+        "createdAt": "2026-10-05T01:16:30.427Z",
+        "reason": "Liquid Glass brief: un solo resorte para el cristal que se desliza (barra, segmentos) y el interruptor, como en iOS; es el movimiento firmado de la interfaz, no rebote suelto. Decidido por mí a partir del pedido de estilo iPhone/Liquid Glass; el usuario no lo confirmó."
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "web/vidrio.css"
+        ],
+        "createdAt": "2026-10-05T01:16:30.442Z",
+        "reason": "Quedan solo transiciones de width del cristal deslizante (#lente y .segmentos .lente): elementos absolutos de unos px, sin efecto en el flujo de nadie, y su ancho debe cambiar entre opciones de distinto tamaño (con scale se deformaría el borde redondeado). Decidido por mí; el usuario no lo confirmó."
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(.34, 1.25, .5, 1)",
+        "createdAt": "2026-10-05T04:17:29.003Z",
+        "reason": "Resorte del cristal deslizante (barra, segmentos, interruptor), el mismo ya declarado pero con menos rebote (1.25, dentro de la regla de 0.1–0.3). Decidido por mí; el usuario no lo confirmó."
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "web/index.html"
+        ],
+        "createdAt": "2026-10-09T23:24:00.686Z",
+        "reason": "Falso positivo: las transiciones de index.html son solo de color, fondo, transform y filter; el width/height que ve el detector son medidas fijas de un punto de 7 px, no una animación. Decidido por mí tras revisar cada línea con 'transition'; el usuario no lo confirmó."
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "web/index.html"
+        ],
+        "createdAt": "2026-10-09T23:24:00.694Z",
+        "reason": "Intencional: el degradado tenue (13 %) del color del ánimo de Jarvis sobre la escena es la identidad del chat que el usuario dijo que le gustó (cambia con el ánimo); la bola (línea 85) es la esfera misma, no un halo. Decidido por mí; el usuario no confirmó este ajuste en concreto."
+      }
+    ]
+  }
+}
